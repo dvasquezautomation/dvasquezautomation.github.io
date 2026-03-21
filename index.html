@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diana Vasquez — AI Automation Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628; --deep-blue: #0d2147; --mid-blue: #1a3a6e;
+    --sky: #4a8fd4; --pale: #c8ddf5; --gold: #c9a84c;
+    --gold-light: #e4c97a; --gold-pale: #f5e8c0;
+    --white: #f8f4ee; --text-muted: #8baed0;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--navy); color: var(--white); font-family: 'DM Sans', sans-serif; font-weight: 300; overflow-x: hidden; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.4rem 5vw; background: linear-gradient(to bottom, rgba(10,22,40,0.98) 0%, rgba(10,22,40,0) 100%); }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 300; letter-spacing: 0.15em; color: var(--gold-light); text-decoration: none; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { color: var(--pale); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; transition: color 0.3s; }
+  .nav-links a:hover { color: var(--gold-light); }
+
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; position: relative; overflow: hidden; padding: 0 5vw; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 70% 50%, rgba(30,77,158,0.25) 0%, transparent 70%), radial-gradient(ellipse 40% 60% at 20% 20%, rgba(13,33,71,0.8) 0%, transparent 60%); }
+  .hero-grid-line { position: absolute; top: 0; left: 50%; bottom: 0; width: 1px; background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.15) 30%, rgba(201,168,76,0.15) 70%, transparent); }
+  .hero-text { position: relative; z-index: 2; padding-right: 4rem; }
+  .hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+  .hero-eyebrow::before { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); }
+  .hero-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.5rem, 6vw, 5.5rem); font-weight: 300; line-height: 1.05; margin-bottom: 0.5rem; }
+  .hero-name em { font-style: italic; color: var(--gold-light); display: block; }
+  .hero-title { font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); margin: 1.5rem 0 2rem; }
+  .hero-tagline { font-size: 1.05rem; line-height: 1.7; color: var(--pale); max-width: 460px; margin-bottom: 2.5rem; }
+  .hero-cta { display: flex; gap: 1rem; align-items: center; }
+  .btn-primary { background: var(--gold); color: var(--navy); padding: 0.85rem 2rem; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; text-decoration: none; transition: background 0.3s, transform 0.2s; display: inline-block; }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-outline { border: 1px solid rgba(200,221,245,0.3); color: var(--pale); padding: 0.85rem 2rem; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: border-color 0.3s, color 0.3s; display: inline-block; }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold-light); }
+
+  .hero-photo-wrap { position: relative; z-index: 2; display: flex; align-items: flex-end; justify-content: center; padding-top: 6rem; }
+  .hero-photo-frame { position: relative; width: min(400px, 38vw); }
+  .hero-photo-frame::before { content: ''; position: absolute; top: -12px; left: -12px; right: 12px; bottom: 12px; border: 1px solid rgba(201,168,76,0.3); z-index: 0; }
+  .hero-photo-frame::after { content: ''; position: absolute; bottom: -12px; right: -12px; left: 12px; top: 12px; border: 1px solid rgba(74,143,212,0.2); z-index: 0; }
+  .hero-photo-frame img { width: 100%; display: block; position: relative; z-index: 1; filter: brightness(0.92) contrast(1.05); object-fit: cover; }
+  .hero-photo-badge { position: absolute; bottom: 2rem; left: -2rem; background: var(--deep-blue); border: 1px solid rgba(201,168,76,0.3); padding: 1rem 1.4rem; z-index: 3; }
+  .hero-photo-badge .num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; color: var(--gold-light); line-height: 1; }
+  .hero-photo-badge .label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.2rem; }
+
+  section { padding: 6rem 5vw; }
+  .section-label { font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 1rem; }
+  .section-label::after { content: ''; flex: 1; max-width: 60px; height: 1px; background: var(--gold); }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; line-height: 1.1; }
+  .section-title em { font-style: italic; color: var(--gold-light); }
+
+  .about { background: linear-gradient(135deg, var(--deep-blue) 0%, var(--navy) 60%); position: relative; overflow: hidden; }
+  .about::before { content: ''; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(30,77,158,0.2) 0%, transparent 70%); pointer-events: none; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 5rem; align-items: start; position: relative; z-index: 1; }
+  .about-left { position: sticky; top: 8rem; }
+  .about-body { font-size: 1rem; line-height: 1.85; color: var(--pale); }
+  .about-body p { margin-bottom: 1.4rem; }
+  .about-highlight { border-left: 2px solid var(--gold); padding-left: 1.5rem; margin: 2rem 0; font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 300; font-style: italic; color: var(--gold-pale); line-height: 1.5; }
+  .stats-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2.5rem; }
+  .stat { border: 1px solid rgba(201,168,76,0.2); padding: 1.2rem; text-align: center; background: rgba(10,22,40,0.4); }
+  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 600; color: var(--gold-light); }
+  .stat-lbl { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.3rem; }
+
+  .clients { background: var(--navy); }
+  .clients-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-top: 3.5rem; }
+  .client-card { background: rgba(13,33,71,0.5); border: 1px solid rgba(74,143,212,0.12); padding: 2.5rem 2rem; transition: background 0.3s, border-color 0.3s; position: relative; overflow: hidden; }
+  .client-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(to right, transparent, var(--gold), transparent); opacity: 0; transition: opacity 0.3s; }
+  .client-card:hover { background: rgba(26,58,110,0.5); border-color: rgba(201,168,76,0.2); }
+  .client-card:hover::before { opacity: 1; }
+  .client-icon { font-size: 1.8rem; margin-bottom: 1.2rem; }
+  .client-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 300; margin-bottom: 0.8rem; }
+  .client-desc { font-size: 0.88rem; line-height: 1.7; color: var(--text-muted); }
+
+  .services { background: linear-gradient(180deg, var(--navy) 0%, var(--deep-blue) 100%); }
+  .services-list { margin-top: 3.5rem; }
+  .service-item { display: grid; grid-template-columns: 3rem 1fr; gap: 2rem; align-items: start; padding: 2rem 0; border-bottom: 1px solid rgba(74,143,212,0.1); transition: padding-left 0.3s; }
+  .service-item:hover { padding-left: 0.5rem; }
+  .service-item:first-child { border-top: 1px solid rgba(74,143,212,0.1); }
+  .service-num { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; color: var(--gold); font-weight: 300; padding-top: 0.2rem; }
+  .service-name { font-size: 1.05rem; font-weight: 500; margin-bottom: 0.5rem; }
+  .service-desc { font-size: 0.88rem; line-height: 1.7; color: var(--text-muted); }
+
+  .tools { background: var(--deep-blue); }
+  .tools-grid { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 3rem; }
+  .tool-tag { border: 1px solid rgba(74,143,212,0.25); padding: 0.5rem 1.1rem; font-size: 0.78rem; letter-spacing: 0.08em; color: var(--pale); transition: border-color 0.3s, color 0.3s, background 0.3s; cursor: default; }
+  .tool-tag:hover { border-color: var(--gold); color: var(--gold-light); background: rgba(201,168,76,0.06); }
+  .tool-tag.gold { border-color: rgba(201,168,76,0.4); color: var(--gold-light); }
+
+  .projects { background: var(--navy); }
+  .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 3.5rem; }
+  .project-card { background: rgba(13,33,71,0.6); border: 1px solid rgba(74,143,212,0.1); padding: 2.5rem; transition: background 0.3s, transform 0.3s; position: relative; overflow: hidden; cursor: pointer; }
+  .project-card.featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; background: rgba(26,58,110,0.3); border-color: rgba(201,168,76,0.15); }
+  .project-card:hover { background: rgba(26,58,110,0.5); transform: translateY(-2px); }
+  .project-tag { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+  .project-title { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; margin-bottom: 0.8rem; line-height: 1.2; }
+  .project-desc { font-size: 0.88rem; line-height: 1.75; color: var(--text-muted); margin-bottom: 1.5rem; }
+  .project-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.2rem; }
+  .stack-tag { background: rgba(10,22,40,0.8); border: 1px solid rgba(74,143,212,0.2); padding: 0.2rem 0.7rem; font-size: 0.68rem; color: var(--text-muted); }
+  .project-metric { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 300; color: var(--gold-light); line-height: 1; }
+  .project-metric-label { font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.3rem; }
+  .metrics-row { display: flex; gap: 2.5rem; margin-bottom: 2rem; }
+  .project-flow { display: flex; flex-direction: column; gap: 0.5rem; }
+  .flow-step { display: flex; align-items: center; gap: 0.8rem; font-size: 0.8rem; color: var(--pale); }
+  .flow-step::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+  .flow-arrow { font-size: 0.65rem; color: var(--gold); margin-left: 1.5rem; }
+  .view-pdf-btn { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.5rem; background: transparent; border: 1px solid rgba(201,168,76,0.4); color: var(--gold-light); padding: 0.5rem 1.1rem; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; transition: background 0.3s; font-family: 'DM Sans', sans-serif; }
+  .view-pdf-btn:hover { background: rgba(201,168,76,0.1); }
+  .view-pdf-btn svg { width: 14px; height: 14px; }
+
+  /* ── PDF MODAL ── */
+  .modal-overlay { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(5,12,24,0.92); backdrop-filter: blur(6px); align-items: center; justify-content: center; }
+  .modal-overlay.active { display: flex; }
+  .modal-box { background: var(--deep-blue); border: 1px solid rgba(201,168,76,0.2); width: min(92vw, 1100px); height: min(90vh, 800px); display: flex; flex-direction: column; animation: modalIn 0.3s ease; }
+  @keyframes modalIn { from { opacity:0; transform:scale(0.97) translateY(16px); } to { opacity:1; transform:scale(1) translateY(0); } }
+  .modal-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem; border-bottom: 1px solid rgba(74,143,212,0.15); flex-shrink: 0; }
+  .modal-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 300; color: var(--gold-light); }
+  .modal-close { background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.4rem; line-height: 1; transition: color 0.2s; padding: 0.2rem 0.5rem; }
+  .modal-close:hover { color: var(--gold-light); }
+  .modal-body { flex: 1; overflow: hidden; }
+  .modal-body iframe { width: 100%; height: 100%; border: none; display: block; }
+
+  /* ── CONTACT ── */
+  .contact {
+    background: linear-gradient(135deg, var(--deep-blue) 0%, var(--mid-blue) 100%);
+    position: relative; overflow: hidden;
+  }
+  .contact::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 70%); pointer-events: none; }
+  .contact-inner { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; margin-top: 3rem; }
+  .contact-left {}
+  .contact-sub { font-size: 1rem; color: var(--pale); line-height: 1.8; margin-top: 1.5rem; }
+  .contact-channels { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1rem; }
+  .contact-channel { display: flex; align-items: center; gap: 0.8rem; font-size: 0.82rem; color: var(--text-muted); }
+  .contact-channel span { color: var(--gold-light); }
+
+  /* Form */
+  .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: rgba(10,22,40,0.6);
+    border: 1px solid rgba(74,143,212,0.2);
+    color: var(--white);
+    padding: 0.75rem 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 300;
+    outline: none;
+    transition: border-color 0.3s;
+    width: 100%;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: rgba(201,168,76,0.5); }
+  .form-group select { appearance: none; cursor: pointer; }
+  .form-group select option { background: var(--deep-blue); }
+  .form-group textarea { resize: vertical; min-height: 110px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-submit { display: flex; gap: 1rem; align-items: center; margin-top: 0.5rem; flex-wrap: wrap; }
+  .btn-submit { background: var(--gold); color: var(--navy); padding: 0.9rem 2rem; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; transition: background 0.3s, transform 0.2s; }
+  .btn-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-whatsapp { display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid rgba(37,211,102,0.4); color: #25d366; padding: 0.9rem 1.5rem; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; transition: background 0.3s, border-color 0.3s; }
+  .btn-whatsapp:hover { background: rgba(37,211,102,0.08); border-color: #25d366; }
+  .form-success { display: none; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.3); padding: 1rem 1.5rem; color: var(--gold-light); font-size: 0.88rem; line-height: 1.6; }
+  .form-success.visible { display: block; }
+
+  footer { background: var(--navy); border-top: 1px solid rgba(74,143,212,0.1); padding: 2rem 5vw; display: flex; justify-content: space-between; align-items: center; }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; color: var(--gold-light); font-size: 1rem; font-weight: 300; letter-spacing: 0.15em; }
+  .footer-text { font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.08em; }
+
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; } .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; } .reveal-delay-4 { transition-delay: 0.4s; }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+  .hero-eyebrow { animation: fadeUp 0.7s ease 0.3s both; }
+  .hero-name { animation: fadeUp 0.8s ease 0.5s both; }
+  .hero-title { animation: fadeUp 0.7s ease 0.7s both; }
+  .hero-tagline { animation: fadeUp 0.7s ease 0.9s both; }
+  .hero-cta { animation: fadeUp 0.7s ease 1.0s both; }
+  .hero-photo-wrap { animation: fadeUp 0.9s ease 0.6s both; }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding-top: 8rem; padding-bottom: 4rem; }
+    .hero-text { padding-right: 0; order: 2; }
+    .hero-photo-wrap { order: 1; padding-top: 2rem; }
+    .hero-photo-frame { width: min(280px, 60vw); }
+    .hero-photo-badge { left: -1rem; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .about-left { position: static; }
+    .clients-grid { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card.featured { grid-column: 1; grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+    .stats-row { grid-template-columns: 1fr 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">Diana Vasquez</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-grid-line"></div>
+  <div class="hero-text">
+    <p class="hero-eyebrow">AI Automation Engineer</p>
+    <h1 class="hero-name">Diana<br><em>Vasquez</em></h1>
+    <p class="hero-title">Google Apps Script · Zapier · Gemini AI</p>
+    <p class="hero-tagline">I build automated systems that eliminate manual work — so your team can focus on what actually moves the business forward.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary">Start a Project</a>
+      <a href="#projects" class="btn-outline">See My Work</a>
+    </div>
+  </div>
+  <div class="hero-photo-wrap">
+    <div class="hero-photo-frame">
+      <img src="headshot-1__2_.jpg" alt="Diana Vasquez — AI Automation Engineer">
+      <div class="hero-photo-badge">
+        <div class="num">8</div>
+        <div class="label">Years Experience</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-left reveal">
+      <p class="section-label">About</p>
+      <h2 class="section-title">Building systems<br>that work <em>for you</em></h2>
+      <div class="stats-row" style="margin-top:2.5rem;">
+        <div class="stat"><div class="stat-num">&lt;10s</div><div class="stat-lbl">Lead to email</div></div>
+        <div class="stat"><div class="stat-num">0</div><div class="stat-lbl">Manual steps</div></div>
+        <div class="stat"><div class="stat-num">60s</div><div class="stat-lbl">Support response</div></div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <div class="about-body">
+        <p>I'm Diana, an Automation Engineer with 8 years of operational experience in business administration. I design end-to-end workflows using Google Apps Script, Zapier, and AI integrations that handle repetitive tasks automatically — without expensive software or complicated setups.</p>
+        <div class="about-highlight">"Every system I deliver is tested and built to run without your input. I don't hand off a script and disappear — I deliver a complete operational workflow."</div>
+        <p>From AI-powered lead scoring that classifies every inquiry as HOT / WARM / COLD in real time, to support systems that reduce response time from hours to under 60 seconds — I build infrastructure that scales with your business without adding headcount.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="clients" id="clients">
+  <p class="section-label reveal">Who I Work With</p>
+  <h2 class="section-title reveal reveal-delay-1">The businesses<br>that benefit <em>most</em></h2>
+  <div class="clients-grid">
+    <div class="client-card reveal reveal-delay-1"><div class="client-icon">⭐</div><h3 class="client-title">Small Businesses & Startups</h3><p class="client-desc">Teams that need operational infrastructure without hiring additional staff. I build the systems that let a small team punch above its weight.</p></div>
+    <div class="client-card reveal reveal-delay-2"><div class="client-icon">🛒</div><h3 class="client-title">E-commerce Brands</h3><p class="client-desc">Brands dealing with high support volume, manual ticket handling, or no SLA visibility. I automate the entire support pipeline end-to-end.</p></div>
+    <div class="client-card reveal reveal-delay-3"><div class="client-icon">🏢</div><h3 class="client-title">Real Estate Agencies</h3><p class="client-desc">Agencies losing leads to slow follow-up and unstructured qualification. I build automated systems that respond and qualify in seconds.</p></div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <p class="section-label reveal">Services</p>
+  <h2 class="section-title reveal reveal-delay-1">What I <em>build</em></h2>
+  <div class="services-list">
+    <div class="service-item reveal"><div class="service-num">01</div><div><h3 class="service-name">Google Apps Script Automations</h3><p class="service-desc">Custom triggers, API integrations, and multi-step workflows that go beyond what Zapier can handle.</p></div></div>
+    <div class="service-item reveal reveal-delay-1"><div class="service-num">02</div><div><h3 class="service-name">AI-Powered Lead Scoring</h3><p class="service-desc">Every inquiry automatically classified as HOT / WARM / COLD using Gemini AI, with action recommendations generated instantly.</p></div></div>
+    <div class="service-item reveal reveal-delay-2"><div class="service-num">03</div><div><h3 class="service-name">CRM Pipelines</h3><p class="service-desc">Form submission → AI analysis → Drive folder → personalized email → dashboard update. Fully automated, zero manual intervention.</p></div></div>
+    <div class="service-item reveal reveal-delay-3"><div class="service-num">04</div><div><h3 class="service-name">AI-Powered Support Systems</h3><p class="service-desc">Incoming emails classified by AI, routed to the right response track. Response time reduced from hours to under 60 seconds.</p></div></div>
+    <div class="service-item reveal reveal-delay-4"><div class="service-num">05</div><div><h3 class="service-name">SLA Monitoring & Alerts</h3><p class="service-desc">Automated alerts when tickets breach deadlines, with zero manual checking. Full visibility with zero overhead.</p></div></div>
+  </div>
+</section>
+
+<section class="tools">
+  <p class="section-label reveal">Toolstack</p>
+  <h2 class="section-title reveal reveal-delay-1">The technology <em>I use</em></h2>
+  <div class="tools-grid reveal reveal-delay-2">
+    <span class="tool-tag gold">Google Apps Script</span><span class="tool-tag gold">Gemini AI</span><span class="tool-tag gold">Zapier</span>
+    <span class="tool-tag">UrlFetchApp</span><span class="tool-tag">onFormSubmit triggers</span><span class="tool-tag gold">ChatGPT / OpenAI</span>
+    <span class="tool-tag">Zapier Paths</span><span class="tool-tag">Multi-step Zaps</span><span class="tool-tag">Notion</span>
+    <span class="tool-tag">Google Sheets</span><span class="tool-tag">Google Forms</span><span class="tool-tag">Google Drive</span>
+    <span class="tool-tag gold">Gmail API</span><span class="tool-tag">Google Docs</span><span class="tool-tag">Airtable</span>
+    <span class="tool-tag">Asana</span><span class="tool-tag">Slack</span><span class="tool-tag">Google Calendar API</span>
+  </div>
+</section>
+
+<section class="projects" id="projects">
+  <p class="section-label reveal">Portfolio</p>
+  <h2 class="section-title reveal reveal-delay-1">Systems I've <em>shipped</em></h2>
+  <p class="reveal reveal-delay-2" style="color:var(--text-muted);font-size:0.85rem;margin-top:0.5rem;">Click any project to view the full case study PDF.</p>
+  <div class="projects-grid">
+    <div class="project-card featured reveal" onclick="openModal('Texas_Real_Estate___Lead_Scoring___Prioritization_pptx.pdf','Texas Real Estate — Lead Scoring & Prioritization')">
+      <div>
+        <p class="project-tag">Featured · Real Estate · 22-Step Zap</p>
+        <h3 class="project-title">Texas Real Estate — Lead Scoring & Prioritization</h3>
+        <p class="project-desc">Every inbound lead is automatically captured, scored, routed into HOT / WARM / COLD tiers, logged in Notion CRM, and contacted with a personalized email — in under 30 seconds, with zero manual work.</p>
+        <div class="metrics-row">
+          <div><div class="project-metric">&lt;30s</div><div class="project-metric-label">Lead response time</div></div>
+          <div><div class="project-metric">22</div><div class="project-metric-label">Zap steps automated</div></div>
+          <div><div class="project-metric">3×</div><div class="project-metric-label">Faster pipeline setup</div></div>
+        </div>
+        <div class="project-stack">
+          <span class="stack-tag">Google Forms</span><span class="stack-tag">Google Sheets</span><span class="stack-tag">Zapier Paths</span><span class="stack-tag">Notion</span><span class="stack-tag">Gmail</span>
+        </div>
+        <button class="view-pdf-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>View Case Study PDF</button>
+      </div>
+      <div>
+        <p style="font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Lead Scoring Flow</p>
+        <div class="project-flow">
+          <div class="flow-step">Form submitted → Zap triggered instantly</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">Google Sheets lookup scores the lead</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">Zapier Paths branches: HOT / WARM / COLD</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">Notion CRM record created automatically</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">Personalized email sent per tier</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">HOT leads: agent also notified immediately</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card reveal reveal-delay-1" onclick="openModal('Ecommerce_AI_Support_System_pptx.pdf','Ecommerce AI Support System + SLA Monitor')">
+      <p class="project-tag">E-commerce · 21-Step Zap · ChatGPT</p>
+      <h3 class="project-title">Ecommerce AI Support System + SLA Monitor</h3>
+      <p class="project-desc">Two Zaps working as one complete support ecosystem. ChatGPT classifies every email into 6 intent categories, routes it, logs the ticket, and monitors SLA violations — all automatically.</p>
+      <div class="project-stack"><span class="stack-tag">Gmail</span><span class="stack-tag">ChatGPT</span><span class="stack-tag">Zapier Paths</span><span class="stack-tag">Google Sheets</span></div>
+      <button class="view-pdf-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>View Case Study PDF</button>
+    </div>
+
+    <div class="project-card reveal reveal-delay-2" onclick="openModal('Freelance_Project_Intake___Routing_Automation_pptx.pdf','Freelance Project Intake & Routing Automation')">
+      <p class="project-tag">Freelance · 7-Step Zap · Multi-tool</p>
+      <h3 class="project-title">Freelance Project Intake & Routing Pipeline</h3>
+      <p class="project-desc">Inquiries filtered by project type, logged in Airtable CRM, assigned as Asana tasks, announced in Slack, and confirmed by email — in under 60 seconds.</p>
+      <div class="project-stack"><span class="stack-tag">Google Forms</span><span class="stack-tag">Airtable</span><span class="stack-tag">Asana</span><span class="stack-tag">Slack</span><span class="stack-tag">Gmail</span></div>
+      <button class="view-pdf-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>View Case Study PDF</button>
+    </div>
+
+    <div class="project-card reveal reveal-delay-1" onclick="openModal('GlowMed_Segmentation_Automation_pptx.pdf','Client Acquisition & Segmentation — Aesthetic Clinic')">
+      <p class="project-tag">Aesthetic Clinic · Notion CRM · Zapier Paths</p>
+      <h3 class="project-title">Client Acquisition & Segmentation — Beauty Clinic</h3>
+      <p class="project-desc">Automated lead capture and CRM segmentation. Every consultation request is logged in Sheets, stored in Notion CRM, and tagged with a 4-tier service classification — zero manual work.</p>
+      <div class="project-stack"><span class="stack-tag">Google Forms</span><span class="stack-tag">Google Sheets</span><span class="stack-tag">Notion</span><span class="stack-tag">Zapier Paths</span></div>
+      <button class="view-pdf-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>View Case Study PDF</button>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <p class="section-label reveal">Contact</p>
+    <div class="contact-grid">
+      <div class="contact-left reveal">
+        <h2 class="section-title">Let's map out<br>your <em>workflow</em></h2>
+        <p class="contact-sub">Tell me about your business and the tasks you want to automate. I'll review your message and get back to you within 24 hours.</p>
+        <div class="contact-channels">
+          <div class="contact-channel">✦ &nbsp;<span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9aecfbb4feecfbe9ebefffe0f7dafdf7fbf3f6b4f9f5f7">[email&#160;protected]</a></span></div>
+          <div class="contact-channel">✦ &nbsp;<span>WhatsApp +57 305 432 9733</span></div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/xkoqavzk" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="business">Business Type</label>
+            <select id="business" name="business" required>
+              <option value="" disabled selected>Select your industry</option>
+              <option>E-commerce</option>
+              <option>Real Estate</option>
+              <option>Clinic / Healthcare</option>
+              <option>Freelance / Agency</option>
+              <option>SaaS / Tech</option>
+              <option>Small Business / Startup</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="project">Describe Your Project</label>
+            <textarea id="project" name="project" placeholder="What tasks do you want to automate? What problem are you trying to solve?" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="budget">Approximate Budget</label>
+            <select id="budget" name="budget" required>
+              <option value="" disabled selected>Select a range</option>
+              <option>Under $500</option>
+              <option>$500 – $1,000</option>
+              <option>$1,000 – $3,000</option>
+              <option>$3,000+</option>
+              <option>Let's talk</option>
+            </select>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn-submit">Send Message</button>
+            <a href="https://wa.me/573054329733?text=Hi%20Diana!%20I%20visited%20your%20website%20and%20I%27d%20like%20to%20talk%20about%20automating%20my%20business." target="_blank" class="btn-whatsapp">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+          </div>
+          <div class="form-success" id="formSuccess">
+            ✦ &nbsp; Message sent — I'll get back to you within 24 hours. Thank you!
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Diana Vasquez</div>
+  <div class="footer-text">AI Automation Engineer · Google Apps Script · Zapier · Gemini AI</div>
+  <div class="footer-text" style="color:rgba(201,168,76,0.5);">© 2026</div>
+</footer>
+
+<!-- PDF MODAL -->
+<div class="modal-overlay" id="pdfModal" onclick="closeOnOverlay(event)">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span class="modal-title" id="modalTitle"></span>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <iframe id="modalFrame" src="" title="Project PDF"></iframe>
+    </div>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Form
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('.btn-submit');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    try {
+      const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+      if (res.ok) {
+        form.reset();
+        document.getElementById('formSuccess').classList.add('visible');
+        btn.textContent = 'Sent ✓';
+      } else {
+        btn.textContent = 'Try again';
+        btn.disabled = false;
+      }
+    } catch { btn.textContent = 'Try again'; btn.disabled = false; }
+  });
+
+  function openModal(pdf, title) {
+    document.getElementById('modalFrame').src = pdf;
+    document.getElementById('modalTitle').textContent = title;
+    document.getElementById('pdfModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('pdfModal').classList.remove('active');
+    document.getElementById('modalFrame').src = '';
+    document.body.style.o
