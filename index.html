@@ -174,10 +174,7 @@
   .footer-logo { font-family: 'Cormorant Garamond', serif; color: var(--gold-light); font-size: 1rem; font-weight: 300; letter-spacing: 0.15em; }
   .footer-text { font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.08em; }
 
-  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-  .reveal-delay-1 { transition-delay: 0.1s; } .reveal-delay-2 { transition-delay: 0.2s; }
-  .reveal-delay-3 { transition-delay: 0.3s; } .reveal-delay-4 { transition-delay: 0.4s; }
+  
   @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
   .hero-eyebrow { animation: fadeUp 0.7s ease 0.3s both; }
   .hero-name { animation: fadeUp 0.8s ease 0.5s both; }
@@ -249,7 +246,7 @@
         <div class="stat"><div class="stat-num">60s</div><div class="stat-lbl">Support response</div></div>
       </div>
     </div>
-    <div class="reveal reveal-delay-2">
+    <div class="">
       <div class="about-body">
         <p>I'm Diana, an Automation Engineer with 8 years of operational experience in business administration. I design end-to-end workflows using Google Apps Script, Zapier, and AI integrations that handle repetitive tasks automatically — without expensive software or complicated setups.</p>
         <div class="about-highlight">"Every system I deliver is tested and built to run without your input. I don't hand off a script and disappear — I deliver a complete operational workflow."</div>
@@ -297,7 +294,7 @@
 <section class="projects" id="projects">
   <p class="section-label reveal">Portfolio</p>
   <h2 class="section-title reveal reveal-delay-1">Systems I've <em>shipped</em></h2>
-  <p class="reveal reveal-delay-2" style="color:var(--text-muted);font-size:0.85rem;margin-top:0.5rem;">Click any project to view the full case study PDF.</p>
+  <p class="" style="color:var(--text-muted);font-size:0.85rem;margin-top:0.5rem;">Click any project to view the full case study PDF.</p>
   <div class="projects-grid">
     <div class="project-card featured reveal" onclick="openModal('Texas_Real_Estate___Lead_Scoring___Prioritization_pptx.pdf','Texas Real Estate — Lead Scoring & Prioritization')">
       <div>
@@ -371,7 +368,7 @@
           <div class="contact-channel">✦ &nbsp;<span>WhatsApp +57 305 432 9733</span></div>
         </div>
       </div>
-      <div class="reveal reveal-delay-2">
+      <div class="">
         <form class="contact-form" id="contactForm" action="https://formspree.io/f/xkoqavzk" method="POST">
           <div class="form-row">
             <div class="form-group">
@@ -447,10 +444,7 @@
 </div>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
 
   // Form
   const form = document.getElementById('contactForm');
