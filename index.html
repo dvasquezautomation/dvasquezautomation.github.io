@@ -1,9 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diana Vasquez — AI Automation Engineer</title>
+
+<!-- Primary SEO -->
+<title>Diana Vasquez | AI Automation Engineer — Zapier, Google Apps Script & Gemini AI</title>
+<meta name="description" content="Freelance AI Automation Engineer specializing in Zapier, Google Apps Script, and Gemini AI. I build automated CRM pipelines, lead scoring systems, and support automations for small businesses, e-commerce, and real estate. Available worldwide.">
+<meta name="keywords" content="automation engineer, zapier expert, google apps script developer, gemini ai, no-code automation, CRM automation, lead scoring, freelance automation, workflow automation, business automation, AI automation, email automation, support automation">
+<meta name="author" content="Diana Vasquez">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://dvasquezautomation.github.io/">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dvasquezautomation.github.io/">
+<meta property="og:title" content="Diana Vasquez | AI Automation Engineer — Zapier & Google Apps Script">
+<meta property="og:description" content="I build automated systems that eliminate manual work. Specializing in Zapier, Google Apps Script, Gemini AI, and CRM pipelines for small businesses and e-commerce.">
+<meta property="og:image" content="https://dvasquezautomation.github.io/headshot-1__2_.jpg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Diana Vasquez | AI Automation Engineer">
+<meta name="twitter:description" content="Freelance automation engineer. Zapier, Google Apps Script, Gemini AI. CRM pipelines, lead scoring, support automation.">
+<meta name="twitter:image" content="https://dvasquezautomation.github.io/headshot-1__2_.jpg">
+
+<!-- Schema.org structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Diana Vasquez",
+  "jobTitle": "AI Automation Engineer",
+  "description": "Freelance AI Automation Engineer specializing in Zapier, Google Apps Script, Gemini AI, CRM pipelines, and business process automation.",
+  "url": "https://dvasquezautomation.github.io/",
+  "image": "https://dvasquezautomation.github.io/headshot-1__2_.jpg",
+  "email": "va.dvasquezm@gmail.com",
+  "knowsAbout": ["Zapier", "Google Apps Script", "Gemini AI", "CRM Automation", "Lead Scoring", "Business Process Automation", "No-code Automation", "ChatGPT", "Notion", "Airtable"],
+  "offers": {
+    "@type": "Offer",
+    "description": "Freelance automation engineering services including CRM pipelines, lead scoring systems, AI-powered support automation, and Zapier multi-step workflows."
+  },
+  "sameAs": [
+    "https://www.upwork.com"
+  ]
+}
+</script>
+
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{--navy:#0a1628;--deep-blue:#0d2147;--mid-blue:#1a3a6e;--sky:#4a8fd4;--pale:#c8ddf5;--gold:#c9a84c;--gold-light:#e4c97a;--gold-pale:#f5e8c0;--white:#f8f4ee;--text-muted:#8baed0}
@@ -179,7 +222,7 @@ footer{flex-direction:column;gap:1rem;text-align:center}
   </div>
   <div class="hero-photo-wrap">
     <div class="hero-photo-frame">
-      <img src="headshot-1__2_.jpg" alt="Diana Vasquez">
+      <img src="headshot-1__2_.jpg" alt="Diana Vasquez — AI Automation Engineer specializing in Zapier and Google Apps Script">
       <div class="hero-photo-badge">
         <div class="num">8</div>
         <div class="label" id="badge-label">Years Experience</div>
@@ -311,7 +354,7 @@ footer{flex-direction:column;gap:1rem;text-align:center}
         <h2 class="section-title" id="title-contact">Let's map out<br>your <em>workflow</em></h2>
         <p class="contact-sub" id="contact-sub">Tell me about your business and the tasks you want to automate. I'll review your message and get back to you within 24 hours.</p>
         <div class="contact-channels">
-          <div class="contact-channel">✦ &nbsp;<span>va.dvasquezm@gmail.com</span></div>
+          <div class="contact-channel">✦ &nbsp;<span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c8bea9e6acbea9bbb9bdadb2a588afa5a9a1a4e6aba7a5">[email&#160;protected]</a></span></div>
           <div class="contact-channel">✦ &nbsp;<span>WhatsApp +57 305 432 9733</span></div>
         </div>
       </div>
@@ -357,7 +400,7 @@ footer{flex-direction:column;gap:1rem;text-align:center}
   <div class="footer-text" style="color:rgba(201,168,76,.5)">© 2026</div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 var translations = {
   en: {
     "nav-about":"About","nav-services":"Services","nav-projects":"Projects","nav-contact":"Contact",
@@ -502,12 +545,4 @@ form.addEventListener("submit", function(e) {
   fetch(form.action, { method:"POST", body:new FormData(form), headers:{"Accept":"application/json"} })
     .then(function(r){ return r.ok ? r : Promise.reject(); })
     .then(function(){
-      form.reset();
-      document.getElementById("formSuccess").classList.add("visible");
-      btn.textContent = "Sent ✓";
-    })
-    .catch(function(){ btn.textContent = "Try again"; btn.disabled = false; });
-});
-</script>
-</body>
-</html>
+      form.
