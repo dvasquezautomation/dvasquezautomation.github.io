@@ -505,4 +505,12 @@ window.addEventListener("DOMContentLoaded", function() {
       .then(function(r) { return r.ok ? r : Promise.reject(); })
       .then(function() {
         document.getElementById("contactForm").reset();
-      
+              document.getElementById("formSuccess").classList.add("visible");
+        btn.textContent = "Sent ✓";
+      })
+      .catch(function() { btn.textContent = "Try again"; btn.disabled = false; });
+  });
+});
+</script>
+</body>
+</html>
