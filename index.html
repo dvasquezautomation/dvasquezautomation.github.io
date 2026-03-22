@@ -219,8 +219,8 @@
     <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
   </ul>
   <div class="lang-switch">
-    <button class="lang-btn active" onclick="setLang('en')">EN</button>
-    <button class="lang-btn" onclick="setLang('es')">ES</button>
+    <button class="lang-btn active" id="btn-en">EN</button>
+    <button class="lang-btn" id="btn-es">ES</button>
   </div>
 </nav>
 
@@ -461,6 +461,7 @@
 
   // Language switcher
   let currentLang = 'en';
+  window.setLang = setLang;
   const esTexts = {
     'about-highlight': '"Cada sistema que entrego está probado y diseñado para funcionar sin tu intervención. No entrego un script y desaparezco — entrego un flujo operativo completo."',
     'about-body-2': 'Desde la clasificación de leads con IA que categoriza cada consulta como CALIENTE / TIBIO / FRÍO en tiempo real, hasta sistemas de soporte que reducen el tiempo de respuesta de horas a menos de 60 segundos — construyo infraestructura que escala tu negocio sin aumentar tu equipo.',
