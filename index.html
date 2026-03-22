@@ -489,7 +489,7 @@
   function setLang(lang) {
     currentLang = lang;
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-    document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+    document.querySelectorAll('.lang-btn').forEach(b => { if(b.getAttribute('onclick') === "setLang('" + lang + "')") b.classList.add('active'); });
 
     // Swap all data-en / data-es elements
     document.querySelectorAll('[data-en]').forEach(el => {
