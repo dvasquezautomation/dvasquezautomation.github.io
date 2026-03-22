@@ -594,4 +594,14 @@
   function closeModal() {
     document.getElementById('pdfModal').classList.remove('active');
     document.getElementById('modalFrame').src = '';
-    document.body.style.o
+    document.body.style.overflow = '';
+  }
+  function closeOnOverlay(e) { if (e.target === document.getElementById('pdfModal')) closeModal(); }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  // Lang button listeners - safe, runs after DOM is ready
+  document.getElementById('btn-en').addEventListener('click', function() { setLang('en'); });
+  document.getElementById('btn-es').addEventListener('click', function() { setLang('es'); });
+</script>
+</body>
+</html>
