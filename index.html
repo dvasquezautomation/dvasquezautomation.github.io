@@ -145,6 +145,14 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:8rem;padding-bottom:4rem}.hero-text{padding-right:0;order:2}.hero-photo-wrap{order:1;padding-top:2rem}.hero-photo-frame{width:min(280px,60vw)}.hero-photo-badge{left:-1rem}.about-grid,.contact-grid{grid-template-columns:1fr;gap:2rem}.about-left{position:static}.clients-grid{grid-template-columns:1fr}.projects-grid{grid-template-columns:1fr}.project-card.featured{grid-column:1;grid-template-columns:1fr}footer{flex-direction:column;gap:1rem;text-align:center}.stats-row{grid-template-columns:1fr 1fr}.form-row{grid-template-columns:1fr}.nav-links{gap:1.2rem}}
 </style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G93FS64GV8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-G93FS64GV8');
+</script>
 </head>
 <body>
 <nav>
@@ -309,7 +317,7 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
         <h2 class="section-title" id="title-contact">Let's map out<br>your <em>workflow</em></h2>
         <p class="contact-sub" id="contact-sub">Tell me about your business and the tasks you want to automate. I'll review your message and get back to you within 24 hours.</p>
         <div class="contact-channels">
-          <div class="contact-channel">✦ &nbsp;<span>va.dvasquezm@gmail.com</span></div>
+          <div class="contact-channel">✦ &nbsp;<span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4a3c2b642e3c2b393b3f2f30270a2d272b232664292527">[email&#160;protected]</a></span></div>
           <div class="contact-channel">✦ &nbsp;<span>WhatsApp +57 305 432 9733</span></div>
         </div>
       </div>
@@ -355,7 +363,7 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
   <div class="footer-text" style="color:rgba(201,168,76,.5)">© 2026</div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 var T = {
   en:{
     "nav-about":"About","nav-services":"Services","nav-projects":"Projects","nav-contact":"Contact",
@@ -497,12 +505,4 @@ window.addEventListener("DOMContentLoaded", function() {
       .then(function(r) { return r.ok ? r : Promise.reject(); })
       .then(function() {
         document.getElementById("contactForm").reset();
-        document.getElementById("formSuccess").classList.add("visible");
-        btn.textContent = "Sent ✓";
-      })
-      .catch(function() { btn.textContent = "Try again"; btn.disabled = false; });
-  });
-});
-</script>
-</body>
-</html>
+      
