@@ -514,7 +514,7 @@ window.addEventListener("DOMContentLoaded", function() {
       .then(function() {
         document.getElementById("contactForm").reset();
               document.getElementById("formSuccess").classList.add("visible");
-        btn.textContent = "Sent ✓";
+        btn.textContent = "Sent ✓";         setTimeout(function() {           var lang = document.documentElement.lang;           window.location.href = lang === "es" ? "/gracias.html" : "/thank-you.html";         }, 1500);
       })
       .catch(function() { btn.textContent = "Try again"; btn.disabled = false; });
   });
