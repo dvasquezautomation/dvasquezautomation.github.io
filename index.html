@@ -139,9 +139,11 @@ section{padding:6rem 5vw}
 .btn-whatsapp:hover{background:rgba(37,211,102,.08);border-color:#25d366}
 .form-success{display:none;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.3);padding:1rem 1.5rem;color:var(--gold-light);font-size:.88rem;line-height:1.6}
 .form-success.visible{display:block}
-footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2rem 5vw;display:flex;justify-content:space-between;align-items:center}
+footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2rem 5vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
 .footer-logo{font-family:'Cormorant Garamond',serif;color:var(--gold-light);font-size:1rem;font-weight:300;letter-spacing:.15em}
 .footer-text{font-size:.72rem;color:var(--text-muted);letter-spacing:.08em}
+.footer-privacy{font-size:.72rem;color:var(--text-muted);letter-spacing:.08em;text-decoration:none;border-bottom:1px solid rgba(139,174,208,.3);transition:color .3s,border-color .3s}
+.footer-privacy:hover{color:var(--gold-light);border-color:var(--gold-light)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:8rem;padding-bottom:4rem}.hero-text{padding-right:0;order:2}.hero-photo-wrap{order:1;padding-top:2rem}.hero-photo-frame{width:min(280px,60vw)}.hero-photo-badge{left:-1rem}.about-grid,.contact-grid{grid-template-columns:1fr;gap:2rem}.about-left{position:static}.clients-grid{grid-template-columns:1fr}.projects-grid{grid-template-columns:1fr}.project-card.featured{grid-column:1;grid-template-columns:1fr}footer{flex-direction:column;gap:1rem;text-align:center}.stats-row{grid-template-columns:1fr 1fr}.form-row{grid-template-columns:1fr}.nav-links{gap:1.2rem}}
 </style>
@@ -368,6 +370,7 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
 <footer>
   <div class="footer-logo">Diana Vasquez</div>
   <div class="footer-text" id="footer-text">AI Automation Engineer · Google Apps Script · Zapier · Gemini AI</div>
+  <a href="/privacy-policy.html" class="footer-privacy" id="footer-privacy">Privacy Policy</a>
   <div class="footer-text" style="color:rgba(201,168,76,.5)">© 2026</div>
 </footer>
 
@@ -413,6 +416,7 @@ var T = {
     "contact-sub":"Tell me about your business and the tasks you want to automate. I'll review your message and get back to you within 24 hours.",
     "lbl-name":"Full Name","lbl-email":"Email","lbl-biz":"Business Type","lbl-proj":"Describe Your Project","lbl-budget":"Approximate Budget",
     "btn-submit":"Send Message","footer-text":"AI Automation Engineer · Google Apps Script · Zapier · Gemini AI",
+    "footer-privacy":"Privacy Policy",
     "opt-biz":"Select your industry","opt-budget":"Select a range",
     "inp-name-ph":"Your name","inp-email-ph":"your@email.com",
     "inp-proj-ph":"What tasks do you want to automate? What problem are you trying to solve?",
@@ -459,6 +463,7 @@ var T = {
     "contact-sub":"Cuéntame sobre tu negocio y las tareas que quieres automatizar. Revisaré tu mensaje y te responderé en menos de 24 horas.",
     "lbl-name":"Nombre completo","lbl-email":"Email","lbl-biz":"Tipo de negocio","lbl-proj":"Describe tu proyecto","lbl-budget":"Presupuesto aproximado",
     "btn-submit":"Enviar mensaje","footer-text":"Ingeniera de Automatización con IA · Google Apps Script · Zapier · Gemini AI",
+    "footer-privacy":"Política de Privacidad",
     "opt-biz":"Selecciona tu industria","opt-budget":"Selecciona un rango",
     "inp-name-ph":"Tu nombre","inp-email-ph":"tu@email.com",
     "inp-proj-ph":"¿Qué tareas quieres automatizar? ¿Qué problema intentas resolver?",
