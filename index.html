@@ -23,7 +23,7 @@
 <style>
 :root{--navy:#0a1628;--deep-blue:#0d2147;--mid-blue:#1a3a6e;--sky:#4a8fd4;--pale:#c8ddf5;--gold:#c9a84c;--gold-light:#e4c97a;--gold-pale:#f5e8c0;--white:#f8f4ee;--text-muted:#8baed0}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;font-size:calc(100% + 2pt)}
 body{background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 5vw;background:linear-gradient(to bottom,rgba(10,22,40,.98) 0%,rgba(10,22,40,0) 100%)}
 .nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;letter-spacing:.15em;color:var(--gold-light);text-decoration:none}
@@ -115,6 +115,16 @@ section{padding:6rem 5vw}
 .flow-arrow{font-size:.65rem;color:var(--gold);margin-left:1.5rem}
 .view-pdf-btn{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.5rem;background:transparent;border:1px solid rgba(201,168,76,.4);color:var(--gold-light);padding:.5rem 1.1rem;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif}
 .view-pdf-btn svg{width:14px;height:14px}
+.repo-block{margin:2rem 0 2.2rem;padding:1.4rem;border:1px solid rgba(74,143,212,.2);background:rgba(13,33,71,.35)}
+.repo-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;margin-bottom:.4rem}
+.repo-sub{color:var(--text-muted);font-size:.84rem;line-height:1.6}
+.repo-grid{margin-top:1.2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
+.repo-card{border:1px solid rgba(74,143,212,.2);background:rgba(10,22,40,.5);padding:1rem}
+.repo-name{font-size:.86rem;color:var(--gold-light);letter-spacing:.06em;text-transform:uppercase}
+.repo-desc{font-size:.8rem;color:var(--text-muted);line-height:1.55;margin:.55rem 0 .8rem}
+.repo-desc strong{color:var(--gold-light)}
+.repo-link{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--pale);text-decoration:none;border-bottom:1px solid rgba(200,221,245,.35)}
+.repo-link:hover{color:var(--gold-light);border-color:var(--gold-light)}
 .contact{background:linear-gradient(135deg,var(--deep-blue) 0%,var(--mid-blue) 100%);position:relative;overflow:hidden}
 .contact::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(201,168,76,.05) 0%,transparent 70%);pointer-events:none}
 .contact-inner{position:relative;z-index:1;max-width:900px;margin:0 auto}
@@ -146,6 +156,9 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
 .footer-privacy:hover{color:var(--gold-light);border-color:var(--gold-light)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:8rem;padding-bottom:4rem}.hero-text{padding-right:0;order:2}.hero-photo-wrap{order:1;padding-top:2rem}.hero-photo-frame{width:min(280px,60vw)}.hero-photo-badge{left:-1rem}.about-grid,.contact-grid{grid-template-columns:1fr;gap:2rem}.about-left{position:static}.clients-grid{grid-template-columns:1fr}.projects-grid{grid-template-columns:1fr}.project-card.featured{grid-column:1;grid-template-columns:1fr}footer{flex-direction:column;gap:1rem;text-align:center}.stats-row{grid-template-columns:1fr 1fr}.form-row{grid-template-columns:1fr}.nav-links{gap:1.2rem}}
+@media(max-width:900px){.repo-grid{grid-template-columns:1fr}}
+@media(max-width:900px){html{font-size:calc(100% + 1pt)}nav{padding:1rem 4vw;align-items:flex-start;gap:.8rem}.nav-right{width:100%;justify-content:space-between;gap:1rem;flex-wrap:wrap}.nav-links{gap:.8rem;flex-wrap:wrap}.hero{min-height:auto;padding-top:10.5rem}.hero-photo-wrap{padding-top:5rem;justify-content:center}.hero-photo-frame{width:min(320px,72vw);margin:0 auto}.hero-tagline{max-width:100%}.projects-grid{gap:.8rem}.project-card,.project-card.featured{padding:1.4rem}.metrics-row{gap:1rem;flex-wrap:wrap}}
+@media(max-width:600px){section{padding:4.5rem 6vw}.nav-links a{font-size:.7rem}.hero-name{font-size:clamp(2.4rem,12vw,3.3rem)}.repo-block{padding:1rem}.repo-name{font-size:.78rem}.project-title{font-size:1.2rem}}
 </style>
 <!-- Google Ads Conversion Tracking -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18032769454"></script>
@@ -264,6 +277,46 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
   <p class="section-label" id="label-projects">Portfolio</p>
   <h2 class="section-title" id="title-projects">Systems I've <em>shipped</em></h2>
   <p style="color:var(--text-muted);font-size:.85rem;margin-top:.5rem" id="projects-sub">Click any project to view the full case study PDF.</p>
+  <div class="repo-block">
+    <h3 class="repo-title" id="repo-title">
+      Proven Automation Systems That Save Time & Increase Conversions
+    </h3>
+    <p class="repo-sub" id="repo-sub">
+      Real systems I've built to eliminate manual work, speed up response times, and improve lead conversion.
+    </p>
+    <div class="repo-grid">
+      <article class="repo-card">
+        <p class="repo-name">AI CRM Automation System</p>
+        <p class="repo-desc" id="repo-desc-1">
+          Captures, qualifies, and routes every lead automatically in seconds.
+          <br><strong>Result: Faster response time & zero manual CRM work.</strong>
+        </p>
+        <a class="repo-link" id="repo-link-1" href="https://github.com/dvasquezautomation/crm-automation-google-apps-script" target="_blank">
+          View System →
+        </a>
+      </article>
+      <article class="repo-card">
+        <p class="repo-name">AI Client Intake & Qualification</p>
+        <p class="repo-desc" id="repo-desc-2">
+          Analyzes incoming requests and identifies high-value opportunities using AI.
+          <br><strong>Result: Less time wasted on unqualified leads.</strong>
+        </p>
+        <a class="repo-link" id="repo-link-2" href="https://github.com/dvasquezautomation/client-intake-pipeline-gemini-ai" target="_blank">
+          View System →
+        </a>
+      </article>
+      <article class="repo-card">
+        <p class="repo-name">Automated Daily Operations Briefing</p>
+        <p class="repo-desc" id="repo-desc-3">
+          Sends a daily summary of key business updates for faster decision-making.
+          <br><strong>Result: Better decisions without digging through data.</strong>
+        </p>
+        <a class="repo-link" id="repo-link-3" href="https://github.com/dvasquezautomation/daily-briefing-google-apps-script" target="_blank">
+          View System →
+        </a>
+      </article>
+    </div>
+  </div>
   <div class="projects-grid">
     <div class="project-card featured" onclick="window.open('https://drive.google.com/file/d/1M4SrDduZWMamxy8Pber_4JTuOgKbDTuX/view','_blank')">
       <div>
@@ -276,7 +329,7 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
           <div><div class="project-metric">3×</div><div class="project-metric-label" id="met-l3">Faster pipeline setup</div></div>
         </div>
         <div class="project-stack"><span class="stack-tag">Google Forms</span><span class="stack-tag">Google Sheets</span><span class="stack-tag">Zapier Paths</span><span class="stack-tag">Notion</span><span class="stack-tag">Gmail</span></div>
-        <span class="view-pdf-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg><span id="pdf-btn-text">View Case Study PDF</span></span>
+        <a class="view-pdf-btn" href="https://drive.google.com/file/d/1M4SrDduZWMamxy8Pber_4JTuOgKbDTuX/view" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg><span id="pdf-btn-text">View Case Study PDF</span></a>
       </div>
       <div>
         <p style="font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem" id="flow-label">Lead Scoring Flow</p>
@@ -300,21 +353,21 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
       <h3 class="project-title" id="proj-t2">Ecommerce AI Support System + SLA Monitor</h3>
       <p class="project-desc" id="proj-d2">Two Zaps working as one complete support ecosystem. ChatGPT classifies every email into 6 intent categories, routes it, logs the ticket, and monitors SLA violations — all automatically.</p>
       <div class="project-stack"><span class="stack-tag">Gmail</span><span class="stack-tag">ChatGPT</span><span class="stack-tag">Zapier Paths</span><span class="stack-tag">Google Sheets</span></div>
-      <span class="view-pdf-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>View Case Study PDF</span>
+      <a class="view-pdf-btn" href="https://drive.google.com/file/d/1j5zg-JvDaaRuG2bRfiQ2zCcL4iq-jO8s/view" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>View Case Study PDF</a>
     </div>
     <div class="project-card" onclick="window.open('https://drive.google.com/file/d/1bbtMbfTXip3T-bMuN2MeTqIi44S_d4jl/view','_blank')">
       <p class="project-tag">Freelance · 7-Step Zap · Multi-tool</p>
       <h3 class="project-title" id="proj-t3">Freelance Project Intake &amp; Routing Pipeline</h3>
       <p class="project-desc" id="proj-d3">Inquiries filtered by project type, logged in Airtable CRM, assigned as Asana tasks, announced in Slack, and confirmed by email — in under 60 seconds.</p>
       <div class="project-stack"><span class="stack-tag">Google Forms</span><span class="stack-tag">Airtable</span><span class="stack-tag">Asana</span><span class="stack-tag">Slack</span><span class="stack-tag">Gmail</span></div>
-      <span class="view-pdf-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>View Case Study PDF</span>
+      <a class="view-pdf-btn" href="https://drive.google.com/file/d/1bbtMbfTXip3T-bMuN2MeTqIi44S_d4jl/view" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>View Case Study PDF</a>
     </div>
     <div class="project-card" onclick="window.open('https://drive.google.com/file/d/19Om8EypVXByNunfq9NrgWL9hu4bcBMHt/view','_blank')">
       <p class="project-tag">Aesthetic Clinic · Notion CRM · Zapier Paths</p>
       <h3 class="project-title" id="proj-t4">Client Acquisition &amp; Segmentation — Beauty Clinic</h3>
       <p class="project-desc" id="proj-d4">Automated lead capture and CRM segmentation. Every consultation request is logged in Sheets, stored in Notion CRM, and tagged with a 4-tier service classification — zero manual work.</p>
       <div class="project-stack"><span class="stack-tag">Google Forms</span><span class="stack-tag">Google Sheets</span><span class="stack-tag">Notion</span><span class="stack-tag">Zapier Paths</span></div>
-      <span class="view-pdf-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>View Case Study PDF</span>
+      <a class="view-pdf-btn" href="https://drive.google.com/file/d/19Om8EypVXByNunfq9NrgWL9hu4bcBMHt/view" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>View Case Study PDF</a>
     </div>
   </div>
 </section>
@@ -370,7 +423,7 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
 <footer>
   <div class="footer-logo">Diana Vasquez</div>
   <div class="footer-text" id="footer-text">AI Automation Engineer · Google Apps Script · Zapier · Gemini AI</div>
-  <a href="/privacy-policy.html" class="footer-privacy" id="footer-privacy">Privacy Policy</a>
+  <a href="privacy-policy.html" class="footer-privacy" id="footer-privacy">Privacy Policy</a>
   <div class="footer-text" style="color:rgba(201,168,76,.5)">© 2026</div>
 </footer>
 
@@ -399,6 +452,12 @@ var T = {
     "label-tools":"Toolstack","title-tools":"The technology <em>I use</em>",
     "label-projects":"Portfolio","title-projects":"Systems I've <em>shipped</em>",
     "projects-sub":"Click any project to view the full case study PDF.",
+    "repo-title":"Proven Automation Systems That Save Time & Increase Conversions",
+    "repo-sub":"Real systems I've built to eliminate manual work, speed up response times, and improve lead conversion.",
+    "repo-desc-1":"Captures, qualifies, and routes every lead automatically in seconds.<br><strong>Result: Faster response time & zero manual CRM work.</strong>",
+    "repo-desc-2":"Analyzes incoming requests and identifies high-value opportunities using AI.<br><strong>Result: Less time wasted on unqualified leads.</strong>",
+    "repo-desc-3":"Sends a daily summary of key business updates for faster decision-making.<br><strong>Result: Better decisions without digging through data.</strong>",
+    "repo-link-1":"View System →","repo-link-2":"View System →","repo-link-3":"View System →",
     "pdf-btn-text":"View Case Study PDF","flow-label":"Lead Scoring Flow",
     "flow-1":"Form submitted → Zap triggered instantly","flow-2":"Google Sheets lookup scores the lead",
     "flow-3":"Zapier Paths branches: HOT / WARM / COLD","flow-4":"Notion CRM record created automatically",
@@ -446,6 +505,12 @@ var T = {
     "label-tools":"Herramientas","title-tools":"La tecnología <em>que uso</em>",
     "label-projects":"Portafolio","title-projects":"Sistemas que he <em>entregado</em>",
     "projects-sub":"Haz clic en cualquier proyecto para ver el caso de estudio en PDF.",
+    "repo-title":"Sistemas de Automatización Probados que Ahorran Tiempo y Aumentan Conversiones",
+    "repo-sub":"Sistemas reales que construí para eliminar trabajo manual, acelerar tiempos de respuesta y mejorar la conversión de leads.",
+    "repo-desc-1":"Captura, califica y enruta cada lead automáticamente en segundos.<br><strong>Resultado: Respuesta más rápida y cero trabajo manual en CRM.</strong>",
+    "repo-desc-2":"Analiza solicitudes entrantes e identifica oportunidades de alto valor con IA.<br><strong>Resultado: Menos tiempo perdido en leads no calificados.</strong>",
+    "repo-desc-3":"Envía un resumen diario de actualizaciones clave del negocio para tomar decisiones más rápido.<br><strong>Resultado: Mejores decisiones sin revisar datos manualmente.</strong>",
+    "repo-link-1":"Ver sistema →","repo-link-2":"Ver sistema →","repo-link-3":"Ver sistema →",
     "pdf-btn-text":"Ver Caso de Estudio PDF","flow-label":"Flujo de Clasificación de Leads",
     "flow-1":"Formulario enviado → Zap activado al instante","flow-2":"Google Sheets califica el lead",
     "flow-3":"Zapier Paths divide: CALIENTE / TIBIO / FRÍO","flow-4":"Registro en Notion CRM creado automáticamente",
@@ -472,7 +537,7 @@ var T = {
   }
 };
 
-var HTML_IDS = ["title-about","title-clients","title-services","title-tools","title-projects","title-contact"];
+var HTML_IDS = ["title-about","title-clients","title-services","title-tools","title-projects","title-contact","repo-desc-1","repo-desc-2","repo-desc-3"];
 
 function setLang(lang) {
   var t = T[lang];
@@ -519,7 +584,7 @@ window.addEventListener("DOMContentLoaded", function() {
       .then(function() {
         document.getElementById("contactForm").reset();
               document.getElementById("formSuccess").classList.add("visible");
-        gtag('event', 'conversion', {'send_to': 'AW-18032769454/XXXXXXXXXXXXXXXX'}); gtag('event', 'conversion', {'send_to': 'AW-18032769454/nL4uCJHXo44cEK7z2JZD'}); btn.textContent = "Sent ✓";         setTimeout(function() {           var lang = document.documentElement.lang;           window.location.href = lang === "es" ? "/gracias.html" : "/thank-you.html";         }, 1500);
+        gtag('event', 'conversion', {'send_to': 'AW-18032769454/XXXXXXXXXXXXXXXX'}); gtag('event', 'conversion', {'send_to': 'AW-18032769454/nL4uCJHXo44cEK7z2JZD'}); btn.textContent = "Sent ✓";         setTimeout(function() {           var lang = document.documentElement.lang;           window.location.href = lang === "es" ? "gracias.html" : "thank-you.html";         }, 1500);
       })
       .catch(function() { btn.textContent = "Try again"; btn.disabled = false; });
   });
