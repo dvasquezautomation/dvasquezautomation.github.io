@@ -115,6 +115,15 @@ section{padding:6rem 5vw}
 .flow-arrow{font-size:.65rem;color:var(--gold);margin-left:1.5rem}
 .view-pdf-btn{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.5rem;background:transparent;border:1px solid rgba(201,168,76,.4);color:var(--gold-light);padding:.5rem 1.1rem;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif}
 .view-pdf-btn svg{width:14px;height:14px}
+.repo-block{margin:2rem 0 2.2rem;padding:1.4rem;border:1px solid rgba(74,143,212,.2);background:rgba(13,33,71,.35)}
+.repo-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;margin-bottom:.4rem}
+.repo-sub{color:var(--text-muted);font-size:.84rem;line-height:1.6}
+.repo-grid{margin-top:1.2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
+.repo-card{border:1px solid rgba(74,143,212,.2);background:rgba(10,22,40,.5);padding:1rem}
+.repo-name{font-size:.86rem;color:var(--gold-light);letter-spacing:.06em;text-transform:uppercase}
+.repo-desc{font-size:.8rem;color:var(--text-muted);line-height:1.55;margin:.55rem 0 .8rem}
+.repo-link{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--pale);text-decoration:none;border-bottom:1px solid rgba(200,221,245,.35)}
+.repo-link:hover{color:var(--gold-light);border-color:var(--gold-light)}
 .contact{background:linear-gradient(135deg,var(--deep-blue) 0%,var(--mid-blue) 100%);position:relative;overflow:hidden}
 .contact::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(201,168,76,.05) 0%,transparent 70%);pointer-events:none}
 .contact-inner{position:relative;z-index:1;max-width:900px;margin:0 auto}
@@ -146,6 +155,7 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
 .footer-privacy:hover{color:var(--gold-light);border-color:var(--gold-light)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:8rem;padding-bottom:4rem}.hero-text{padding-right:0;order:2}.hero-photo-wrap{order:1;padding-top:2rem}.hero-photo-frame{width:min(280px,60vw)}.hero-photo-badge{left:-1rem}.about-grid,.contact-grid{grid-template-columns:1fr;gap:2rem}.about-left{position:static}.clients-grid{grid-template-columns:1fr}.projects-grid{grid-template-columns:1fr}.project-card.featured{grid-column:1;grid-template-columns:1fr}footer{flex-direction:column;gap:1rem;text-align:center}.stats-row{grid-template-columns:1fr 1fr}.form-row{grid-template-columns:1fr}.nav-links{gap:1.2rem}}
+@media(max-width:900px){.repo-grid{grid-template-columns:1fr}}
 </style>
 <!-- Google Ads Conversion Tracking -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18032769454"></script>
@@ -264,6 +274,27 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
   <p class="section-label" id="label-projects">Portfolio</p>
   <h2 class="section-title" id="title-projects">Systems I've <em>shipped</em></h2>
   <p style="color:var(--text-muted);font-size:.85rem;margin-top:.5rem" id="projects-sub">Click any project to view the full case study PDF.</p>
+  <div class="repo-block">
+    <h3 class="repo-title" id="repo-title">Featured GitHub Repositories</h3>
+    <p class="repo-sub" id="repo-sub">These are the 3 repositories I highlight in my portfolio. Click any repository to open it in GitHub.</p>
+    <div class="repo-grid">
+      <article class="repo-card">
+        <p class="repo-name">Repo 01</p>
+        <p class="repo-desc" id="repo-desc-1">Replace with your first repository name and short impact statement.</p>
+        <a class="repo-link" id="repo-link-1" href="https://github.com/YOUR-USERNAME/YOUR-REPO-1" target="_blank" rel="noopener noreferrer">Open Repository</a>
+      </article>
+      <article class="repo-card">
+        <p class="repo-name">Repo 02</p>
+        <p class="repo-desc" id="repo-desc-2">Replace with your second repository name and what problem it solves.</p>
+        <a class="repo-link" id="repo-link-2" href="https://github.com/YOUR-USERNAME/YOUR-REPO-2" target="_blank" rel="noopener noreferrer">Open Repository</a>
+      </article>
+      <article class="repo-card">
+        <p class="repo-name">Repo 03</p>
+        <p class="repo-desc" id="repo-desc-3">Replace with your third repository name and key technologies used.</p>
+        <a class="repo-link" id="repo-link-3" href="https://github.com/YOUR-USERNAME/YOUR-REPO-3" target="_blank" rel="noopener noreferrer">Open Repository</a>
+      </article>
+    </div>
+  </div>
   <div class="projects-grid">
     <div class="project-card featured" onclick="window.open('https://drive.google.com/file/d/1M4SrDduZWMamxy8Pber_4JTuOgKbDTuX/view','_blank')">
       <div>
@@ -399,6 +430,12 @@ var T = {
     "label-tools":"Toolstack","title-tools":"The technology <em>I use</em>",
     "label-projects":"Portfolio","title-projects":"Systems I've <em>shipped</em>",
     "projects-sub":"Click any project to view the full case study PDF.",
+    "repo-title":"Featured GitHub Repositories",
+    "repo-sub":"These are the 3 repositories I highlight in my portfolio. Click any repository to open it in GitHub.",
+    "repo-desc-1":"Replace with your first repository name and short impact statement.",
+    "repo-desc-2":"Replace with your second repository name and what problem it solves.",
+    "repo-desc-3":"Replace with your third repository name and key technologies used.",
+    "repo-link-1":"Open Repository","repo-link-2":"Open Repository","repo-link-3":"Open Repository",
     "pdf-btn-text":"View Case Study PDF","flow-label":"Lead Scoring Flow",
     "flow-1":"Form submitted → Zap triggered instantly","flow-2":"Google Sheets lookup scores the lead",
     "flow-3":"Zapier Paths branches: HOT / WARM / COLD","flow-4":"Notion CRM record created automatically",
@@ -446,6 +483,12 @@ var T = {
     "label-tools":"Herramientas","title-tools":"La tecnología <em>que uso</em>",
     "label-projects":"Portafolio","title-projects":"Sistemas que he <em>entregado</em>",
     "projects-sub":"Haz clic en cualquier proyecto para ver el caso de estudio en PDF.",
+    "repo-title":"Repositorios Destacados de GitHub",
+    "repo-sub":"Estos son los 3 repositorios que destaco en mi portafolio. Haz clic en cualquiera para verlo en GitHub.",
+    "repo-desc-1":"Reemplaza este texto con el nombre de tu primer repositorio y su impacto principal.",
+    "repo-desc-2":"Reemplaza este texto con el nombre de tu segundo repositorio y el problema que resuelve.",
+    "repo-desc-3":"Reemplaza este texto con el nombre de tu tercer repositorio y tecnologías clave.",
+    "repo-link-1":"Abrir repositorio","repo-link-2":"Abrir repositorio","repo-link-3":"Abrir repositorio",
     "pdf-btn-text":"Ver Caso de Estudio PDF","flow-label":"Flujo de Clasificación de Leads",
     "flow-1":"Formulario enviado → Zap activado al instante","flow-2":"Google Sheets califica el lead",
     "flow-3":"Zapier Paths divide: CALIENTE / TIBIO / FRÍO","flow-4":"Registro en Notion CRM creado automáticamente",
