@@ -157,7 +157,7 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:8rem;padding-bottom:4rem}.hero-text{padding-right:0;order:2}.hero-photo-wrap{order:1;padding-top:2rem}.hero-photo-frame{width:min(280px,60vw)}.hero-photo-badge{left:-1rem}.about-grid,.contact-grid{grid-template-columns:1fr;gap:2rem}.about-left{position:static}.clients-grid{grid-template-columns:1fr}.projects-grid{grid-template-columns:1fr}.project-card.featured{grid-column:1;grid-template-columns:1fr}footer{flex-direction:column;gap:1rem;text-align:center}.stats-row{grid-template-columns:1fr 1fr}.form-row{grid-template-columns:1fr}.nav-links{gap:1.2rem}}
 @media(max-width:900px){.repo-grid{grid-template-columns:1fr}}
-@media(max-width:900px){nav{padding:1rem 4vw;align-items:flex-start;gap:.8rem}.nav-right{width:100%;justify-content:space-between;gap:1rem;flex-wrap:wrap}.nav-links{gap:.8rem;flex-wrap:wrap}.hero{padding-top:10.5rem}.hero-tagline{max-width:100%}.projects-grid{gap:.8rem}.project-card,.project-card.featured{padding:1.4rem}.metrics-row{gap:1rem;flex-wrap:wrap}}
+@media(max-width:900px){html{font-size:calc(100% + 1pt)}nav{padding:1rem 4vw;align-items:flex-start;gap:.8rem}.nav-right{width:100%;justify-content:space-between;gap:1rem;flex-wrap:wrap}.nav-links{gap:.8rem;flex-wrap:wrap}.hero{min-height:auto;padding-top:10.5rem}.hero-photo-wrap{padding-top:5rem;justify-content:center}.hero-photo-frame{width:min(320px,72vw);margin:0 auto}.hero-tagline{max-width:100%}.projects-grid{gap:.8rem}.project-card,.project-card.featured{padding:1.4rem}.metrics-row{gap:1rem;flex-wrap:wrap}}
 @media(max-width:600px){section{padding:4.5rem 6vw}.nav-links a{font-size:.7rem}.hero-name{font-size:clamp(2.4rem,12vw,3.3rem)}.repo-block{padding:1rem}.repo-name{font-size:.78rem}.project-title{font-size:1.2rem}}
 </style>
 <!-- Google Ads Conversion Tracking -->
@@ -329,7 +329,7 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
           <div><div class="project-metric">3×</div><div class="project-metric-label" id="met-l3">Faster pipeline setup</div></div>
         </div>
         <div class="project-stack"><span class="stack-tag">Google Forms</span><span class="stack-tag">Google Sheets</span><span class="stack-tag">Zapier Paths</span><span class="stack-tag">Notion</span><span class="stack-tag">Gmail</span></div>
-        <span class="view-pdf-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg><span id="pdf-btn-text">View Case Study PDF</span></span>
+        <a class="view-pdf-btn" href="https://drive.google.com/file/d/1M4SrDduZWMamxy8Pber_4JTuOgKbDTuX/view" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg><span id="pdf-btn-text">View Case Study PDF</span></a>
       </div>
       <div>
         <p style="font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem" id="flow-label">Lead Scoring Flow</p>
@@ -353,21 +353,21 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
       <h3 class="project-title" id="proj-t2">Ecommerce AI Support System + SLA Monitor</h3>
       <p class="project-desc" id="proj-d2">Two Zaps working as one complete support ecosystem. ChatGPT classifies every email into 6 intent categories, routes it, logs the ticket, and monitors SLA violations — all automatically.</p>
       <div class="project-stack"><span class="stack-tag">Gmail</span><span class="stack-tag">ChatGPT</span><span class="stack-tag">Zapier Paths</span><span class="stack-tag">Google Sheets</span></div>
-      <span class="view-pdf-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>View Case Study PDF</span>
+      <a class="view-pdf-btn" href="https://drive.google.com/file/d/1j5zg-JvDaaRuG2bRfiQ2zCcL4iq-jO8s/view" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>View Case Study PDF</a>
     </div>
     <div class="project-card" onclick="window.open('https://drive.google.com/file/d/1bbtMbfTXip3T-bMuN2MeTqIi44S_d4jl/view','_blank')">
       <p class="project-tag">Freelance · 7-Step Zap · Multi-tool</p>
       <h3 class="project-title" id="proj-t3">Freelance Project Intake &amp; Routing Pipeline</h3>
       <p class="project-desc" id="proj-d3">Inquiries filtered by project type, logged in Airtable CRM, assigned as Asana tasks, announced in Slack, and confirmed by email — in under 60 seconds.</p>
       <div class="project-stack"><span class="stack-tag">Google Forms</span><span class="stack-tag">Airtable</span><span class="stack-tag">Asana</span><span class="stack-tag">Slack</span><span class="stack-tag">Gmail</span></div>
-      <span class="view-pdf-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>View Case Study PDF</span>
+      <a class="view-pdf-btn" href="https://drive.google.com/file/d/1bbtMbfTXip3T-bMuN2MeTqIi44S_d4jl/view" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>View Case Study PDF</a>
     </div>
     <div class="project-card" onclick="window.open('https://drive.google.com/file/d/19Om8EypVXByNunfq9NrgWL9hu4bcBMHt/view','_blank')">
       <p class="project-tag">Aesthetic Clinic · Notion CRM · Zapier Paths</p>
       <h3 class="project-title" id="proj-t4">Client Acquisition &amp; Segmentation — Beauty Clinic</h3>
       <p class="project-desc" id="proj-d4">Automated lead capture and CRM segmentation. Every consultation request is logged in Sheets, stored in Notion CRM, and tagged with a 4-tier service classification — zero manual work.</p>
       <div class="project-stack"><span class="stack-tag">Google Forms</span><span class="stack-tag">Google Sheets</span><span class="stack-tag">Notion</span><span class="stack-tag">Zapier Paths</span></div>
-      <span class="view-pdf-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>View Case Study PDF</span>
+      <a class="view-pdf-btn" href="https://drive.google.com/file/d/19Om8EypVXByNunfq9NrgWL9hu4bcBMHt/view" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>View Case Study PDF</a>
     </div>
   </div>
 </section>
