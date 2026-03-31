@@ -23,7 +23,7 @@
 <style>
 :root{--navy:#0a1628;--deep-blue:#0d2147;--mid-blue:#1a3a6e;--sky:#4a8fd4;--pale:#c8ddf5;--gold:#c9a84c;--gold-light:#e4c97a;--gold-pale:#f5e8c0;--white:#f8f4ee;--text-muted:#8baed0}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;font-size:calc(100% + 2pt)}
+html{scroll-behavior:smooth;font-size:calc(100% + 4pt)}
 body{background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 5vw;background:linear-gradient(to bottom,rgba(10,22,40,.98) 0%,rgba(10,22,40,0) 100%)}
 .nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;letter-spacing:.15em;color:var(--gold-light);text-decoration:none}
@@ -276,40 +276,40 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
   <h2 class="section-title" id="title-projects">Systems I've <em>shipped</em></h2>
   <p style="color:var(--text-muted);font-size:.85rem;margin-top:.5rem" id="projects-sub">Click any project to view the full case study PDF.</p>
   <div class="repo-block">
-    <h3 class="repo-title">
+    <h3 class="repo-title" id="repo-title">
       Proven Automation Systems That Save Time & Increase Conversions
     </h3>
-    <p class="repo-sub">
+    <p class="repo-sub" id="repo-sub">
       Real systems I've built to eliminate manual work, speed up response times, and improve lead conversion.
     </p>
     <div class="repo-grid">
       <article class="repo-card">
         <p class="repo-name">AI CRM Automation System</p>
-        <p class="repo-desc">
+        <p class="repo-desc" id="repo-desc-1">
           Captures, qualifies, and routes every lead automatically in seconds.
           <br><strong>Result: Faster response time & zero manual CRM work.</strong>
         </p>
-        <a class="repo-link" href="https://github.com/dvasquezautomation/crm-automation-google-apps-script" target="_blank">
+        <a class="repo-link" id="repo-link-1" href="https://github.com/dvasquezautomation/crm-automation-google-apps-script" target="_blank">
           View System →
         </a>
       </article>
       <article class="repo-card">
         <p class="repo-name">AI Client Intake & Qualification</p>
-        <p class="repo-desc">
+        <p class="repo-desc" id="repo-desc-2">
           Analyzes incoming requests and identifies high-value opportunities using AI.
           <br><strong>Result: Less time wasted on unqualified leads.</strong>
         </p>
-        <a class="repo-link" href="https://github.com/dvasquezautomation/client-intake-pipeline-gemini-ai" target="_blank">
+        <a class="repo-link" id="repo-link-2" href="https://github.com/dvasquezautomation/client-intake-pipeline-gemini-ai" target="_blank">
           View System →
         </a>
       </article>
       <article class="repo-card">
         <p class="repo-name">Automated Daily Operations Briefing</p>
-        <p class="repo-desc">
+        <p class="repo-desc" id="repo-desc-3">
           Sends a daily summary of key business updates for faster decision-making.
           <br><strong>Result: Better decisions without digging through data.</strong>
         </p>
-        <a class="repo-link" href="https://github.com/dvasquezautomation/daily-briefing-google-apps-script" target="_blank">
+        <a class="repo-link" id="repo-link-3" href="https://github.com/dvasquezautomation/daily-briefing-google-apps-script" target="_blank">
           View System →
         </a>
       </article>
@@ -450,12 +450,12 @@ var T = {
     "label-tools":"Toolstack","title-tools":"The technology <em>I use</em>",
     "label-projects":"Portfolio","title-projects":"Systems I've <em>shipped</em>",
     "projects-sub":"Click any project to view the full case study PDF.",
-    "repo-title":"Featured GitHub Repositories",
-    "repo-sub":"These are the 3 repositories I highlight in my portfolio. Click any repository to open it on GitHub.",
-    "repo-desc-1":"Automated CRM workflow built with Google Apps Script to capture, organize, and process leads with less manual work.",
-    "repo-desc-2":"Intelligent client intake pipeline using Gemini AI to classify requests, route opportunities, and accelerate project qualification.",
-    "repo-desc-3":"Automated daily briefing system that consolidates key updates and sends a concise report to support faster decision-making.",
-    "repo-link-1":"Open Repository","repo-link-2":"Open Repository","repo-link-3":"Open Repository",
+    "repo-title":"Proven Automation Systems That Save Time & Increase Conversions",
+    "repo-sub":"Real systems I've built to eliminate manual work, speed up response times, and improve lead conversion.",
+    "repo-desc-1":"Captures, qualifies, and routes every lead automatically in seconds.<br><strong>Result: Faster response time & zero manual CRM work.</strong>",
+    "repo-desc-2":"Analyzes incoming requests and identifies high-value opportunities using AI.<br><strong>Result: Less time wasted on unqualified leads.</strong>",
+    "repo-desc-3":"Sends a daily summary of key business updates for faster decision-making.<br><strong>Result: Better decisions without digging through data.</strong>",
+    "repo-link-1":"View System →","repo-link-2":"View System →","repo-link-3":"View System →",
     "pdf-btn-text":"View Case Study PDF","flow-label":"Lead Scoring Flow",
     "flow-1":"Form submitted → Zap triggered instantly","flow-2":"Google Sheets lookup scores the lead",
     "flow-3":"Zapier Paths branches: HOT / WARM / COLD","flow-4":"Notion CRM record created automatically",
@@ -503,12 +503,12 @@ var T = {
     "label-tools":"Herramientas","title-tools":"La tecnología <em>que uso</em>",
     "label-projects":"Portafolio","title-projects":"Sistemas que he <em>entregado</em>",
     "projects-sub":"Haz clic en cualquier proyecto para ver el caso de estudio en PDF.",
-    "repo-title":"Repositorios Destacados de GitHub",
-    "repo-sub":"Estos son los 3 repositorios que destaco en mi portafolio. Haz clic en cualquiera para abrirlo en GitHub.",
-    "repo-desc-1":"Flujo CRM automatizado con Google Apps Script para capturar, organizar y procesar leads con menos trabajo manual.",
-    "repo-desc-2":"Pipeline inteligente de captación de clientes con Gemini AI para clasificar solicitudes, enrutar oportunidades y acelerar la calificación de proyectos.",
-    "repo-desc-3":"Sistema automatizado de briefing diario que consolida actualizaciones clave y envía un resumen conciso para tomar decisiones más rápido.",
-    "repo-link-1":"Abrir repositorio","repo-link-2":"Abrir repositorio","repo-link-3":"Abrir repositorio",
+    "repo-title":"Sistemas de Automatización Probados que Ahorran Tiempo y Aumentan Conversiones",
+    "repo-sub":"Sistemas reales que construí para eliminar trabajo manual, acelerar tiempos de respuesta y mejorar la conversión de leads.",
+    "repo-desc-1":"Captura, califica y enruta cada lead automáticamente en segundos.<br><strong>Resultado: Respuesta más rápida y cero trabajo manual en CRM.</strong>",
+    "repo-desc-2":"Analiza solicitudes entrantes e identifica oportunidades de alto valor con IA.<br><strong>Resultado: Menos tiempo perdido en leads no calificados.</strong>",
+    "repo-desc-3":"Envía un resumen diario de actualizaciones clave del negocio para tomar decisiones más rápido.<br><strong>Resultado: Mejores decisiones sin revisar datos manualmente.</strong>",
+    "repo-link-1":"Ver sistema →","repo-link-2":"Ver sistema →","repo-link-3":"Ver sistema →",
     "pdf-btn-text":"Ver Caso de Estudio PDF","flow-label":"Flujo de Clasificación de Leads",
     "flow-1":"Formulario enviado → Zap activado al instante","flow-2":"Google Sheets califica el lead",
     "flow-3":"Zapier Paths divide: CALIENTE / TIBIO / FRÍO","flow-4":"Registro en Notion CRM creado automáticamente",
@@ -535,7 +535,7 @@ var T = {
   }
 };
 
-var HTML_IDS = ["title-about","title-clients","title-services","title-tools","title-projects","title-contact"];
+var HTML_IDS = ["title-about","title-clients","title-services","title-tools","title-projects","title-contact","repo-desc-1","repo-desc-2","repo-desc-3"];
 
 function setLang(lang) {
   var t = T[lang];
