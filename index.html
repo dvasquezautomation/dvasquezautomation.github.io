@@ -23,7 +23,7 @@
 <style>
 :root{--navy:#0a1628;--deep-blue:#0d2147;--mid-blue:#1a3a6e;--sky:#4a8fd4;--pale:#c8ddf5;--gold:#c9a84c;--gold-light:#e4c97a;--gold-pale:#f5e8c0;--white:#f8f4ee;--text-muted:#8baed0}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;font-size:18px}
 body{background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 5vw;background:linear-gradient(to bottom,rgba(10,22,40,.98) 0%,rgba(10,22,40,0) 100%)}
 .nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;letter-spacing:.15em;color:var(--gold-light);text-decoration:none}
@@ -115,6 +115,16 @@ section{padding:6rem 5vw}
 .flow-arrow{font-size:.65rem;color:var(--gold);margin-left:1.5rem}
 .view-pdf-btn{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.5rem;background:transparent;border:1px solid rgba(201,168,76,.4);color:var(--gold-light);padding:.5rem 1.1rem;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif}
 .view-pdf-btn svg{width:14px;height:14px}
+.repo-block{margin-top:4rem;padding:2.5rem;border:1px solid rgba(201,168,76,.18);background:rgba(13,33,71,.45)}
+.repo-title{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;margin-bottom:.7rem}
+.repo-sub{font-size:.95rem;line-height:1.8;color:var(--text-muted);max-width:860px}
+.repo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem}
+.repo-card{border:1px solid rgba(74,143,212,.18);background:rgba(10,22,40,.55);padding:1.3rem;display:flex;flex-direction:column;gap:.8rem}
+.repo-name{font-size:1rem;font-weight:500;color:var(--gold-light)}
+.repo-desc{font-size:.85rem;line-height:1.75;color:var(--pale)}
+.repo-desc strong{color:var(--gold-light)}
+.repo-link{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-light);text-decoration:none;border-bottom:1px solid rgba(201,168,76,.35);display:inline-flex;width:max-content;padding-bottom:.1rem}
+.repo-link:hover{border-color:var(--gold-light)}
 .contact{background:linear-gradient(135deg,var(--deep-blue) 0%,var(--mid-blue) 100%);position:relative;overflow:hidden}
 .contact::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(201,168,76,.05) 0%,transparent 70%);pointer-events:none}
 .contact-inner{position:relative;z-index:1;max-width:900px;margin:0 auto}
@@ -145,7 +155,7 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
 .footer-privacy{font-size:.72rem;color:var(--text-muted);letter-spacing:.08em;text-decoration:none;border-bottom:1px solid rgba(139,174,208,.3);transition:color .3s,border-color .3s}
 .footer-privacy:hover{color:var(--gold-light);border-color:var(--gold-light)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:8rem;padding-bottom:4rem}.hero-text{padding-right:0;order:2}.hero-photo-wrap{order:1;padding-top:2rem}.hero-photo-frame{width:min(280px,60vw)}.hero-photo-badge{left:-1rem}.about-grid,.contact-grid{grid-template-columns:1fr;gap:2rem}.about-left{position:static}.clients-grid{grid-template-columns:1fr}.projects-grid{grid-template-columns:1fr}.project-card.featured{grid-column:1;grid-template-columns:1fr}footer{flex-direction:column;gap:1rem;text-align:center}.stats-row{grid-template-columns:1fr 1fr}.form-row{grid-template-columns:1fr}.nav-links{gap:1.2rem}}
+@media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:8rem;padding-bottom:4rem}.hero-text{padding-right:0;order:2}.hero-photo-wrap{order:1;padding-top:2rem}.hero-photo-frame{width:min(280px,60vw)}.hero-photo-badge{left:-1rem}.about-grid,.contact-grid{grid-template-columns:1fr;gap:2rem}.about-left{position:static}.clients-grid{grid-template-columns:1fr}.projects-grid{grid-template-columns:1fr}.project-card.featured{grid-column:1;grid-template-columns:1fr}.repo-grid{grid-template-columns:1fr}footer{flex-direction:column;gap:1rem;text-align:center}.stats-row{grid-template-columns:1fr 1fr}.form-row{grid-template-columns:1fr}.nav-links{gap:1.2rem}}
 </style>
 <!-- Google Ads Conversion Tracking -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18032769454"></script>
@@ -264,6 +274,27 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
   <p class="section-label" id="label-projects">Portfolio</p>
   <h2 class="section-title" id="title-projects">Systems I've <em>shipped</em></h2>
   <p style="color:var(--text-muted);font-size:.85rem;margin-top:.5rem" id="projects-sub">Click any project to view the full case study PDF.</p>
+  <div class="repo-block">
+    <h3 class="repo-title" id="repo-title">Proven Automation Systems That Save Time &amp; Increase Conversions</h3>
+    <p class="repo-sub" id="repo-sub">Real systems I've built to eliminate manual work, speed up response times, and improve lead conversion.</p>
+    <div class="repo-grid">
+      <article class="repo-card">
+        <p class="repo-name" id="repo-n1">AI CRM Automation System</p>
+        <p class="repo-desc" id="repo-d1">Captures, qualifies, and routes every lead automatically in seconds.<br><strong>Result: Faster response time &amp; zero manual CRM work.</strong></p>
+        <a class="repo-link" id="repo-l1" href="https://github.com/dvasquezautomation/crm-automation-google-apps-script?tab=readme-ov-file#crm-automation-system--google-apps-script--gemini-ai" target="_blank">View System →</a>
+      </article>
+      <article class="repo-card">
+        <p class="repo-name" id="repo-n2">AI Client Intake &amp; Qualification</p>
+        <p class="repo-desc" id="repo-d2">Analyzes incoming requests and identifies high-value opportunities using AI.<br><strong>Result: Less time wasted on unqualified leads.</strong></p>
+        <a class="repo-link" id="repo-l2" href="https://github.com/dvasquezautomation/client-intake-pipeline-gemini-ai" target="_blank">View System →</a>
+      </article>
+      <article class="repo-card">
+        <p class="repo-name" id="repo-n3">Automated Daily Operations Briefing</p>
+        <p class="repo-desc" id="repo-d3">Sends a daily summary of key business updates for faster decision-making.<br><strong>Result: Better decisions without digging through data.</strong></p>
+        <a class="repo-link" id="repo-l3" href="https://github.com/dvasquezautomation/daily-briefing-google-apps-script" target="_blank">View System →</a>
+      </article>
+    </div>
+  </div>
   <div class="projects-grid">
     <div class="project-card featured" onclick="window.open('https://drive.google.com/file/d/1M4SrDduZWMamxy8Pber_4JTuOgKbDTuX/view','_blank')">
       <div>
@@ -412,6 +443,17 @@ var T = {
     "proj-d3":"Inquiries filtered by project type, logged in Airtable CRM, assigned as Asana tasks, announced in Slack, and confirmed by email — in under 60 seconds.",
     "proj-t4":"Client Acquisition & Segmentation — Beauty Clinic",
     "proj-d4":"Automated lead capture and CRM segmentation. Every consultation request is logged in Sheets, stored in Notion CRM, and tagged with a 4-tier service classification — zero manual work.",
+    "repo-title":"Proven Automation Systems That Save Time & Increase Conversions",
+    "repo-sub":"Real systems I've built to eliminate manual work, speed up response times, and improve lead conversion.",
+    "repo-n1":"AI CRM Automation System",
+    "repo-d1":"Captures, qualifies, and routes every lead automatically in seconds.<br><strong>Result: Faster response time & zero manual CRM work.</strong>",
+    "repo-l1":"View System →",
+    "repo-n2":"AI Client Intake & Qualification",
+    "repo-d2":"Analyzes incoming requests and identifies high-value opportunities using AI.<br><strong>Result: Less time wasted on unqualified leads.</strong>",
+    "repo-l2":"View System →",
+    "repo-n3":"Automated Daily Operations Briefing",
+    "repo-d3":"Sends a daily summary of key business updates for faster decision-making.<br><strong>Result: Better decisions without digging through data.</strong>",
+    "repo-l3":"View System →",
     "label-contact":"Contact","title-contact":"Let's map out<br>your <em>workflow</em>",
     "contact-sub":"Tell me about your business and the tasks you want to automate. I'll review your message and get back to you within 24 hours.",
     "lbl-name":"Full Name","lbl-email":"Email","lbl-biz":"Business Type","lbl-proj":"Describe Your Project","lbl-budget":"Approximate Budget",
@@ -459,6 +501,17 @@ var T = {
     "proj-d3":"Consultas filtradas por tipo de proyecto, registradas en Airtable CRM, asignadas en Asana, anunciadas en Slack y confirmadas por email — en menos de 60 segundos.",
     "proj-t4":"Adquisición y Segmentación de Clientes — Clínica Estética",
     "proj-d4":"Captura automatizada de leads y segmentación CRM. Cada solicitud se registra en Sheets, se almacena en Notion CRM y se etiqueta con una clasificación de 4 niveles — cero trabajo manual.",
+    "repo-title":"Sistemas de Automatización Probados que Ahorran Tiempo y Aumentan Conversiones",
+    "repo-sub":"Sistemas reales que he construido para eliminar trabajo manual, acelerar respuestas y mejorar la conversión de leads.",
+    "repo-n1":"Sistema de Automatización CRM con IA",
+    "repo-d1":"Captura, califica y enruta cada lead automáticamente en segundos.<br><strong>Resultado: respuesta más rápida y cero trabajo manual en CRM.</strong>",
+    "repo-l1":"Ver sistema →",
+    "repo-n2":"Captación y Calificación de Clientes con IA",
+    "repo-d2":"Analiza solicitudes entrantes e identifica oportunidades de alto valor usando IA.<br><strong>Resultado: menos tiempo perdido en leads no calificados.</strong>",
+    "repo-l2":"Ver sistema →",
+    "repo-n3":"Resumen Diario Automatizado de Operaciones",
+    "repo-d3":"Envía un resumen diario de actualizaciones clave del negocio para decidir más rápido.<br><strong>Resultado: mejores decisiones sin revisar datos manualmente.</strong>",
+    "repo-l3":"Ver sistema →",
     "label-contact":"Contacto","title-contact":"Diseñemos tu<br><em>flujo de trabajo</em>",
     "contact-sub":"Cuéntame sobre tu negocio y las tareas que quieres automatizar. Revisaré tu mensaje y te responderé en menos de 24 horas.",
     "lbl-name":"Nombre completo","lbl-email":"Email","lbl-biz":"Tipo de negocio","lbl-proj":"Describe tu proyecto","lbl-budget":"Presupuesto aproximado",
@@ -472,7 +525,7 @@ var T = {
   }
 };
 
-var HTML_IDS = ["title-about","title-clients","title-services","title-tools","title-projects","title-contact"];
+var HTML_IDS = ["title-about","title-clients","title-services","title-tools","title-projects","title-contact","repo-d1","repo-d2","repo-d3"];
 
 function setLang(lang) {
   var t = T[lang];
