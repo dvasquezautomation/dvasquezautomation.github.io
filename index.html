@@ -25,6 +25,9 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;font-size:18px}
 body{background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden}
+#sticky-cta-bar{position:fixed;top:0;left:0;right:0;z-index:200;background:linear-gradient(90deg,#c9a84c,#e4c97a);color:#0a1628;display:flex;align-items:center;justify-content:center;gap:1.5rem;padding:.55rem 5vw;font-size:.75rem;letter-spacing:.08em}
+#sticky-cta-btn{background:#0a1628;color:#e4c97a;padding:.35rem 1.1rem;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;font-weight:500;white-space:nowrap;transition:background .2s}
+#sticky-cta-btn:hover{background:#0d2147}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 5vw;background:linear-gradient(to bottom,rgba(10,22,40,.98) 0%,rgba(10,22,40,0) 100%)}
 .nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;letter-spacing:.15em;color:var(--gold-light);text-decoration:none}
 .nav-right{display:flex;align-items:center;gap:2.5rem}
@@ -46,6 +49,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero-title{font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);margin:1.5rem 0 2rem;animation:fadeUp .7s ease .7s both}
 .hero-tagline{font-size:1.05rem;line-height:1.7;color:var(--pale);max-width:460px;margin-bottom:2.5rem;animation:fadeUp .7s ease .9s both}
 .hero-cta{display:flex;gap:1rem;align-items:center;animation:fadeUp .7s ease 1s both}
+.hero-cta-group{display:flex;gap:1rem;align-items:center;margin-top:1rem;animation:fadeUp .7s ease 1.1s both}
+.hero-cta-group .btn-submit,.hero-cta-group .btn-whatsapp{padding:.85rem 1.5rem;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none}
+.hero-cta-group .btn-submit{display:inline-block}
 .btn-primary{background:var(--gold);color:var(--navy);padding:.85rem 2rem;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;font-weight:500;text-decoration:none;transition:background .3s,transform .2s;display:inline-block}
 .btn-primary:hover{background:var(--gold-light);transform:translateY(-1px)}
 .btn-outline{border:1px solid rgba(200,221,245,.3);color:var(--pale);padding:.85rem 2rem;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;transition:border-color .3s,color .3s;display:inline-block}
@@ -85,6 +91,13 @@ section{padding:6rem 5vw}
 .client-desc{font-size:.88rem;line-height:1.7;color:var(--text-muted)}
 .services{background:linear-gradient(180deg,var(--navy) 0%,var(--deep-blue) 100%)}
 .services-list{margin-top:3.5rem}
+.use-cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.use-case-card{background:rgba(13,33,71,.5);border:1px solid rgba(74,143,212,.15);padding:1.8rem 1.5rem;transition:border-color .3s,transform .2s}
+.use-case-card:hover{border-color:rgba(201,168,76,.4);transform:translateY(-3px)}
+.use-case-icon{font-size:1.8rem;margin-bottom:1rem}
+.use-case-title{font-size:.92rem;font-weight:500;color:var(--white);margin-bottom:.5rem;line-height:1.4}
+.use-case-benefit{font-size:.82rem;color:var(--pale);line-height:1.6;margin-bottom:1rem}
+.use-case-tools{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
 .service-item{display:grid;grid-template-columns:3rem 1fr;gap:2rem;align-items:start;padding:2rem 0;border-bottom:1px solid rgba(74,143,212,.1);transition:padding-left .3s}
 .service-item:hover{padding-left:.5rem}
 .service-item:first-child{border-top:1px solid rgba(74,143,212,.1)}
@@ -155,7 +168,7 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
 .footer-privacy{font-size:.72rem;color:var(--text-muted);letter-spacing:.08em;text-decoration:none;border-bottom:1px solid rgba(139,174,208,.3);transition:color .3s,border-color .3s}
 .footer-privacy:hover{color:var(--gold-light);border-color:var(--gold-light)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:900px){html{font-size:16px}.hero{grid-template-columns:1fr;padding-top:8rem;padding-bottom:4rem}.hero-text{padding-right:0;order:2}.hero-photo-wrap{order:1;padding-top:2rem}.hero-photo-frame{width:min(280px,60vw)}.hero-photo-badge{left:-1rem}.about-grid,.contact-grid{grid-template-columns:1fr;gap:2rem}.about-left{position:static}.clients-grid{grid-template-columns:1fr}.projects-grid{grid-template-columns:1fr}.project-card.featured{grid-column:1;grid-template-columns:1fr}.repo-grid{grid-template-columns:1fr}footer{flex-direction:column;gap:1rem;text-align:center}.stats-row{grid-template-columns:1fr 1fr}.form-row{grid-template-columns:1fr}.nav-links{gap:1.2rem}}
+@media(max-width:900px){html{font-size:16px}.hero{grid-template-columns:1fr;padding-top:8rem;padding-bottom:4rem}.hero-text{padding-right:0;order:2}.hero-photo-wrap{order:1;padding-top:2rem}.hero-photo-frame{width:min(280px,60vw)}.hero-photo-badge{left:-1rem}.hero-cta-group{flex-direction:column;align-items:flex-start}.use-cases-grid{grid-template-columns:1fr}#sticky-cta-text{display:none}.about-grid,.contact-grid{grid-template-columns:1fr;gap:2rem}.about-left{position:static}.clients-grid{grid-template-columns:1fr}.projects-grid{grid-template-columns:1fr}.project-card.featured{grid-column:1;grid-template-columns:1fr}.repo-grid{grid-template-columns:1fr}footer{flex-direction:column;gap:1rem;text-align:center}.stats-row{grid-template-columns:1fr 1fr}.form-row{grid-template-columns:1fr}.nav-links{gap:1.2rem}}
 </style>
 <!-- Google Ads Conversion Tracking -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18032769454"></script>
@@ -175,6 +188,10 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
 </script>
 </head>
 <body>
+<div id="sticky-cta-bar">
+  <span id="sticky-cta-text">⚡ Free automation audit — limited spots available</span>
+  <a href="https://calendly.com/va-dvasquezm/30min" target="_blank" rel="noopener noreferrer" id="sticky-cta-btn">Book Free Audit</a>
+</div>
 <nav>
   <a class="nav-logo" href="#">Diana Vasquez</a>
   <div class="nav-right">
@@ -197,10 +214,14 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
     <p class="hero-eyebrow" id="hero-eyebrow">AI Automation Engineer</p>
     <h1 class="hero-name">Diana<br><em>Vasquez</em></h1>
     <p class="hero-title">Google Apps Script · Zapier · Gemini AI</p>
-    <p class="hero-tagline" id="hero-tagline">I build automated systems that eliminate manual work — so your team can focus on what actually moves the business forward.</p>
+    <p class="hero-tagline" id="hero-tagline">Save 10+ hours a week by eliminating manual tasks — no expensive software, no extra hires. Just systems that work while you sleep.</p>
     <div class="hero-cta">
       <a href="#contact" class="btn-primary" id="btn-start">Start a Project</a>
       <a href="#projects" class="btn-outline" id="btn-work">See My Work</a>
+    </div>
+    <div class="hero-cta-group">
+      <a href="https://calendly.com/va-dvasquezm/30min" target="_blank" rel="noopener noreferrer" class="btn-submit" id="btn-calendly">📅 Book a Free Call</a>
+      <a href="https://wa.me/573054329733?text=Hi%20Diana!%20I%20visited%20your%20website%20and%20I'd%20like%20to%20talk%20about%20automating%20my%20business." target="_blank" rel="noopener noreferrer" class="btn-whatsapp" id="btn-whatsapp-hero">💬 Message me on WhatsApp</a>
     </div>
   </div>
   <div class="hero-photo-wrap">
@@ -254,6 +275,50 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
     <div class="service-item"><div class="service-num">03</div><div><h3 class="service-name" id="srv-n3">CRM Pipelines</h3><p class="service-desc" id="srv-d3">Form submission → AI analysis → Drive folder → personalized email → dashboard update. Fully automated, zero manual intervention.</p></div></div>
     <div class="service-item"><div class="service-num">04</div><div><h3 class="service-name" id="srv-n4">AI-Powered Support Systems</h3><p class="service-desc" id="srv-d4">Incoming emails classified by AI, routed to the right response track. Response time reduced from hours to under 60 seconds.</p></div></div>
     <div class="service-item"><div class="service-num">05</div><div><h3 class="service-name" id="srv-n5">SLA Monitoring &amp; Alerts</h3><p class="service-desc" id="srv-d5">Automated alerts when tickets breach deadlines, with zero manual checking. Full visibility with zero overhead.</p></div></div>
+  </div>
+</section>
+
+<section class="services">
+  <p class="section-label" id="label-usecases">Use Cases</p>
+  <h2 class="section-title" id="title-usecases">What I can <em>do for you</em></h2>
+  <p style="color:var(--text-muted);font-size:.85rem;margin-top:.5rem" id="sub-usecases">Real automation scenarios — ready to deploy for your business</p>
+  <div class="use-cases-grid">
+    <article class="use-case-card">
+      <div class="use-case-icon">🛒</div>
+      <h3 class="use-case-title" id="uc-title-1">Shopify Orders → Google Sheets, automatic</h3>
+      <p class="use-case-benefit" id="uc-benefit-1">Zero manual logging. Every order synced in real time.</p>
+      <p class="use-case-tools">Shopify · Zapier · Google Sheets</p>
+    </article>
+    <article class="use-case-card">
+      <div class="use-case-icon">💬</div>
+      <h3 class="use-case-title" id="uc-title-2">WhatsApp Business Auto-Reply Bot</h3>
+      <p class="use-case-benefit" id="uc-benefit-2">Reply to leads in under 60 seconds, 24/7 — no staff needed.</p>
+      <p class="use-case-tools">WhatsApp API · Zapier · Gemini AI</p>
+    </article>
+    <article class="use-case-card">
+      <div class="use-case-icon">🏠</div>
+      <h3 class="use-case-title" id="uc-title-3">Real Estate Lead Scoring &amp; Instant Follow-Up</h3>
+      <p class="use-case-benefit" id="uc-benefit-3">Every inquiry scored HOT/WARM/COLD and followed up automatically.</p>
+      <p class="use-case-tools">Typeform · Zapier · HubSpot · Google Sheets</p>
+    </article>
+    <article class="use-case-card">
+      <div class="use-case-icon">📅</div>
+      <h3 class="use-case-title" id="uc-title-4">Appointment Booking for Clinics — Zero Phone Calls</h3>
+      <p class="use-case-benefit" id="uc-benefit-4">Patients book, confirm and get reminders — all automated.</p>
+      <p class="use-case-tools">Calendly · Zapier · Google Sheets · Gmail</p>
+    </article>
+    <article class="use-case-card">
+      <div class="use-case-icon">📦</div>
+      <h3 class="use-case-title" id="uc-title-5">E-commerce Support Tickets on Autopilot</h3>
+      <p class="use-case-benefit" id="uc-benefit-5">AI classifies every email and routes it — response time under 60s.</p>
+      <p class="use-case-tools">Gmail · ChatGPT · Zapier · Google Sheets</p>
+    </article>
+    <article class="use-case-card">
+      <div class="use-case-icon">📊</div>
+      <h3 class="use-case-title" id="uc-title-6">Daily Business Briefing — Delivered to Your Inbox</h3>
+      <p class="use-case-benefit" id="uc-benefit-6">Key metrics summarized and sent every morning automatically.</p>
+      <p class="use-case-tools">Google Sheets · Apps Script · Gmail</p>
+    </article>
   </div>
 </section>
 
@@ -410,8 +475,8 @@ var T = {
   en:{
     "nav-about":"About","nav-services":"Services","nav-projects":"Projects","nav-contact":"Contact",
     "hero-eyebrow":"AI Automation Engineer",
-    "hero-tagline":"I build automated systems that eliminate manual work — so your team can focus on what actually moves the business forward.",
-    "btn-start":"Start a Project","btn-work":"See My Work","badge-label":"Years Experience",
+    "hero-tagline":"Save 10+ hours a week by eliminating manual tasks — no expensive software, no extra hires. Just systems that work while you sleep.",
+    "btn-start":"Start a Project","btn-work":"See My Work","btn-calendly":"📅 Book a Free Call","btn-whatsapp-hero":"💬 Message me on WhatsApp","badge-label":"Years Experience",
     "label-about":"About","title-about":"Building systems<br>that work <em>for you</em>",
     "stat-1":"Lead to email","stat-2":"Manual steps","stat-3":"Support response",
     "about-p1":"I'm Diana, an Automation Engineer with 8 years of operational experience in business administration. I design end-to-end workflows using Google Apps Script, Zapier, and AI integrations that handle repetitive tasks automatically — without expensive software or complicated setups.",
@@ -422,6 +487,13 @@ var T = {
     "client-t2":"E-commerce Brands","client-d2":"Brands dealing with high support volume, manual ticket handling, or no SLA visibility. I automate the entire support pipeline end-to-end.",
     "client-t3":"Real Estate Agencies","client-d3":"Agencies losing leads to slow follow-up and unstructured qualification. I build automated systems that respond and qualify in seconds.",
     "label-services":"Services","title-services":"What I <em>build</em>",
+    "label-usecases":"Use Cases","title-usecases":"What I can <em>do for you</em>","sub-usecases":"Real automation scenarios — ready to deploy for your business",
+    "uc-title-1":"Shopify Orders → Google Sheets, automatic","uc-benefit-1":"Zero manual logging. Every order synced in real time.",
+    "uc-title-2":"WhatsApp Business Auto-Reply Bot","uc-benefit-2":"Reply to leads in under 60 seconds, 24/7 — no staff needed.",
+    "uc-title-3":"Real Estate Lead Scoring & Instant Follow-Up","uc-benefit-3":"Every inquiry scored HOT/WARM/COLD and followed up automatically.",
+    "uc-title-4":"Appointment Booking for Clinics — Zero Phone Calls","uc-benefit-4":"Patients book, confirm and get reminders — all automated.",
+    "uc-title-5":"E-commerce Support Tickets on Autopilot","uc-benefit-5":"AI classifies every email and routes it — response time under 60s.",
+    "uc-title-6":"Daily Business Briefing — Delivered to Your Inbox","uc-benefit-6":"Key metrics summarized and sent every morning automatically.",
     "srv-n1":"Google Apps Script Automations","srv-d1":"Custom triggers, API integrations, and multi-step workflows that go beyond what Zapier can handle.",
     "srv-n2":"AI-Powered Lead Scoring","srv-d2":"Every inquiry automatically classified as HOT / WARM / COLD using Gemini AI, with action recommendations generated instantly.",
     "srv-n3":"CRM Pipelines","srv-d3":"Form submission → AI analysis → Drive folder → personalized email → dashboard update. Fully automated, zero manual intervention.",
@@ -458,18 +530,19 @@ var T = {
     "contact-sub":"Tell me about your business and the tasks you want to automate. I'll review your message and get back to you within 24 hours.",
     "lbl-name":"Full Name","lbl-email":"Email","lbl-biz":"Business Type","lbl-proj":"Describe Your Project","lbl-budget":"Approximate Budget",
     "btn-submit":"Send Message","footer-text":"AI Automation Engineer · Google Apps Script · Zapier · Gemini AI",
-    "footer-privacy":"Privacy Policy",
+    "footer-privacy":"Privacy Policy","sticky-cta-text":"⚡ Free automation audit — limited spots available","sticky-cta-btn":"Book Free Audit",
     "opt-biz":"Select your industry","opt-budget":"Select a range",
     "inp-name-ph":"Your name","inp-email-ph":"your@email.com",
     "inp-proj-ph":"What tasks do you want to automate? What problem are you trying to solve?",
     "wa-href":"https://wa.me/573054329733?text=Hi%20Diana!%20I%20visited%20your%20website%20and%20I'd%20like%20to%20talk%20about%20automating%20my%20business.",
+    "wa-href-hero":"https://wa.me/573054329733?text=Hi%20Diana!%20I%20visited%20your%20website%20and%20I'd%20like%20to%20talk%20about%20automating%20my%20business.",
     "success-msg":"✦   Message sent — I'll get back to you within 24 hours. Thank you!"
   },
   es:{
     "nav-about":"Acerca","nav-services":"Servicios","nav-projects":"Proyectos","nav-contact":"Contacto",
     "hero-eyebrow":"Ingeniera de Automatización con IA",
-    "hero-tagline":"Construyo sistemas automatizados que eliminan el trabajo manual — para que tu equipo se enfoque en lo que realmente hace crecer el negocio.",
-    "btn-start":"Iniciar Proyecto","btn-work":"Ver mi trabajo","badge-label":"Años de Experiencia",
+    "hero-tagline":"Ahorra 10 horas a la semana eliminando tareas manuales — sin software costoso, sin contratar más personal. Solo sistemas que trabajan mientras tú descansas.",
+    "btn-start":"Iniciar Proyecto","btn-work":"Ver mi trabajo","btn-calendly":"📅 Agenda una llamada gratis","btn-whatsapp-hero":"💬 Escríbeme por WhatsApp","badge-label":"Años de Experiencia",
     "label-about":"Acerca","title-about":"Sistemas que funcionan<br><em>para ti</em>",
     "stat-1":"Lead a email","stat-2":"Pasos manuales","stat-3":"Respuesta de soporte",
     "about-p1":"Soy Diana, Ingeniera de Automatización con 8 años de experiencia operativa en administración de empresas. Diseño flujos de trabajo de extremo a extremo con Google Apps Script, Zapier e integraciones de IA que manejan tareas repetitivas automáticamente — sin software costoso ni configuraciones complicadas.",
@@ -480,6 +553,13 @@ var T = {
     "client-t2":"Marcas de E-commerce","client-d2":"Marcas con alto volumen de soporte, gestión manual de tickets o sin visibilidad de SLA. Automatizo todo el pipeline de soporte de extremo a extremo.",
     "client-t3":"Agencias Inmobiliarias","client-d3":"Agencias que pierden leads por seguimiento lento y procesos sin estructura. Construyo sistemas automatizados que responden y califican en segundos.",
     "label-services":"Servicios","title-services":"Lo que <em>construyo</em>",
+    "label-usecases":"Casos de Uso","title-usecases":"Lo que puedo <em>hacer por ti</em>","sub-usecases":"Automatizaciones reales — listas para tu negocio",
+    "uc-title-1":"Pedidos de Shopify → Google Sheets, automático","uc-benefit-1":"Cero registro manual. Cada pedido sincronizado en tiempo real.",
+    "uc-title-2":"Bot de respuesta automática para WhatsApp Business","uc-benefit-2":"Responde leads en menos de 60 segundos, 24/7 — sin personal.",
+    "uc-title-3":"Clasificación de leads inmobiliarios y seguimiento instantáneo","uc-benefit-3":"Cada consulta clasificada y contactada automáticamente.",
+    "uc-title-4":"Agendamiento para clínicas — cero llamadas telefónicas","uc-benefit-4":"Pacientes agendan, confirman y reciben recordatorios solos.",
+    "uc-title-5":"Tickets de soporte e-commerce en piloto automático","uc-benefit-5":"IA clasifica cada email y lo enruta — respuesta en menos de 60s.",
+    "uc-title-6":"Resumen diario del negocio — directo a tu bandeja","uc-benefit-6":"Métricas clave resumidas y enviadas cada mañana, solas.",
     "srv-n1":"Automatizaciones con Google Apps Script","srv-d1":"Triggers personalizados, integraciones de API y flujos de trabajo de múltiples pasos que van más allá de lo que Zapier puede manejar.",
     "srv-n2":"Clasificación de Leads con IA","srv-d2":"Cada consulta clasificada automáticamente como CALIENTE / TIBIO / FRÍO con Gemini AI, con recomendaciones de acción generadas al instante.",
     "srv-n3":"Pipelines de CRM","srv-d3":"Envío de formulario → análisis de IA → carpeta en Drive → email personalizado → actualización del dashboard. Totalmente automatizado.",
@@ -516,16 +596,17 @@ var T = {
     "contact-sub":"Cuéntame sobre tu negocio y las tareas que quieres automatizar. Revisaré tu mensaje y te responderé en menos de 24 horas.",
     "lbl-name":"Nombre completo","lbl-email":"Email","lbl-biz":"Tipo de negocio","lbl-proj":"Describe tu proyecto","lbl-budget":"Presupuesto aproximado",
     "btn-submit":"Enviar mensaje","footer-text":"Ingeniera de Automatización con IA · Google Apps Script · Zapier · Gemini AI",
-    "footer-privacy":"Política de Privacidad",
+    "footer-privacy":"Política de Privacidad","sticky-cta-text":"⚡ Auditoría gratuita — cupos limitados","sticky-cta-btn":"Agenda tu auditoría",
     "opt-biz":"Selecciona tu industria","opt-budget":"Selecciona un rango",
     "inp-name-ph":"Tu nombre","inp-email-ph":"tu@email.com",
     "inp-proj-ph":"¿Qué tareas quieres automatizar? ¿Qué problema intentas resolver?",
     "wa-href":"https://wa.me/573054329733?text=Hola%20Diana!%20Vi%20tu%20p%C3%A1gina%20y%20me%20gustar%C3%ADa%20hablar%20sobre%20automatizar%20mi%20negocio.",
+    "wa-href-hero":"https://wa.me/573054329733?text=Hola%20Diana!%20Visit%C3%A9%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20hablar%20sobre%20automatizar%20mi%20negocio.",
     "success-msg":"✦   Mensaje enviado — te responderé en menos de 24 horas. ¡Gracias!"
   }
 };
 
-var HTML_IDS = ["title-about","title-clients","title-services","title-tools","title-projects","title-contact","repo-d1","repo-d2","repo-d3"];
+var HTML_IDS = ["title-about","title-clients","title-services","title-usecases","title-tools","title-projects","title-contact","repo-d1","repo-d2","repo-d3"];
 
 function setLang(lang) {
   var t = T[lang];
@@ -533,6 +614,9 @@ function setLang(lang) {
     if (key === "wa-href") {
       var wa = document.getElementById("wa-btn");
       if (wa) wa.href = t[key];
+    } else if (key === "wa-href-hero") {
+      var waHero = document.getElementById("btn-whatsapp-hero");
+      if (waHero) waHero.href = t[key];
     } else if (key === "inp-name-ph") {
       var el = document.getElementById("inp-name"); if (el) el.placeholder = t[key];
     } else if (key === "inp-email-ph") {
@@ -545,6 +629,10 @@ function setLang(lang) {
       var el = document.getElementById("opt-budget"); if (el) el.textContent = t[key];
     } else if (key === "success-msg") {
       var el = document.getElementById("formSuccess"); if (el) el.textContent = t[key];
+    } else if (key === "sticky-cta-text") {
+      var el = document.getElementById("sticky-cta-text"); if (el) el.textContent = t[key];
+    } else if (key === "sticky-cta-btn") {
+      var el = document.getElementById("sticky-cta-btn"); if (el) el.textContent = t[key];
     } else {
       var el = document.getElementById(key);
       if (!el) continue;
@@ -557,6 +645,14 @@ function setLang(lang) {
   document.documentElement.lang = lang;
   document.title = lang === "es" ? "Diana Vasquez | Ingeniera de Automatización con IA" : "Diana Vasquez | AI Automation Engineer — Zapier, Google Apps Script & Gemini AI";
 }
+
+function adjustNavOffset() {
+  var bar = document.getElementById("sticky-cta-bar");
+  var nav = document.querySelector("nav");
+  if (bar && nav) nav.style.top = bar.offsetHeight + "px";
+}
+window.addEventListener("load", adjustNavOffset);
+window.addEventListener("resize", adjustNavOffset);
 
 window.addEventListener("DOMContentLoaded", function() {
   document.getElementById("btn-en").addEventListener("click", function() { setLang("en"); });
