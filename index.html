@@ -816,5 +816,19 @@ window.addEventListener("DOMContentLoaded", function() {
       .then(function(r) { return r.ok ? r : Promise.reject(); })
       .then(function() {
         document.getElementById("contactForm").reset();
-              document.getElementById("formSuccess").classList.add("visible");
-        gtag('event', 'conversion', {'send_to': 'AW-18032769454/XXXXXXXXXXXXXXXX'}); gtag('event', 'conversion', {'send_to': 'AW-18032769454/nL4uCJHXo44cEK7z2JZD'}); btn.textContent = "Sent ✓";         setTimeout(function() {           var lang = document.documentElement.lang;
+        document.getElementById("formSuccess").classList.add("visible");
+        gtag('event', 'conversion', {'send_to': 'AW-18032769454/XXXXXXXXXXXXXXXX'}); 
+        gtag('event', 'conversion', {'send_to': 'AW-18032769454/nL4uCJHXo44cEK7z2JZD'}); 
+        btn.textContent = "Sent ✓";
+        setTimeout(function() { 
+          document.getElementById("formSuccess").classList.remove("visible");
+          btn.textContent = "Send Message";
+          btn.disabled = false;
+        }, 3000);
+      })
+      .catch(function() {
+        btn.textContent = "Error — try again";
+        btn.disabled = false;
+      });
+  });
+});
