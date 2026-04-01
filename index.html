@@ -461,13 +461,14 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
     </text>
   </svg>
   <script>
-    document.addEventListener('click', function(e) {
-      if (e.target.id === 'btn-en' || e.target.id === 'btn-es') {
-        var lang = e.target.id === 'btn-es' ? 'es' : 'en';
-        document.querySelectorAll('.lang-en').forEach(el => el.style.display = lang === 'en' ? 'inline' : 'none');
-        document.querySelectorAll('.lang-es').forEach(el => el.style.display = lang === 'es' ? 'inline' : 'none');
-      }
-    });
+    function updateSvgLanguage(lang) {
+      document.querySelectorAll('.lang-en').forEach(function(el) {
+        el.style.display = lang === 'en' ? 'inline' : 'none';
+      });
+      document.querySelectorAll('.lang-es').forEach(function(el) {
+        el.style.display = lang === 'es' ? 'inline' : 'none';
+      });
+    }
   </script>
 </section>
 
@@ -792,6 +793,7 @@ function setLang(lang) {
   document.getElementById("btn-en").classList.toggle("active", lang === "en");
   document.getElementById("btn-es").classList.toggle("active", lang === "es");
   document.documentElement.lang = lang;
+  updateSvgLanguage(lang);
   document.title = lang === "es" ? "Diana Vasquez | Ingeniera de Automatización con IA" : "Diana Vasquez | AI Automation Engineer — Zapier, Google Apps Script & Gemini AI";
 }
 
@@ -803,11 +805,17 @@ function adjustNavOffset() {
 window.addEventListener("load", adjustNavOffset);
 window.addEventListener("resize", adjustNavOffset);
 
-window.addEventListener("DOMContentLoaded", function() {
-  document.getElementById("btn-en").addEventListener("click", function() { setLang("en"); });
-  document.getElementById("btn-es").addEventListener("click", function() { setLang("es"); });
+function initPageInteractions() {
+  var btnEn = document.getElementById("btn-en");
+  var btnEs = document.getElementById("btn-es");
+  var form = document.getElementById("contactForm");
 
-  document.getElementById("contactForm").addEventListener("submit", function(e) {
+  if (btnEn) btnEn.addEventListener("click", function() { setLang("en"); });
+  if (btnEs) btnEs.addEventListener("click", function() { setLang("es"); });
+
+  if (!form) return;
+
+  form.addEventListener("submit", function(e) {
     e.preventDefault();
     var btn = this.querySelector(".btn-submit");
     btn.textContent = "Sending...";
@@ -831,4 +839,10 @@ window.addEventListener("DOMContentLoaded", function() {
         btn.disabled = false;
       });
   });
-});
+}
+
+if (document.readyState === "loading") {
+  window.addEventListener("DOMContentLoaded", initPageInteractions);
+} else {
+  initPageInteractions();
+}
