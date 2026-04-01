@@ -470,6 +470,7 @@ var T = {
     "inp-name-ph":"Your name","inp-email-ph":"your@email.com",
     "inp-proj-ph":"What tasks do you want to automate? What problem are you trying to solve?",
     "wa-href":"https://wa.me/573054329733?text=Hi%20Diana!%20I%20visited%20your%20website%20and%20I'd%20like%20to%20talk%20about%20automating%20my%20business.",
+    "wa-href-hero":"https://wa.me/573054329733?text=Hi%20Diana!%20I%20visited%20your%20website%20and%20I'd%20like%20to%20talk%20about%20automating%20my%20business.",
     "success-msg":"✦   Message sent — I'll get back to you within 24 hours. Thank you!"
   },
   es:{
@@ -528,6 +529,7 @@ var T = {
     "inp-name-ph":"Tu nombre","inp-email-ph":"tu@email.com",
     "inp-proj-ph":"¿Qué tareas quieres automatizar? ¿Qué problema intentas resolver?",
     "wa-href":"https://wa.me/573054329733?text=Hola%20Diana!%20Vi%20tu%20p%C3%A1gina%20y%20me%20gustar%C3%ADa%20hablar%20sobre%20automatizar%20mi%20negocio.",
+    "wa-href-hero":"https://wa.me/573054329733?text=Hola%20Diana!%20Visit%C3%A9%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20hablar%20sobre%20automatizar%20mi%20negocio.",
     "success-msg":"✦   Mensaje enviado — te responderé en menos de 24 horas. ¡Gracias!"
   }
 };
@@ -540,6 +542,9 @@ function setLang(lang) {
     if (key === "wa-href") {
       var wa = document.getElementById("wa-btn");
       if (wa) wa.href = t[key];
+    } else if (key === "wa-href-hero") {
+      var waHero = document.getElementById("btn-whatsapp-hero");
+      if (waHero) waHero.href = t[key];
     } else if (key === "inp-name-ph") {
       var el = document.getElementById("inp-name"); if (el) el.placeholder = t[key];
     } else if (key === "inp-email-ph") {
