@@ -198,6 +198,7 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
     <ul class="nav-links">
       <li><a href="#about" id="nav-about">About</a></li>
       <li><a href="#services" id="nav-services">Services</a></li>
+      <li><a href="#automation-flow" id="nav-automation">Automation Flow</a></li>
       <li><a href="#projects" id="nav-projects">Projects</a></li>
       <li><a href="#contact" id="nav-contact">Contact</a></li>
     </ul>
@@ -214,7 +215,7 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
     <p class="hero-eyebrow" id="hero-eyebrow">AI Automation Engineer</p>
     <h1 class="hero-name">Diana<br><em>Vasquez</em></h1>
     <p class="hero-title">Google Apps Script · Zapier · Gemini AI</p>
-    <p class="hero-tagline" id="hero-tagline">Save 10+ hours a week by eliminating manual tasks — no expensive software, no extra hires. Just systems that work while you sleep.</p>
+    <p class="hero-tagline" id="hero-tagline">Save 10+ hours a week by eliminating manual tasks — no expensive software, no extra hires. Just systems that work for you, automatically.</p>
     <div class="hero-cta">
       <a href="#contact" class="btn-primary" id="btn-start">Start a Project</a>
       <a href="#projects" class="btn-outline" id="btn-work">See My Work</a>
@@ -322,10 +323,15 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
   </div>
 </section>
 
-<!-- SECCIÓN: FLUJO DE AUTOMATIZACIÓN (BILINGÜE) -->
-<section style="background: linear-gradient(180deg, #0a1628 0%, #0d2147 100%); padding: 6rem 5vw; position: relative; overflow: hidden;">
+<!-- SECCIÓN: FLUJO DE AUTOMATIZACIÓN (COMPLETAMENTE TRADUCIBLE) -->
+<section id="automation-flow" style="background: linear-gradient(180deg, #0a1628 0%, #0d2147 100%); padding: 6rem 5vw; position: relative; overflow: hidden;">
   <div style="position: absolute; top: -50%; right: -20%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(201, 168, 76, 0.08) 0%, transparent 70%); pointer-events: none;"></div>
-  <svg width="100%" viewBox="0 0 680 1020" style="display: block; margin: 0 auto; max-width: 900px; position: relative; z-index: 1;">
+  
+  <p class="section-label" id="label-automation">Automation Flow</p>
+  <h2 class="section-title" id="title-automation">How automation <em>works</em></h2>
+  <p style="color:var(--text-muted);font-size:.85rem;margin-top:.5rem" id="subtitle-automation">Real-world example of our complete workflow</p>
+  
+  <svg width="100%" viewBox="0 0 680 1020" style="display: block; margin: 0 auto; max-width: 900px; position: relative; z-index: 1; margin-top: 3rem;">
     <defs>
       <marker id="arrow-gold" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
         <path d="M2 1L8 5L2 9" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -461,11 +467,26 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
     </text>
   </svg>
   <script>
+    // Manejar cambios de idioma en el SVG (tspan)
     document.addEventListener('click', function(e) {
       if (e.target.id === 'btn-en' || e.target.id === 'btn-es') {
         var lang = e.target.id === 'btn-es' ? 'es' : 'en';
-        document.querySelectorAll('.lang-en').forEach(el => el.style.display = lang === 'en' ? 'inline' : 'none');
-        document.querySelectorAll('.lang-es').forEach(el => el.style.display = lang === 'es' ? 'inline' : 'none');
+        
+        // Cambiar visibilidad de tspan
+        document.querySelectorAll('tspan.lang-en').forEach(function(el) {
+          el.style.display = lang === 'en' ? 'inline' : 'none';
+        });
+        document.querySelectorAll('tspan.lang-es').forEach(function(el) {
+          el.style.display = lang === 'es' ? 'inline' : 'none';
+        });
+        
+        // También cambiar otros elementos con clase lang-en/lang-es
+        document.querySelectorAll('.lang-en').forEach(function(el) {
+          el.style.display = lang === 'en' ? 'inline' : 'none';
+        });
+        document.querySelectorAll('.lang-es').forEach(function(el) {
+          el.style.display = lang === 'es' ? 'inline' : 'none';
+        });
       }
     });
   </script>
@@ -622,7 +643,8 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 var T = {
   en:{
-    "nav-about":"About","nav-services":"Services","nav-projects":"Projects","nav-contact":"Contact",
+    "nav-about":"About","nav-services":"Services","nav-automation":"Automation Flow","nav-projects":"Projects","nav-contact":"Contact",
+    "label-automation":"Automation Flow","title-automation":"How automation <em>works</em>","subtitle-automation":"Real-world example of our complete workflow",
     "hero-eyebrow":"AI Automation Engineer",
     "hero-tagline":"I build automated systems that eliminate manual work — so your team can focus on what actually moves the business forward.",
     "btn-start":"Start a Project","btn-work":"See My Work","btn-calendly":"📅 Book a Free Call","btn-whatsapp-hero":"💬 Message me on WhatsApp","badge-label":"Years Experience",
@@ -688,9 +710,10 @@ var T = {
     "success-msg":"✦   Message sent — I'll get back to you within 24 hours. Thank you!"
   },
   es:{
-    "nav-about":"Acerca","nav-services":"Servicios","nav-projects":"Proyectos","nav-contact":"Contacto",
+    "nav-about":"Acerca","nav-services":"Servicios","nav-automation":"Flujo de Automatización","nav-projects":"Proyectos","nav-contact":"Contacto",
+    "label-automation":"Flujo de Automatización","title-automation":"Cómo funciona la <em>automatización</em>","subtitle-automation":"Ejemplo real de nuestro flujo de trabajo completo",
     "hero-eyebrow":"Ingeniera de Automatización con IA",
-    "hero-tagline":"Construyo sistemas automatizados que eliminan el trabajo manual — para que tu equipo se enfoque en lo que realmente hace crecer el negocio.",
+    "hero-tagline":"Ahorra 10+ horas por semana eliminando tareas manuales — sin software costoso, sin contratar más gente. Solo sistemas que funcionan para ti, automáticamente.",
     "btn-start":"Iniciar Proyecto","btn-work":"Ver mi trabajo","btn-calendly":"📅 Agenda una llamada gratis","btn-whatsapp-hero":"💬 Escríbeme por WhatsApp","badge-label":"Años de Experiencia",
     "label-about":"Acerca","title-about":"Sistemas que funcionan<br><em>para ti</em>",
     "stat-1":"Lead a email","stat-2":"Pasos manuales","stat-3":"Respuesta de soporte",
@@ -789,6 +812,15 @@ function setLang(lang) {
       else { el.textContent = t[key]; }
     }
   }
+  
+  // Manejar tspan del SVG
+  document.querySelectorAll('tspan.lang-en').forEach(function(el) {
+    el.style.display = lang === 'en' ? 'inline' : 'none';
+  });
+  document.querySelectorAll('tspan.lang-es').forEach(function(el) {
+    el.style.display = lang === 'es' ? 'inline' : 'none';
+  });
+  
   document.getElementById("btn-en").classList.toggle("active", lang === "en");
   document.getElementById("btn-es").classList.toggle("active", lang === "es");
   document.documentElement.lang = lang;
@@ -804,8 +836,26 @@ window.addEventListener("load", adjustNavOffset);
 window.addEventListener("resize", adjustNavOffset);
 
 window.addEventListener("DOMContentLoaded", function() {
-  document.getElementById("btn-en").addEventListener("click", function() { setLang("en"); });
-  document.getElementById("btn-es").addEventListener("click", function() { setLang("es"); });
+  // Inicializar idioma por defecto a inglés
+  setLang("en");
+  
+  // Event listeners para los botones de idioma
+  var btnEn = document.getElementById("btn-en");
+  var btnEs = document.getElementById("btn-es");
+  
+  if (btnEn) {
+    btnEn.addEventListener("click", function(e) {
+      e.preventDefault();
+      setLang("en");
+    });
+  }
+  
+  if (btnEs) {
+    btnEs.addEventListener("click", function(e) {
+      e.preventDefault();
+      setLang("es");
+    });
+  }
 
   document.getElementById("contactForm").addEventListener("submit", function(e) {
     e.preventDefault();
