@@ -845,15 +845,19 @@ window.addEventListener("DOMContentLoaded", function() {
   
   if (btnEn) {
     btnEn.addEventListener("click", function(e) {
+      e.stopPropagation();
       e.preventDefault();
       setLang("en");
+      return false;
     });
   }
   
   if (btnEs) {
     btnEs.addEventListener("click", function(e) {
+      e.stopPropagation();
       e.preventDefault();
       setLang("es");
+      return false;
     });
   }
 
