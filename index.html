@@ -28,7 +28,7 @@ body{background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;
 #sticky-cta-bar{position:fixed;top:0;left:0;right:0;z-index:200;background:linear-gradient(90deg,#c9a84c,#e4c97a);color:#0a1628;display:flex;align-items:center;justify-content:center;gap:1.5rem;padding:.55rem 5vw;font-size:.75rem;letter-spacing:.08em}
 #sticky-cta-btn{background:#0a1628;color:#e4c97a;padding:.35rem 1.1rem;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;font-weight:500;white-space:nowrap;transition:background .2s}
 #sticky-cta-btn:hover{background:#0d2147}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 5vw;background:linear-gradient(to bottom,rgba(10,22,40,.98) 0%,rgba(10,22,40,0) 100%)}
+nav{position:absolute;top:2.5rem;left:0;right:0;z-index:160;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 5vw;background:transparent}
 .nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;letter-spacing:.15em;color:var(--gold-light);text-decoration:none}
 .nav-right{display:flex;align-items:center;gap:2.5rem}
 .nav-links{display:flex;gap:2.5rem;list-style:none}
@@ -38,7 +38,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .lang-btn{background:none;border:1px solid rgba(201,168,76,.3);color:var(--text-muted);padding:.25rem .6rem;font-size:.68rem;letter-spacing:.12em;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}
 .lang-btn.active{border-color:var(--gold);color:var(--gold-light);background:rgba(201,168,76,.1)}
 .lang-btn:hover{border-color:var(--gold);color:var(--gold-light)}
-.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;position:relative;overflow:hidden;padding:0 5vw}
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;position:relative;overflow:hidden;padding:0 5vw;padding-top:8rem}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 70% 50%,rgba(30,77,158,.25) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 20% 20%,rgba(13,33,71,.8) 0%,transparent 60%)}
 .hero-grid-line{position:absolute;top:0;left:50%;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,rgba(201,168,76,.15) 30%,rgba(201,168,76,.15) 70%,transparent)}
 .hero-text{position:relative;z-index:2;padding-right:4rem}
