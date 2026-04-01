@@ -46,6 +46,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero-title{font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);margin:1.5rem 0 2rem;animation:fadeUp .7s ease .7s both}
 .hero-tagline{font-size:1.05rem;line-height:1.7;color:var(--pale);max-width:460px;margin-bottom:2.5rem;animation:fadeUp .7s ease .9s both}
 .hero-cta{display:flex;gap:1rem;align-items:center;animation:fadeUp .7s ease 1s both}
+.hero-cta-group{display:flex;gap:1rem;align-items:center;margin-top:1rem;animation:fadeUp .7s ease 1.1s both}
+.hero-cta-group .btn-submit,.hero-cta-group .btn-whatsapp{padding:.85rem 1.5rem;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none}
+.hero-cta-group .btn-submit{display:inline-block}
 .btn-primary{background:var(--gold);color:var(--navy);padding:.85rem 2rem;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;font-weight:500;text-decoration:none;transition:background .3s,transform .2s;display:inline-block}
 .btn-primary:hover{background:var(--gold-light);transform:translateY(-1px)}
 .btn-outline{border:1px solid rgba(200,221,245,.3);color:var(--pale);padding:.85rem 2rem;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;transition:border-color .3s,color .3s;display:inline-block}
@@ -155,7 +158,7 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
 .footer-privacy{font-size:.72rem;color:var(--text-muted);letter-spacing:.08em;text-decoration:none;border-bottom:1px solid rgba(139,174,208,.3);transition:color .3s,border-color .3s}
 .footer-privacy:hover{color:var(--gold-light);border-color:var(--gold-light)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:900px){html{font-size:16px}.hero{grid-template-columns:1fr;padding-top:8rem;padding-bottom:4rem}.hero-text{padding-right:0;order:2}.hero-photo-wrap{order:1;padding-top:2rem}.hero-photo-frame{width:min(280px,60vw)}.hero-photo-badge{left:-1rem}.about-grid,.contact-grid{grid-template-columns:1fr;gap:2rem}.about-left{position:static}.clients-grid{grid-template-columns:1fr}.projects-grid{grid-template-columns:1fr}.project-card.featured{grid-column:1;grid-template-columns:1fr}.repo-grid{grid-template-columns:1fr}footer{flex-direction:column;gap:1rem;text-align:center}.stats-row{grid-template-columns:1fr 1fr}.form-row{grid-template-columns:1fr}.nav-links{gap:1.2rem}}
+@media(max-width:900px){html{font-size:16px}.hero{grid-template-columns:1fr;padding-top:8rem;padding-bottom:4rem}.hero-text{padding-right:0;order:2}.hero-photo-wrap{order:1;padding-top:2rem}.hero-photo-frame{width:min(280px,60vw)}.hero-photo-badge{left:-1rem}.hero-cta-group{flex-direction:column;align-items:flex-start}.about-grid,.contact-grid{grid-template-columns:1fr;gap:2rem}.about-left{position:static}.clients-grid{grid-template-columns:1fr}.projects-grid{grid-template-columns:1fr}.project-card.featured{grid-column:1;grid-template-columns:1fr}.repo-grid{grid-template-columns:1fr}footer{flex-direction:column;gap:1rem;text-align:center}.stats-row{grid-template-columns:1fr 1fr}.form-row{grid-template-columns:1fr}.nav-links{gap:1.2rem}}
 </style>
 <!-- Google Ads Conversion Tracking -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18032769454"></script>
@@ -201,6 +204,10 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
     <div class="hero-cta">
       <a href="#contact" class="btn-primary" id="btn-start">Start a Project</a>
       <a href="#projects" class="btn-outline" id="btn-work">See My Work</a>
+    </div>
+    <div class="hero-cta-group">
+      <a href="https://calendly.com/va-dvasquezm/30min" target="_blank" rel="noopener noreferrer" class="btn-submit" id="btn-calendly">📅 Book a Free Call</a>
+      <a href="https://wa.me/573054329733?text=Hi%20Diana!%20I%20visited%20your%20website%20and%20I'd%20like%20to%20talk%20about%20automating%20my%20business." target="_blank" rel="noopener noreferrer" class="btn-whatsapp" id="btn-whatsapp-hero">💬 Message me on WhatsApp</a>
     </div>
   </div>
   <div class="hero-photo-wrap">
@@ -411,7 +418,7 @@ var T = {
     "nav-about":"About","nav-services":"Services","nav-projects":"Projects","nav-contact":"Contact",
     "hero-eyebrow":"AI Automation Engineer",
     "hero-tagline":"I build automated systems that eliminate manual work — so your team can focus on what actually moves the business forward.",
-    "btn-start":"Start a Project","btn-work":"See My Work","badge-label":"Years Experience",
+    "btn-start":"Start a Project","btn-work":"See My Work","btn-calendly":"📅 Book a Free Call","btn-whatsapp-hero":"💬 Message me on WhatsApp","badge-label":"Years Experience",
     "label-about":"About","title-about":"Building systems<br>that work <em>for you</em>",
     "stat-1":"Lead to email","stat-2":"Manual steps","stat-3":"Support response",
     "about-p1":"I'm Diana, an Automation Engineer with 8 years of operational experience in business administration. I design end-to-end workflows using Google Apps Script, Zapier, and AI integrations that handle repetitive tasks automatically — without expensive software or complicated setups.",
@@ -469,7 +476,7 @@ var T = {
     "nav-about":"Acerca","nav-services":"Servicios","nav-projects":"Proyectos","nav-contact":"Contacto",
     "hero-eyebrow":"Ingeniera de Automatización con IA",
     "hero-tagline":"Construyo sistemas automatizados que eliminan el trabajo manual — para que tu equipo se enfoque en lo que realmente hace crecer el negocio.",
-    "btn-start":"Iniciar Proyecto","btn-work":"Ver mi trabajo","badge-label":"Años de Experiencia",
+    "btn-start":"Iniciar Proyecto","btn-work":"Ver mi trabajo","btn-calendly":"📅 Agenda una llamada gratis","btn-whatsapp-hero":"💬 Escríbeme por WhatsApp","badge-label":"Años de Experiencia",
     "label-about":"Acerca","title-about":"Sistemas que funcionan<br><em>para ti</em>",
     "stat-1":"Lead a email","stat-2":"Pasos manuales","stat-3":"Respuesta de soporte",
     "about-p1":"Soy Diana, Ingeniera de Automatización con 8 años de experiencia operativa en administración de empresas. Diseño flujos de trabajo de extremo a extremo con Google Apps Script, Zapier e integraciones de IA que manejan tareas repetitivas automáticamente — sin software costoso ni configuraciones complicadas.",
