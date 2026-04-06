@@ -30,14 +30,9 @@ body{background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;
 #sticky-cta-btn:hover{background:#0d2147}
 nav{position:fixed;top:42px;left:0;right:0;z-index:150;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 5vw;background:linear-gradient(to bottom,rgba(10,22,40,.98) 0%,rgba(10,22,40,0) 100%)}
 .nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;letter-spacing:.15em;color:var(--gold-light);text-decoration:none}
-.nav-right{display:flex;align-items:center;gap:2.5rem}
 .nav-links{display:flex;gap:2.5rem;list-style:none}
 .nav-links a{color:var(--pale);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:color .3s}
 .nav-links a:hover{color:var(--gold-light)}
-.lang-switch{display:flex;gap:.3rem}
-.lang-btn{background:none;border:1px solid rgba(201,168,76,.3);color:var(--text-muted);padding:.25rem .6rem;font-size:.68rem;letter-spacing:.12em;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}
-.lang-btn.active{border-color:var(--gold);color:var(--gold-light);background:rgba(201,168,76,.1)}
-.lang-btn:hover{border-color:var(--gold);color:var(--gold-light)}
 .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;position:relative;overflow:hidden;padding:0 5vw;margin-top:60px}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 70% 50%,rgba(30,77,158,.25) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 20% 20%,rgba(13,33,71,.8) 0%,transparent 60%)}
 .hero-grid-line{position:absolute;top:0;left:50%;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,rgba(201,168,76,.15) 30%,rgba(201,168,76,.15) 70%,transparent)}
@@ -189,39 +184,33 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
 </head>
 <body>
 <div id="sticky-cta-bar">
-  <span id="sticky-cta-text">⚡ Free automation audit — limited spots available</span>
+  <span>⚡ Free automation audit — limited spots available</span>
   <a href="https://calendly.com/va-dvasquezm/30min" target="_blank" rel="noopener noreferrer" id="sticky-cta-btn">Book Free Audit</a>
 </div>
 <nav>
   <a class="nav-logo" href="#">Diana Vasquez</a>
-  <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="#about" id="nav-about">About</a></li>
-      <li><a href="#services" id="nav-services">Services</a></li>
-      <li><a href="#projects" id="nav-projects">Projects</a></li>
-      <li><a href="#contact" id="nav-contact">Contact</a></li>
-    </ul>
-    <div class="lang-switch">
-      <button type="button" class="lang-btn active" id="btn-en">EN</button>
-      <button type="button" class="lang-btn" id="btn-es">ES</button>
-    </div>
-  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
 <section class="hero">
   <div class="hero-grid-line"></div>
   <div class="hero-text">
-    <p class="hero-eyebrow" id="hero-eyebrow">AI Automation Engineer</p>
+    <p class="hero-eyebrow">AI Automation Engineer</p>
     <h1 class="hero-name">Diana<br><em>Vasquez</em></h1>
     <p class="hero-title">Google Apps Script · Zapier · Gemini AI</p>
-    <p class="hero-tagline" id="hero-tagline">Save 10+ hours a week by eliminating manual tasks — no expensive software, no extra hires. Just systems that work for you, automatically.</p>
+    <p class="hero-tagline">Save 10+ hours a week by eliminating manual tasks — no expensive software, no extra hires. Just systems that work for you, automatically.</p>
     <div class="hero-cta">
-      <a href="#contact" class="btn-primary" id="btn-start">Start a Project</a>
-      <a href="#projects" class="btn-outline" id="btn-work">See My Work</a>
+      <a href="#contact" class="btn-primary">Start a Project</a>
+      <a href="#projects" class="btn-outline">See My Work</a>
     </div>
     <div class="hero-cta-group">
-      <a href="https://calendly.com/va-dvasquezm/30min" target="_blank" rel="noopener noreferrer" class="btn-submit" id="btn-calendly">📅 Book a Free Call</a>
-      <a href="https://wa.me/573054329733?text=Hi%20Diana!%20I%20visited%20your%20website%20and%20I'd%20like%20to%20talk%20about%20automating%20my%20business." target="_blank" rel="noopener noreferrer" class="btn-whatsapp" id="btn-whatsapp-hero">💬 Message me on WhatsApp</a>
+      <a href="https://calendly.com/va-dvasquezm/30min" target="_blank" rel="noopener noreferrer" class="btn-submit">📅 Book a Free Call</a>
+      <a href="https://wa.me/573054329733?text=Hi%20Diana!%20I%20visited%20your%20website%20and%20I'd%20like%20to%20talk%20about%20automating%20my%20business." target="_blank" rel="noopener noreferrer" class="btn-whatsapp">💬 Message me on WhatsApp</a>
     </div>
   </div>
   <div class="hero-photo-wrap">
@@ -229,7 +218,7 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
       <img src="headshot-1__2_.jpg" alt="Diana Vasquez — AI Automation Engineer specializing in Zapier and Google Apps Script">
       <div class="hero-photo-badge">
         <div class="num">8</div>
-        <div class="lbl" id="badge-label">Years Experience</div>
+        <div class="lbl">Years Experience</div>
       </div>
     </div>
   </div>
@@ -238,93 +227,93 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
 <section class="about" id="about">
   <div class="about-grid">
     <div class="about-left">
-      <p class="section-label" id="label-about">About</p>
-      <h2 class="section-title" id="title-about">Building systems<br>that work <em>for you</em></h2>
+      <p class="section-label">About</p>
+      <h2 class="section-title">Building systems<br>that work <em>for you</em></h2>
       <div class="stats-row" style="margin-top:2.5rem">
-        <div class="stat"><div class="stat-num">&lt;10s</div><div class="stat-lbl" id="stat-1">Lead to email</div></div>
-        <div class="stat"><div class="stat-num">0</div><div class="stat-lbl" id="stat-2">Manual steps</div></div>
-        <div class="stat"><div class="stat-num">60s</div><div class="stat-lbl" id="stat-3">Support response</div></div>
+        <div class="stat"><div class="stat-num">&lt;10s</div><div class="stat-lbl">Lead to email</div></div>
+        <div class="stat"><div class="stat-num">0</div><div class="stat-lbl">Manual steps</div></div>
+        <div class="stat"><div class="stat-num">60s</div><div class="stat-lbl">Support response</div></div>
       </div>
     </div>
     <div>
       <div class="about-body">
-        <p id="about-p1">I'm Diana, an Automation Engineer with 8 years of operational experience in business administration. I design end-to-end workflows using Google Apps Script, Zapier, and AI integrations that handle repetitive tasks automatically — without expensive software or complicated setups.</p>
-        <div class="about-highlight" id="about-quote">"Every system I deliver is tested and built to run without your input. I don't hand off a script and disappear — I deliver a complete operational workflow."</div>
-        <p id="about-p2">From AI-powered lead scoring that classifies every inquiry as HOT / WARM / COLD in real time, to support systems that reduce response time from hours to under 60 seconds — I build infrastructure that scales with your business without adding headcount.</p>
+        <p>I'm Diana, an Automation Engineer with 8 years of operational experience in business administration. I design end-to-end workflows using Google Apps Script, Zapier, and AI integrations that handle repetitive tasks automatically — without expensive software or complicated setups.</p>
+        <div class="about-highlight">"Every system I deliver is tested and built to run without your input. I don't hand off a script and disappear — I deliver a complete operational workflow."</div>
+        <p>From AI-powered lead scoring that classifies every inquiry as HOT / WARM / COLD in real time, to support systems that reduce response time from hours to under 60 seconds — I build infrastructure that scales with your business without adding headcount.</p>
       </div>
     </div>
   </div>
 </section>
 
 <section class="clients" id="clients">
-  <p class="section-label" id="label-clients">Who I Work With</p>
-  <h2 class="section-title" id="title-clients">The businesses<br>that benefit <em>most</em></h2>
+  <p class="section-label">Who I Work With</p>
+  <h2 class="section-title">The businesses<br>that benefit <em>most</em></h2>
   <div class="clients-grid">
-    <div class="client-card"><div class="client-icon">⭐</div><h3 class="client-title" id="client-t1">Small Businesses &amp; Startups</h3><p class="client-desc" id="client-d1">Teams that need operational infrastructure without hiring additional staff. I build the systems that let a small team punch above its weight.</p></div>
-    <div class="client-card"><div class="client-icon">🛒</div><h3 class="client-title" id="client-t2">E-commerce Brands</h3><p class="client-desc" id="client-d2">Brands dealing with high support volume, manual ticket handling, or no SLA visibility. I automate the entire support pipeline end-to-end.</p></div>
-    <div class="client-card"><div class="client-icon">🏢</div><h3 class="client-title" id="client-t3">Real Estate Agencies</h3><p class="client-desc" id="client-d3">Agencies losing leads to slow follow-up and unstructured qualification. I build automated systems that respond and qualify in seconds.</p></div>
+    <div class="client-card"><div class="client-icon">⭐</div><h3 class="client-title">Small Businesses &amp; Startups</h3><p class="client-desc">Teams that need operational infrastructure without hiring additional staff. I build the systems that let a small team punch above its weight.</p></div>
+    <div class="client-card"><div class="client-icon">🛒</div><h3 class="client-title">E-commerce Brands</h3><p class="client-desc">Brands dealing with high support volume, manual ticket handling, or no SLA visibility. I automate the entire support pipeline end-to-end.</p></div>
+    <div class="client-card"><div class="client-icon">🏢</div><h3 class="client-title">Real Estate Agencies</h3><p class="client-desc">Agencies losing leads to slow follow-up and unstructured qualification. I build automated systems that respond and qualify in seconds.</p></div>
   </div>
 </section>
 
 <section class="services" id="services">
-  <p class="section-label" id="label-services">Services</p>
-  <h2 class="section-title" id="title-services">What I <em>build</em></h2>
+  <p class="section-label">Services</p>
+  <h2 class="section-title">What I <em>build</em></h2>
   <div class="services-list">
-    <div class="service-item"><div class="service-num">01</div><div><h3 class="service-name" id="srv-n1">Google Apps Script Automations</h3><p class="service-desc" id="srv-d1">Custom triggers, API integrations, and multi-step workflows that go beyond what Zapier can handle.</p></div></div>
-    <div class="service-item"><div class="service-num">02</div><div><h3 class="service-name" id="srv-n2">AI-Powered Lead Scoring</h3><p class="service-desc" id="srv-d2">Every inquiry automatically classified as HOT / WARM / COLD using Gemini AI, with action recommendations generated instantly.</p></div></div>
-    <div class="service-item"><div class="service-num">03</div><div><h3 class="service-name" id="srv-n3">CRM Pipelines</h3><p class="service-desc" id="srv-d3">Form submission → AI analysis → Drive folder → personalized email → dashboard update. Fully automated, zero manual intervention.</p></div></div>
-    <div class="service-item"><div class="service-num">04</div><div><h3 class="service-name" id="srv-n4">AI-Powered Support Systems</h3><p class="service-desc" id="srv-d4">Incoming emails classified by AI, routed to the right response track. Response time reduced from hours to under 60 seconds.</p></div></div>
-    <div class="service-item"><div class="service-num">05</div><div><h3 class="service-name" id="srv-n5">SLA Monitoring &amp; Alerts</h3><p class="service-desc" id="srv-d5">Automated alerts when tickets breach deadlines, with zero manual checking. Full visibility with zero overhead.</p></div></div>
+    <div class="service-item"><div class="service-num">01</div><div><h3 class="service-name">Google Apps Script Automations</h3><p class="service-desc">Custom triggers, API integrations, and multi-step workflows that go beyond what Zapier can handle.</p></div></div>
+    <div class="service-item"><div class="service-num">02</div><div><h3 class="service-name">AI-Powered Lead Scoring</h3><p class="service-desc">Every inquiry automatically classified as HOT / WARM / COLD using Gemini AI, with action recommendations generated instantly.</p></div></div>
+    <div class="service-item"><div class="service-num">03</div><div><h3 class="service-name">CRM Pipelines</h3><p class="service-desc">Form submission → AI analysis → Drive folder → personalized email → dashboard update. Fully automated, zero manual intervention.</p></div></div>
+    <div class="service-item"><div class="service-num">04</div><div><h3 class="service-name">AI-Powered Support Systems</h3><p class="service-desc">Incoming emails classified by AI, routed to the right response track. Response time reduced from hours to under 60 seconds.</p></div></div>
+    <div class="service-item"><div class="service-num">05</div><div><h3 class="service-name">SLA Monitoring &amp; Alerts</h3><p class="service-desc">Automated alerts when tickets breach deadlines, with zero manual checking. Full visibility with zero overhead.</p></div></div>
   </div>
 </section>
 
 <section class="services">
-  <p class="section-label" id="label-usecases">Use Cases</p>
-  <h2 class="section-title" id="title-usecases">What I can <em>do for you</em></h2>
-  <p style="color:var(--text-muted);font-size:.85rem;margin-top:.5rem" id="sub-usecases">Real automation scenarios — ready to deploy for your business</p>
+  <p class="section-label">Use Cases</p>
+  <h2 class="section-title">What I can <em>do for you</em></h2>
+  <p style="color:var(--text-muted);font-size:.85rem;margin-top:.5rem">Real automation scenarios — ready to deploy for your business</p>
   <div class="use-cases-grid">
     <article class="use-case-card">
       <div class="use-case-icon">🛒</div>
-      <h3 class="use-case-title" id="uc-title-1">Shopify Orders → Google Sheets, automatic</h3>
-      <p class="use-case-benefit" id="uc-benefit-1">Zero manual logging. Every order synced in real time.</p>
+      <h3 class="use-case-title">Shopify Orders → Google Sheets, automatic</h3>
+      <p class="use-case-benefit">Zero manual logging. Every order synced in real time.</p>
       <p class="use-case-tools">Shopify · Zapier · Google Sheets</p>
     </article>
     <article class="use-case-card">
       <div class="use-case-icon">💬</div>
-      <h3 class="use-case-title" id="uc-title-2">WhatsApp Business Auto-Reply Bot</h3>
-      <p class="use-case-benefit" id="uc-benefit-2">Reply to leads in under 60 seconds, 24/7 — no staff needed.</p>
+      <h3 class="use-case-title">WhatsApp Business Auto-Reply Bot</h3>
+      <p class="use-case-benefit">Reply to leads in under 60 seconds, 24/7 — no staff needed.</p>
       <p class="use-case-tools">WhatsApp API · Zapier · Gemini AI</p>
     </article>
     <article class="use-case-card">
       <div class="use-case-icon">🏠</div>
-      <h3 class="use-case-title" id="uc-title-3">Real Estate Lead Scoring &amp; Instant Follow-Up</h3>
-      <p class="use-case-benefit" id="uc-benefit-3">Every inquiry scored HOT/WARM/COLD and followed up automatically.</p>
+      <h3 class="use-case-title">Real Estate Lead Scoring &amp; Instant Follow-Up</h3>
+      <p class="use-case-benefit">Every inquiry scored HOT/WARM/COLD and followed up automatically.</p>
       <p class="use-case-tools">Typeform · Zapier · HubSpot · Google Sheets</p>
     </article>
     <article class="use-case-card">
       <div class="use-case-icon">📅</div>
-      <h3 class="use-case-title" id="uc-title-4">Appointment Booking for Clinics — Zero Phone Calls</h3>
-      <p class="use-case-benefit" id="uc-benefit-4">Patients book, confirm and get reminders — all automated.</p>
+      <h3 class="use-case-title">Appointment Booking for Clinics — Zero Phone Calls</h3>
+      <p class="use-case-benefit">Patients book, confirm and get reminders — all automated.</p>
       <p class="use-case-tools">Calendly · Zapier · Google Sheets · Gmail</p>
     </article>
     <article class="use-case-card">
       <div class="use-case-icon">📦</div>
-      <h3 class="use-case-title" id="uc-title-5">E-commerce Support Tickets on Autopilot</h3>
-      <p class="use-case-benefit" id="uc-benefit-5">AI classifies every email and routes it — response time under 60s.</p>
+      <h3 class="use-case-title">E-commerce Support Tickets on Autopilot</h3>
+      <p class="use-case-benefit">AI classifies every email and routes it — response time under 60s.</p>
       <p class="use-case-tools">Gmail · ChatGPT · Zapier · Google Sheets</p>
     </article>
     <article class="use-case-card">
       <div class="use-case-icon">📊</div>
-      <h3 class="use-case-title" id="uc-title-6">Daily Business Briefing — Delivered to Your Inbox</h3>
-      <p class="use-case-benefit" id="uc-benefit-6">Key metrics summarized and sent every morning automatically.</p>
+      <h3 class="use-case-title">Daily Business Briefing — Delivered to Your Inbox</h3>
+      <p class="use-case-benefit">Key metrics summarized and sent every morning automatically.</p>
       <p class="use-case-tools">Google Sheets · Apps Script · Gmail</p>
     </article>
   </div>
 </section>
 
 <section class="tools">
-  <p class="section-label" id="label-tools">Toolstack</p>
-  <h2 class="section-title" id="title-tools">The technology <em>I use</em></h2>
+  <p class="section-label">Toolstack</p>
+  <h2 class="section-title">The technology <em>I use</em></h2>
   <div class="tools-grid">
     <span class="tool-tag gold">Google Apps Script</span><span class="tool-tag gold">Gemini AI</span><span class="tool-tag gold">Zapier</span>
     <span class="tool-tag">UrlFetchApp</span><span class="tool-tag">onFormSubmit triggers</span><span class="tool-tag gold">ChatGPT / OpenAI</span>
@@ -336,79 +325,79 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
 </section>
 
 <section class="projects" id="projects">
-  <p class="section-label" id="label-projects">Portfolio</p>
-  <h2 class="section-title" id="title-projects">Systems I've <em>shipped</em></h2>
-  <p style="color:var(--text-muted);font-size:.85rem;margin-top:.5rem" id="projects-sub">Click any project to view the full case study PDF.</p>
+  <p class="section-label">Portfolio</p>
+  <h2 class="section-title">Systems I've <em>shipped</em></h2>
+  <p style="color:var(--text-muted);font-size:.85rem;margin-top:.5rem">Click any project to view the full case study PDF.</p>
   <div class="repo-block">
-    <h3 class="repo-title" id="repo-title">Proven Automation Systems That Save Time &amp; Increase Conversions</h3>
-    <p class="repo-sub" id="repo-sub">Real systems I've built to eliminate manual work, speed up response times, and improve lead conversion.</p>
+    <h3 class="repo-title">Proven Automation Systems That Save Time &amp; Increase Conversions</h3>
+    <p class="repo-sub">Real systems I've built to eliminate manual work, speed up response times, and improve lead conversion.</p>
     <div class="repo-grid">
       <article class="repo-card">
-        <p class="repo-name" id="repo-n1">AI CRM Automation System</p>
-        <p class="repo-desc" id="repo-d1">Captures, qualifies, and routes every lead automatically in seconds.<br><strong>Result: Faster response time &amp; zero manual CRM work.</strong></p>
-        <a class="repo-link" id="repo-l1" href="https://github.com/dvasquezautomation/crm-automation-google-apps-script?tab=readme-ov-file#crm-automation-system--google-apps-script--gemini-ai" target="_blank">View System →</a>
+        <p class="repo-name">AI CRM Automation System</p>
+        <p class="repo-desc">Captures, qualifies, and routes every lead automatically in seconds.<br><strong>Result: Faster response time &amp; zero manual CRM work.</strong></p>
+        <a class="repo-link" href="https://github.com/dvasquezautomation/crm-automation-google-apps-script?tab=readme-ov-file#crm-automation-system--google-apps-script--gemini-ai" target="_blank">View System →</a>
       </article>
       <article class="repo-card">
-        <p class="repo-name" id="repo-n2">AI Client Intake &amp; Qualification</p>
-        <p class="repo-desc" id="repo-d2">Analyzes incoming requests and identifies high-value opportunities using AI.<br><strong>Result: Less time wasted on unqualified leads.</strong></p>
-        <a class="repo-link" id="repo-l2" href="https://github.com/dvasquezautomation/client-intake-pipeline-gemini-ai" target="_blank">View System →</a>
+        <p class="repo-name">AI Client Intake &amp; Qualification</p>
+        <p class="repo-desc">Analyzes incoming requests and identifies high-value opportunities using AI.<br><strong>Result: Less time wasted on unqualified leads.</strong></p>
+        <a class="repo-link" href="https://github.com/dvasquezautomation/client-intake-pipeline-gemini-ai" target="_blank">View System →</a>
       </article>
       <article class="repo-card">
-        <p class="repo-name" id="repo-n3">Automated Daily Operations Briefing</p>
-        <p class="repo-desc" id="repo-d3">Sends a daily summary of key business updates for faster decision-making.<br><strong>Result: Better decisions without digging through data.</strong></p>
-        <a class="repo-link" id="repo-l3" href="https://github.com/dvasquezautomation/daily-briefing-google-apps-script" target="_blank">View System →</a>
+        <p class="repo-name">Automated Daily Operations Briefing</p>
+        <p class="repo-desc">Sends a daily summary of key business updates for faster decision-making.<br><strong>Result: Better decisions without digging through data.</strong></p>
+        <a class="repo-link" href="https://github.com/dvasquezautomation/daily-briefing-google-apps-script" target="_blank">View System →</a>
       </article>
     </div>
   </div>
   <div class="projects-grid">
     <div class="project-card featured" onclick="window.open('https://drive.google.com/file/d/1M4SrDduZWMamxy8Pber_4JTuOgKbDTuX/view','_blank')">
       <div>
-        <p class="project-tag" id="proj-tag1">Featured · Real Estate · 22-Step Zap</p>
-        <h3 class="project-title" id="proj-t1">Texas Real Estate — Lead Scoring &amp; Prioritization</h3>
-        <p class="project-desc" id="proj-d1">Every inbound lead is automatically captured, scored, routed into HOT / WARM / COLD tiers, logged in Notion CRM, and contacted with a personalized email — in under 30 seconds, with zero manual work.</p>
+        <p class="project-tag">Featured · Real Estate · 22-Step Zap</p>
+        <h3 class="project-title">Texas Real Estate — Lead Scoring &amp; Prioritization</h3>
+        <p class="project-desc">Every inbound lead is automatically captured, scored, routed into HOT / WARM / COLD tiers, logged in Notion CRM, and contacted with a personalized email — in under 30 seconds, with zero manual work.</p>
         <div class="metrics-row">
-          <div><div class="project-metric">&lt;30s</div><div class="project-metric-label" id="met-l1">Lead response time</div></div>
-          <div><div class="project-metric">22</div><div class="project-metric-label" id="met-l2">Zap steps automated</div></div>
-          <div><div class="project-metric">3×</div><div class="project-metric-label" id="met-l3">Faster pipeline setup</div></div>
+          <div><div class="project-metric">&lt;30s</div><div class="project-metric-label">Lead response time</div></div>
+          <div><div class="project-metric">22</div><div class="project-metric-label">Zap steps automated</div></div>
+          <div><div class="project-metric">3×</div><div class="project-metric-label">Faster pipeline setup</div></div>
         </div>
         <div class="project-stack"><span class="stack-tag">Google Forms</span><span class="stack-tag">Google Sheets</span><span class="stack-tag">Zapier Paths</span><span class="stack-tag">Notion</span><span class="stack-tag">Gmail</span></div>
-        <span class="view-pdf-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg><span id="pdf-btn-text">View Case Study PDF</span></span>
+        <span class="view-pdf-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>View Case Study PDF</span>
       </div>
       <div>
-        <p style="font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem" id="flow-label">Lead Scoring Flow</p>
+        <p style="font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem">Lead Scoring Flow</p>
         <div class="project-flow">
-          <div class="flow-step" id="flow-1">Form submitted → Zap triggered instantly</div>
+          <div class="flow-step">Form submitted → Zap triggered instantly</div>
           <div class="flow-arrow">↓</div>
-          <div class="flow-step" id="flow-2">Google Sheets lookup scores the lead</div>
+          <div class="flow-step">Google Sheets lookup scores the lead</div>
           <div class="flow-arrow">↓</div>
-          <div class="flow-step" id="flow-3">Zapier Paths branches: HOT / WARM / COLD</div>
+          <div class="flow-step">Zapier Paths branches: HOT / WARM / COLD</div>
           <div class="flow-arrow">↓</div>
-          <div class="flow-step" id="flow-4">Notion CRM record created automatically</div>
+          <div class="flow-step">Notion CRM record created automatically</div>
           <div class="flow-arrow">↓</div>
-          <div class="flow-step" id="flow-5">Personalized email sent per tier</div>
+          <div class="flow-step">Personalized email sent per tier</div>
           <div class="flow-arrow">↓</div>
-          <div class="flow-step" id="flow-6">HOT leads: agent also notified immediately</div>
+          <div class="flow-step">HOT leads: agent also notified immediately</div>
         </div>
       </div>
     </div>
     <div class="project-card" onclick="window.open('https://drive.google.com/file/d/1j5zg-JvDaaRuG2bRfiQ2zCcL4iq-jO8s/view','_blank')">
       <p class="project-tag">E-commerce · 21-Step Zap · ChatGPT</p>
-      <h3 class="project-title" id="proj-t2">Ecommerce AI Support System + SLA Monitor</h3>
-      <p class="project-desc" id="proj-d2">Two Zaps working as one complete support ecosystem. ChatGPT classifies every email into 6 intent categories, routes it, logs the ticket, and monitors SLA violations — all automatically.</p>
+      <h3 class="project-title">Ecommerce AI Support System + SLA Monitor</h3>
+      <p class="project-desc">Two Zaps working as one complete support ecosystem. ChatGPT classifies every email into 6 intent categories, routes it, logs the ticket, and monitors SLA violations — all automatically.</p>
       <div class="project-stack"><span class="stack-tag">Gmail</span><span class="stack-tag">ChatGPT</span><span class="stack-tag">Zapier Paths</span><span class="stack-tag">Google Sheets</span></div>
       <span class="view-pdf-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>View Case Study PDF</span>
     </div>
     <div class="project-card" onclick="window.open('https://drive.google.com/file/d/1bbtMbfTXip3T-bMuN2MeTqIi44S_d4jl/view','_blank')">
       <p class="project-tag">Freelance · 7-Step Zap · Multi-tool</p>
-      <h3 class="project-title" id="proj-t3">Freelance Project Intake &amp; Routing Pipeline</h3>
-      <p class="project-desc" id="proj-d3">Inquiries filtered by project type, logged in Airtable CRM, assigned as Asana tasks, announced in Slack, and confirmed by email — in under 60 seconds.</p>
+      <h3 class="project-title">Freelance Project Intake &amp; Routing Pipeline</h3>
+      <p class="project-desc">Inquiries filtered by project type, logged in Airtable CRM, assigned as Asana tasks, announced in Slack, and confirmed by email — in under 60 seconds.</p>
       <div class="project-stack"><span class="stack-tag">Google Forms</span><span class="stack-tag">Airtable</span><span class="stack-tag">Asana</span><span class="stack-tag">Slack</span><span class="stack-tag">Gmail</span></div>
       <span class="view-pdf-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>View Case Study PDF</span>
     </div>
     <div class="project-card" onclick="window.open('https://drive.google.com/file/d/19Om8EypVXByNunfq9NrgWL9hu4bcBMHt/view','_blank')">
       <p class="project-tag">Aesthetic Clinic · Notion CRM · Zapier Paths</p>
-      <h3 class="project-title" id="proj-t4">Client Acquisition &amp; Segmentation — Beauty Clinic</h3>
-      <p class="project-desc" id="proj-d4">Automated lead capture and CRM segmentation. Every consultation request is logged in Sheets, stored in Notion CRM, and tagged with a 4-tier service classification — zero manual work.</p>
+      <h3 class="project-title">Client Acquisition &amp; Segmentation — Beauty Clinic</h3>
+      <p class="project-desc">Automated lead capture and CRM segmentation. Every consultation request is logged in Sheets, stored in Notion CRM, and tagged with a 4-tier service classification — zero manual work.</p>
       <div class="project-stack"><span class="stack-tag">Google Forms</span><span class="stack-tag">Google Sheets</span><span class="stack-tag">Notion</span><span class="stack-tag">Zapier Paths</span></div>
       <span class="view-pdf-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>View Case Study PDF</span>
     </div>
@@ -417,11 +406,11 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
 
 <section class="contact" id="contact">
   <div class="contact-inner">
-    <p class="section-label" id="label-contact">Contact</p>
+    <p class="section-label">Contact</p>
     <div class="contact-grid">
       <div>
-        <h2 class="section-title" id="title-contact">Let's map out<br>your <em>workflow</em></h2>
-        <p class="contact-sub" id="contact-sub">Tell me about your business and the tasks you want to automate. I'll review your message and get back to you within 24 hours.</p>
+        <h2 class="section-title">Let's map out<br>your <em>workflow</em></h2>
+        <p class="contact-sub">Tell me about your business and the tasks you want to automate. I'll review your message and get back to you within 24 hours.</p>
         <div class="contact-channels">
           <div class="contact-channel">✦ &nbsp;<span><a href="mailto:va.dvasquezm@gmail.com" style="color:var(--gold-light);text-decoration:none;">va.dvasquezm@gmail.com</a></span></div>
           <div class="contact-channel">✦ &nbsp;<span>WhatsApp +57 305 432 9733</span></div>
@@ -430,22 +419,22 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
       <div>
         <form class="contact-form" id="contactForm" action="https://formspree.io/f/xkoqavzk" method="POST">
           <div class="form-row">
-            <div class="form-group"><label id="lbl-name">Full Name</label><input type="text" id="inp-name" name="name" placeholder="Your name" required></div>
-            <div class="form-group"><label id="lbl-email">Email</label><input type="email" id="inp-email" name="email" placeholder="your@email.com" required></div>
+            <div class="form-group"><label>Full Name</label><input type="text" name="name" placeholder="Your name" required></div>
+            <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="your@email.com" required></div>
           </div>
           <div class="form-group">
-            <label id="lbl-biz">Business Type</label>
-            <select id="inp-biz" name="business" required>
-              <option value="" disabled selected id="opt-biz">Select your industry</option>
+            <label>Business Type</label>
+            <select name="business" required>
+              <option value="" disabled selected>Select your industry</option>
               <option>E-commerce</option><option>Real Estate</option><option>Clinic / Healthcare</option>
               <option>Freelance / Agency</option><option>SaaS / Tech</option><option>Small Business / Startup</option><option>Other</option>
             </select>
           </div>
-          <div class="form-group"><label id="lbl-proj">Describe Your Project</label><textarea id="inp-proj" name="project" placeholder="What tasks do you want to automate? What problem are you trying to solve?" required></textarea></div>
+          <div class="form-group"><label>Describe Your Project</label><textarea name="project" placeholder="What tasks do you want to automate? What problem are you trying to solve?" required></textarea></div>
           <div class="form-group">
-            <label id="lbl-budget">Approximate Budget</label>
-            <select id="inp-budget" name="budget" required>
-              <option value="" disabled selected id="opt-budget">Select a range</option>
+            <label>Approximate Budget</label>
+            <select name="budget" required>
+              <option value="" disabled selected>Select a range</option>
               <option>Under $500</option><option>$500 – $1,000</option><option>$1,000 – $3,000</option><option>$3,000+</option><option>Let's talk</option>
             </select>
           </div>
@@ -465,229 +454,12 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
 
 <footer>
   <div class="footer-logo">Diana Vasquez</div>
-  <div class="footer-text" id="footer-text">AI Automation Engineer · Google Apps Script · Zapier · Gemini AI</div>
-  <a href="/privacy-policy.html" class="footer-privacy" id="footer-privacy">Privacy Policy</a>
+  <div class="footer-text">AI Automation Engineer · Google Apps Script · Zapier · Gemini AI</div>
+  <a href="/privacy-policy.html" class="footer-privacy">Privacy Policy</a>
   <div class="footer-text" style="color:rgba(201,168,76,.5)">© 2026</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-var currentLang = 'en';
-
-var T = {
-  en:{
-    "nav-about":"About","nav-services":"Services","nav-automation":"Automation Flow","nav-projects":"Projects","nav-contact":"Contact",
-    "label-automation":"Automation Flow","title-automation":"How automation <em>works</em>","subtitle-automation":"Real-world example of our complete workflow",
-    "hero-eyebrow":"AI Automation Engineer",
-    "hero-tagline":"I build automated systems that eliminate manual work — so your team can focus on what actually moves the business forward.",
-    "btn-start":"Start a Project","btn-work":"See My Work","btn-calendly":"📅 Book a Free Call","btn-whatsapp-hero":"💬 Message me on WhatsApp","badge-label":"Years Experience",
-    "label-about":"About","title-about":"Building systems<br>that work <em>for you</em>",
-    "stat-1":"Lead to email","stat-2":"Manual steps","stat-3":"Support response",
-    "about-p1":"I'm Diana, an Automation Engineer with 8 years of operational experience in business administration. I design end-to-end workflows using Google Apps Script, Zapier, and AI integrations that handle repetitive tasks automatically — without expensive software or complicated setups.",
-    "about-quote":"\"Every system I deliver is tested and built to run without your input. I don't hand off a script and disappear — I deliver a complete operational workflow.\"",
-    "about-p2":"From AI-powered lead scoring that classifies every inquiry as HOT / WARM / COLD in real time, to support systems that reduce response time from hours to under 60 seconds — I build infrastructure that scales with your business without adding headcount.",
-    "label-clients":"Who I Work With","title-clients":"The businesses<br>that benefit <em>most</em>",
-    "client-t1":"Small Businesses & Startups","client-d1":"Teams that need operational infrastructure without hiring additional staff. I build the systems that let a small team punch above its weight.",
-    "client-t2":"E-commerce Brands","client-d2":"Brands dealing with high support volume, manual ticket handling, or no SLA visibility. I automate the entire support pipeline end-to-end.",
-    "client-t3":"Real Estate Agencies","client-d3":"Agencies losing leads to slow follow-up and unstructured qualification. I build automated systems that respond and qualify in seconds.",
-    "label-services":"Services","title-services":"What I <em>build</em>",
-    "label-usecases":"Use Cases","title-usecases":"What I can <em>do for you</em>","sub-usecases":"Real automation scenarios — ready to deploy for your business",
-    "uc-title-1":"Shopify Orders → Google Sheets, automatic","uc-benefit-1":"Zero manual logging. Every order synced in real time.",
-    "uc-title-2":"WhatsApp Business Auto-Reply Bot","uc-benefit-2":"Reply to leads in under 60 seconds, 24/7 — no staff needed.",
-    "uc-title-3":"Real Estate Lead Scoring & Instant Follow-Up","uc-benefit-3":"Every inquiry scored HOT/WARM/COLD and followed up automatically.",
-    "uc-title-4":"Appointment Booking for Clinics — Zero Phone Calls","uc-benefit-4":"Patients book, confirm and get reminders — all automated.",
-    "uc-title-5":"E-commerce Support Tickets on Autopilot","uc-benefit-5":"AI classifies every email and routes it — response time under 60s.",
-    "uc-title-6":"Daily Business Briefing — Delivered to Your Inbox","uc-benefit-6":"Key metrics summarized and sent every morning automatically.",
-    "srv-n1":"Google Apps Script Automations","srv-d1":"Custom triggers, API integrations, and multi-step workflows that go beyond what Zapier can handle.",
-    "srv-n2":"AI-Powered Lead Scoring","srv-d2":"Every inquiry automatically classified as HOT / WARM / COLD using Gemini AI, with action recommendations generated instantly.",
-    "srv-n3":"CRM Pipelines","srv-d3":"Form submission → AI analysis → Drive folder → personalized email → dashboard update. Fully automated, zero manual intervention.",
-    "srv-n4":"AI-Powered Support Systems","srv-d4":"Incoming emails classified by AI, routed to the right response track. Response time reduced from hours to under 60 seconds.",
-    "srv-n5":"SLA Monitoring & Alerts","srv-d5":"Automated alerts when tickets breach deadlines, with zero manual checking. Full visibility with zero overhead.",
-    "label-tools":"Toolstack","title-tools":"The technology <em>I use</em>",
-    "label-projects":"Portfolio","title-projects":"Systems I've <em>shipped</em>",
-    "projects-sub":"Click any project to view the full case study PDF.",
-    "proj-tag1":"Featured · Real Estate · 22-Step Zap",
-    "pdf-btn-text":"View Case Study PDF","flow-label":"Lead Scoring Flow",
-    "flow-1":"Form submitted → Zap triggered instantly","flow-2":"Google Sheets lookup scores the lead",
-    "flow-3":"Zapier Paths branches: HOT / WARM / COLD","flow-4":"Notion CRM record created automatically",
-    "flow-5":"Personalized email sent per tier","flow-6":"HOT leads: agent also notified immediately",
-    "proj-t1":"Texas Real Estate — Lead Scoring & Prioritization",
-    "proj-d1":"Every inbound lead is automatically captured, scored, routed into HOT / WARM / COLD tiers, logged in Notion CRM, and contacted with a personalized email — in under 30 seconds, with zero manual work.",
-    "met-l1":"Lead response time","met-l2":"Zap steps automated","met-l3":"Faster pipeline setup",
-    "proj-t2":"Ecommerce AI Support System + SLA Monitor",
-    "proj-d2":"Two Zaps working as one complete support ecosystem. ChatGPT classifies every email into 6 intent categories, routes it, logs the ticket, and monitors SLA violations — all automatically.",
-    "proj-t3":"Freelance Project Intake & Routing Pipeline",
-    "proj-d3":"Inquiries filtered by project type, logged in Airtable CRM, assigned as Asana tasks, announced in Slack, and confirmed by email — in under 60 seconds.",
-    "proj-t4":"Client Acquisition & Segmentation — Beauty Clinic",
-    "proj-d4":"Automated lead capture and CRM segmentation. Every consultation request is logged in Sheets, stored in Notion CRM, and tagged with a 4-tier service classification — zero manual work.",
-    "repo-title":"Proven Automation Systems That Save Time & Increase Conversions",
-    "repo-sub":"Real systems I've built to eliminate manual work, speed up response times, and improve lead conversion.",
-    "repo-n1":"AI CRM Automation System",
-    "repo-d1":"Captures, qualifies, and routes every lead automatically in seconds.<br><strong>Result: Faster response time & zero manual CRM work.</strong>",
-    "repo-l1":"View System →",
-    "repo-n2":"AI Client Intake & Qualification",
-    "repo-d2":"Analyzes incoming requests and identifies high-value opportunities using AI.<br><strong>Result: Less time wasted on unqualified leads.</strong>",
-    "repo-l2":"View System →",
-    "repo-n3":"Automated Daily Operations Briefing",
-    "repo-d3":"Sends a daily summary of key business updates for faster decision-making.<br><strong>Result: Better decisions without digging through data.</strong>",
-    "repo-l3":"View System →",
-    "label-contact":"Contact","title-contact":"Let's map out<br>your <em>workflow</em>",
-    "contact-sub":"Tell me about your business and the tasks you want to automate. I'll review your message and get back to you within 24 hours.",
-    "lbl-name":"Full Name","lbl-email":"Email","lbl-biz":"Business Type","lbl-proj":"Describe Your Project","lbl-budget":"Approximate Budget",
-    "btn-submit":"Send Message","footer-text":"AI Automation Engineer · Google Apps Script · Zapier · Gemini AI",
-    "footer-privacy":"Privacy Policy","sticky-cta-text":"⚡ Free automation audit — limited spots available","sticky-cta-btn":"Book Free Audit",
-    "opt-biz":"Select your industry","opt-budget":"Select a range",
-    "inp-name":"Your name","inp-email":"your@email.com",
-    "inp-proj":"What tasks do you want to automate? What problem are you trying to solve?",
-    "inp-biz":"Select your industry","inp-budget":"Select a range","wa-btn":"WhatsApp",
-    "wa-href":"https://wa.me/573054329733?text=Hi%20Diana!%20I%20visited%20your%20website%20and%20I'd%20like%20to%20talk%20about%20automating%20my%20business.",
-    "wa-href-hero":"https://wa.me/573054329733?text=Hi%20Diana!%20I%20visited%20your%20website%20and%20I'd%20like%20to%20talk%20about%20automating%20my%20business.",
-    "formSuccess":"✦   Message sent — I'll get back to you within 24 hours. Thank you!"
-  },
-  es:{
-    "nav-about":"Acerca","nav-services":"Servicios","nav-projects":"Proyectos","nav-contact":"Contacto",
-    "hero-eyebrow":"Ingeniera de Automatización con IA",
-    "hero-tagline":"Ahorra 10+ horas por semana eliminando tareas manuales — sin software costoso, sin contratar más personal. Solo sistemas que trabajan por ti, automáticamente.",
-    "btn-start":"Iniciar Proyecto","btn-work":"Ver mi trabajo","btn-calendly":"📅 Agenda una llamada gratis","btn-whatsapp-hero":"💬 Escríbeme por WhatsApp","badge-label":"Años de Experiencia",
-    "label-about":"Acerca de mí","title-about":"Sistemas que trabajan<br><em>por ti</em>",
-    "stat-1":"Lead a email","stat-2":"Pasos manuales","stat-3":"Respuesta de soporte",
-    "about-p1":"Soy Diana, Ingeniera de Automatización con 8 años de experiencia en administración de empresas. Diseño flujos de trabajo completos con Google Apps Script, Zapier e integraciones de IA que eliminan tareas repetitivas — sin software costoso ni configuraciones complicadas.",
-    "about-quote":"\"Cada sistema que entrego está probado y funciona sin que tengas que intervenir. No entrego un script y desaparezco — entrego un flujo operativo completo.\"",
-    "about-p2":"Desde clasificación de leads con IA que categoriza cada consulta como CALIENTE / TIBIO / FRÍO en tiempo real, hasta sistemas de soporte que reducen el tiempo de respuesta de horas a menos de 60 segundos — construyo infraestructura que escala tu negocio sin aumentar tu equipo.",
-    "label-clients":"Con quién trabajo","title-clients":"Los negocios que más<br>se <em>benefician</em>",
-    "client-t1":"Pequeñas Empresas y Startups","client-d1":"Equipos que necesitan infraestructura operativa sin contratar personal adicional. Construyo los sistemas que permiten a un equipo pequeño rendir como uno grande.",
-    "client-t2":"Marcas de E-commerce","client-d2":"Marcas con alto volumen de soporte, tickets manuales o sin visibilidad de SLA. Automatizo todo el pipeline de soporte de principio a fin.",
-    "client-t3":"Agencias Inmobiliarias","client-d3":"Agencias que pierden leads por seguimiento lento y procesos sin estructura. Construyo sistemas automatizados que responden y califican en segundos.",
-    "label-services":"Servicios","title-services":"Lo que <em>construyo</em>",
-    "label-usecases":"Casos de Uso","title-usecases":"Lo que puedo <em>hacer por ti</em>","sub-usecases":"Automatizaciones reales — listas para implementar en tu negocio",
-    "uc-title-1":"Pedidos de Shopify → Google Sheets, automático","uc-benefit-1":"Cero registro manual. Cada pedido sincronizado en tiempo real.",
-    "uc-title-2":"Bot de respuesta automática para WhatsApp Business","uc-benefit-2":"Responde leads en menos de 60 segundos, 24/7 — sin personal adicional.",
-    "uc-title-3":"Clasificación de leads inmobiliarios y seguimiento instantáneo","uc-benefit-3":"Cada consulta clasificada como HOT/WARM/COLD y contactada automáticamente.",
-    "uc-title-4":"Agendamiento para clínicas — sin llamadas telefónicas","uc-benefit-4":"Los pacientes agendan, confirman y reciben recordatorios solos.",
-    "uc-title-5":"Tickets de soporte e-commerce en piloto automático","uc-benefit-5":"La IA clasifica cada email y lo enruta — respuesta en menos de 60s.",
-    "uc-title-6":"Resumen diario del negocio — directo a tu bandeja","uc-benefit-6":"Métricas clave resumidas y enviadas cada mañana, automáticamente.",
-    "srv-n1":"Automatizaciones con Google Apps Script","srv-d1":"Triggers personalizados, integraciones de API y flujos de múltiples pasos que van más allá de lo que Zapier puede manejar por sí solo.",
-    "srv-n2":"Clasificación de Leads con IA","srv-d2":"Cada consulta clasificada automáticamente como CALIENTE / TIBIO / FRÍO con Gemini AI, con recomendaciones de acción generadas al instante.",
-    "srv-n3":"Pipelines de CRM","srv-d3":"Formulario → análisis con IA → carpeta en Drive → email personalizado → actualización del dashboard. Completamente automatizado.",
-    "srv-n4":"Sistemas de Soporte con IA","srv-d4":"Emails entrantes clasificados por IA y enrutados al canal correcto. Tiempo de respuesta reducido de horas a menos de 60 segundos.",
-    "srv-n5":"Monitoreo de SLA y Alertas","srv-d5":"Alertas automáticas cuando los tickets superan los plazos, sin revisión manual. Visibilidad total con cero esfuerzo extra.",
-    "label-tools":"Herramientas","title-tools":"La tecnología <em>que uso</em>",
-    "label-projects":"Portafolio","title-projects":"Sistemas que he <em>entregado</em>",
-    "projects-sub":"Haz clic en cualquier proyecto para ver el caso de estudio en PDF.",
-    "proj-tag1":"Destacado · Inmobiliaria · Zap de 22 pasos",
-    "pdf-btn-text":"Ver Caso de Estudio PDF","flow-label":"Flujo de Clasificación de Leads",
-    "flow-1":"Formulario enviado → Zap activado al instante","flow-2":"Google Sheets consulta y puntúa el lead",
-    "flow-3":"Zapier Paths divide: CALIENTE / TIBIO / FRÍO","flow-4":"Registro en Notion CRM creado automáticamente",
-    "flow-5":"Email personalizado enviado según el tier","flow-6":"Leads CALIENTES: agente notificado de inmediato",
-    "proj-t1":"Texas Inmobiliaria — Clasificación y Priorización de Leads",
-    "proj-d1":"Cada lead entrante es capturado, puntuado, clasificado en tiers CALIENTE / TIBIO / FRÍO, registrado en Notion CRM y contactado con un email personalizado — en menos de 30 segundos, sin intervención manual.",
-    "met-l1":"Tiempo de respuesta al lead","met-l2":"Pasos de Zap automatizados","met-l3":"Pipeline más rápido",
-    "proj-t2":"Sistema de Soporte con IA para E-commerce + Monitor SLA",
-    "proj-d2":"Dos Zaps funcionando como un ecosistema de soporte completo. ChatGPT clasifica cada email en 6 categorías de intención, lo enruta, registra el ticket y monitorea violaciones de SLA — todo automáticamente.",
-    "proj-t3":"Pipeline de Captación y Enrutamiento de Proyectos Freelance",
-    "proj-d3":"Consultas filtradas por tipo de proyecto, registradas en Airtable CRM, asignadas en Asana, anunciadas en Slack y confirmadas por email — en menos de 60 segundos.",
-    "proj-t4":"Captación y Segmentación de Clientes — Clínica Estética",
-    "proj-d4":"Captura automatizada de leads y segmentación CRM. Cada solicitud de consulta se registra en Sheets, se almacena en Notion CRM y se etiqueta con una clasificación de 4 niveles — sin trabajo manual.",
-    "repo-title":"Sistemas de Automatización Probados que Ahorran Tiempo y Aumentan Conversiones",
-    "repo-sub":"Sistemas reales que construí para eliminar trabajo manual, acelerar tiempos de respuesta y mejorar la conversión de leads.",
-    "repo-n1":"Sistema de Automatización CRM con IA",
-    "repo-d1":"Captura, califica y enruta cada lead automáticamente en segundos.<br><strong>Resultado: respuesta más rápida y cero trabajo manual en CRM.</strong>",
-    "repo-l1":"Ver sistema →",
-    "repo-n2":"Captación y Calificación de Clientes con IA",
-    "repo-d2":"Analiza solicitudes entrantes e identifica oportunidades de alto valor usando IA.<br><strong>Resultado: menos tiempo perdido en leads no calificados.</strong>",
-    "repo-l2":"Ver sistema →",
-    "repo-n3":"Resumen Diario Automatizado de Operaciones",
-    "repo-d3":"Envía un resumen diario de actualizaciones clave del negocio para tomar mejores decisiones.<br><strong>Resultado: decisiones más rápidas sin revisar datos manualmente.</strong>",
-    "repo-l3":"Ver sistema →",
-    "repo-title":"Sistemas de Automatización Probados que Ahorran Tiempo y Aumentan Conversiones",
-    "repo-sub":"Sistemas reales que construí para eliminar trabajo manual, acelerar tiempos de respuesta y mejorar la conversión de leads.",
-    "label-contact":"Contacto","title-contact":"Diseñemos tu<br><em>flujo de trabajo</em>",
-    "contact-sub":"Cuéntame sobre tu negocio y las tareas que quieres automatizar. Revisaré tu mensaje y te responderé en menos de 24 horas.",
-    "lbl-name":"Nombre completo","lbl-email":"Correo electrónico","lbl-biz":"Tipo de negocio","lbl-proj":"Describe tu proyecto","lbl-budget":"Presupuesto aproximado",
-    "btn-submit":"Enviar mensaje","footer-text":"Ingeniera de Automatización con IA · Google Apps Script · Zapier · Gemini AI",
-    "footer-privacy":"Política de Privacidad","sticky-cta-text":"⚡ Auditoría de automatización gratis — cupos limitados","sticky-cta-btn":"Reservar auditoría",
-    "wa-href":"https://wa.me/573054329733?text=Hola%20Diana!%20Vi%20tu%20p%C3%A1gina%20y%20me%20gustar%C3%ADa%20hablar%20sobre%20automatizar%20mi%20negocio.",
-    "wa-href-hero":"https://wa.me/573054329733?text=Hola%20Diana!%20Visit%C3%A9%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20hablar%20sobre%20automatizar%20mi%20negocio.",
-    "inp-name-ph":"Tu nombre","inp-email-ph":"tu@correo.com",
-    "inp-proj-ph":"¿Qué tareas quieres automatizar? ¿Qué problema intentas resolver?",
-    "opt-biz-txt":"Selecciona tu industria","opt-budget-txt":"Selecciona un rango",
-    "formSuccess-txt":"✦   Mensaje enviado — te responderé en menos de 24 horas. ¡Gracias!"
-  }
-};
-
-function setLang(lang) {
-  var t = T[lang];
-  var ids = [
-    "nav-about","nav-services","nav-projects","nav-contact",
-    "hero-eyebrow","hero-tagline","btn-start","btn-work","btn-calendly","btn-whatsapp-hero","badge-label",
-    "label-about","title-about","stat-1","stat-2","stat-3",
-    "about-p1","about-quote","about-p2",
-    "label-clients","title-clients","client-t1","client-d1","client-t2","client-d2","client-t3","client-d3",
-    "label-services","title-services",
-    "srv-n1","srv-d1","srv-n2","srv-d2","srv-n3","srv-d3","srv-n4","srv-d4","srv-n5","srv-d5",
-    "label-usecases","title-usecases","sub-usecases",
-    "uc-title-1","uc-benefit-1","uc-title-2","uc-benefit-2","uc-title-3","uc-benefit-3",
-    "uc-title-4","uc-benefit-4","uc-title-5","uc-benefit-5","uc-title-6","uc-benefit-6",
-    "label-tools","title-tools",
-    "label-projects","title-projects","projects-sub","proj-tag1","pdf-btn-text","flow-label",
-    "flow-1","flow-2","flow-3","flow-4","flow-5","flow-6",
-    "proj-t1","proj-d1","met-l1","met-l2","met-l3",
-    "proj-t2","proj-d2","proj-t3","proj-d3","proj-t4","proj-d4",
-    "repo-title","repo-sub","repo-n1","repo-d1","repo-l1","repo-n2","repo-d2","repo-l2","repo-n3","repo-d3","repo-l3",
-    "label-contact","title-contact","contact-sub",
-    "lbl-name","lbl-email","lbl-biz","lbl-proj","lbl-budget","btn-submit",
-    "footer-text","footer-privacy"
-  ];
-
-  // Translate all standard elements
-  ids.forEach(function(id) {
-    var el = document.getElementById(id);
-    if (el && t[id]) el.innerHTML = t[id];
-  });
-
-  // Sticky bar
-  var sct = document.getElementById("sticky-cta-text");
-  if (sct) sct.innerHTML = lang === 'es' ? "⚡ Auditoría de automatización gratis — cupos limitados" : "⚡ Free automation audit — limited spots available";
-  var scb = document.getElementById("sticky-cta-btn");
-  if (scb) scb.innerHTML = lang === 'es' ? "Reservar auditoría" : "Book Free Audit";
-
-  // Form placeholders
-  var inpName = document.getElementById("inp-name");
-  if (inpName) inpName.placeholder = lang === 'es' ? "Tu nombre" : "Your name";
-  var inpEmail = document.getElementById("inp-email");
-  if (inpEmail) inpEmail.placeholder = lang === 'es' ? "tu@correo.com" : "your@email.com";
-  var inpProj = document.getElementById("inp-proj");
-  if (inpProj) inpProj.placeholder = lang === 'es' ? "¿Qué tareas quieres automatizar? ¿Qué problema intentas resolver?" : "What tasks do you want to automate? What problem are you trying to solve?";
-
-  // Select default options
-  var optBiz = document.getElementById("opt-biz");
-  if (optBiz) optBiz.textContent = lang === 'es' ? "Selecciona tu industria" : "Select your industry";
-  var optBudget = document.getElementById("opt-budget");
-  if (optBudget) optBudget.textContent = lang === 'es' ? "Selecciona un rango" : "Select a range";
-
-  // Success message
-  var fs = document.getElementById("formSuccess");
-  if (fs) fs.textContent = lang === 'es' ? "✦   Mensaje enviado — te responderé en menos de 24 horas. ¡Gracias!" : "✦   Message sent — I'll get back to you within 24 hours. Thank you!";
-
-  // WhatsApp hrefs
-  var waBtn = document.getElementById("wa-btn");
-  if (waBtn) waBtn.href = lang === 'es'
-    ? "https://wa.me/573054329733?text=Hola%20Diana!%20Vi%20tu%20p%C3%A1gina%20y%20me%20gustar%C3%ADa%20hablar%20sobre%20automatizar%20mi%20negocio."
-    : "https://wa.me/573054329733?text=Hi%20Diana!%20I%20visited%20your%20website%20and%20I'd%20like%20to%20talk%20about%20automating%20my%20business.";
-  var waHero = document.getElementById("btn-whatsapp-hero");
-  if (waHero) waHero.href = lang === 'es'
-    ? "https://wa.me/573054329733?text=Hola%20Diana!%20Visit%C3%A9%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20hablar%20sobre%20automatizar%20mi%20negocio."
-    : "https://wa.me/573054329733?text=Hi%20Diana!%20I%20visited%20your%20website%20and%20I'd%20like%20to%20talk%20about%20automating%20my%20business.";
-
-  // Active button state
-  document.getElementById("btn-en").classList.toggle("active", lang === "en");
-  document.getElementById("btn-es").classList.toggle("active", lang === "es");
-  document.documentElement.lang = lang;
-  document.title = lang === "es"
-    ? "Diana Vasquez | Ingeniera de Automatización con IA"
-    : "Diana Vasquez | AI Automation Engineer — Zapier, Google Apps Script & Gemini AI";
-  currentLang = lang;
-}
-
+<script>
 function adjustNavOffset() {
   var bar = document.getElementById("sticky-cta-bar");
   var nav = document.querySelector("nav");
@@ -697,25 +469,6 @@ window.addEventListener("load", adjustNavOffset);
 window.addEventListener("resize", adjustNavOffset);
 
 window.addEventListener("DOMContentLoaded", function() {
-  // Inicializar idioma por defecto a inglés
-  setLang("en");
-  
-  // Event listeners para los botones de idioma
-  var btnEn = document.getElementById("btn-en");
-  var btnEs = document.getElementById("btn-es");
-  
-  if (btnEn) {
-    btnEn.addEventListener("click", function() {
-      setLang("en");
-    });
-  }
-  
-  if (btnEs) {
-    btnEs.addEventListener("click", function() {
-      setLang("es");
-    });
-  }
-
   document.getElementById("contactForm").addEventListener("submit", function(e) {
     e.preventDefault();
     var btn = this.querySelector(".btn-submit");
@@ -726,10 +479,10 @@ window.addEventListener("DOMContentLoaded", function() {
       .then(function() {
         document.getElementById("contactForm").reset();
         document.getElementById("formSuccess").classList.add("visible");
-        gtag('event', 'conversion', {'send_to': 'AW-18032769454/XXXXXXXXXXXXXXXX'}); 
-        gtag('event', 'conversion', {'send_to': 'AW-18032769454/nL4uCJHXo44cEK7z2JZD'}); 
+        gtag('event', 'conversion', {'send_to': 'AW-18032769454/XXXXXXXXXXXXXXXX'});
+        gtag('event', 'conversion', {'send_to': 'AW-18032769454/nL4uCJHXo44cEK7z2JZD'});
         btn.textContent = "Sent ✓";
-        setTimeout(function() { 
+        setTimeout(function() {
           document.getElementById("formSuccess").classList.remove("visible");
           btn.textContent = "Send Message";
           btn.disabled = false;
@@ -741,3 +494,6 @@ window.addEventListener("DOMContentLoaded", function() {
       });
   });
 });
+</script>
+</body>
+</html>
