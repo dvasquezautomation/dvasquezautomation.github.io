@@ -25,8 +25,9 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;font-size:18px}
 body{background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden}
-#sticky-cta-bar{position:fixed;top:0;left:0;right:0;z-index:200;background:linear-gradient(90deg,#c9a84c,#e4c97a);color:#0a1628;display:flex;align-items:center;justify-content:center;gap:1.5rem;padding:.55rem 5vw;font-size:.75rem;letter-spacing:.08em}
-#sticky-cta-btn{background:#0a1628;color:#e4c97a;padding:.35rem 1.1rem;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;font-weight:500;white-space:nowrap;transition:background .2s}
+#sticky-cta-bar{position:fixed;top:0;left:0;right:0;z-index:200;background:linear-gradient(90deg,#c9a84c,#e4c97a);color:#0a1628;display:flex;align-items:center;justify-content:center;gap:1rem;padding:.5rem 4vw;font-size:.75rem;letter-spacing:.08em;flex-wrap:nowrap}
+#cta-bar-text{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+#sticky-cta-btn{background:#0a1628;color:#e4c97a;padding:.35rem 1.1rem;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;font-weight:500;white-space:nowrap;flex-shrink:0;transition:background .2s}
 #sticky-cta-btn:hover{background:#0d2147}
 nav{position:fixed;top:42px;left:0;right:0;z-index:150;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 5vw;background:linear-gradient(to bottom,rgba(10,22,40,.98) 0%,rgba(10,22,40,0) 100%)}
 .nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;letter-spacing:.15em;color:var(--gold-light);text-decoration:none}
@@ -35,7 +36,6 @@ nav{position:fixed;top:42px;left:0;right:0;z-index:150;display:flex;align-items:
 .nav-links a:hover{color:var(--gold-light)}
 
 /* Language Toggle Button */
-#lang-toggle{
   display:inline-flex;align-items:center;gap:.4rem;
   background:transparent;
   border:1px solid rgba(201,168,76,.45);
@@ -46,8 +46,6 @@ nav{position:fixed;top:42px;left:0;right:0;z-index:150;display:flex;align-items:
   cursor:pointer;transition:background .25s,border-color .25s,color .25s;
   white-space:nowrap;
 }
-#lang-toggle:hover{background:rgba(201,168,76,.12);border-color:var(--gold-light)}
-#lang-toggle .flag{font-size:.9rem}
 
 .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;position:relative;overflow:hidden;padding:0 5vw;margin-top:60px}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 70% 50%,rgba(30,77,158,.25) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 20% 20%,rgba(13,33,71,.8) 0%,transparent 60%)}
@@ -183,12 +181,14 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
 /* ── Mobile nav hamburger ─── */
 #nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:.3rem;color:var(--gold-light);flex-shrink:0}
 #nav-hamburger svg{display:block}
+#nav-close{display:none}
 
 @media(max-width:900px){
   html{font-size:16px}
+  #sticky-cta-bar{font-size:.68rem;gap:.7rem;padding:.45rem 3vw}
+  #sticky-cta-btn{font-size:.65rem;padding:.3rem .8rem;letter-spacing:.08em}
   /* Nav */
   nav{padding:1rem 5vw}
-  #nav-hamburger{display:flex;align-items:center;justify-content:center}
   .nav-links{
     display:none;flex-direction:column;gap:0;list-style:none;
     position:fixed;top:0;right:0;bottom:0;width:75vw;max-width:280px;
@@ -203,13 +203,12 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
   .nav-links a:hover{color:var(--gold-light)}
   /* Lang button inside mobile menu */
   .nav-links li:last-child{border-bottom:none;padding-top:1rem}
-  #lang-toggle{width:100%;justify-content:center;padding:.6rem 1rem;font-size:.78rem}
-  /* Overlay */
-  #nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:299}
-  #nav-overlay.open{display:block}
   /* Close X inside menu */
   #nav-close{display:flex;position:absolute;top:1.2rem;right:1.2rem;background:none;border:none;cursor:pointer;color:var(--text-muted);padding:.3rem}
   #nav-close svg{display:block}
+  /* Overlay */
+  #nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:299}
+  #nav-overlay.open{display:block}
   /* Sections */
   .hero{grid-template-columns:1fr;padding-top:8rem;padding-bottom:4rem}
   .hero-text{padding-right:0;order:2}
@@ -247,482 +246,16 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
 </head>
 <body>
 
-<!-- ===================== TRANSLATIONS ===================== -->
-<script>
-const t = {
-  en: {
-    ctaBar: "⚡ Free automation audit — limited spots available",
-    ctaBtn: "Book Free Audit",
-    navAbout: "About",
-    navClients: "Who I Work With",
-    navServices: "Services",
-    navUsecases: "Use Cases",
-    navProjects: "Projects",
-    navTools: "Toolstack",
-    navContact: "Contact",
-    heroEyebrow: "AI Automation Engineer",
-    heroTitle: "Google Apps Script · Zapier · Gemini AI",
-    heroTagline: "Save 10+ hours a week by eliminating manual tasks — no expensive software, no extra hires. Just systems that work for you, automatically.",
-    heroCta1: "Start a Project",
-    heroCta2: "See My Work",
-    heroBtn1: "📅 Book a Free Call",
-    heroBtn2: "💬 Message me on WhatsApp",
-    heroBadgeLbl: "Years Experience",
-    aboutLabel: "About",
-    aboutTitle1: "Building systems",
-    aboutTitle2: "that work",
-    aboutTitleEm: "for you",
-    statLbl1: "Lead to email",
-    statLbl2: "Manual steps",
-    statLbl3: "Support response",
-    aboutP1: "I'm Diana, an Automation Engineer with 8 years of operational experience in business administration. I design end-to-end workflows using Google Apps Script, Zapier, and AI integrations that handle repetitive tasks automatically — without expensive software or complicated setups.",
-    aboutQuote: "\"Every system I deliver is tested and built to run without your input. I don't hand off a script and disappear — I deliver a complete operational workflow.\"",
-    aboutP2: "From AI-powered lead scoring that classifies every inquiry as HOT / WARM / COLD in real time, to support systems that reduce response time from hours to under 60 seconds — I build infrastructure that scales with your business without adding headcount.",
-    clientsLabel: "Who I Work With",
-    clientsTitle1: "The businesses",
-    clientsTitle2: "that benefit",
-    clientsTitleEm: "most",
-    client1Title: "Small Businesses & Startups",
-    client1Desc: "Teams that need operational infrastructure without hiring additional staff. I build the systems that let a small team punch above its weight.",
-    client2Title: "E-commerce Brands",
-    client2Desc: "Brands dealing with high support volume, manual ticket handling, or no SLA visibility. I automate the entire support pipeline end-to-end.",
-    client3Title: "Real Estate Agencies",
-    client3Desc: "Agencies losing leads to slow follow-up and unstructured qualification. I build automated systems that respond and qualify in seconds.",
-    servicesLabel: "Services",
-    servicesTitle1: "What I",
-    servicesTitleEm: "build",
-    s1Name: "Google Apps Script Automations",
-    s1Desc: "Custom triggers, API integrations, and multi-step workflows that go beyond what Zapier can handle.",
-    s2Name: "AI-Powered Lead Scoring",
-    s2Desc: "Every inquiry automatically classified as HOT / WARM / COLD using Gemini AI, with action recommendations generated instantly.",
-    s3Name: "CRM Pipelines",
-    s3Desc: "Form submission → AI analysis → Drive folder → personalized email → dashboard update. Fully automated, zero manual intervention.",
-    s4Name: "AI-Powered Support Systems",
-    s4Desc: "Incoming emails classified by AI, routed to the right response track. Response time reduced from hours to under 60 seconds.",
-    s5Name: "SLA Monitoring & Alerts",
-    s5Desc: "Automated alerts when tickets breach deadlines, with zero manual checking. Full visibility with zero overhead.",
-    usecasesLabel: "Use Cases",
-    usecasesTitle1: "What I can",
-    usecasesTitleEm: "do for you",
-    usecasesSub: "Real automation scenarios — ready to deploy for your business",
-    uc1Title: "Shopify Orders → Google Sheets, automatic",
-    uc1Benefit: "Zero manual logging. Every order synced in real time.",
-    uc2Title: "WhatsApp Business Auto-Reply Bot",
-    uc2Benefit: "Reply to leads in under 60 seconds, 24/7 — no staff needed.",
-    uc3Title: "Real Estate Lead Scoring & Instant Follow-Up",
-    uc3Benefit: "Every inquiry scored HOT/WARM/COLD and followed up automatically.",
-    uc4Title: "Appointment Booking for Clinics — Zero Phone Calls",
-    uc4Benefit: "Patients book, confirm and get reminders — all automated.",
-    uc5Title: "E-commerce Support Tickets on Autopilot",
-    uc5Benefit: "AI classifies every email and routes it — response time under 60s.",
-    uc6Title: "Daily Business Briefing — Delivered to Your Inbox",
-    uc6Benefit: "Key metrics summarized and sent every morning automatically.",
-    toolsLabel: "Toolstack",
-    toolsTitle1: "The technology",
-    toolsTitleEm: "I use",
-    portfolioLabel: "Portfolio",
-    portfolioTitle1: "Systems I've",
-    portfolioTitleEm: "shipped",
-    portfolioSub: "Click any project to view the full case study PDF.",
-    repoTitle: "Proven Automation Systems That Save Time & Increase Conversions",
-    repoSub: "Real systems I've built to eliminate manual work, speed up response times, and improve lead conversion.",
-    repo1Name: "AI CRM Automation System",
-    repo1Desc: "Captures, qualifies, and routes every lead automatically in seconds.",
-    repo1Result: "Result: Faster response time & zero manual CRM work.",
-    repo1Link: "View System →",
-    repo2Name: "AI Client Intake & Qualification",
-    repo2Desc: "Analyzes incoming requests and identifies high-value opportunities using AI.",
-    repo2Result: "Result: Less time wasted on unqualified leads.",
-    repo2Link: "View System →",
-    repo3Name: "Automated Daily Operations Briefing",
-    repo3Desc: "Sends a daily summary of key business updates for faster decision-making.",
-    repo3Result: "Result: Better decisions without digging through data.",
-    repo3Link: "View System →",
-    proj1Tag: "Featured · Real Estate · 22-Step Zap",
-    proj1Title: "Texas Real Estate — Lead Scoring & Prioritization",
-    proj1Desc: "Every inbound lead is automatically captured, scored, routed into HOT / WARM / COLD tiers, logged in Notion CRM, and contacted with a personalized email — in under 30 seconds, with zero manual work.",
-    proj1M1: "Lead response time",
-    proj1M2: "Zap steps automated",
-    proj1M3: "Faster pipeline setup",
-    proj1FlowLabel: "Lead Scoring Flow",
-    proj1F1: "Form submitted → Zap triggered instantly",
-    proj1F2: "Google Sheets lookup scores the lead",
-    proj1F3: "Zapier Paths branches: HOT / WARM / COLD",
-    proj1F4: "Notion CRM record created automatically",
-    proj1F5: "Personalized email sent per tier",
-    proj1F6: "HOT leads: agent also notified immediately",
-    proj2Tag: "E-commerce · 21-Step Zap · ChatGPT",
-    proj2Title: "Ecommerce AI Support System + SLA Monitor",
-    proj2Desc: "Two Zaps working as one complete support ecosystem. ChatGPT classifies every email into 6 intent categories, routes it, logs the ticket, and monitors SLA violations — all automatically.",
-    proj3Tag: "Freelance · 7-Step Zap · Multi-tool",
-    proj3Title: "Freelance Project Intake & Routing Pipeline",
-    proj3Desc: "Inquiries filtered by project type, logged in Airtable CRM, assigned as Asana tasks, announced in Slack, and confirmed by email — in under 60 seconds.",
-    proj4Tag: "Aesthetic Clinic · Notion CRM · Zapier Paths",
-    proj4Title: "Client Acquisition & Segmentation — Beauty Clinic",
-    proj4Desc: "Automated lead capture and CRM segmentation. Every consultation request is logged in Sheets, stored in Notion CRM, and tagged with a 4-tier service classification — zero manual work.",
-    viewPDF: "View Case Study PDF",
-    contactLabel: "Contact",
-    contactTitle1: "Let's map out",
-    contactTitle2: "your",
-    contactTitleEm: "workflow",
-    contactSub: "Tell me about your business and the tasks you want to automate. I'll review your message and get back to you within 24 hours.",
-    formName: "Full Name",
-    formNamePh: "Your name",
-    formEmail: "Email",
-    formEmailPh: "your@email.com",
-    formBusiness: "Business Type",
-    formBusinessPh: "Select your industry",
-    formBopt1: "E-commerce",
-    formBopt2: "Real Estate",
-    formBopt3: "Clinic / Healthcare",
-    formBopt4: "Freelance / Agency",
-    formBopt5: "SaaS / Tech",
-    formBopt6: "Small Business / Startup",
-    formBopt7: "Other",
-    formProject: "Describe Your Project",
-    formProjectPh: "What tasks do you want to automate? What problem are you trying to solve?",
-    formBudget: "Approximate Budget",
-    formBudgetPh: "Select a range",
-    formBudget1: "Under $500",
-    formBudget2: "$500 – $1,000",
-    formBudget3: "$1,000 – $3,000",
-    formBudget4: "$3,000+",
-    formBudget5: "Let's talk",
-    formBtn: "Send Message",
-    formWA: "WhatsApp",
-    formSuccess: "✦   Message sent — I'll get back to you within 24 hours. Thank you!",
-    footerRole: "AI Automation Engineer · Google Apps Script · Zapier · Gemini AI",
-    footerPrivacy: "Privacy Policy",
-  },
-  es: {
-    ctaBar: "⚡ Auditoría de automatización gratuita — cupos limitados",
-    ctaBtn: "Reserva tu Auditoría",
-    navAbout: "Sobre mí",
-    navClients: "Con quién trabajo",
-    navServices: "Servicios",
-    navUsecases: "Casos de Uso",
-    navProjects: "Proyectos",
-    navTools: "Herramientas",
-    navContact: "Contacto",
-    heroEyebrow: "Ingeniería en Automatización con IA",
-    heroTitle: "Google Apps Script · Zapier · Gemini AI",
-    heroTagline: "Ahorra 10+ horas semanales eliminando tareas manuales — sin software costoso ni contrataciones extra. Solo sistemas que trabajan por ti, de forma automática.",
-    heroCta1: "Iniciar un Proyecto",
-    heroCta2: "Ver mi Trabajo",
-    heroBtn1: "📅 Reservar una Llamada Gratis",
-    heroBtn2: "💬 Escríbeme por WhatsApp",
-    heroBadgeLbl: "Años de Experiencia",
-    aboutLabel: "Sobre mí",
-    aboutTitle1: "Construyo sistemas",
-    aboutTitle2: "que trabajan",
-    aboutTitleEm: "por ti",
-    statLbl1: "Lead a email",
-    statLbl2: "Pasos manuales",
-    statLbl3: "Respuesta de soporte",
-    aboutP1: "Soy Diana, Ingeniera en Automatización con 8 años de experiencia operativa en administración de empresas. Diseño flujos de trabajo de extremo a extremo usando Google Apps Script, Zapier e integraciones con IA que manejan tareas repetitivas de forma automática — sin software costoso ni configuraciones complicadas.",
-    aboutQuote: "\"Cada sistema que entrego está probado y construido para funcionar sin tu intervención. No entrego un script y desaparezco — entrego un flujo operativo completo.\"",
-    aboutP2: "Desde clasificación de leads con IA (HOT / WARM / COLD) en tiempo real, hasta sistemas de soporte que reducen el tiempo de respuesta de horas a menos de 60 segundos — construyo infraestructura que escala con tu negocio sin necesidad de más personal.",
-    clientsLabel: "Con quién trabajo",
-    clientsTitle1: "Los negocios",
-    clientsTitle2: "que más se",
-    clientsTitleEm: "benefician",
-    client1Title: "Pequeñas Empresas y Startups",
-    client1Desc: "Haciendo todo manual y sin horas para más. Construyo los sistemas que reemplazan la contratación extra.",
-    client2Title: "Marcas de E-commerce",
-    client2Desc: "Ahogados en tickets sin visibilidad de SLA. Automatizo el pipeline completo — clasificar, enrutar, responder.",
-    client3Title: "Agencias Inmobiliarias",
-    client3Desc: "Perdiendo negocios por seguimientos lentos. Clasifico cada lead HOT/WARM/COLD y disparo la acción correcta en menos de 30s.",
-    servicesLabel: "Servicios",
-    servicesTitle1: "Lo que",
-    servicesTitleEm: "construyo",
-    s1Name: "Automatizaciones con Google Apps Script",
-    s1Desc: "Triggers personalizados, integraciones de API y flujos de múltiples pasos que van más allá de lo que Zapier puede manejar.",
-    s2Name: "Calificación de Leads con IA",
-    s2Desc: "Cada consulta clasificada automáticamente como HOT / WARM / COLD con Gemini AI, con recomendaciones de acción generadas al instante.",
-    s3Name: "Pipelines de CRM",
-    s3Desc: "Envío de formulario → análisis con IA → carpeta en Drive → email personalizado → actualización del dashboard. Totalmente automatizado, cero intervención manual.",
-    s4Name: "Sistemas de Soporte con IA",
-    s4Desc: "Emails clasificados por IA y dirigidos al canal correcto. Tiempo de respuesta reducido de horas a menos de 60 segundos.",
-    s5Name: "Monitoreo de SLA y Alertas",
-    s5Desc: "Alertas automáticas cuando los tickets superan los plazos, sin revisión manual. Visibilidad total con cero carga operativa.",
-    usecasesLabel: "Casos de Uso",
-    usecasesTitle1: "Lo que puedo",
-    usecasesTitleEm: "hacer por ti",
-    usecasesSub: "Escenarios de automatización reales — listos para implementar en tu negocio",
-    uc1Title: "Shopify → Sheets: cero registro manual, cada pedido sincronizado en vivo",
-    uc1Benefit: "Tu tienda vende. Tus datos se actualizan. Tú no haces nada.",
-    uc2Title: "Bot de respuesta en WhatsApp — responde leads en menos de 60s, 24/7",
-    uc2Benefit: "Sin personal. Sin demoras. Cada lead recibe una respuesta inmediata.",
-    uc3Title: "Leads inmobiliarios clasificados HOT / WARM / COLD — seguimiento al instante",
-    uc3Benefit: "Deja de perder negocios por respuestas lentas. Cada consulta resuelta en segundos.",
-    uc4Title: "Clínicas: pacientes agendan, confirman y reciben recordatorios solos",
-    uc4Benefit: "Cero llamadas. Cero ausencias. Agenda llena, cero esfuerzo.",
-    uc5Title: "Soporte e-commerce en piloto automático — la IA enruta cada ticket al instante",
-    uc5Benefit: "6 categorías de intención. Enrutamiento automático. Respuesta en menos de 60s.",
-    uc6Title: "Briefing diario en tu bandeja — métricas clave, sin buscar en ningún lado",
-    uc6Benefit: "Amanece sabiendo exactamente cómo está tu negocio.",
-    toolsLabel: "Herramientas",
-    toolsTitle1: "La tecnología",
-    toolsTitleEm: "que uso",
-    portfolioLabel: "Portafolio",
-    portfolioTitle1: "Sistemas que he",
-    portfolioTitleEm: "entregado",
-    portfolioSub: "Haz clic en cualquier proyecto para ver el PDF completo del caso de estudio.",
-    repoTitle: "Sistemas de Automatización Probados que Ahorran Tiempo y Aumentan Conversiones",
-    repoSub: "Sistemas reales que he construido para eliminar trabajo manual, acelerar tiempos de respuesta y mejorar la conversión de leads.",
-    repo1Name: "Sistema CRM de Automatización con IA",
-    repo1Desc: "Captura, califica y enruta cada lead automáticamente en segundos.",
-    repo1Result: "Resultado: Respuesta más rápida y cero trabajo manual en CRM.",
-    repo1Link: "Ver Sistema →",
-    repo2Name: "Intake y Calificación de Clientes con IA",
-    repo2Desc: "Analiza solicitudes entrantes e identifica oportunidades de alto valor con IA.",
-    repo2Result: "Resultado: Menos tiempo perdido en leads no calificados.",
-    repo2Link: "Ver Sistema →",
-    repo3Name: "Briefing Diario de Operaciones Automatizado",
-    repo3Desc: "Envía un resumen diario de actualizaciones clave para decisiones más rápidas.",
-    repo3Result: "Resultado: Mejores decisiones sin revisar datos manualmente.",
-    repo3Link: "Ver Sistema →",
-    proj1Tag: "Destacado · Bienes Raíces · Zap de 22 Pasos",
-    proj1Title: "Bienes Raíces Texas — Calificación y Priorización de Leads",
-    proj1Desc: "Cada lead entrante es capturado, calificado, enrutado en niveles HOT / WARM / COLD, registrado en Notion CRM y contactado con un email personalizado — en menos de 30 segundos, sin trabajo manual.",
-    proj1M1: "Tiempo de respuesta al lead",
-    proj1M2: "Pasos de Zap automatizados",
-    proj1M3: "Pipeline configurado más rápido",
-    proj1FlowLabel: "Flujo de Calificación de Leads",
-    proj1F1: "Formulario enviado → Zap activado al instante",
-    proj1F2: "Google Sheets califica el lead automáticamente",
-    proj1F3: "Zapier Paths ramifica: HOT / WARM / COLD",
-    proj1F4: "Registro en Notion CRM creado automáticamente",
-    proj1F5: "Email personalizado enviado según el nivel",
-    proj1F6: "Leads HOT: agente también notificado de inmediato",
-    proj2Tag: "E-commerce · Zap de 21 Pasos · ChatGPT",
-    proj2Title: "Sistema de Soporte E-commerce con IA + Monitor de SLA",
-    proj2Desc: "Dos Zaps funcionando como un ecosistema de soporte completo. ChatGPT clasifica cada email en 6 categorías de intención, lo enruta, registra el ticket y monitorea violaciones de SLA — todo automáticamente.",
-    proj3Tag: "Freelance · Zap de 7 Pasos · Multi-herramienta",
-    proj3Title: "Pipeline de Intake y Enrutamiento para Freelancers",
-    proj3Desc: "Consultas filtradas por tipo de proyecto, registradas en Airtable CRM, asignadas como tareas en Asana, anunciadas en Slack y confirmadas por email — en menos de 60 segundos.",
-    proj4Tag: "Clínica Estética · Notion CRM · Zapier Paths",
-    proj4Title: "Captación y Segmentación de Clientes — Clínica de Belleza",
-    proj4Desc: "Captura automática de leads y segmentación en CRM. Cada solicitud de consulta se registra en Sheets, se almacena en Notion CRM y se etiqueta con clasificación de 4 niveles de servicio — cero trabajo manual.",
-    viewPDF: "Ver PDF del Caso de Estudio",
-    contactLabel: "Contacto",
-    contactTitle1: "Mapeemos tu",
-    contactTitle2: "",
-    contactTitleEm: "flujo de trabajo",
-    contactSub: "Cuéntame sobre tu negocio y las tareas que quieres automatizar. Revisaré tu mensaje y te responderé en menos de 24 horas.",
-    formName: "Nombre Completo",
-    formNamePh: "Tu nombre",
-    formEmail: "Correo Electrónico",
-    formEmailPh: "tu@correo.com",
-    formBusiness: "Tipo de Negocio",
-    formBusinessPh: "Selecciona tu industria",
-    formBopt1: "E-commerce",
-    formBopt2: "Bienes Raíces",
-    formBopt3: "Clínica / Salud",
-    formBopt4: "Freelance / Agencia",
-    formBopt5: "SaaS / Tecnología",
-    formBopt6: "Pequeña Empresa / Startup",
-    formBopt7: "Otro",
-    formProject: "Describe tu Proyecto",
-    formProjectPh: "¿Qué tareas quieres automatizar? ¿Qué problema estás tratando de resolver?",
-    formBudget: "Presupuesto Aproximado",
-    formBudgetPh: "Selecciona un rango",
-    formBudget1: "Menos de $500",
-    formBudget2: "$500 – $1,000",
-    formBudget3: "$1,000 – $3,000",
-    formBudget4: "$3,000+",
-    formBudget5: "Hablemos",
-    formBtn: "Enviar Mensaje",
-    formWA: "WhatsApp",
-    formSuccess: "✦   Mensaje enviado — te responderé en menos de 24 horas. ¡Gracias!",
-    footerRole: "Ingeniería en Automatización con IA · Google Apps Script · Zapier · Gemini AI",
-    footerPrivacy: "Política de Privacidad",
-  }
-};
-
-let lang = 'en';
-
-function applyLang() {
-  const T = t[lang];
-  document.documentElement.lang = lang;
-
-  // Toggle button
-  const btn = document.getElementById('lang-toggle');
-  btn.innerHTML = lang === 'en'
-    ? '<span class="flag">🇪🇸</span> ES'
-    : '<span class="flag">🇺🇸</span> EN';
-
-  // CTA bar
-  document.getElementById('cta-bar-text').textContent = T.ctaBar;
-  document.getElementById('sticky-cta-btn').textContent = T.ctaBtn;
-
-  // Nav
-  document.getElementById('nav-about').textContent = T.navAbout;
-  document.getElementById('nav-clients').textContent = T.navClients;
-  document.getElementById('nav-services').textContent = T.navServices;
-  document.getElementById('nav-usecases').textContent = T.navUsecases;
-  document.getElementById('nav-projects').textContent = T.navProjects;
-  document.getElementById('nav-tools').textContent = T.navTools;
-  document.getElementById('nav-contact').textContent = T.navContact;
-
-  // Hero
-  document.getElementById('hero-eyebrow').textContent = T.heroEyebrow;
-  document.getElementById('hero-title').textContent = T.heroTitle;
-  document.getElementById('hero-tagline').textContent = T.heroTagline;
-  document.getElementById('hero-cta1').textContent = T.heroCta1;
-  document.getElementById('hero-cta2').textContent = T.heroCta2;
-  document.getElementById('hero-btn1').textContent = T.heroBtn1;
-  document.getElementById('hero-btn2').textContent = T.heroBtn2;
-  document.getElementById('hero-badge-lbl').textContent = T.heroBadgeLbl;
-
-  // About
-  document.getElementById('about-label').textContent = T.aboutLabel;
-  document.getElementById('about-title1').textContent = T.aboutTitle1;
-  document.getElementById('about-title2').textContent = T.aboutTitle2;
-  document.getElementById('about-title-em').textContent = T.aboutTitleEm;
-  document.getElementById('stat-lbl1').textContent = T.statLbl1;
-  document.getElementById('stat-lbl2').textContent = T.statLbl2;
-  document.getElementById('stat-lbl3').textContent = T.statLbl3;
-  document.getElementById('about-p1').textContent = T.aboutP1;
-  document.getElementById('about-quote').textContent = T.aboutQuote;
-  document.getElementById('about-p2').textContent = T.aboutP2;
-
-  // Clients
-  document.getElementById('clients-label').textContent = T.clientsLabel;
-  document.getElementById('clients-title1').textContent = T.clientsTitle1;
-  document.getElementById('clients-title2').textContent = T.clientsTitle2;
-  document.getElementById('clients-title-em').textContent = T.clientsTitleEm;
-  document.getElementById('client1-title').textContent = T.client1Title;
-  document.getElementById('client1-desc').textContent = T.client1Desc;
-  document.getElementById('client2-title').textContent = T.client2Title;
-  document.getElementById('client2-desc').textContent = T.client2Desc;
-  document.getElementById('client3-title').textContent = T.client3Title;
-  document.getElementById('client3-desc').textContent = T.client3Desc;
-
-  // Services
-  document.getElementById('services-label').textContent = T.servicesLabel;
-  document.getElementById('services-title1').textContent = T.servicesTitle1;
-  document.getElementById('services-title-em').textContent = T.servicesTitleEm;
-  document.getElementById('s1-name').textContent = T.s1Name;
-  document.getElementById('s1-desc').textContent = T.s1Desc;
-  document.getElementById('s2-name').textContent = T.s2Name;
-  document.getElementById('s2-desc').textContent = T.s2Desc;
-  document.getElementById('s3-name').textContent = T.s3Name;
-  document.getElementById('s3-desc').textContent = T.s3Desc;
-  document.getElementById('s4-name').textContent = T.s4Name;
-  document.getElementById('s4-desc').textContent = T.s4Desc;
-  document.getElementById('s5-name').textContent = T.s5Name;
-  document.getElementById('s5-desc').textContent = T.s5Desc;
-
-  // Use Cases
-  document.getElementById('usecases-label').textContent = T.usecasesLabel;
-  document.getElementById('usecases-title1').textContent = T.usecasesTitle1;
-  document.getElementById('usecases-title-em').textContent = T.usecasesTitleEm;
-  document.getElementById('usecases-sub').textContent = T.usecasesSub;
-  document.getElementById('uc1-title').textContent = T.uc1Title;
-  document.getElementById('uc1-benefit').textContent = T.uc1Benefit;
-  document.getElementById('uc2-title').textContent = T.uc2Title;
-  document.getElementById('uc2-benefit').textContent = T.uc2Benefit;
-  document.getElementById('uc3-title').textContent = T.uc3Title;
-  document.getElementById('uc3-benefit').textContent = T.uc3Benefit;
-  document.getElementById('uc4-title').textContent = T.uc4Title;
-  document.getElementById('uc4-benefit').textContent = T.uc4Benefit;
-  document.getElementById('uc5-title').textContent = T.uc5Title;
-  document.getElementById('uc5-benefit').textContent = T.uc5Benefit;
-  document.getElementById('uc6-title').textContent = T.uc6Title;
-  document.getElementById('uc6-benefit').textContent = T.uc6Benefit;
-
-  // Tools
-  document.getElementById('tools-label').textContent = T.toolsLabel;
-  document.getElementById('tools-title1').textContent = T.toolsTitle1;
-  document.getElementById('tools-title-em').textContent = T.toolsTitleEm;
-
-  // Portfolio
-  document.getElementById('portfolio-label').textContent = T.portfolioLabel;
-  document.getElementById('portfolio-title1').textContent = T.portfolioTitle1;
-  document.getElementById('portfolio-title-em').textContent = T.portfolioTitleEm;
-  document.getElementById('portfolio-sub').textContent = T.portfolioSub;
-  document.getElementById('repo-title').textContent = T.repoTitle;
-  document.getElementById('repo1-name').textContent = T.repo1Name;
-  document.getElementById('repo2-name').textContent = T.repo2Name;
-  document.getElementById('repo3-name').textContent = T.repo3Name;
-  document.getElementById('proj1-tag').textContent = T.proj1Tag;
-  document.getElementById('proj1-title').textContent = T.proj1Title;
-  document.getElementById('proj1-desc').textContent = T.proj1Desc;
-  document.getElementById('proj1-m1').textContent = T.proj1M1;
-  document.getElementById('proj1-m2').textContent = T.proj1M2;
-  document.getElementById('proj1-m3').textContent = T.proj1M3;
-  document.getElementById('proj1-flow-label').textContent = T.proj1FlowLabel;
-  document.getElementById('proj1-f1').textContent = T.proj1F1;
-  document.getElementById('proj1-f2').textContent = T.proj1F2;
-  document.getElementById('proj1-f3').textContent = T.proj1F3;
-  document.getElementById('proj1-f4').textContent = T.proj1F4;
-  document.getElementById('proj1-f5').textContent = T.proj1F5;
-  document.getElementById('proj1-f6').textContent = T.proj1F6;
-  document.getElementById('proj1-pdf').textContent = T.viewPDF;
-  document.getElementById('proj2-tag').textContent = T.proj2Tag;
-  document.getElementById('proj2-title').textContent = T.proj2Title;
-  document.getElementById('proj2-desc').textContent = T.proj2Desc;
-  document.getElementById('proj2-pdf').textContent = T.viewPDF;
-  document.getElementById('proj3-tag').textContent = T.proj3Tag;
-  document.getElementById('proj3-title').textContent = T.proj3Title;
-  document.getElementById('proj3-desc').textContent = T.proj3Desc;
-  document.getElementById('proj3-pdf').textContent = T.viewPDF;
-  document.getElementById('proj4-tag').textContent = T.proj4Tag;
-  document.getElementById('proj4-title').textContent = T.proj4Title;
-  document.getElementById('proj4-desc').textContent = T.proj4Desc;
-  document.getElementById('proj4-pdf').textContent = T.viewPDF;
-
-  // Contact
-  document.getElementById('contact-label').textContent = T.contactLabel;
-  document.getElementById('contact-title1').textContent = T.contactTitle1;
-  document.getElementById('contact-title2').textContent = T.contactTitle2;
-  document.getElementById('contact-title-em').textContent = T.contactTitleEm;
-  document.getElementById('contact-sub').textContent = T.contactSub;
-  document.getElementById('form-name-lbl').textContent = T.formName;
-  document.getElementById('form-name-input').placeholder = T.formNamePh;
-  document.getElementById('form-email-lbl').textContent = T.formEmail;
-  document.getElementById('form-email-input').placeholder = T.formEmailPh;
-  document.getElementById('form-business-lbl').textContent = T.formBusiness;
-  document.getElementById('form-business-ph').textContent = T.formBusinessPh;
-  document.getElementById('form-bopt1').textContent = T.formBopt1;
-  document.getElementById('form-bopt2').textContent = T.formBopt2;
-  document.getElementById('form-bopt3').textContent = T.formBopt3;
-  document.getElementById('form-bopt4').textContent = T.formBopt4;
-  document.getElementById('form-bopt5').textContent = T.formBopt5;
-  document.getElementById('form-bopt6').textContent = T.formBopt6;
-  document.getElementById('form-bopt7').textContent = T.formBopt7;
-  document.getElementById('form-project-lbl').textContent = T.formProject;
-  document.getElementById('form-project-ta').placeholder = T.formProjectPh;
-  document.getElementById('form-budget-lbl').textContent = T.formBudget;
-  document.getElementById('form-budget-ph').textContent = T.formBudgetPh;
-  document.getElementById('form-budget1').textContent = T.formBudget1;
-  document.getElementById('form-budget2').textContent = T.formBudget2;
-  document.getElementById('form-budget3').textContent = T.formBudget3;
-  document.getElementById('form-budget4').textContent = T.formBudget4;
-  document.getElementById('form-budget5').textContent = T.formBudget5;
-  document.getElementById('btn-submit').textContent = T.formBtn;
-  document.getElementById('wa-btn-text').textContent = T.formWA;
-  document.getElementById('formSuccess').textContent = T.formSuccess;
-
-  // Footer
-  document.getElementById('footer-role').textContent = T.footerRole;
-  document.getElementById('footer-privacy').textContent = T.footerPrivacy;
-}
-
-function toggleLang() {
-  lang = lang === 'en' ? 'es' : 'en';
-  applyLang();
-}
-</script>
-
 <div id="sticky-cta-bar">
   <span id="cta-bar-text">⚡ Free automation audit — limited spots available</span>
   <a href="https://calendly.com/va-dvasquezm/30min" target="_blank" rel="noopener noreferrer" id="sticky-cta-btn">Book Free Audit</a>
 </div>
 
 <nav>
-  <a class="nav-logo" href="#">Diana Vasquez</a>
+  <div style="display:flex;align-items:center;gap:.9rem">
+    <img src="headshot-1__2_.jpg" alt="Diana Vasquez" style="width:36px;height:36px;border-radius:50%;object-fit:cover;border:1px solid rgba(201,168,76,.4);flex-shrink:0">
+    <a class="nav-logo" href="#">Diana Vasquez</a>
+  </div>
   <button id="nav-hamburger" onclick="openNav()" aria-label="Open menu">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
   </button>
@@ -737,7 +270,6 @@ function toggleLang() {
     <li><a href="#projects" id="nav-projects" onclick="closeNav()">Projects</a></li>
     <li><a href="#tools" id="nav-tools" onclick="closeNav()">Toolstack</a></li>
     <li><a href="#contact" id="nav-contact" onclick="closeNav()">Contact</a></li>
-    <li><button id="lang-toggle" onclick="toggleLang()"><span class="flag">🇪🇸</span> ES</button></li>
   </ul>
   <div id="nav-overlay" onclick="closeNav()"></div>
 </nav>
@@ -824,7 +356,7 @@ function closeNav(){
         <span class="client-row-title" id="client1-title">Small Businesses &amp; Startups</span>
         <span class="client-row-pain" id="client1-desc">Doing everything manually and running out of hours. I build the systems that replace the extra hire.</span>
       </div>
-      <span class="client-row-win">10+ hrs/week saved</span>
+      <span class="client-row-win" id="client1-win">10+ hrs/week saved</span>
     </div>
     <div class="client-row">
       <span class="client-row-icon">🛒</span>
@@ -832,7 +364,7 @@ function closeNav(){
         <span class="client-row-title" id="client2-title">E-commerce Brands</span>
         <span class="client-row-pain" id="client2-desc">Drowning in support tickets with no SLA visibility. I automate the entire pipeline — classify, route, respond.</span>
       </div>
-      <span class="client-row-win">Response &lt;60s</span>
+      <span class="client-row-win" id="client2-win">Response &lt;60s</span>
     </div>
     <div class="client-row">
       <span class="client-row-icon">🏢</span>
@@ -840,7 +372,7 @@ function closeNav(){
         <span class="client-row-title" id="client3-title">Real Estate Agencies</span>
         <span class="client-row-pain" id="client3-desc">Losing deals to slow follow-up. I score every lead HOT/WARM/COLD and trigger the right action in under 30s.</span>
       </div>
-      <span class="client-row-win">0 leads lost to delay</span>
+      <span class="client-row-win" id="client3-win">0 leads lost to delay</span>
     </div>
   </div>
 </section>
@@ -871,6 +403,7 @@ function closeNav(){
 </style>
 
 <section class="services" id="usecases">
+  <p class="section-label" id="usecases-label">Use Cases</p>
   <h2 class="section-title"><span id="usecases-title1">What I can</span> <em id="usecases-title-em">do for you</em></h2>
   <p style="color:var(--text-muted);font-size:.85rem;margin-top:.5rem" id="usecases-sub">Real automation scenarios — ready to deploy for your business</p>
 
@@ -881,7 +414,7 @@ function closeNav(){
         <span class="uc-title" id="uc1-title">Shopify → Sheets: zero manual logging, every order synced live</span>
         <span class="uc-benefit" id="uc1-benefit">Your store runs. Your data updates. You do nothing.</span>
       </div>
-      <span class="uc-stack">Shopify · Zapier · Sheets</span>
+      <span class="uc-stack" id="uc1-stack">Shopify · Zapier · Sheets</span>
     </div>
     <div class="uc-row">
       <span class="uc-icon">💬</span>
@@ -889,7 +422,7 @@ function closeNav(){
         <span class="uc-title" id="uc2-title">WhatsApp auto-reply bot — answers leads in &lt;60s, 24/7</span>
         <span class="uc-benefit" id="uc2-benefit">No staff. No delays. Every lead gets an instant response.</span>
       </div>
-      <span class="uc-stack">WhatsApp API · Zapier · Gemini AI</span>
+      <span class="uc-stack" id="uc2-stack">WhatsApp API · Zapier · Gemini AI</span>
     </div>
     <div class="uc-row">
       <span class="uc-icon">🏠</span>
@@ -897,7 +430,7 @@ function closeNav(){
         <span class="uc-title" id="uc3-title">Real estate leads scored HOT / WARM / COLD — followed up instantly</span>
         <span class="uc-benefit" id="uc3-benefit">Stop losing deals to slow follow-up. Every inquiry handled in seconds.</span>
       </div>
-      <span class="uc-stack">Typeform · Zapier · HubSpot</span>
+      <span class="uc-stack" id="uc3-stack">Typeform · Zapier · HubSpot</span>
     </div>
     <div class="uc-row">
       <span class="uc-icon">📅</span>
@@ -905,7 +438,7 @@ function closeNav(){
         <span class="uc-title" id="uc4-title">Clinic bookings: patients self-schedule, confirm &amp; get reminders</span>
         <span class="uc-benefit" id="uc4-benefit">Zero phone calls. Zero no-shows. Full calendar, zero effort.</span>
       </div>
-      <span class="uc-stack">Calendly · Zapier · Gmail</span>
+      <span class="uc-stack" id="uc4-stack">Calendly · Zapier · Gmail</span>
     </div>
     <div class="uc-row">
       <span class="uc-icon">📦</span>
@@ -913,7 +446,7 @@ function closeNav(){
         <span class="uc-title" id="uc5-title">E-commerce support on autopilot — AI routes every ticket instantly</span>
         <span class="uc-benefit" id="uc5-benefit">6 intent categories. Automatic routing. Response time under 60s.</span>
       </div>
-      <span class="uc-stack">Gmail · ChatGPT · Zapier</span>
+      <span class="uc-stack" id="uc5-stack">Gmail · ChatGPT · Zapier</span>
     </div>
     <div class="uc-row">
       <span class="uc-icon">📊</span>
@@ -921,7 +454,7 @@ function closeNav(){
         <span class="uc-title" id="uc6-title">Daily briefing delivered to your inbox — key metrics, zero digging</span>
         <span class="uc-benefit" id="uc6-benefit">Wake up knowing exactly where your business stands.</span>
       </div>
-      <span class="uc-stack">Sheets · Apps Script · Gmail</span>
+      <span class="uc-stack" id="uc6-stack">Sheets · Apps Script · Gmail</span>
     </div>
   </div>
 </section>
@@ -1246,7 +779,6 @@ window.addEventListener("resize", adjustNavOffset);
 
 window.addEventListener("DOMContentLoaded", function() {
   // Run initial lang apply
-  applyLang();
 
   document.getElementById("contactForm").addEventListener("submit", function(e) {
     e.preventDefault();
