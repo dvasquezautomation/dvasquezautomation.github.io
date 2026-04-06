@@ -650,6 +650,7 @@ var T = {
     "label-tools":"Toolstack","title-tools":"The technology <em>I use</em>",
     "label-projects":"Portfolio","title-projects":"Systems I've <em>shipped</em>",
     "projects-sub":"Click any project to view the full case study PDF.",
+    "proj-tag1":"Featured · Real Estate · 22-Step Zap",
     "pdf-btn-text":"View Case Study PDF","flow-label":"Lead Scoring Flow",
     "flow-1":"Form submitted → Zap triggered instantly","flow-2":"Google Sheets lookup scores the lead",
     "flow-3":"Zapier Paths branches: HOT / WARM / COLD","flow-4":"Notion CRM record created automatically",
@@ -680,11 +681,12 @@ var T = {
     "btn-submit":"Send Message","footer-text":"AI Automation Engineer · Google Apps Script · Zapier · Gemini AI",
     "footer-privacy":"Privacy Policy","sticky-cta-text":"⚡ Free automation audit — limited spots available","sticky-cta-btn":"Book Free Audit",
     "opt-biz":"Select your industry","opt-budget":"Select a range",
-    "inp-name-ph":"Your name","inp-email-ph":"your@email.com",
-    "inp-proj-ph":"What tasks do you want to automate? What problem are you trying to solve?",
+    "inp-name":"Your name","inp-email":"your@email.com",
+    "inp-proj":"What tasks do you want to automate? What problem are you trying to solve?",
+    "inp-biz":"Select your industry","inp-budget":"Select a range","wa-btn":"WhatsApp",
     "wa-href":"https://wa.me/573054329733?text=Hi%20Diana!%20I%20visited%20your%20website%20and%20I'd%20like%20to%20talk%20about%20automating%20my%20business.",
     "wa-href-hero":"https://wa.me/573054329733?text=Hi%20Diana!%20I%20visited%20your%20website%20and%20I'd%20like%20to%20talk%20about%20automating%20my%20business.",
-    "success-msg":"✦   Message sent — I'll get back to you within 24 hours. Thank you!"
+    "formSuccess":"✦   Message sent — I'll get back to you within 24 hours. Thank you!"
   },
   es:{
     "nav-about":"Acerca","nav-services":"Servicios","nav-automation":"Flujo de Automatización","nav-projects":"Proyectos","nav-contact":"Contacto",
@@ -748,11 +750,12 @@ var T = {
     "btn-submit":"Enviar mensaje","footer-text":"Ingeniera de Automatización con IA · Google Apps Script · Zapier · Gemini AI",
     "footer-privacy":"Política de Privacidad","sticky-cta-text":"⚡ Auditoría gratuita — cupos limitados","sticky-cta-btn":"Agenda tu auditoría",
     "opt-biz":"Selecciona tu industria","opt-budget":"Selecciona un rango",
-    "inp-name-ph":"Tu nombre","inp-email-ph":"tu@email.com",
-    "inp-proj-ph":"¿Qué tareas quieres automatizar? ¿Qué problema intentas resolver?",
+    "inp-name":"Tu nombre","inp-email":"tu@email.com",
+    "inp-proj":"¿Qué tareas quieres automatizar? ¿Qué problema intentas resolver?",
+    "inp-biz":"Selecciona tu industria","inp-budget":"Selecciona un rango","wa-btn":"WhatsApp",
     "wa-href":"https://wa.me/573054329733?text=Hola%20Diana!%20Vi%20tu%20p%C3%A1gina%20y%20me%20gustar%C3%ADa%20hablar%20sobre%20automatizar%20mi%20negocio.",
     "wa-href-hero":"https://wa.me/573054329733?text=Hola%20Diana!%20Visit%C3%A9%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20hablar%20sobre%20automatizar%20mi%20negocio.",
-    "success-msg":"✦   Mensaje enviado — te responderé en menos de 24 horas. ¡Gracias!"
+    "formSuccess":"✦   Mensaje enviado — te responderé en menos de 24 horas. ¡Gracias!"
   }
 };
 
@@ -767,17 +770,17 @@ function setLang(lang) {
     } else if (key === "wa-href-hero") {
       var waHero = document.getElementById("btn-whatsapp-hero");
       if (waHero) waHero.href = t[key];
-    } else if (key === "inp-name-ph") {
+    } else if (key === "inp-name") {
       var el = document.getElementById("inp-name"); if (el) el.placeholder = t[key];
-    } else if (key === "inp-email-ph") {
+    } else if (key === "inp-email") {
       var el = document.getElementById("inp-email"); if (el) el.placeholder = t[key];
-    } else if (key === "inp-proj-ph") {
+    } else if (key === "inp-proj") {
       var el = document.getElementById("inp-proj"); if (el) el.placeholder = t[key];
-    } else if (key === "opt-biz") {
+    } else if (key === "inp-biz" || key === "opt-biz") {
       var el = document.getElementById("opt-biz"); if (el) el.textContent = t[key];
-    } else if (key === "opt-budget") {
+    } else if (key === "inp-budget" || key === "opt-budget") {
       var el = document.getElementById("opt-budget"); if (el) el.textContent = t[key];
-    } else if (key === "success-msg") {
+    } else if (key === "formSuccess") {
       var el = document.getElementById("formSuccess"); if (el) el.textContent = t[key];
     } else if (key === "sticky-cta-text") {
       var el = document.getElementById("sticky-cta-text"); if (el) el.textContent = t[key];
