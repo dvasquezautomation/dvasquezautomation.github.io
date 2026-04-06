@@ -235,16 +235,19 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
 <script>
 (function(){
   var svcCurrent=0;
-  var svcTotal=5;
-  var svcVisible=3;
-  var svcMax=svcTotal-svcVisible;
+  function svcVisible(){return window.innerWidth<768?1:(window.innerWidth<1100?2:3);}
+  function svcMax(){
+    var track=document.getElementById('svc-track');
+    return Math.max(0,track.children.length-svcVisible());
+  }
   function svcMove(dir){
-    svcCurrent=Math.max(0,Math.min(svcCurrent+dir,svcMax));
+    var max=svcMax();
+    svcCurrent=Math.max(0,Math.min(svcCurrent+dir,max));
     var track=document.getElementById('svc-track');
     var cardW=track.children[0].offsetWidth;
     track.style.transform='translateX(-'+(svcCurrent*cardW)+'px)';
     document.getElementById('svc-prev').disabled=svcCurrent===0;
-    document.getElementById('svc-next').disabled=svcCurrent===svcMax;
+    document.getElementById('svc-next').disabled=svcCurrent===max;
   }
   window.svcMove=svcMove;
 })();
@@ -472,13 +475,17 @@ function toggleAcc(id){var item=document.getElementById(id);var isOpen=item.clas
 <script>
 (function(){
   var current=0;
-  var total=5;
-  var visible=3;
-  var max=total-visible;
+  function revVisible(){return window.innerWidth<768?1:(window.innerWidth<1100?2:3);}
+  function revMax(){
+    var track=document.getElementById('rev-track');
+    return Math.max(0,track.children.length-revVisible());
+  }
   function revMove(dir){
+    var max=revMax();
     current=Math.max(0,Math.min(current+dir,max));
     var track=document.getElementById('rev-track');
-    var cardW=track.children[0].offsetWidth+22;
+    var gap=window.innerWidth<768?0:22;
+    var cardW=track.children[0].offsetWidth+gap;
     track.style.transform='translateX(-'+(current*cardW)+'px)';
     document.getElementById('rev-prev').disabled=current===0;
     document.getElementById('rev-next').disabled=current===max;
@@ -576,4 +583,108 @@ window.addEventListener("DOMContentLoaded",function(){
       .then(function(){
         document.getElementById("contactForm").reset();
         document.getElementById("formSuccess").classList.add("visible");
-        if(typeof gtag!=='u
+        if(typeof gtag!=='undefined'){gtag('event','generate_lead',{event_category:'form',event_label:'contact_form_submit'});} 
+        setTimeout(function(){window.location.href='thank-you.html';},900);
+      })
+      .catch(function(){alert('Something went wrong. Please try again or contact me on WhatsApp.');})
+      .finally(function(){btn.textContent='Send Message';btn.disabled=false;});
+  });
+
+  function updateCarousels(){
+    var mobile=window.innerWidth<768;
+    var tablet=window.innerWidth>=768&&window.innerWidth<1100;
+
+    // services carousel
+    if(window.svcMove){
+      var svcTrack=document.getElementById('svc-track');
+      if(svcTrack&&svcTrack.children.length){
+        svcTrack.style.transform='translateX(0px)';
+        document.getElementById('svc-prev').disabled=true;
+        var svcTotal=svcTrack.children.length;
+        var svcVisible=mobile?1:(tablet?2:3);
+        document.getElementById('svc-next').disabled=svcTotal<=svcVisible;
+      }
+    }
+
+    // reviews carousel
+    if(window.revMove){
+      var revTrack=document.getElementById('rev-track');
+      if(revTrack&&revTrack.children.length){
+        revTrack.style.transform='translateX(0px)';
+        document.getElementById('rev-prev').disabled=true;
+        var revTotal=revTrack.children.length;
+        var revVisible=mobile?1:(tablet?2:3);
+        document.getElementById('rev-next').disabled=revTotal<=revVisible;
+      }
+    }
+  }
+
+  updateCarousels();
+  window.addEventListener('resize',updateCarousels);
+});
+</script>
+
+<style>
+@media (max-width: 1100px){
+  html{font-size:17px}
+  .hero{grid-template-columns:1fr;gap:2rem;padding-top:2rem;padding-bottom:3rem}
+  .hero-grid-line{display:none}
+  .hero-text{padding-right:0}
+  .hero-photo-wrap{order:-1}
+  .hero-photo-frame{max-width:420px}
+  .hero-photo-frame img{min-height:unset;max-height:520px}
+  .hero-photo-badge{left:1rem;bottom:1rem}
+
+  .about-grid,.contact-grid{grid-template-columns:1fr;gap:2.5rem}
+  .about-left{position:static}
+  .stats-row{grid-template-columns:repeat(3,minmax(0,1fr))}
+
+  .svc-card{flex-basis:50%}
+  .review-card{flex-basis:calc(50% - .7rem)}
+  .acc-inner{grid-template-columns:1fr;padding:0 1.2rem 1.4rem 1.2rem}
+  .acc-header{padding:1rem 1.2rem}
+  .acc-chips{display:none}
+}
+
+@media (max-width: 767px){
+  html{font-size:16px}
+  #sticky-cta-bar{padding:.55rem .8rem;gap:.55rem;font-size:.66rem}
+  #sticky-cta-btn{padding:.36rem .72rem;font-size:.62rem}
+
+  nav{padding:1rem 4vw}
+  .nav-links{display:none}
+  .nav-logo{font-size:1.1rem;letter-spacing:.12em}
+
+  section{padding:4.2rem 6vw}
+  .hero{margin-top:56px;min-height:auto;padding:2rem 6vw 3.2rem}
+  .hero-name{font-size:clamp(2.5rem,13vw,3.5rem)}
+  .hero-title{font-size:.72rem;letter-spacing:.12em;margin:1rem 0 1.4rem}
+  .hero-tagline{font-size:.95rem;line-height:1.6}
+  .hero-cta{flex-direction:column;align-items:stretch}
+  .btn-primary,.btn-outline{width:100%;text-align:center}
+
+  .stats-row{grid-template-columns:1fr;gap:.8rem}
+  .svc-carousel-wrap,.reviews-carousel-wrap{gap:.45rem}
+  .svc-card{flex-basis:100%;padding:1.2rem .8rem 1.2rem 0;padding-left:.9rem}
+  .review-card{flex-basis:100%;padding:1.2rem}
+  .svc-btn,.carousel-btn{width:2.1rem;height:2.1rem}
+
+  .uc-row{grid-template-columns:1.6rem 1fr;gap:.6rem .8rem;padding:.9rem 0}
+  .uc-stack,.uc-cta{display:none}
+  .uc-title{font-size:.86rem}
+  .uc-benefit{font-size:.75rem}
+
+  .form-row{grid-template-columns:1fr}
+  .form-submit{flex-direction:column;align-items:stretch}
+  .btn-submit,.btn-whatsapp{width:100%;justify-content:center;text-align:center}
+
+  footer{padding:1.6rem 6vw;flex-direction:column;align-items:flex-start}
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+
+</body>
+</html>
