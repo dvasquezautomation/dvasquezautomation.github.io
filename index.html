@@ -35,18 +35,7 @@ nav{position:fixed;top:42px;left:0;right:0;z-index:150;display:flex;align-items:
 .nav-links a{color:var(--pale);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:color .3s}
 .nav-links a:hover{color:var(--gold-light)}
 
-/* Language Toggle Button */
-  display:inline-flex;align-items:center;gap:.4rem;
-  background:transparent;
-  border:1px solid rgba(201,168,76,.45);
-  color:var(--gold-light);
-  padding:.3rem .85rem;
-  font-family:'DM Sans',sans-serif;
-  font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;font-weight:500;
-  cursor:pointer;transition:background .25s,border-color .25s,color .25s;
-  white-space:nowrap;
-}
-
+/* HERO */
 .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;position:relative;overflow:hidden;padding:0 5vw;margin-top:60px}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 70% 50%,rgba(30,77,158,.25) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 20% 20%,rgba(13,33,71,.8) 0%,transparent 60%)}
 .hero-grid-line{position:absolute;top:0;left:50%;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,rgba(201,168,76,.15) 30%,rgba(201,168,76,.15) 70%,transparent)}
@@ -65,14 +54,17 @@ nav{position:fixed;top:42px;left:0;right:0;z-index:150;display:flex;align-items:
 .btn-primary:hover{background:var(--gold-light);transform:translateY(-1px)}
 .btn-outline{border:1px solid rgba(200,221,245,.3);color:var(--pale);padding:.85rem 2rem;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;transition:border-color .3s,color .3s;display:inline-block}
 .btn-outline:hover{border-color:var(--gold);color:var(--gold-light)}
-.hero-photo-wrap{position:relative;z-index:2;display:flex;align-items:flex-end;justify-content:center;padding-top:6rem;animation:fadeUp .9s ease .6s both}
-.hero-photo-frame{position:relative;width:min(400px,38vw)}
+
+/* HERO PHOTO — KEY FIX */
+.hero-photo-wrap{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;}
+.hero-photo-frame{position:relative;width:100%;max-width:460px;}
 .hero-photo-frame::before{content:'';position:absolute;top:-12px;left:-12px;right:12px;bottom:12px;border:1px solid rgba(201,168,76,.3);z-index:0}
 .hero-photo-frame::after{content:'';position:absolute;bottom:-12px;right:-12px;left:12px;top:12px;border:1px solid rgba(74,143,212,.2);z-index:0}
-.hero-photo-frame img{width:100%;display:block;position:relative;z-index:1;filter:brightness(.92) contrast(1.05);object-fit:cover}
+.hero-photo-frame img{width:100%;height:auto;min-height:500px;display:block;position:relative;z-index:1;filter:brightness(.92) contrast(1.05);object-fit:cover;object-position:center top;}
 .hero-photo-badge{position:absolute;bottom:2rem;left:-2rem;background:var(--deep-blue);border:1px solid rgba(201,168,76,.3);padding:1rem 1.4rem;z-index:3}
 .hero-photo-badge .num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--gold-light);line-height:1}
 .hero-photo-badge .lbl{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);margin-top:.2rem}
+
 section{padding:6rem 5vw}
 .section-label{font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;display:flex;align-items:center;gap:1rem}
 .section-label::after{content:'';flex:1;max-width:60px;height:1px;background:var(--gold)}
@@ -90,23 +82,8 @@ section{padding:6rem 5vw}
 .stat-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:600;color:var(--gold-light)}
 .stat-lbl{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);margin-top:.3rem}
 .clients{background:var(--navy)}
-.clients-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:3.5rem}
-.client-card{background:rgba(13,33,71,.5);border:1px solid rgba(74,143,212,.12);padding:2.5rem 2rem;transition:background .3s,border-color .3s;position:relative;overflow:hidden}
-.client-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,transparent,var(--gold),transparent);opacity:0;transition:opacity .3s}
-.client-card:hover{background:rgba(26,58,110,.5);border-color:rgba(201,168,76,.2)}
-.client-card:hover::before{opacity:1}
-.client-icon{font-size:1.8rem;margin-bottom:1.2rem}
-.client-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;margin-bottom:.8rem}
-.client-desc{font-size:.88rem;line-height:1.7;color:var(--text-muted)}
 .services{background:linear-gradient(180deg,var(--navy) 0%,var(--deep-blue) 100%)}
 .services-list{margin-top:3.5rem}
-.use-cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
-.use-case-card{background:rgba(13,33,71,.5);border:1px solid rgba(74,143,212,.15);padding:1.8rem 1.5rem;transition:border-color .3s,transform .2s}
-.use-case-card:hover{border-color:rgba(201,168,76,.4);transform:translateY(-3px)}
-.use-case-icon{font-size:1.8rem;margin-bottom:1rem}
-.use-case-title{font-size:.92rem;font-weight:500;color:var(--white);margin-bottom:.5rem;line-height:1.4}
-.use-case-benefit{font-size:.82rem;color:var(--pale);line-height:1.6;margin-bottom:1rem}
-.use-case-tools{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
 .service-item{display:grid;grid-template-columns:3rem 1fr;gap:2rem;align-items:start;padding:2rem 0;border-bottom:1px solid rgba(74,143,212,.1);transition:padding-left .3s}
 .service-item:hover{padding-left:.5rem}
 .service-item:first-child{border-top:1px solid rgba(74,143,212,.1)}
@@ -119,33 +96,7 @@ section{padding:6rem 5vw}
 .tool-tag:hover{border-color:var(--gold);color:var(--gold-light);background:rgba(201,168,76,.06)}
 .tool-tag.gold{border-color:rgba(201,168,76,.4);color:var(--gold-light)}
 .projects{background:var(--navy)}
-.projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:3.5rem}
-.project-card{background:rgba(13,33,71,.6);border:1px solid rgba(74,143,212,.1);padding:2.5rem;transition:background .3s,transform .3s;position:relative;overflow:hidden;cursor:pointer}
-.project-card.featured{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:3rem;background:rgba(26,58,110,.3);border-color:rgba(201,168,76,.15)}
-.project-card:hover{background:rgba(26,58,110,.5);transform:translateY(-2px)}
-.project-tag{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
-.project-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;margin-bottom:.8rem;line-height:1.2}
-.project-desc{font-size:.88rem;line-height:1.75;color:var(--text-muted);margin-bottom:1.5rem}
-.project-stack{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.2rem}
-.stack-tag{background:rgba(10,22,40,.8);border:1px solid rgba(74,143,212,.2);padding:.2rem .7rem;font-size:.68rem;color:var(--text-muted)}
-.project-metric{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;color:var(--gold-light);line-height:1}
-.project-metric-label{font-size:.72rem;color:var(--text-muted);letter-spacing:.1em;text-transform:uppercase;margin-top:.3rem}
-.metrics-row{display:flex;gap:2.5rem;margin-bottom:2rem}
-.project-flow{display:flex;flex-direction:column;gap:.5rem}
-.flow-step{display:flex;align-items:center;gap:.8rem;font-size:.8rem;color:var(--pale)}
-.flow-step::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0}
-.flow-arrow{font-size:.65rem;color:var(--gold);margin-left:1.5rem}
-.view-pdf-btn{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.5rem;background:transparent;border:1px solid rgba(201,168,76,.4);color:var(--gold-light);padding:.5rem 1.1rem;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif}
-.view-pdf-btn svg{width:14px;height:14px}
-.repo-block{margin-top:4rem;padding:2.5rem;border:1px solid rgba(201,168,76,.18);background:rgba(13,33,71,.45)}
-.repo-title{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;margin-bottom:.7rem}
-.repo-sub{font-size:.95rem;line-height:1.8;color:var(--text-muted);max-width:860px}
-.repo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem}
-.repo-card{border:1px solid rgba(74,143,212,.18);background:rgba(10,22,40,.55);padding:1.3rem;display:flex;flex-direction:column;gap:.8rem}
-.repo-name{font-size:1rem;font-weight:500;color:var(--gold-light)}
-.repo-desc{font-size:.85rem;line-height:1.75;color:var(--pale)}
-.repo-desc strong{color:var(--gold-light)}
-.repo-link{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-light);text-decoration:none;border-bottom:1px solid rgba(201,168,76,.35);display:inline-flex;width:max-content;padding-bottom:.1rem}
+.repo-link{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-light);text-decoration:none;border-bottom:1px solid rgba(201,168,76,.35);display:inline-flex;width:max-content;padding-bottom:.1rem}
 .repo-link:hover{border-color:var(--gold-light)}
 .contact{background:linear-gradient(135deg,var(--deep-blue) 0%,var(--mid-blue) 100%);position:relative;overflow:hidden}
 .contact::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(201,168,76,.05) 0%,transparent 70%);pointer-events:none}
@@ -177,25 +128,13 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
 .footer-privacy{font-size:.72rem;color:var(--text-muted);letter-spacing:.08em;text-decoration:none;border-bottom:1px solid rgba(139,174,208,.3);transition:color .3s,border-color .3s}
 .footer-privacy:hover{color:var(--gold-light);border-color:var(--gold-light)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-
-
 </style>
 <!-- Google Ads Conversion Tracking -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18032769454"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'AW-18032769454');
-</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-18032769454');</script>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G93FS64GV8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-G93FS64GV8');
-</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-G93FS64GV8');</script>
 </head>
 <body>
 
@@ -206,38 +145,33 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
 
 <nav>
   <div style="display:flex;align-items:center;gap:.9rem">
-<a class="nav-logo" href="#">Diana Vasquez</a>
+    <a class="nav-logo" href="#">Diana Vasquez</a>
   </div>
-
   <ul class="nav-links" id="nav-links">
-
-    <li><a href="#about" id="nav-about" onclick="closeNav()">About</a></li>
-    <li><a href="#clients" id="nav-clients" onclick="closeNav()">Who I Work With</a></li>
-    <li><a href="#services" id="nav-services" onclick="closeNav()">Services</a></li>
-    <li><a href="#usecases" id="nav-usecases" onclick="closeNav()">Use Cases</a></li>
-    <li><a href="#projects" id="nav-projects" onclick="closeNav()">Projects</a></li>
-    <li><a href="#tools" id="nav-tools" onclick="closeNav()">Toolstack</a></li>
-    <li><a href="#contact" id="nav-contact" onclick="closeNav()">Contact</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#clients">Who I Work With</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#usecases">Use Cases</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#tools">Toolstack</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
-
 </nav>
-
-
 
 <section class="hero">
   <div class="hero-grid-line"></div>
   <div class="hero-text">
-    <p class="hero-eyebrow" id="hero-eyebrow">AI Automation Engineer</p>
+    <p class="hero-eyebrow">AI Automation Engineer</p>
     <h1 class="hero-name">Diana<br><em>Vasquez</em></h1>
-    <p class="hero-title" id="hero-title">Google Apps Script · Zapier · Gemini AI</p>
-    <p class="hero-tagline" id="hero-tagline">Save 10+ hours a week by eliminating manual tasks — no expensive software, no extra hires. Just systems that work for you, automatically.</p>
+    <p class="hero-title">Google Apps Script · Zapier · Gemini AI</p>
+    <p class="hero-tagline">Save 10+ hours a week by eliminating manual tasks — no expensive software, no extra hires. Just systems that work for you, automatically.</p>
     <div class="hero-cta">
-      <a href="#contact" class="btn-primary" id="hero-cta1">Start a Project</a>
-      <a href="#projects" class="btn-outline" id="hero-cta2">See My Work</a>
+      <a href="#contact" class="btn-primary">Start a Project</a>
+      <a href="#projects" class="btn-outline">See My Work</a>
     </div>
     <div class="hero-cta-group">
-      <a href="https://calendly.com/va-dvasquezm/30min" target="_blank" rel="noopener noreferrer" class="btn-submit" id="hero-btn1">📅 Book a Free Call</a>
-      <a href="https://wa.me/573054329733?text=Hi%20Diana!%20I%20visited%20your%20website%20and%20I'd%20like%20to%20talk%20about%20automating%20my%20business." target="_blank" rel="noopener noreferrer" class="btn-whatsapp" id="hero-btn2">💬 Message me on WhatsApp</a>
+      <a href="https://calendly.com/va-dvasquezm/30min" target="_blank" rel="noopener noreferrer" class="btn-submit">📅 Book a Free Call</a>
+      <a href="https://wa.me/573054329733?text=Hi%20Diana!%20I%20visited%20your%20website%20and%20I'd%20like%20to%20talk%20about%20automating%20my%20business." target="_blank" rel="noopener noreferrer" class="btn-whatsapp">💬 Message me on WhatsApp</a>
     </div>
   </div>
   <div class="hero-photo-wrap">
@@ -245,28 +179,28 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
       <img src="headshot-1__2_.jpg" alt="Diana Vasquez — AI Automation Engineer specializing in Zapier and Google Apps Script">
       <div class="hero-photo-badge">
         <div class="num">8</div>
-        <div class="lbl" id="hero-badge-lbl">Years Experience</div>
+        <div class="lbl">Years Experience</div>
       </div>
     </div>
   </div>
 </section>
 
 <section class="about" id="about">
-  <p class="section-label" id="about-label">About</p>
-  <h2 class="section-title" style="margin-bottom:3rem"><span id="about-title1">Building systems</span><br><span id="about-title2">that work</span> <em id="about-title-em">for you</em></h2>
+  <p class="section-label">About</p>
+  <h2 class="section-title" style="margin-bottom:3rem">Building systems<br>that work <em>for you</em></h2>
   <div class="about-grid">
     <div class="about-left">
       <div class="stats-row">
-        <div class="stat"><div class="stat-num">&lt;10s</div><div class="stat-lbl" id="stat-lbl1">Lead to email</div></div>
-        <div class="stat"><div class="stat-num">0</div><div class="stat-lbl" id="stat-lbl2">Manual steps</div></div>
-        <div class="stat"><div class="stat-num">60s</div><div class="stat-lbl" id="stat-lbl3">Support response</div></div>
+        <div class="stat"><div class="stat-num">&lt;10s</div><div class="stat-lbl">Lead to email</div></div>
+        <div class="stat"><div class="stat-num">0</div><div class="stat-lbl">Manual steps</div></div>
+        <div class="stat"><div class="stat-num">60s</div><div class="stat-lbl">Support response</div></div>
       </div>
     </div>
     <div>
       <div class="about-body">
-        <p id="about-p1">I'm Diana, an Automation Engineer with 8 years of operational experience in business administration. I design end-to-end workflows using Google Apps Script, Zapier, and AI integrations that handle repetitive tasks automatically — without expensive software or complicated setups.</p>
-        <div class="about-highlight" id="about-quote">"Every system I deliver is tested and built to run without your input. I don't hand off a script and disappear — I deliver a complete operational workflow."</div>
-        <p id="about-p2">From AI-powered lead scoring that classifies every inquiry as HOT / WARM / COLD in real time, to support systems that reduce response time from hours to under 60 seconds — I build infrastructure that scales with your business without adding headcount.</p>
+        <p>I'm Diana, an Automation Engineer with 8 years of operational experience in business administration. I design end-to-end workflows using Google Apps Script, Zapier, and AI integrations that handle repetitive tasks automatically — without expensive software or complicated setups.</p>
+        <div class="about-highlight">"Every system I deliver is tested and built to run without your input. I don't hand off a script and disappear — I deliver a complete operational workflow."</div>
+        <p>From AI-powered lead scoring that classifies every inquiry as HOT / WARM / COLD in real time, to support systems that reduce response time from hours to under 60 seconds — I build infrastructure that scales with your business without adding headcount.</p>
       </div>
     </div>
   </div>
@@ -283,45 +217,45 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
 </style>
 
 <section class="clients" id="clients">
-  <p class="section-label" id="clients-label">Who I Work With</p>
-  <h2 class="section-title"><span id="clients-title1">The businesses</span><br><span id="clients-title2">that benefit</span> <em id="clients-title-em">most</em></h2>
+  <p class="section-label">Who I Work With</p>
+  <h2 class="section-title">The businesses<br>that benefit <em>most</em></h2>
   <div class="clients-compact">
     <div class="client-row">
       <span class="client-row-icon">⭐</span>
       <div class="client-row-body">
-        <span class="client-row-title" id="client1-title">Small Businesses &amp; Startups</span>
-        <span class="client-row-pain" id="client1-desc">Doing everything manually and running out of hours. I build the systems that replace the extra hire.</span>
+        <span class="client-row-title">Small Businesses &amp; Startups</span>
+        <span class="client-row-pain">Doing everything manually and running out of hours. I build the systems that replace the extra hire.</span>
       </div>
-      <span class="client-row-win" id="client1-win">10+ hrs/week saved</span>
+      <span class="client-row-win">10+ hrs/week saved</span>
     </div>
     <div class="client-row">
       <span class="client-row-icon">🛒</span>
       <div class="client-row-body">
-        <span class="client-row-title" id="client2-title">E-commerce Brands</span>
-        <span class="client-row-pain" id="client2-desc">Drowning in support tickets with no SLA visibility. I automate the entire pipeline — classify, route, respond.</span>
+        <span class="client-row-title">E-commerce Brands</span>
+        <span class="client-row-pain">Drowning in support tickets with no SLA visibility. I automate the entire pipeline — classify, route, respond.</span>
       </div>
-      <span class="client-row-win" id="client2-win">Response &lt;60s</span>
+      <span class="client-row-win">Response &lt;60s</span>
     </div>
     <div class="client-row">
       <span class="client-row-icon">🏢</span>
       <div class="client-row-body">
-        <span class="client-row-title" id="client3-title">Real Estate Agencies</span>
-        <span class="client-row-pain" id="client3-desc">Losing deals to slow follow-up. I score every lead HOT/WARM/COLD and trigger the right action in under 30s.</span>
+        <span class="client-row-title">Real Estate Agencies</span>
+        <span class="client-row-pain">Losing deals to slow follow-up. I score every lead HOT/WARM/COLD and trigger the right action in under 30s.</span>
       </div>
-      <span class="client-row-win" id="client3-win">0 leads lost to delay</span>
+      <span class="client-row-win">0 leads lost to delay</span>
     </div>
   </div>
 </section>
 
 <section class="services" id="services">
-  <p class="section-label" id="services-label">Services</p>
-  <h2 class="section-title"><span id="services-title1">What I</span> <em id="services-title-em">build</em></h2>
+  <p class="section-label">Services</p>
+  <h2 class="section-title">What I <em>build</em></h2>
   <div class="services-list">
-    <div class="service-item"><div class="service-num">01</div><div><h3 class="service-name" id="s1-name">Google Apps Script Automations</h3><p class="service-desc" id="s1-desc">Custom triggers, API integrations, and multi-step workflows that go beyond what Zapier can handle.</p></div></div>
-    <div class="service-item"><div class="service-num">02</div><div><h3 class="service-name" id="s2-name">AI-Powered Lead Scoring</h3><p class="service-desc" id="s2-desc">Every inquiry automatically classified as HOT / WARM / COLD using Gemini AI, with action recommendations generated instantly.</p></div></div>
-    <div class="service-item"><div class="service-num">03</div><div><h3 class="service-name" id="s3-name">CRM Pipelines</h3><p class="service-desc" id="s3-desc">Form submission → AI analysis → Drive folder → personalized email → dashboard update. Fully automated, zero manual intervention.</p></div></div>
-    <div class="service-item"><div class="service-num">04</div><div><h3 class="service-name" id="s4-name">AI-Powered Support Systems</h3><p class="service-desc" id="s4-desc">Incoming emails classified by AI, routed to the right response track. Response time reduced from hours to under 60 seconds.</p></div></div>
-    <div class="service-item"><div class="service-num">05</div><div><h3 class="service-name" id="s5-name">SLA Monitoring &amp; Alerts</h3><p class="service-desc" id="s5-desc">Automated alerts when tickets breach deadlines, with zero manual checking. Full visibility with zero overhead.</p></div></div>
+    <div class="service-item"><div class="service-num">01</div><div><h3 class="service-name">Google Apps Script Automations</h3><p class="service-desc">Custom triggers, API integrations, and multi-step workflows that go beyond what Zapier can handle.</p></div></div>
+    <div class="service-item"><div class="service-num">02</div><div><h3 class="service-name">AI-Powered Lead Scoring</h3><p class="service-desc">Every inquiry automatically classified as HOT / WARM / COLD using Gemini AI, with action recommendations generated instantly.</p></div></div>
+    <div class="service-item"><div class="service-num">03</div><div><h3 class="service-name">CRM Pipelines</h3><p class="service-desc">Form submission → AI analysis → Drive folder → personalized email → dashboard update. Fully automated, zero manual intervention.</p></div></div>
+    <div class="service-item"><div class="service-num">04</div><div><h3 class="service-name">AI-Powered Support Systems</h3><p class="service-desc">Incoming emails classified by AI, routed to the right response track. Response time reduced from hours to under 60 seconds.</p></div></div>
+    <div class="service-item"><div class="service-num">05</div><div><h3 class="service-name">SLA Monitoring &amp; Alerts</h3><p class="service-desc">Automated alerts when tickets breach deadlines, with zero manual checking. Full visibility with zero overhead.</p></div></div>
   </div>
 </section>
 
@@ -338,66 +272,20 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
 </style>
 
 <section class="services" id="usecases">
-  <p class="section-label" id="usecases-label">Use Cases</p>
-  <h2 class="section-title"><span id="usecases-title1">What I can</span> <em id="usecases-title-em">do for you</em></h2>
-  <p style="color:var(--text-muted);font-size:.85rem;margin-top:.5rem" id="usecases-sub">Real automation scenarios — ready to deploy for your business</p>
-
+  <p class="section-label">Use Cases</p>
+  <h2 class="section-title">What I can <em>do for you</em></h2>
+  <p style="color:var(--text-muted);font-size:.85rem;margin-top:.5rem">Real automation scenarios — ready to deploy for your business</p>
   <div class="uc-table">
-    <div class="uc-row">
-      <span class="uc-icon">🛒</span>
-      <div class="uc-main">
-        <span class="uc-title" id="uc1-title">Shopify → Sheets: zero manual logging, every order synced live</span>
-        <span class="uc-benefit" id="uc1-benefit">Your store runs. Your data updates. You do nothing.</span>
-      </div>
-      <span class="uc-stack" id="uc1-stack">Shopify · Zapier · Sheets</span>
-    </div>
-    <div class="uc-row">
-      <span class="uc-icon">💬</span>
-      <div class="uc-main">
-        <span class="uc-title" id="uc2-title">WhatsApp auto-reply bot — answers leads in &lt;60s, 24/7</span>
-        <span class="uc-benefit" id="uc2-benefit">No staff. No delays. Every lead gets an instant response.</span>
-      </div>
-      <span class="uc-stack" id="uc2-stack">WhatsApp API · Zapier · Gemini AI</span>
-    </div>
-    <div class="uc-row">
-      <span class="uc-icon">🏠</span>
-      <div class="uc-main">
-        <span class="uc-title" id="uc3-title">Real estate leads scored HOT / WARM / COLD — followed up instantly</span>
-        <span class="uc-benefit" id="uc3-benefit">Stop losing deals to slow follow-up. Every inquiry handled in seconds.</span>
-      </div>
-      <span class="uc-stack" id="uc3-stack">Typeform · Zapier · HubSpot</span>
-    </div>
-    <div class="uc-row">
-      <span class="uc-icon">📅</span>
-      <div class="uc-main">
-        <span class="uc-title" id="uc4-title">Clinic bookings: patients self-schedule, confirm &amp; get reminders</span>
-        <span class="uc-benefit" id="uc4-benefit">Zero phone calls. Zero no-shows. Full calendar, zero effort.</span>
-      </div>
-      <span class="uc-stack" id="uc4-stack">Calendly · Zapier · Gmail</span>
-    </div>
-    <div class="uc-row">
-      <span class="uc-icon">📦</span>
-      <div class="uc-main">
-        <span class="uc-title" id="uc5-title">E-commerce support on autopilot — AI routes every ticket instantly</span>
-        <span class="uc-benefit" id="uc5-benefit">6 intent categories. Automatic routing. Response time under 60s.</span>
-      </div>
-      <span class="uc-stack" id="uc5-stack">Gmail · ChatGPT · Zapier</span>
-    </div>
-    <div class="uc-row">
-      <span class="uc-icon">📊</span>
-      <div class="uc-main">
-        <span class="uc-title" id="uc6-title">Daily briefing delivered to your inbox — key metrics, zero digging</span>
-        <span class="uc-benefit" id="uc6-benefit">Wake up knowing exactly where your business stands.</span>
-      </div>
-      <span class="uc-stack" id="uc6-stack">Sheets · Apps Script · Gmail</span>
-    </div>
+    <div class="uc-row"><span class="uc-icon">🛒</span><div class="uc-main"><span class="uc-title">Shopify → Sheets: zero manual logging, every order synced live</span><span class="uc-benefit">Your store runs. Your data updates. You do nothing.</span></div><span class="uc-stack">Shopify · Zapier · Sheets</span></div>
+    <div class="uc-row"><span class="uc-icon">💬</span><div class="uc-main"><span class="uc-title">WhatsApp auto-reply bot — answers leads in &lt;60s, 24/7</span><span class="uc-benefit">No staff. No delays. Every lead gets an instant response.</span></div><span class="uc-stack">WhatsApp API · Zapier · Gemini AI</span></div>
+    <div class="uc-row"><span class="uc-icon">🏠</span><div class="uc-main"><span class="uc-title">Real estate leads scored HOT / WARM / COLD — followed up instantly</span><span class="uc-benefit">Stop losing deals to slow follow-up. Every inquiry handled in seconds.</span></div><span class="uc-stack">Typeform · Zapier · HubSpot</span></div>
+    <div class="uc-row"><span class="uc-icon">📅</span><div class="uc-main"><span class="uc-title">Clinic bookings: patients self-schedule, confirm &amp; get reminders</span><span class="uc-benefit">Zero phone calls. Zero no-shows. Full calendar, zero effort.</span></div><span class="uc-stack">Calendly · Zapier · Gmail</span></div>
+    <div class="uc-row"><span class="uc-icon">📦</span><div class="uc-main"><span class="uc-title">E-commerce support on autopilot — AI routes every ticket instantly</span><span class="uc-benefit">6 intent categories. Automatic routing. Response time under 60s.</span></div><span class="uc-stack">Gmail · ChatGPT · Zapier</span></div>
+    <div class="uc-row"><span class="uc-icon">📊</span><div class="uc-main"><span class="uc-title">Daily briefing delivered to your inbox — key metrics, zero digging</span><span class="uc-benefit">Wake up knowing exactly where your business stands.</span></div><span class="uc-stack">Sheets · Apps Script · Gmail</span></div>
   </div>
 </section>
 
-
-
 <style>
-/* ── Accordion / Portfolio ─────────────────────────── */
 .accordion-list{display:flex;flex-direction:column;gap:.6rem;margin-top:3.5rem}
 .acc-item{border:1px solid rgba(74,143,212,.15);background:rgba(13,33,71,.45);overflow:hidden;transition:border-color .3s}
 .acc-item.open{border-color:rgba(201,168,76,.3)}
@@ -412,7 +300,6 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
 .acc-chip{background:rgba(10,22,40,.8);border:1px solid rgba(74,143,212,.2);padding:.15rem .55rem;font-size:.62rem;color:var(--text-muted)}
 .acc-chevron{flex-shrink:0;width:18px;height:18px;color:var(--gold);transition:transform .35s ease}
 .acc-item.open .acc-chevron{transform:rotate(180deg)}
-
 .acc-body{max-height:0;overflow:hidden;transition:max-height .45s ease}
 .acc-item.open .acc-body{max-height:600px}
 .acc-inner{padding:0 2rem 1.8rem 5.5rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start}
@@ -429,199 +316,98 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
 .acc-pdf-btn{display:inline-flex;align-items:center;gap:.4rem;background:transparent;border:1px solid rgba(201,168,76,.4);color:var(--gold-light);padding:.45rem 1rem;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:none;transition:background .2s,border-color .2s}
 .acc-pdf-btn:hover{background:rgba(201,168,76,.08);border-color:var(--gold-light)}
 .acc-pdf-btn svg{width:13px;height:13px}
-.acc-gh-btn{display:inline-flex;align-items:center;gap:.4rem;border:1px solid rgba(74,143,212,.3);color:var(--pale);padding:.45rem 1rem;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:none;transition:border-color .2s,color .2s}
-.acc-gh-btn:hover{border-color:var(--sky);color:var(--white)}
-
-/* repo cards (GitHub) */
-.repo-block{margin-top:2.5rem;padding:2rem;border:1px solid rgba(201,168,76,.18);background:rgba(13,33,71,.45)}
-.repo-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;margin-bottom:.5rem}
-.repo-sub{font-size:.88rem;line-height:1.8;color:var(--text-muted);max-width:860px}
-.repo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem}
-.repo-card{border:1px solid rgba(74,143,212,.18);background:rgba(10,22,40,.55);padding:1.2rem;display:flex;flex-direction:column;gap:.7rem}
-.repo-name{font-size:.95rem;font-weight:500;color:var(--gold-light)}
-.repo-desc{font-size:.82rem;line-height:1.7;color:var(--pale)}
-.repo-desc strong{color:var(--gold-light)}
-.repo-link{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-light);text-decoration:none;border-bottom:1px solid rgba(201,168,76,.35);display:inline-flex;width:max-content;padding-bottom:.1rem}
-.repo-link:hover{border-color:var(--gold-light)}
 </style>
 
 <section class="projects" id="projects">
-  <p class="section-label" id="portfolio-label">Portfolio</p>
-  <h2 class="section-title"><span id="portfolio-title1">Systems I've</span> <em id="portfolio-title-em">shipped</em></h2>
-  <p style="color:var(--text-muted);font-size:.85rem;margin-top:.5rem" id="portfolio-sub">Click any project to expand details and view the case study PDF.</p>
+  <p class="section-label">Portfolio</p>
+  <h2 class="section-title">Systems I've <em>shipped</em></h2>
+  <p style="color:var(--text-muted);font-size:.85rem;margin-top:.5rem">Click any project to expand details and view the case study PDF.</p>
 
-  <!-- Accordion projects -->
   <div class="accordion-list">
-
-    <!-- Project 1 — Featured -->
     <div class="acc-item open" id="acc1">
       <div class="acc-header" onclick="toggleAcc('acc1')">
-        <div class="acc-left">
-          <span class="acc-num">01</span>
-          <div class="acc-meta">
-            <span class="acc-tag" id="proj1-tag">Featured · Real Estate · 22-Step Zap</span>
-            <span class="acc-title" id="proj1-title">Texas Real Estate — Lead Scoring &amp; Prioritization</span>
-          </div>
-        </div>
-        <div class="acc-chips">
-          <span class="acc-chip">Google Forms</span><span class="acc-chip">Zapier Paths</span><span class="acc-chip">Notion</span><span class="acc-chip">Gmail</span>
-        </div>
+        <div class="acc-left"><span class="acc-num">01</span><div class="acc-meta"><span class="acc-tag">Featured · Real Estate · 22-Step Zap</span><span class="acc-title">Texas Real Estate — Lead Scoring &amp; Prioritization</span></div></div>
+        <div class="acc-chips"><span class="acc-chip">Google Forms</span><span class="acc-chip">Zapier Paths</span><span class="acc-chip">Notion</span><span class="acc-chip">Gmail</span></div>
         <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
       </div>
-      <div class="acc-body">
-        <div class="acc-inner">
-          <div>
-            <p class="acc-desc" id="proj1-desc">Every inbound lead is automatically captured, scored, routed into HOT / WARM / COLD tiers, logged in Notion CRM, and contacted with a personalized email — in under 30 seconds, with zero manual work.</p>
-            <div class="acc-metrics">
-              <div><div class="acc-metric-val">&lt;30s</div><div class="acc-metric-lbl" id="proj1-m1">Lead response time</div></div>
-              <div><div class="acc-metric-val">22</div><div class="acc-metric-lbl" id="proj1-m2">Zap steps automated</div></div>
-              <div><div class="acc-metric-val">3×</div><div class="acc-metric-lbl" id="proj1-m3">Faster pipeline setup</div></div>
-            </div>
-            <div class="acc-actions">
-              <a class="acc-pdf-btn" href="https://drive.google.com/file/d/1M4SrDduZWMamxy8Pber_4JTuOgKbDTuX/view" target="_blank">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
-                <span id="proj1-pdf">View Case Study PDF</span>
-              </a>
-            </div>
+      <div class="acc-body"><div class="acc-inner">
+        <div>
+          <p class="acc-desc">Every inbound lead is automatically captured, scored, routed into HOT / WARM / COLD tiers, logged in Notion CRM, and contacted with a personalized email — in under 30 seconds, with zero manual work.</p>
+          <div class="acc-metrics">
+            <div><div class="acc-metric-val">&lt;30s</div><div class="acc-metric-lbl">Lead response time</div></div>
+            <div><div class="acc-metric-val">22</div><div class="acc-metric-lbl">Zap steps automated</div></div>
+            <div><div class="acc-metric-val">3×</div><div class="acc-metric-lbl">Faster pipeline setup</div></div>
           </div>
-          <div class="acc-flow">
-            <p class="acc-flow-label" id="proj1-flow-label">Lead Scoring Flow</p>
-            <div class="acc-flow-step" id="proj1-f1">Form submitted → Zap triggered instantly</div>
-            <div class="acc-flow-arrow">↓</div>
-            <div class="acc-flow-step" id="proj1-f2">Google Sheets lookup scores the lead</div>
-            <div class="acc-flow-arrow">↓</div>
-            <div class="acc-flow-step" id="proj1-f3">Zapier Paths: HOT / WARM / COLD</div>
-            <div class="acc-flow-arrow">↓</div>
-            <div class="acc-flow-step" id="proj1-f4">Notion CRM record created</div>
-            <div class="acc-flow-arrow">↓</div>
-            <div class="acc-flow-step" id="proj1-f5">Personalized email sent per tier</div>
-            <div class="acc-flow-arrow">↓</div>
-            <div class="acc-flow-step" id="proj1-f6">HOT leads: agent notified immediately</div>
-          </div>
+          <div class="acc-actions"><a class="acc-pdf-btn" href="https://drive.google.com/file/d/1M4SrDduZWMamxy8Pber_4JTuOgKbDTuX/view" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>View Case Study PDF</a></div>
         </div>
-      </div>
+        <div class="acc-flow">
+          <p class="acc-flow-label">Lead Scoring Flow</p>
+          <div class="acc-flow-step">Form submitted → Zap triggered instantly</div><div class="acc-flow-arrow">↓</div>
+          <div class="acc-flow-step">Google Sheets lookup scores the lead</div><div class="acc-flow-arrow">↓</div>
+          <div class="acc-flow-step">Zapier Paths: HOT / WARM / COLD</div><div class="acc-flow-arrow">↓</div>
+          <div class="acc-flow-step">Notion CRM record created</div><div class="acc-flow-arrow">↓</div>
+          <div class="acc-flow-step">Personalized email sent per tier</div><div class="acc-flow-arrow">↓</div>
+          <div class="acc-flow-step">HOT leads: agent notified immediately</div>
+        </div>
+      </div></div>
     </div>
 
-    <!-- Project 2 -->
     <div class="acc-item" id="acc2">
       <div class="acc-header" onclick="toggleAcc('acc2')">
-        <div class="acc-left">
-          <span class="acc-num">02</span>
-          <div class="acc-meta">
-            <span class="acc-tag" id="proj2-tag">E-commerce · 21-Step Zap · ChatGPT</span>
-            <span class="acc-title" id="proj2-title">Ecommerce AI Support System + SLA Monitor</span>
-          </div>
-        </div>
-        <div class="acc-chips">
-          <span class="acc-chip">Gmail</span><span class="acc-chip">ChatGPT</span><span class="acc-chip">Zapier Paths</span><span class="acc-chip">Google Sheets</span>
-        </div>
+        <div class="acc-left"><span class="acc-num">02</span><div class="acc-meta"><span class="acc-tag">E-commerce · 21-Step Zap · ChatGPT</span><span class="acc-title">Ecommerce AI Support System + SLA Monitor</span></div></div>
+        <div class="acc-chips"><span class="acc-chip">Gmail</span><span class="acc-chip">ChatGPT</span><span class="acc-chip">Zapier Paths</span><span class="acc-chip">Google Sheets</span></div>
         <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
       </div>
-      <div class="acc-body">
-        <div class="acc-inner" style="grid-template-columns:1fr">
-          <div>
-            <p class="acc-desc" id="proj2-desc">Two Zaps working as one complete support ecosystem. ChatGPT classifies every email into 6 intent categories, routes it, logs the ticket, and monitors SLA violations — all automatically.</p>
-            <div class="acc-actions">
-              <a class="acc-pdf-btn" href="https://drive.google.com/file/d/1j5zg-JvDaaRuG2bRfiQ2zCcL4iq-jO8s/view" target="_blank">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
-                <span id="proj2-pdf">View Case Study PDF</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="acc-body"><div class="acc-inner" style="grid-template-columns:1fr"><div>
+        <p class="acc-desc">Two Zaps working as one complete support ecosystem. ChatGPT classifies every email into 6 intent categories, routes it, logs the ticket, and monitors SLA violations — all automatically.</p>
+        <div class="acc-actions"><a class="acc-pdf-btn" href="https://drive.google.com/file/d/1j5zg-JvDaaRuG2bRfiQ2zCcL4iq-jO8s/view" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>View Case Study PDF</a></div>
+      </div></div></div>
     </div>
 
-    <!-- Project 3 -->
     <div class="acc-item" id="acc3">
       <div class="acc-header" onclick="toggleAcc('acc3')">
-        <div class="acc-left">
-          <span class="acc-num">03</span>
-          <div class="acc-meta">
-            <span class="acc-tag" id="proj3-tag">Freelance · 7-Step Zap · Multi-tool</span>
-            <span class="acc-title" id="proj3-title">Freelance Project Intake &amp; Routing Pipeline</span>
-          </div>
-        </div>
-        <div class="acc-chips">
-          <span class="acc-chip">Airtable</span><span class="acc-chip">Asana</span><span class="acc-chip">Slack</span><span class="acc-chip">Gmail</span>
-        </div>
+        <div class="acc-left"><span class="acc-num">03</span><div class="acc-meta"><span class="acc-tag">Freelance · 7-Step Zap · Multi-tool</span><span class="acc-title">Freelance Project Intake &amp; Routing Pipeline</span></div></div>
+        <div class="acc-chips"><span class="acc-chip">Airtable</span><span class="acc-chip">Asana</span><span class="acc-chip">Slack</span><span class="acc-chip">Gmail</span></div>
         <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
       </div>
-      <div class="acc-body">
-        <div class="acc-inner" style="grid-template-columns:1fr">
-          <div>
-            <p class="acc-desc" id="proj3-desc">Inquiries filtered by project type, logged in Airtable CRM, assigned as Asana tasks, announced in Slack, and confirmed by email — in under 60 seconds.</p>
-            <div class="acc-actions">
-              <a class="acc-pdf-btn" href="https://drive.google.com/file/d/1bbtMbfTXip3T-bMuN2MeTqIi44S_d4jl/view" target="_blank">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
-                <span id="proj3-pdf">View Case Study PDF</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="acc-body"><div class="acc-inner" style="grid-template-columns:1fr"><div>
+        <p class="acc-desc">Inquiries filtered by project type, logged in Airtable CRM, assigned as Asana tasks, announced in Slack, and confirmed by email — in under 60 seconds.</p>
+        <div class="acc-actions"><a class="acc-pdf-btn" href="https://drive.google.com/file/d/1bbtMbfTXip3T-bMuN2MeTqIi44S_d4jl/view" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>View Case Study PDF</a></div>
+      </div></div></div>
     </div>
 
-    <!-- Project 4 -->
     <div class="acc-item" id="acc4">
       <div class="acc-header" onclick="toggleAcc('acc4')">
-        <div class="acc-left">
-          <span class="acc-num">04</span>
-          <div class="acc-meta">
-            <span class="acc-tag" id="proj4-tag">Aesthetic Clinic · Notion CRM · Zapier Paths</span>
-            <span class="acc-title" id="proj4-title">Client Acquisition &amp; Segmentation — Beauty Clinic</span>
-          </div>
-        </div>
-        <div class="acc-chips">
-          <span class="acc-chip">Google Forms</span><span class="acc-chip">Google Sheets</span><span class="acc-chip">Notion</span><span class="acc-chip">Zapier Paths</span>
-        </div>
+        <div class="acc-left"><span class="acc-num">04</span><div class="acc-meta"><span class="acc-tag">Aesthetic Clinic · Notion CRM · Zapier Paths</span><span class="acc-title">Client Acquisition &amp; Segmentation — Beauty Clinic</span></div></div>
+        <div class="acc-chips"><span class="acc-chip">Google Forms</span><span class="acc-chip">Google Sheets</span><span class="acc-chip">Notion</span><span class="acc-chip">Zapier Paths</span></div>
         <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
       </div>
-      <div class="acc-body">
-        <div class="acc-inner" style="grid-template-columns:1fr">
-          <div>
-            <p class="acc-desc" id="proj4-desc">Automated lead capture and CRM segmentation. Every consultation request is logged in Sheets, stored in Notion CRM, and tagged with a 4-tier service classification — zero manual work.</p>
-            <div class="acc-actions">
-              <a class="acc-pdf-btn" href="https://drive.google.com/file/d/19Om8EypVXByNunfq9NrgWL9hu4bcBMHt/view" target="_blank">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
-                <span id="proj4-pdf">View Case Study PDF</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div><!-- /accordion-list -->
-
-  <!-- GitHub repo links — compact -->
-  <div style="margin-top:2rem;padding:1.4rem 1.8rem;border:1px solid rgba(201,168,76,.15);background:rgba(13,33,71,.4)">
-    <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.6rem 2rem;margin-bottom:.9rem">
-      <p style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:300;color:var(--white);line-height:1.3" id="repo-title">Proven Automation Systems That Save Time &amp; Increase Conversions</p>
-      <span style="font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);white-space:nowrap;flex-shrink:0">Google Apps Script · Gemini AI · Zapier</span>
-    </div>
-    <div style="display:flex;flex-wrap:wrap;gap:.6rem 2rem;align-items:center">
-      <a class="repo-link" id="repo1-link" href="https://github.com/dvasquezautomation/crm-automation-google-apps-script?tab=readme-ov-file#crm-automation-system--google-apps-script--gemini-ai" target="_blank"><span id="repo1-name">AI CRM Automation</span> →</a>
-      <a class="repo-link" id="repo2-link" href="https://github.com/dvasquezautomation/client-intake-pipeline-gemini-ai" target="_blank"><span id="repo2-name">Client Intake &amp; Qualification</span> →</a>
-      <a class="repo-link" id="repo3-link" href="https://github.com/dvasquezautomation/daily-briefing-google-apps-script" target="_blank"><span id="repo3-name">Daily Operations Briefing</span> →</a>
+      <div class="acc-body"><div class="acc-inner" style="grid-template-columns:1fr"><div>
+        <p class="acc-desc">Automated lead capture and CRM segmentation. Every consultation request is logged in Sheets, stored in Notion CRM, and tagged with a 4-tier service classification — zero manual work.</p>
+        <div class="acc-actions"><a class="acc-pdf-btn" href="https://drive.google.com/file/d/19Om8EypVXByNunfq9NrgWL9hu4bcBMHt/view" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>View Case Study PDF</a></div>
+      </div></div></div>
     </div>
   </div>
 
+  <div style="margin-top:2rem;padding:1.4rem 1.8rem;border:1px solid rgba(201,168,76,.15);background:rgba(13,33,71,.4)">
+    <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.6rem 2rem;margin-bottom:.9rem">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:300;color:var(--white);line-height:1.3">Proven Automation Systems That Save Time &amp; Increase Conversions</p>
+      <span style="font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);white-space:nowrap;flex-shrink:0">Google Apps Script · Gemini AI · Zapier</span>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:.6rem 2rem;align-items:center">
+      <a class="repo-link" href="https://github.com/dvasquezautomation/crm-automation-google-apps-script?tab=readme-ov-file#crm-automation-system--google-apps-script--gemini-ai" target="_blank">AI CRM Automation →</a>
+      <a class="repo-link" href="https://github.com/dvasquezautomation/client-intake-pipeline-gemini-ai" target="_blank">Client Intake &amp; Qualification →</a>
+      <a class="repo-link" href="https://github.com/dvasquezautomation/daily-briefing-google-apps-script" target="_blank">Daily Operations Briefing →</a>
+    </div>
+  </div>
 </section>
 
 <script>
-function toggleAcc(id) {
-  var item = document.getElementById(id);
-  var isOpen = item.classList.contains('open');
-  // Close all
-  document.querySelectorAll('.acc-item').forEach(function(el){ el.classList.remove('open'); });
-  // Open clicked if it was closed
-  if (!isOpen) item.classList.add('open');
-}
+function toggleAcc(id){var item=document.getElementById(id);var isOpen=item.classList.contains('open');document.querySelectorAll('.acc-item').forEach(function(el){el.classList.remove('open');});if(!isOpen)item.classList.add('open');}
 </script>
 
 <section class="tools" id="tools">
-  <h2 class="section-title"><span id="tools-title1">The technology</span> <em id="tools-title-em">I use</em></h2>
+  <h2 class="section-title">The technology <em>I use</em></h2>
   <div class="tools-grid">
     <span class="tool-tag gold">Google Apps Script</span><span class="tool-tag gold">Gemini AI</span><span class="tool-tag gold">Zapier</span>
     <span class="tool-tag">UrlFetchApp</span><span class="tool-tag">onFormSubmit triggers</span><span class="tool-tag gold">ChatGPT / OpenAI</span>
@@ -634,52 +420,45 @@ function toggleAcc(id) {
 
 <section class="contact" id="contact">
   <div class="contact-inner">
-    <p class="section-label" id="contact-label">Contact</p>
+    <p class="section-label">Contact</p>
     <div class="contact-grid">
       <div>
-        <h2 class="section-title"><span id="contact-title1">Let's map out</span><br><span id="contact-title2">your</span> <em id="contact-title-em">workflow</em></h2>
-        <p class="contact-sub" id="contact-sub">Tell me about your business and the tasks you want to automate. I'll review your message and get back to you within 24 hours.</p>
+        <h2 class="section-title">Let's map out<br>your <em>workflow</em></h2>
+        <p class="contact-sub">Tell me about your business and the tasks you want to automate. I'll review your message and get back to you within 24 hours.</p>
         <div class="contact-channels">
-          <div class="contact-channel">✦ &nbsp;<span><a href="/cdn-cgi/l/email-protection#dbadbaf5bfadbaa8aaaebea1b69bbcb6bab2b7f5b8b4b6" style="color:var(--gold-light);text-decoration:none;"><span class="__cf_email__" data-cfemail="4432256a203225373531213e29042329252d286a272b29">[email&#160;protected]</span></a></span></div>
+          <div class="contact-channel">✦ &nbsp;<span><a href="mailto:va.dvasquezm@gmail.com" style="color:var(--gold-light);text-decoration:none;">va.dvasquezm@gmail.com</a></span></div>
           <div class="contact-channel">✦ &nbsp;<span>WhatsApp +57 305 432 9733</span></div>
         </div>
       </div>
       <div>
         <form class="contact-form" id="contactForm" action="https://formspree.io/f/xkoqavzk" method="POST">
           <div class="form-row">
-            <div class="form-group"><label id="form-name-lbl">Full Name</label><input type="text" name="name" id="form-name-input" placeholder="Your name" required></div>
-            <div class="form-group"><label id="form-email-lbl">Email</label><input type="email" name="email" id="form-email-input" placeholder="your@email.com" required></div>
+            <div class="form-group"><label>Full Name</label><input type="text" name="name" placeholder="Your name" required></div>
+            <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="your@email.com" required></div>
           </div>
           <div class="form-group">
-            <label id="form-business-lbl">Business Type</label>
+            <label>Business Type</label>
             <select name="business" required>
-              <option value="" disabled selected id="form-business-ph">Select your industry</option>
-              <option id="form-bopt1">E-commerce</option>
-              <option id="form-bopt2">Real Estate</option>
-              <option id="form-bopt3">Clinic / Healthcare</option>
-              <option id="form-bopt4">Freelance / Agency</option>
-              <option id="form-bopt5">SaaS / Tech</option>
-              <option id="form-bopt6">Small Business / Startup</option>
-              <option id="form-bopt7">Other</option>
+              <option value="" disabled selected>Select your industry</option>
+              <option>E-commerce</option><option>Real Estate</option><option>Clinic / Healthcare</option>
+              <option>Freelance / Agency</option><option>SaaS / Tech</option>
+              <option>Small Business / Startup</option><option>Other</option>
             </select>
           </div>
-          <div class="form-group"><label id="form-project-lbl">Describe Your Project</label><textarea name="project" id="form-project-ta" placeholder="What tasks do you want to automate? What problem are you trying to solve?" required></textarea></div>
+          <div class="form-group"><label>Describe Your Project</label><textarea name="project" placeholder="What tasks do you want to automate? What problem are you trying to solve?" required></textarea></div>
           <div class="form-group">
-            <label id="form-budget-lbl">Approximate Budget</label>
+            <label>Approximate Budget</label>
             <select name="budget" required>
-              <option value="" disabled selected id="form-budget-ph">Select a range</option>
-              <option id="form-budget1">Under $500</option>
-              <option id="form-budget2">$500 – $1,000</option>
-              <option id="form-budget3">$1,000 – $3,000</option>
-              <option id="form-budget4">$3,000+</option>
-              <option id="form-budget5">Let's talk</option>
+              <option value="" disabled selected>Select a range</option>
+              <option>Under $500</option><option>$500 – $1,000</option><option>$1,000 – $3,000</option>
+              <option>$3,000+</option><option>Let's talk</option>
             </select>
           </div>
           <div class="form-submit">
             <button type="submit" class="btn-submit" id="btn-submit">Send Message</button>
-            <a href="https://wa.me/573054329733?text=Hi%20Diana!%20I%20visited%20your%20website%20and%20I'd%20like%20to%20talk%20about%20automating%20my%20business." target="_blank" class="btn-whatsapp" id="wa-btn">
+            <a href="https://wa.me/573054329733?text=Hi%20Diana!%20I%20visited%20your%20website%20and%20I'd%20like%20to%20talk%20about%20automating%20my%20business." target="_blank" class="btn-whatsapp">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              <span id="wa-btn-text">WhatsApp</span>
+              WhatsApp
             </a>
           </div>
           <div class="form-success" id="formSuccess">✦ &nbsp; Message sent — I'll get back to you within 24 hours. Thank you!</div>
@@ -691,32 +470,32 @@ function toggleAcc(id) {
 
 <footer>
   <div class="footer-logo">Diana Vasquez</div>
-  <div class="footer-text" id="footer-role">AI Automation Engineer · Google Apps Script · Zapier · Gemini AI</div>
-  <a href="/privacy-policy.html" class="footer-privacy" id="footer-privacy">Privacy Policy</a>
+  <div class="footer-text">AI Automation Engineer · Google Apps Script · Zapier · Gemini AI</div>
+  <a href="/privacy-policy.html" class="footer-privacy">Privacy Policy</a>
   <div class="footer-text" style="color:rgba(201,168,76,.5)">© 2026</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-function adjustNavOffset() {
-  var bar = document.getElementById("sticky-cta-bar");
-  var nav = document.querySelector("nav");
-  if (bar && nav) nav.style.top = bar.offsetHeight + "px";
-}
-window.addEventListener("load", adjustNavOffset);
-window.addEventListener("resize", adjustNavOffset);
-
-window.addEventListener("DOMContentLoaded", function() {
-  // Run initial lang apply
-
-  document.getElementById("contactForm").addEventListener("submit", function(e) {
+<script>
+function adjustNavOffset(){var bar=document.getElementById("sticky-cta-bar");var nav=document.querySelector("nav");if(bar&&nav)nav.style.top=bar.offsetHeight+"px";}
+window.addEventListener("load",adjustNavOffset);
+window.addEventListener("resize",adjustNavOffset);
+window.addEventListener("DOMContentLoaded",function(){
+  document.getElementById("contactForm").addEventListener("submit",function(e){
     e.preventDefault();
-    var btn = document.getElementById("btn-submit");
-    btn.textContent = lang === 'es' ? "Enviando..." : "Sending...";
-    btn.disabled = true;
-    fetch(this.action, { method:"POST", body:new FormData(this), headers:{"Accept":"application/json"} })
-      .then(function(r) { return r.ok ? r : Promise.reject(); })
-      .then(function() {
+    var btn=document.getElementById("btn-submit");
+    btn.textContent="Sending...";
+    btn.disabled=true;
+    fetch(this.action,{method:"POST",body:new FormData(this),headers:{"Accept":"application/json"}})
+      .then(function(r){return r.ok?r:Promise.reject();})
+      .then(function(){
         document.getElementById("contactForm").reset();
         document.getElementById("formSuccess").classList.add("visible");
-        if(typeof gtag !== 'undefined') {
-          gtag('event', 'conversion', {'send_to': 'AW-18032769454/nL4uCJHXo44cEK7z2JZD'});
+        if(typeof gtag!=='undefined'){gtag('event','conversion',{'send_to':'AW-18032769454/nL4uCJHXo44cEK7z2JZD'});}
+        btn.textContent="Sent ✓";
+      })
+      .catch(function(){btn.textContent="Send Message";btn.disabled=false;});
+  });
+});
+</script>
+</body>
+</html>
