@@ -179,7 +179,54 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
 .footer-privacy{font-size:.72rem;color:var(--text-muted);letter-spacing:.08em;text-decoration:none;border-bottom:1px solid rgba(139,174,208,.3);transition:color .3s,border-color .3s}
 .footer-privacy:hover{color:var(--gold-light);border-color:var(--gold-light)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:900px){html{font-size:16px}.hero{grid-template-columns:1fr;padding-top:8rem;padding-bottom:4rem}.hero-text{padding-right:0;order:2}.hero-photo-wrap{order:1;padding-top:2rem}.hero-photo-frame{width:min(280px,60vw)}.hero-photo-badge{left:-1rem}.hero-cta-group{flex-direction:column;align-items:flex-start}.about-grid,.contact-grid{grid-template-columns:1fr;gap:2rem}.about-left{position:static}.clients-grid{grid-template-columns:1fr}.projects-grid{grid-template-columns:1fr}.project-card.featured{grid-column:1;grid-template-columns:1fr}.repo-grid{grid-template-columns:1fr}footer{flex-direction:column;gap:1rem;text-align:center}.stats-row{grid-template-columns:1fr 1fr}.form-row{grid-template-columns:1fr}.nav-links{gap:1.2rem}}
+
+/* ── Mobile nav hamburger ─── */
+#nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:.3rem;color:var(--gold-light);flex-shrink:0}
+#nav-hamburger svg{display:block}
+
+@media(max-width:900px){
+  html{font-size:16px}
+  /* Nav */
+  nav{padding:1rem 5vw}
+  #nav-hamburger{display:flex;align-items:center;justify-content:center}
+  .nav-links{
+    display:none;flex-direction:column;gap:0;list-style:none;
+    position:fixed;top:0;right:0;bottom:0;width:75vw;max-width:280px;
+    background:var(--deep-blue);border-left:1px solid rgba(201,168,76,.15);
+    padding:5rem 2rem 2rem;z-index:300;
+    box-shadow:-8px 0 30px rgba(0,0,0,.4);
+    overflow-y:auto;
+  }
+  .nav-links.open{display:flex}
+  .nav-links li{border-bottom:1px solid rgba(74,143,212,.1)}
+  .nav-links a{display:block;padding:.9rem 0;font-size:.82rem;letter-spacing:.12em;color:var(--pale)}
+  .nav-links a:hover{color:var(--gold-light)}
+  /* Lang button inside mobile menu */
+  .nav-links li:last-child{border-bottom:none;padding-top:1rem}
+  #lang-toggle{width:100%;justify-content:center;padding:.6rem 1rem;font-size:.78rem}
+  /* Overlay */
+  #nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:299}
+  #nav-overlay.open{display:block}
+  /* Close X inside menu */
+  #nav-close{display:flex;position:absolute;top:1.2rem;right:1.2rem;background:none;border:none;cursor:pointer;color:var(--text-muted);padding:.3rem}
+  #nav-close svg{display:block}
+  /* Sections */
+  .hero{grid-template-columns:1fr;padding-top:8rem;padding-bottom:4rem}
+  .hero-text{padding-right:0;order:2}
+  .hero-photo-wrap{order:1;padding-top:2rem}
+  .hero-photo-frame{width:min(280px,60vw)}
+  .hero-photo-badge{left:-1rem}
+  .hero-cta-group{flex-direction:column;align-items:flex-start}
+  .about-grid,.contact-grid{grid-template-columns:1fr;gap:2rem}
+  .about-left{position:static}
+  .clients-grid{grid-template-columns:1fr}
+  .projects-grid{grid-template-columns:1fr}
+  .project-card.featured{grid-column:1;grid-template-columns:1fr}
+  .repo-grid{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:1rem;text-align:center}
+  .stats-row{grid-template-columns:1fr 1fr}
+  .form-row{grid-template-columns:1fr}
+}
 </style>
 <!-- Google Ads Conversion Tracking -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18032769454"></script>
@@ -676,17 +723,37 @@ function toggleLang() {
 
 <nav>
   <a class="nav-logo" href="#">Diana Vasquez</a>
-  <ul class="nav-links">
-    <li><a href="#about" id="nav-about">About</a></li>
-    <li><a href="#clients" id="nav-clients">Who I Work With</a></li>
-    <li><a href="#services" id="nav-services">Services</a></li>
-    <li><a href="#usecases" id="nav-usecases">Use Cases</a></li>
-    <li><a href="#projects" id="nav-projects">Projects</a></li>
-    <li><a href="#tools" id="nav-tools">Toolstack</a></li>
-    <li><a href="#contact" id="nav-contact">Contact</a></li>
+  <button id="nav-hamburger" onclick="openNav()" aria-label="Open menu">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <button id="nav-close" onclick="closeNav()" aria-label="Close menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <li><a href="#about" id="nav-about" onclick="closeNav()">About</a></li>
+    <li><a href="#clients" id="nav-clients" onclick="closeNav()">Who I Work With</a></li>
+    <li><a href="#services" id="nav-services" onclick="closeNav()">Services</a></li>
+    <li><a href="#usecases" id="nav-usecases" onclick="closeNav()">Use Cases</a></li>
+    <li><a href="#projects" id="nav-projects" onclick="closeNav()">Projects</a></li>
+    <li><a href="#tools" id="nav-tools" onclick="closeNav()">Toolstack</a></li>
+    <li><a href="#contact" id="nav-contact" onclick="closeNav()">Contact</a></li>
     <li><button id="lang-toggle" onclick="toggleLang()"><span class="flag">🇪🇸</span> ES</button></li>
   </ul>
+  <div id="nav-overlay" onclick="closeNav()"></div>
 </nav>
+
+<script>
+function openNav(){
+  document.getElementById('nav-links').classList.add('open');
+  document.getElementById('nav-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeNav(){
+  document.getElementById('nav-links').classList.remove('open');
+  document.getElementById('nav-overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+</script>
 
 <section class="hero">
   <div class="hero-grid-line"></div>
