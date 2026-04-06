@@ -248,17 +248,55 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
   </div>
 </section>
 
+<style>
+.svc-carousel-wrap{position:relative;margin-top:3.5rem;display:flex;align-items:center;gap:1rem}
+.svc-track-outer{overflow:hidden;flex:1}
+.svc-track{display:flex;gap:0;transition:transform .45s cubic-bezier(.4,0,.2,1)}
+.svc-card{border-top:1px solid rgba(74,143,212,.1);border-bottom:1px solid rgba(74,143,212,.1);border-right:1px solid rgba(74,143,212,.06);padding:2rem 2rem 2rem 0;display:flex;flex-direction:column;gap:.8rem;flex:0 0 calc(33.333%);min-width:0;padding-left:2rem;transition:background .2s}
+.svc-card:hover{background:rgba(26,58,110,.12)}
+.svc-card:first-child{border-top:1px solid rgba(74,143,212,.1)}
+.svc-num{font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--gold);font-weight:300}
+.svc-name{font-size:1.05rem;font-weight:500;color:var(--white)}
+.svc-desc{font-size:.88rem;line-height:1.7;color:var(--text-muted)}
+.svc-btn{flex-shrink:0;width:2.4rem;height:2.4rem;border:1px solid rgba(201,168,76,.35);background:rgba(10,22,40,.6);color:var(--gold-light);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s;font-size:1rem}
+.svc-btn:hover{background:rgba(201,168,76,.1);border-color:var(--gold)}
+.svc-btn:disabled{opacity:.25;cursor:default}
+</style>
+
 <section class="services" id="services">
   <p class="section-label">Services</p>
   <h2 class="section-title">What I <em>build</em></h2>
-  <div class="services-list">
-    <div class="service-item"><div class="service-num">01</div><div><h3 class="service-name">Google Apps Script Automations</h3><p class="service-desc">Custom triggers, API integrations, and multi-step workflows that go beyond what Zapier can handle.</p></div></div>
-    <div class="service-item"><div class="service-num">02</div><div><h3 class="service-name">AI-Powered Lead Scoring</h3><p class="service-desc">Every inquiry automatically classified as HOT / WARM / COLD using Gemini AI, with action recommendations generated instantly.</p></div></div>
-    <div class="service-item"><div class="service-num">03</div><div><h3 class="service-name">CRM Pipelines</h3><p class="service-desc">Form submission → AI analysis → Drive folder → personalized email → dashboard update. Fully automated, zero manual intervention.</p></div></div>
-    <div class="service-item"><div class="service-num">04</div><div><h3 class="service-name">AI-Powered Support Systems</h3><p class="service-desc">Incoming emails classified by AI, routed to the right response track. Response time reduced from hours to under 60 seconds.</p></div></div>
-    <div class="service-item"><div class="service-num">05</div><div><h3 class="service-name">SLA Monitoring &amp; Alerts</h3><p class="service-desc">Automated alerts when tickets breach deadlines, with zero manual checking. Full visibility with zero overhead.</p></div></div>
+  <div class="svc-carousel-wrap">
+    <button class="svc-btn" id="svc-prev" onclick="svcMove(-1)" disabled>&#8592;</button>
+    <div class="svc-track-outer">
+      <div class="svc-track" id="svc-track">
+        <div class="svc-card"><div class="svc-num">01</div><h3 class="svc-name">Google Apps Script Automations</h3><p class="svc-desc">Custom triggers, API integrations, and multi-step workflows that go beyond what Zapier can handle.</p></div>
+        <div class="svc-card"><div class="svc-num">02</div><h3 class="svc-name">AI-Powered Lead Scoring</h3><p class="svc-desc">Every inquiry automatically classified as HOT / WARM / COLD using Gemini AI, with action recommendations generated instantly.</p></div>
+        <div class="svc-card"><div class="svc-num">03</div><h3 class="svc-name">CRM Pipelines</h3><p class="svc-desc">Form submission → AI analysis → Drive folder → personalized email → dashboard update. Fully automated, zero manual intervention.</p></div>
+        <div class="svc-card"><div class="svc-num">04</div><h3 class="svc-name">AI-Powered Support Systems</h3><p class="svc-desc">Incoming emails classified by AI, routed to the right response track. Response time reduced from hours to under 60 seconds.</p></div>
+        <div class="svc-card"><div class="svc-num">05</div><h3 class="svc-name">SLA Monitoring &amp; Alerts</h3><p class="svc-desc">Automated alerts when tickets breach deadlines, with zero manual checking. Full visibility with zero overhead.</p></div>
+      </div>
+    </div>
+    <button class="svc-btn" id="svc-next" onclick="svcMove(1)">&#8594;</button>
   </div>
 </section>
+<script>
+(function(){
+  var svcCurrent=0;
+  var svcTotal=5;
+  var svcVisible=3;
+  var svcMax=svcTotal-svcVisible;
+  function svcMove(dir){
+    svcCurrent=Math.max(0,Math.min(svcCurrent+dir,svcMax));
+    var track=document.getElementById('svc-track');
+    var cardW=track.children[0].offsetWidth;
+    track.style.transform='translateX(-'+(svcCurrent*cardW)+'px)';
+    document.getElementById('svc-prev').disabled=svcCurrent===0;
+    document.getElementById('svc-next').disabled=svcCurrent===svcMax;
+  }
+  window.svcMove=svcMove;
+})();
+</script>
 
 <style>
 .uc-table{margin-top:2.5rem;display:flex;flex-direction:column;border-top:1px solid rgba(74,143,212,.12)}
