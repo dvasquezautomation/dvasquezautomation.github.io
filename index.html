@@ -30,8 +30,8 @@ body{background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;
 #sticky-cta-btn:hover{background:#0d2147}
 nav{position:fixed;top:42px;left:0;right:0;z-index:150;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 5vw;background:linear-gradient(to bottom,rgba(10,22,40,.98) 0%,rgba(10,22,40,0) 100%)}
 .nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;letter-spacing:.15em;color:var(--gold-light);text-decoration:none}
-.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
-.nav-links a{color:var(--pale);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:color .3s}
+.nav-links{display:flex;gap:1.6rem;list-style:none;align-items:center}
+.nav-links a{color:var(--pale);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:color .3s}
 .nav-links a:hover{color:var(--gold-light)}
 
 /* Language Toggle Button */
@@ -207,8 +207,11 @@ const t = {
     ctaBar: "⚡ Free automation audit — limited spots available",
     ctaBtn: "Book Free Audit",
     navAbout: "About",
+    navClients: "Who I Work With",
     navServices: "Services",
+    navUsecases: "Use Cases",
     navProjects: "Projects",
+    navTools: "Toolstack",
     navContact: "Contact",
     heroEyebrow: "AI Automation Engineer",
     heroTitle: "Google Apps Script · Zapier · Gemini AI",
@@ -348,8 +351,11 @@ const t = {
     ctaBar: "⚡ Auditoría de automatización gratuita — cupos limitados",
     ctaBtn: "Reserva tu Auditoría",
     navAbout: "Sobre mí",
+    navClients: "Con quién trabajo",
     navServices: "Servicios",
+    navUsecases: "Casos de Uso",
     navProjects: "Proyectos",
+    navTools: "Herramientas",
     navContact: "Contacto",
     heroEyebrow: "Ingeniería en Automatización con IA",
     heroTitle: "Google Apps Script · Zapier · Gemini AI",
@@ -374,11 +380,11 @@ const t = {
     clientsTitle2: "que más se",
     clientsTitleEm: "benefician",
     client1Title: "Pequeñas Empresas y Startups",
-    client1Desc: "Equipos que necesitan infraestructura operativa sin contratar más personal. Construyo los sistemas que permiten a un equipo pequeño competir con los grandes.",
+    client1Desc: "Haciendo todo manual y sin horas para más. Construyo los sistemas que reemplazan la contratación extra.",
     client2Title: "Marcas de E-commerce",
-    client2Desc: "Marcas con alto volumen de soporte, manejo manual de tickets o sin visibilidad de SLA. Automatizo todo el pipeline de soporte de extremo a extremo.",
+    client2Desc: "Ahogados en tickets sin visibilidad de SLA. Automatizo el pipeline completo — clasificar, enrutar, responder.",
     client3Title: "Agencias Inmobiliarias",
-    client3Desc: "Agencias que pierden leads por seguimientos lentos y calificación desestructurada. Construyo sistemas automáticos que responden y califican en segundos.",
+    client3Desc: "Perdiendo negocios por seguimientos lentos. Clasifico cada lead HOT/WARM/COLD y disparo la acción correcta en menos de 30s.",
     servicesLabel: "Servicios",
     servicesTitle1: "Lo que",
     servicesTitleEm: "construyo",
@@ -396,18 +402,18 @@ const t = {
     usecasesTitle1: "Lo que puedo",
     usecasesTitleEm: "hacer por ti",
     usecasesSub: "Escenarios de automatización reales — listos para implementar en tu negocio",
-    uc1Title: "Órdenes de Shopify → Google Sheets, automático",
-    uc1Benefit: "Cero registro manual. Cada pedido sincronizado en tiempo real.",
-    uc2Title: "Bot de Respuesta Automática para WhatsApp Business",
-    uc2Benefit: "Responde leads en menos de 60 segundos, 24/7 — sin personal.",
-    uc3Title: "Calificación de Leads Inmobiliarios y Seguimiento Instantáneo",
-    uc3Benefit: "Cada consulta clasificada HOT/WARM/COLD y con seguimiento automático.",
-    uc4Title: "Agendamiento para Clínicas — Sin Llamadas Telefónicas",
-    uc4Benefit: "Los pacientes reservan, confirman y reciben recordatorios — todo automatizado.",
-    uc5Title: "Tickets de Soporte E-commerce en Piloto Automático",
-    uc5Benefit: "La IA clasifica y enruta cada email — tiempo de respuesta menor a 60s.",
-    uc6Title: "Briefing Diario de Negocio — Directo a tu Bandeja",
-    uc6Benefit: "Métricas clave resumidas y enviadas cada mañana de forma automática.",
+    uc1Title: "Shopify → Sheets: cero registro manual, cada pedido sincronizado en vivo",
+    uc1Benefit: "Tu tienda vende. Tus datos se actualizan. Tú no haces nada.",
+    uc2Title: "Bot de respuesta en WhatsApp — responde leads en menos de 60s, 24/7",
+    uc2Benefit: "Sin personal. Sin demoras. Cada lead recibe una respuesta inmediata.",
+    uc3Title: "Leads inmobiliarios clasificados HOT / WARM / COLD — seguimiento al instante",
+    uc3Benefit: "Deja de perder negocios por respuestas lentas. Cada consulta resuelta en segundos.",
+    uc4Title: "Clínicas: pacientes agendan, confirman y reciben recordatorios solos",
+    uc4Benefit: "Cero llamadas. Cero ausencias. Agenda llena, cero esfuerzo.",
+    uc5Title: "Soporte e-commerce en piloto automático — la IA enruta cada ticket al instante",
+    uc5Benefit: "6 categorías de intención. Enrutamiento automático. Respuesta en menos de 60s.",
+    uc6Title: "Briefing diario en tu bandeja — métricas clave, sin buscar en ningún lado",
+    uc6Benefit: "Amanece sabiendo exactamente cómo está tu negocio.",
     toolsLabel: "Herramientas",
     toolsTitle1: "La tecnología",
     toolsTitleEm: "que uso",
@@ -505,8 +511,11 @@ function applyLang() {
 
   // Nav
   document.getElementById('nav-about').textContent = T.navAbout;
+  document.getElementById('nav-clients').textContent = T.navClients;
   document.getElementById('nav-services').textContent = T.navServices;
+  document.getElementById('nav-usecases').textContent = T.navUsecases;
   document.getElementById('nav-projects').textContent = T.navProjects;
+  document.getElementById('nav-tools').textContent = T.navTools;
   document.getElementById('nav-contact').textContent = T.navContact;
 
   // Hero
@@ -587,19 +596,9 @@ function applyLang() {
   document.getElementById('portfolio-title-em').textContent = T.portfolioTitleEm;
   document.getElementById('portfolio-sub').textContent = T.portfolioSub;
   document.getElementById('repo-title').textContent = T.repoTitle;
-  document.getElementById('repo-sub').textContent = T.repoSub;
   document.getElementById('repo1-name').textContent = T.repo1Name;
-  document.getElementById('repo1-desc').textContent = T.repo1Desc;
-  document.getElementById('repo1-result').textContent = T.repo1Result;
-  document.getElementById('repo1-link').textContent = T.repo1Link;
   document.getElementById('repo2-name').textContent = T.repo2Name;
-  document.getElementById('repo2-desc').textContent = T.repo2Desc;
-  document.getElementById('repo2-result').textContent = T.repo2Result;
-  document.getElementById('repo2-link').textContent = T.repo2Link;
   document.getElementById('repo3-name').textContent = T.repo3Name;
-  document.getElementById('repo3-desc').textContent = T.repo3Desc;
-  document.getElementById('repo3-result').textContent = T.repo3Result;
-  document.getElementById('repo3-link').textContent = T.repo3Link;
   document.getElementById('proj1-tag').textContent = T.proj1Tag;
   document.getElementById('proj1-title').textContent = T.proj1Title;
   document.getElementById('proj1-desc').textContent = T.proj1Desc;
@@ -679,8 +678,11 @@ function toggleLang() {
   <a class="nav-logo" href="#">Diana Vasquez</a>
   <ul class="nav-links">
     <li><a href="#about" id="nav-about">About</a></li>
+    <li><a href="#clients" id="nav-clients">Who I Work With</a></li>
     <li><a href="#services" id="nav-services">Services</a></li>
+    <li><a href="#usecases" id="nav-usecases">Use Cases</a></li>
     <li><a href="#projects" id="nav-projects">Projects</a></li>
+    <li><a href="#tools" id="nav-tools">Toolstack</a></li>
     <li><a href="#contact" id="nav-contact">Contact</a></li>
     <li><button id="lang-toggle" onclick="toggleLang()"><span class="flag">🇪🇸</span> ES</button></li>
   </ul>
@@ -714,11 +716,11 @@ function toggleLang() {
 </section>
 
 <section class="about" id="about">
+  <p class="section-label" id="about-label">About</p>
+  <h2 class="section-title" style="margin-bottom:3rem"><span id="about-title1">Building systems</span><br><span id="about-title2">that work</span> <em id="about-title-em">for you</em></h2>
   <div class="about-grid">
     <div class="about-left">
-      <p class="section-label" id="about-label">About</p>
-      <h2 class="section-title"><span id="about-title1">Building systems</span><br><span id="about-title2">that work</span> <em id="about-title-em">for you</em></h2>
-      <div class="stats-row" style="margin-top:2.5rem">
+      <div class="stats-row">
         <div class="stat"><div class="stat-num">&lt;10s</div><div class="stat-lbl" id="stat-lbl1">Lead to email</div></div>
         <div class="stat"><div class="stat-num">0</div><div class="stat-lbl" id="stat-lbl2">Manual steps</div></div>
         <div class="stat"><div class="stat-num">60s</div><div class="stat-lbl" id="stat-lbl3">Support response</div></div>
@@ -734,13 +736,45 @@ function toggleLang() {
   </div>
 </section>
 
+<style>
+.clients-compact{display:flex;flex-direction:column;gap:0;margin-top:2.5rem;border-top:1px solid rgba(74,143,212,.12)}
+.client-row{display:grid;grid-template-columns:2.2rem 1fr auto;align-items:center;gap:.8rem 1.5rem;padding:.9rem 0;border-bottom:1px solid rgba(74,143,212,.08)}
+.client-row-icon{font-size:1.2rem}
+.client-row-body{display:flex;flex-direction:column;gap:.15rem}
+.client-row-title{font-size:.92rem;font-weight:500;color:var(--white)}
+.client-row-pain{font-size:.78rem;color:var(--text-muted)}
+.client-row-win{font-size:.72rem;color:var(--gold);letter-spacing:.04em;white-space:nowrap;text-align:right}
+@media(max-width:700px){.client-row{grid-template-columns:1.8rem 1fr}.client-row-win{display:none}}
+</style>
+
 <section class="clients" id="clients">
   <p class="section-label" id="clients-label">Who I Work With</p>
   <h2 class="section-title"><span id="clients-title1">The businesses</span><br><span id="clients-title2">that benefit</span> <em id="clients-title-em">most</em></h2>
-  <div class="clients-grid">
-    <div class="client-card"><div class="client-icon">⭐</div><h3 class="client-title" id="client1-title">Small Businesses &amp; Startups</h3><p class="client-desc" id="client1-desc">Teams that need operational infrastructure without hiring additional staff. I build the systems that let a small team punch above its weight.</p></div>
-    <div class="client-card"><div class="client-icon">🛒</div><h3 class="client-title" id="client2-title">E-commerce Brands</h3><p class="client-desc" id="client2-desc">Brands dealing with high support volume, manual ticket handling, or no SLA visibility. I automate the entire support pipeline end-to-end.</p></div>
-    <div class="client-card"><div class="client-icon">🏢</div><h3 class="client-title" id="client3-title">Real Estate Agencies</h3><p class="client-desc" id="client3-desc">Agencies losing leads to slow follow-up and unstructured qualification. I build automated systems that respond and qualify in seconds.</p></div>
+  <div class="clients-compact">
+    <div class="client-row">
+      <span class="client-row-icon">⭐</span>
+      <div class="client-row-body">
+        <span class="client-row-title" id="client1-title">Small Businesses &amp; Startups</span>
+        <span class="client-row-pain" id="client1-desc">Doing everything manually and running out of hours. I build the systems that replace the extra hire.</span>
+      </div>
+      <span class="client-row-win">10+ hrs/week saved</span>
+    </div>
+    <div class="client-row">
+      <span class="client-row-icon">🛒</span>
+      <div class="client-row-body">
+        <span class="client-row-title" id="client2-title">E-commerce Brands</span>
+        <span class="client-row-pain" id="client2-desc">Drowning in support tickets with no SLA visibility. I automate the entire pipeline — classify, route, respond.</span>
+      </div>
+      <span class="client-row-win">Response &lt;60s</span>
+    </div>
+    <div class="client-row">
+      <span class="client-row-icon">🏢</span>
+      <div class="client-row-body">
+        <span class="client-row-title" id="client3-title">Real Estate Agencies</span>
+        <span class="client-row-pain" id="client3-desc">Losing deals to slow follow-up. I score every lead HOT/WARM/COLD and trigger the right action in under 30s.</span>
+      </div>
+      <span class="client-row-win">0 leads lost to delay</span>
+    </div>
   </div>
 </section>
 
@@ -756,52 +790,309 @@ function toggleLang() {
   </div>
 </section>
 
-<section class="services">
-  <p class="section-label" id="usecases-label">Use Cases</p>
+<style>
+.uc-table{margin-top:2.5rem;display:flex;flex-direction:column;border-top:1px solid rgba(74,143,212,.12)}
+.uc-row{display:grid;grid-template-columns:2rem 1fr auto;align-items:center;gap:1rem 1.8rem;padding:.95rem 0;border-bottom:1px solid rgba(74,143,212,.08);transition:background .2s}
+.uc-row:hover{background:rgba(26,58,110,.18)}
+.uc-row:hover .uc-title{color:var(--gold-light)}
+.uc-icon{font-size:1.15rem;line-height:1}
+.uc-main{display:flex;flex-direction:column;gap:.18rem}
+.uc-title{font-size:.92rem;font-weight:500;color:var(--white);transition:color .25s;line-height:1.3}
+.uc-benefit{font-size:.78rem;color:var(--text-muted);line-height:1.4}
+.uc-stack{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);white-space:nowrap;text-align:right}
+@media(max-width:700px){.uc-row{grid-template-columns:1.6rem 1fr}.uc-stack{display:none}}
+</style>
+
+<section class="services" id="usecases">
   <h2 class="section-title"><span id="usecases-title1">What I can</span> <em id="usecases-title-em">do for you</em></h2>
   <p style="color:var(--text-muted);font-size:.85rem;margin-top:.5rem" id="usecases-sub">Real automation scenarios — ready to deploy for your business</p>
-  <div class="use-cases-grid">
-    <article class="use-case-card">
-      <div class="use-case-icon">🛒</div>
-      <h3 class="use-case-title" id="uc1-title">Shopify Orders → Google Sheets, automatic</h3>
-      <p class="use-case-benefit" id="uc1-benefit">Zero manual logging. Every order synced in real time.</p>
-      <p class="use-case-tools">Shopify · Zapier · Google Sheets</p>
-    </article>
-    <article class="use-case-card">
-      <div class="use-case-icon">💬</div>
-      <h3 class="use-case-title" id="uc2-title">WhatsApp Business Auto-Reply Bot</h3>
-      <p class="use-case-benefit" id="uc2-benefit">Reply to leads in under 60 seconds, 24/7 — no staff needed.</p>
-      <p class="use-case-tools">WhatsApp API · Zapier · Gemini AI</p>
-    </article>
-    <article class="use-case-card">
-      <div class="use-case-icon">🏠</div>
-      <h3 class="use-case-title" id="uc3-title">Real Estate Lead Scoring &amp; Instant Follow-Up</h3>
-      <p class="use-case-benefit" id="uc3-benefit">Every inquiry scored HOT/WARM/COLD and followed up automatically.</p>
-      <p class="use-case-tools">Typeform · Zapier · HubSpot · Google Sheets</p>
-    </article>
-    <article class="use-case-card">
-      <div class="use-case-icon">📅</div>
-      <h3 class="use-case-title" id="uc4-title">Appointment Booking for Clinics — Zero Phone Calls</h3>
-      <p class="use-case-benefit" id="uc4-benefit">Patients book, confirm and get reminders — all automated.</p>
-      <p class="use-case-tools">Calendly · Zapier · Google Sheets · Gmail</p>
-    </article>
-    <article class="use-case-card">
-      <div class="use-case-icon">📦</div>
-      <h3 class="use-case-title" id="uc5-title">E-commerce Support Tickets on Autopilot</h3>
-      <p class="use-case-benefit" id="uc5-benefit">AI classifies every email and routes it — response time under 60s.</p>
-      <p class="use-case-tools">Gmail · ChatGPT · Zapier · Google Sheets</p>
-    </article>
-    <article class="use-case-card">
-      <div class="use-case-icon">📊</div>
-      <h3 class="use-case-title" id="uc6-title">Daily Business Briefing — Delivered to Your Inbox</h3>
-      <p class="use-case-benefit" id="uc6-benefit">Key metrics summarized and sent every morning automatically.</p>
-      <p class="use-case-tools">Google Sheets · Apps Script · Gmail</p>
-    </article>
+
+  <div class="uc-table">
+    <div class="uc-row">
+      <span class="uc-icon">🛒</span>
+      <div class="uc-main">
+        <span class="uc-title" id="uc1-title">Shopify → Sheets: zero manual logging, every order synced live</span>
+        <span class="uc-benefit" id="uc1-benefit">Your store runs. Your data updates. You do nothing.</span>
+      </div>
+      <span class="uc-stack">Shopify · Zapier · Sheets</span>
+    </div>
+    <div class="uc-row">
+      <span class="uc-icon">💬</span>
+      <div class="uc-main">
+        <span class="uc-title" id="uc2-title">WhatsApp auto-reply bot — answers leads in &lt;60s, 24/7</span>
+        <span class="uc-benefit" id="uc2-benefit">No staff. No delays. Every lead gets an instant response.</span>
+      </div>
+      <span class="uc-stack">WhatsApp API · Zapier · Gemini AI</span>
+    </div>
+    <div class="uc-row">
+      <span class="uc-icon">🏠</span>
+      <div class="uc-main">
+        <span class="uc-title" id="uc3-title">Real estate leads scored HOT / WARM / COLD — followed up instantly</span>
+        <span class="uc-benefit" id="uc3-benefit">Stop losing deals to slow follow-up. Every inquiry handled in seconds.</span>
+      </div>
+      <span class="uc-stack">Typeform · Zapier · HubSpot</span>
+    </div>
+    <div class="uc-row">
+      <span class="uc-icon">📅</span>
+      <div class="uc-main">
+        <span class="uc-title" id="uc4-title">Clinic bookings: patients self-schedule, confirm &amp; get reminders</span>
+        <span class="uc-benefit" id="uc4-benefit">Zero phone calls. Zero no-shows. Full calendar, zero effort.</span>
+      </div>
+      <span class="uc-stack">Calendly · Zapier · Gmail</span>
+    </div>
+    <div class="uc-row">
+      <span class="uc-icon">📦</span>
+      <div class="uc-main">
+        <span class="uc-title" id="uc5-title">E-commerce support on autopilot — AI routes every ticket instantly</span>
+        <span class="uc-benefit" id="uc5-benefit">6 intent categories. Automatic routing. Response time under 60s.</span>
+      </div>
+      <span class="uc-stack">Gmail · ChatGPT · Zapier</span>
+    </div>
+    <div class="uc-row">
+      <span class="uc-icon">📊</span>
+      <div class="uc-main">
+        <span class="uc-title" id="uc6-title">Daily briefing delivered to your inbox — key metrics, zero digging</span>
+        <span class="uc-benefit" id="uc6-benefit">Wake up knowing exactly where your business stands.</span>
+      </div>
+      <span class="uc-stack">Sheets · Apps Script · Gmail</span>
+    </div>
   </div>
 </section>
 
-<section class="tools">
-  <p class="section-label" id="tools-label">Toolstack</p>
+
+
+<style>
+/* ── Accordion / Portfolio ─────────────────────────── */
+.accordion-list{display:flex;flex-direction:column;gap:.6rem;margin-top:3.5rem}
+.acc-item{border:1px solid rgba(74,143,212,.15);background:rgba(13,33,71,.45);overflow:hidden;transition:border-color .3s}
+.acc-item.open{border-color:rgba(201,168,76,.3)}
+.acc-header{display:flex;align-items:center;justify-content:space-between;padding:1.4rem 2rem;cursor:pointer;gap:1.5rem;user-select:none}
+.acc-header:hover .acc-title{color:var(--gold-light)}
+.acc-left{display:flex;align-items:center;gap:1.5rem;flex:1;min-width:0}
+.acc-num{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--gold);font-weight:300;flex-shrink:0;width:2rem}
+.acc-meta{display:flex;flex-direction:column;gap:.3rem;min-width:0}
+.acc-tag{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
+.acc-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:300;color:var(--white);transition:color .25s;line-height:1.25}
+.acc-chips{display:flex;flex-wrap:wrap;gap:.35rem;flex-shrink:0}
+.acc-chip{background:rgba(10,22,40,.8);border:1px solid rgba(74,143,212,.2);padding:.15rem .55rem;font-size:.62rem;color:var(--text-muted)}
+.acc-chevron{flex-shrink:0;width:18px;height:18px;color:var(--gold);transition:transform .35s ease}
+.acc-item.open .acc-chevron{transform:rotate(180deg)}
+
+.acc-body{max-height:0;overflow:hidden;transition:max-height .45s ease}
+.acc-item.open .acc-body{max-height:600px}
+.acc-inner{padding:0 2rem 1.8rem 5.5rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start}
+.acc-desc{font-size:.88rem;line-height:1.75;color:var(--text-muted);margin-bottom:1.2rem}
+.acc-metrics{display:flex;gap:2rem;margin-bottom:1.2rem;flex-wrap:wrap}
+.acc-metric-val{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--gold-light);line-height:1}
+.acc-metric-lbl{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-top:.2rem}
+.acc-flow{display:flex;flex-direction:column;gap:.4rem;min-width:200px}
+.acc-flow-label{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem}
+.acc-flow-step{display:flex;align-items:center;gap:.6rem;font-size:.78rem;color:var(--pale)}
+.acc-flow-step::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0}
+.acc-flow-arrow{font-size:.6rem;color:var(--gold);margin-left:1.1rem}
+.acc-actions{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center;margin-top:.4rem}
+.acc-pdf-btn{display:inline-flex;align-items:center;gap:.4rem;background:transparent;border:1px solid rgba(201,168,76,.4);color:var(--gold-light);padding:.45rem 1rem;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:none;transition:background .2s,border-color .2s}
+.acc-pdf-btn:hover{background:rgba(201,168,76,.08);border-color:var(--gold-light)}
+.acc-pdf-btn svg{width:13px;height:13px}
+.acc-gh-btn{display:inline-flex;align-items:center;gap:.4rem;border:1px solid rgba(74,143,212,.3);color:var(--pale);padding:.45rem 1rem;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:none;transition:border-color .2s,color .2s}
+.acc-gh-btn:hover{border-color:var(--sky);color:var(--white)}
+
+/* repo cards (GitHub) */
+.repo-block{margin-top:2.5rem;padding:2rem;border:1px solid rgba(201,168,76,.18);background:rgba(13,33,71,.45)}
+.repo-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;margin-bottom:.5rem}
+.repo-sub{font-size:.88rem;line-height:1.8;color:var(--text-muted);max-width:860px}
+.repo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem}
+.repo-card{border:1px solid rgba(74,143,212,.18);background:rgba(10,22,40,.55);padding:1.2rem;display:flex;flex-direction:column;gap:.7rem}
+.repo-name{font-size:.95rem;font-weight:500;color:var(--gold-light)}
+.repo-desc{font-size:.82rem;line-height:1.7;color:var(--pale)}
+.repo-desc strong{color:var(--gold-light)}
+.repo-link{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-light);text-decoration:none;border-bottom:1px solid rgba(201,168,76,.35);display:inline-flex;width:max-content;padding-bottom:.1rem}
+.repo-link:hover{border-color:var(--gold-light)}
+
+@media(max-width:900px){
+  .acc-inner{grid-template-columns:1fr;padding-left:2rem}
+  .acc-flow{min-width:unset}
+  .acc-chips{display:none}
+  .repo-grid{grid-template-columns:1fr}
+}
+</style>
+
+<section class="projects" id="projects">
+  <p class="section-label" id="portfolio-label">Portfolio</p>
+  <h2 class="section-title"><span id="portfolio-title1">Systems I've</span> <em id="portfolio-title-em">shipped</em></h2>
+  <p style="color:var(--text-muted);font-size:.85rem;margin-top:.5rem" id="portfolio-sub">Click any project to expand details and view the case study PDF.</p>
+
+  <!-- Accordion projects -->
+  <div class="accordion-list">
+
+    <!-- Project 1 — Featured -->
+    <div class="acc-item open" id="acc1">
+      <div class="acc-header" onclick="toggleAcc('acc1')">
+        <div class="acc-left">
+          <span class="acc-num">01</span>
+          <div class="acc-meta">
+            <span class="acc-tag" id="proj1-tag">Featured · Real Estate · 22-Step Zap</span>
+            <span class="acc-title" id="proj1-title">Texas Real Estate — Lead Scoring &amp; Prioritization</span>
+          </div>
+        </div>
+        <div class="acc-chips">
+          <span class="acc-chip">Google Forms</span><span class="acc-chip">Zapier Paths</span><span class="acc-chip">Notion</span><span class="acc-chip">Gmail</span>
+        </div>
+        <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="acc-body">
+        <div class="acc-inner">
+          <div>
+            <p class="acc-desc" id="proj1-desc">Every inbound lead is automatically captured, scored, routed into HOT / WARM / COLD tiers, logged in Notion CRM, and contacted with a personalized email — in under 30 seconds, with zero manual work.</p>
+            <div class="acc-metrics">
+              <div><div class="acc-metric-val">&lt;30s</div><div class="acc-metric-lbl" id="proj1-m1">Lead response time</div></div>
+              <div><div class="acc-metric-val">22</div><div class="acc-metric-lbl" id="proj1-m2">Zap steps automated</div></div>
+              <div><div class="acc-metric-val">3×</div><div class="acc-metric-lbl" id="proj1-m3">Faster pipeline setup</div></div>
+            </div>
+            <div class="acc-actions">
+              <a class="acc-pdf-btn" href="https://drive.google.com/file/d/1M4SrDduZWMamxy8Pber_4JTuOgKbDTuX/view" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+                <span id="proj1-pdf">View Case Study PDF</span>
+              </a>
+            </div>
+          </div>
+          <div class="acc-flow">
+            <p class="acc-flow-label" id="proj1-flow-label">Lead Scoring Flow</p>
+            <div class="acc-flow-step" id="proj1-f1">Form submitted → Zap triggered instantly</div>
+            <div class="acc-flow-arrow">↓</div>
+            <div class="acc-flow-step" id="proj1-f2">Google Sheets lookup scores the lead</div>
+            <div class="acc-flow-arrow">↓</div>
+            <div class="acc-flow-step" id="proj1-f3">Zapier Paths: HOT / WARM / COLD</div>
+            <div class="acc-flow-arrow">↓</div>
+            <div class="acc-flow-step" id="proj1-f4">Notion CRM record created</div>
+            <div class="acc-flow-arrow">↓</div>
+            <div class="acc-flow-step" id="proj1-f5">Personalized email sent per tier</div>
+            <div class="acc-flow-arrow">↓</div>
+            <div class="acc-flow-step" id="proj1-f6">HOT leads: agent notified immediately</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="acc-item" id="acc2">
+      <div class="acc-header" onclick="toggleAcc('acc2')">
+        <div class="acc-left">
+          <span class="acc-num">02</span>
+          <div class="acc-meta">
+            <span class="acc-tag" id="proj2-tag">E-commerce · 21-Step Zap · ChatGPT</span>
+            <span class="acc-title" id="proj2-title">Ecommerce AI Support System + SLA Monitor</span>
+          </div>
+        </div>
+        <div class="acc-chips">
+          <span class="acc-chip">Gmail</span><span class="acc-chip">ChatGPT</span><span class="acc-chip">Zapier Paths</span><span class="acc-chip">Google Sheets</span>
+        </div>
+        <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="acc-body">
+        <div class="acc-inner" style="grid-template-columns:1fr">
+          <div>
+            <p class="acc-desc" id="proj2-desc">Two Zaps working as one complete support ecosystem. ChatGPT classifies every email into 6 intent categories, routes it, logs the ticket, and monitors SLA violations — all automatically.</p>
+            <div class="acc-actions">
+              <a class="acc-pdf-btn" href="https://drive.google.com/file/d/1j5zg-JvDaaRuG2bRfiQ2zCcL4iq-jO8s/view" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+                <span id="proj2-pdf">View Case Study PDF</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="acc-item" id="acc3">
+      <div class="acc-header" onclick="toggleAcc('acc3')">
+        <div class="acc-left">
+          <span class="acc-num">03</span>
+          <div class="acc-meta">
+            <span class="acc-tag" id="proj3-tag">Freelance · 7-Step Zap · Multi-tool</span>
+            <span class="acc-title" id="proj3-title">Freelance Project Intake &amp; Routing Pipeline</span>
+          </div>
+        </div>
+        <div class="acc-chips">
+          <span class="acc-chip">Airtable</span><span class="acc-chip">Asana</span><span class="acc-chip">Slack</span><span class="acc-chip">Gmail</span>
+        </div>
+        <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="acc-body">
+        <div class="acc-inner" style="grid-template-columns:1fr">
+          <div>
+            <p class="acc-desc" id="proj3-desc">Inquiries filtered by project type, logged in Airtable CRM, assigned as Asana tasks, announced in Slack, and confirmed by email — in under 60 seconds.</p>
+            <div class="acc-actions">
+              <a class="acc-pdf-btn" href="https://drive.google.com/file/d/1bbtMbfTXip3T-bMuN2MeTqIi44S_d4jl/view" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+                <span id="proj3-pdf">View Case Study PDF</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 4 -->
+    <div class="acc-item" id="acc4">
+      <div class="acc-header" onclick="toggleAcc('acc4')">
+        <div class="acc-left">
+          <span class="acc-num">04</span>
+          <div class="acc-meta">
+            <span class="acc-tag" id="proj4-tag">Aesthetic Clinic · Notion CRM · Zapier Paths</span>
+            <span class="acc-title" id="proj4-title">Client Acquisition &amp; Segmentation — Beauty Clinic</span>
+          </div>
+        </div>
+        <div class="acc-chips">
+          <span class="acc-chip">Google Forms</span><span class="acc-chip">Google Sheets</span><span class="acc-chip">Notion</span><span class="acc-chip">Zapier Paths</span>
+        </div>
+        <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="acc-body">
+        <div class="acc-inner" style="grid-template-columns:1fr">
+          <div>
+            <p class="acc-desc" id="proj4-desc">Automated lead capture and CRM segmentation. Every consultation request is logged in Sheets, stored in Notion CRM, and tagged with a 4-tier service classification — zero manual work.</p>
+            <div class="acc-actions">
+              <a class="acc-pdf-btn" href="https://drive.google.com/file/d/19Om8EypVXByNunfq9NrgWL9hu4bcBMHt/view" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+                <span id="proj4-pdf">View Case Study PDF</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /accordion-list -->
+
+  <!-- GitHub repo links — compact -->
+  <div style="margin-top:2rem;padding:1.4rem 1.8rem;border:1px solid rgba(201,168,76,.15);background:rgba(13,33,71,.4)">
+    <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.6rem 2rem;margin-bottom:.9rem">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:300;color:var(--white);line-height:1.3" id="repo-title">Proven Automation Systems That Save Time &amp; Increase Conversions</p>
+      <span style="font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);white-space:nowrap;flex-shrink:0">Google Apps Script · Gemini AI · Zapier</span>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:.6rem 2rem;align-items:center">
+      <a class="repo-link" id="repo1-link" href="https://github.com/dvasquezautomation/crm-automation-google-apps-script?tab=readme-ov-file#crm-automation-system--google-apps-script--gemini-ai" target="_blank"><span id="repo1-name">AI CRM Automation</span> →</a>
+      <a class="repo-link" id="repo2-link" href="https://github.com/dvasquezautomation/client-intake-pipeline-gemini-ai" target="_blank"><span id="repo2-name">Client Intake &amp; Qualification</span> →</a>
+      <a class="repo-link" id="repo3-link" href="https://github.com/dvasquezautomation/daily-briefing-google-apps-script" target="_blank"><span id="repo3-name">Daily Operations Briefing</span> →</a>
+    </div>
+  </div>
+
+</section>
+
+<script>
+function toggleAcc(id) {
+  var item = document.getElementById(id);
+  var isOpen = item.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.acc-item').forEach(function(el){ el.classList.remove('open'); });
+  // Open clicked if it was closed
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+
+<section class="tools" id="tools">
   <h2 class="section-title"><span id="tools-title1">The technology</span> <em id="tools-title-em">I use</em></h2>
   <div class="tools-grid">
     <span class="tool-tag gold">Google Apps Script</span><span class="tool-tag gold">Gemini AI</span><span class="tool-tag gold">Zapier</span>
@@ -810,86 +1101,6 @@ function toggleLang() {
     <span class="tool-tag">Google Sheets</span><span class="tool-tag">Google Forms</span><span class="tool-tag">Google Drive</span>
     <span class="tool-tag gold">Gmail API</span><span class="tool-tag">Google Docs</span><span class="tool-tag">Airtable</span>
     <span class="tool-tag">Asana</span><span class="tool-tag">Slack</span><span class="tool-tag">Google Calendar API</span>
-  </div>
-</section>
-
-<section class="projects" id="projects">
-  <p class="section-label" id="portfolio-label">Portfolio</p>
-  <h2 class="section-title"><span id="portfolio-title1">Systems I've</span> <em id="portfolio-title-em">shipped</em></h2>
-  <p style="color:var(--text-muted);font-size:.85rem;margin-top:.5rem" id="portfolio-sub">Click any project to view the full case study PDF.</p>
-  <div class="repo-block">
-    <h3 class="repo-title" id="repo-title">Proven Automation Systems That Save Time &amp; Increase Conversions</h3>
-    <p class="repo-sub" id="repo-sub">Real systems I've built to eliminate manual work, speed up response times, and improve lead conversion.</p>
-    <div class="repo-grid">
-      <article class="repo-card">
-        <p class="repo-name" id="repo1-name">AI CRM Automation System</p>
-        <p class="repo-desc"><span id="repo1-desc">Captures, qualifies, and routes every lead automatically in seconds.</span><br><strong id="repo1-result">Result: Faster response time &amp; zero manual CRM work.</strong></p>
-        <a class="repo-link" id="repo1-link" href="https://github.com/dvasquezautomation/crm-automation-google-apps-script?tab=readme-ov-file#crm-automation-system--google-apps-script--gemini-ai" target="_blank">View System →</a>
-      </article>
-      <article class="repo-card">
-        <p class="repo-name" id="repo2-name">AI Client Intake &amp; Qualification</p>
-        <p class="repo-desc"><span id="repo2-desc">Analyzes incoming requests and identifies high-value opportunities using AI.</span><br><strong id="repo2-result">Result: Less time wasted on unqualified leads.</strong></p>
-        <a class="repo-link" id="repo2-link" href="https://github.com/dvasquezautomation/client-intake-pipeline-gemini-ai" target="_blank">View System →</a>
-      </article>
-      <article class="repo-card">
-        <p class="repo-name" id="repo3-name">Automated Daily Operations Briefing</p>
-        <p class="repo-desc"><span id="repo3-desc">Sends a daily summary of key business updates for faster decision-making.</span><br><strong id="repo3-result">Result: Better decisions without digging through data.</strong></p>
-        <a class="repo-link" id="repo3-link" href="https://github.com/dvasquezautomation/daily-briefing-google-apps-script" target="_blank">View System →</a>
-      </article>
-    </div>
-  </div>
-  <div class="projects-grid">
-    <div class="project-card featured" onclick="window.open('https://drive.google.com/file/d/1M4SrDduZWMamxy8Pber_4JTuOgKbDTuX/view','_blank')">
-      <div>
-        <p class="project-tag" id="proj1-tag">Featured · Real Estate · 22-Step Zap</p>
-        <h3 class="project-title" id="proj1-title">Texas Real Estate — Lead Scoring &amp; Prioritization</h3>
-        <p class="project-desc" id="proj1-desc">Every inbound lead is automatically captured, scored, routed into HOT / WARM / COLD tiers, logged in Notion CRM, and contacted with a personalized email — in under 30 seconds, with zero manual work.</p>
-        <div class="metrics-row">
-          <div><div class="project-metric">&lt;30s</div><div class="project-metric-label" id="proj1-m1">Lead response time</div></div>
-          <div><div class="project-metric">22</div><div class="project-metric-label" id="proj1-m2">Zap steps automated</div></div>
-          <div><div class="project-metric">3×</div><div class="project-metric-label" id="proj1-m3">Faster pipeline setup</div></div>
-        </div>
-        <div class="project-stack"><span class="stack-tag">Google Forms</span><span class="stack-tag">Google Sheets</span><span class="stack-tag">Zapier Paths</span><span class="stack-tag">Notion</span><span class="stack-tag">Gmail</span></div>
-        <span class="view-pdf-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg><span id="proj1-pdf">View Case Study PDF</span></span>
-      </div>
-      <div>
-        <p style="font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem" id="proj1-flow-label">Lead Scoring Flow</p>
-        <div class="project-flow">
-          <div class="flow-step" id="proj1-f1">Form submitted → Zap triggered instantly</div>
-          <div class="flow-arrow">↓</div>
-          <div class="flow-step" id="proj1-f2">Google Sheets lookup scores the lead</div>
-          <div class="flow-arrow">↓</div>
-          <div class="flow-step" id="proj1-f3">Zapier Paths branches: HOT / WARM / COLD</div>
-          <div class="flow-arrow">↓</div>
-          <div class="flow-step" id="proj1-f4">Notion CRM record created automatically</div>
-          <div class="flow-arrow">↓</div>
-          <div class="flow-step" id="proj1-f5">Personalized email sent per tier</div>
-          <div class="flow-arrow">↓</div>
-          <div class="flow-step" id="proj1-f6">HOT leads: agent also notified immediately</div>
-        </div>
-      </div>
-    </div>
-    <div class="project-card" onclick="window.open('https://drive.google.com/file/d/1j5zg-JvDaaRuG2bRfiQ2zCcL4iq-jO8s/view','_blank')">
-      <p class="project-tag" id="proj2-tag">E-commerce · 21-Step Zap · ChatGPT</p>
-      <h3 class="project-title" id="proj2-title">Ecommerce AI Support System + SLA Monitor</h3>
-      <p class="project-desc" id="proj2-desc">Two Zaps working as one complete support ecosystem. ChatGPT classifies every email into 6 intent categories, routes it, logs the ticket, and monitors SLA violations — all automatically.</p>
-      <div class="project-stack"><span class="stack-tag">Gmail</span><span class="stack-tag">ChatGPT</span><span class="stack-tag">Zapier Paths</span><span class="stack-tag">Google Sheets</span></div>
-      <span class="view-pdf-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg><span id="proj2-pdf">View Case Study PDF</span></span>
-    </div>
-    <div class="project-card" onclick="window.open('https://drive.google.com/file/d/1bbtMbfTXip3T-bMuN2MeTqIi44S_d4jl/view','_blank')">
-      <p class="project-tag" id="proj3-tag">Freelance · 7-Step Zap · Multi-tool</p>
-      <h3 class="project-title" id="proj3-title">Freelance Project Intake &amp; Routing Pipeline</h3>
-      <p class="project-desc" id="proj3-desc">Inquiries filtered by project type, logged in Airtable CRM, assigned as Asana tasks, announced in Slack, and confirmed by email — in under 60 seconds.</p>
-      <div class="project-stack"><span class="stack-tag">Google Forms</span><span class="stack-tag">Airtable</span><span class="stack-tag">Asana</span><span class="stack-tag">Slack</span><span class="stack-tag">Gmail</span></div>
-      <span class="view-pdf-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg><span id="proj3-pdf">View Case Study PDF</span></span>
-    </div>
-    <div class="project-card" onclick="window.open('https://drive.google.com/file/d/19Om8EypVXByNunfq9NrgWL9hu4bcBMHt/view','_blank')">
-      <p class="project-tag" id="proj4-tag">Aesthetic Clinic · Notion CRM · Zapier Paths</p>
-      <h3 class="project-title" id="proj4-title">Client Acquisition &amp; Segmentation — Beauty Clinic</h3>
-      <p class="project-desc" id="proj4-desc">Automated lead capture and CRM segmentation. Every consultation request is logged in Sheets, stored in Notion CRM, and tagged with a 4-tier service classification — zero manual work.</p>
-      <div class="project-stack"><span class="stack-tag">Google Forms</span><span class="stack-tag">Google Sheets</span><span class="stack-tag">Notion</span><span class="stack-tag">Zapier Paths</span></div>
-      <span class="view-pdf-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg><span id="proj4-pdf">View Case Study PDF</span></span>
-    </div>
   </div>
 </section>
 
@@ -957,7 +1168,7 @@ function toggleLang() {
   <div class="footer-text" style="color:rgba(201,168,76,.5)">© 2026</div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 function adjustNavOffset() {
   var bar = document.getElementById("sticky-cta-bar");
   var nav = document.querySelector("nav");
@@ -987,15 +1198,4 @@ window.addEventListener("DOMContentLoaded", function() {
         setTimeout(function() {
           document.getElementById("formSuccess").classList.remove("visible");
           btn.textContent = t[lang].formBtn;
-          btn.disabled = false;
-        }, 5000);
-      })
-      .catch(function() {
-        btn.textContent = lang === 'es' ? "Error — intenta de nuevo" : "Error — please try again";
-        btn.disabled = false;
-      });
-  });
-});
-</script>
-</body>
-</html>
+          btn.d
