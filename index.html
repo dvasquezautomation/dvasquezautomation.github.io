@@ -149,12 +149,9 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
   </div>
   <ul class="nav-links" id="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#clients">Who I Work With</a></li>
     <li><a href="#services">Services</a></li>
-    <li><a href="#usecases">Use Cases</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#reviews">Reviews</a></li>
-    <li><a href="#tools">Toolstack</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -167,12 +164,8 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
     <p class="hero-title">Google Apps Script · Zapier · Gemini AI</p>
     <p class="hero-tagline">Save 10+ hours a week by eliminating manual tasks — no expensive software, no extra hires. Just systems that work for you, automatically.</p>
     <div class="hero-cta">
-      <a href="#contact" class="btn-primary">Start a Project</a>
+      <a href="https://calendly.com/va-dvasquezm/30min" target="_blank" rel="noopener noreferrer" class="btn-primary">📅 Book a Free Call</a>
       <a href="#projects" class="btn-outline">See My Work</a>
-    </div>
-    <div class="hero-cta-group">
-      <a href="https://calendly.com/va-dvasquezm/30min" target="_blank" rel="noopener noreferrer" class="btn-submit">📅 Book a Free Call</a>
-      <a href="https://wa.me/573054329733?text=Hi%20Diana!%20I%20visited%20your%20website%20and%20I'd%20like%20to%20talk%20about%20automating%20my%20business." target="_blank" rel="noopener noreferrer" class="btn-whatsapp">💬 Message me on WhatsApp</a>
     </div>
   </div>
   <div class="hero-photo-wrap">
@@ -203,47 +196,6 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
         <div class="about-highlight">"Every system I deliver is tested and built to run without your input. I don't hand off a script and disappear — I deliver a complete operational workflow."</div>
         <p>From AI-powered lead scoring that classifies every inquiry as HOT / WARM / COLD in real time, to support systems that reduce response time from hours to under 60 seconds — I build infrastructure that scales with your business without adding headcount.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<style>
-.clients-compact{display:flex;flex-direction:column;gap:0;margin-top:2.5rem;border-top:1px solid rgba(74,143,212,.12)}
-.client-row{display:grid;grid-template-columns:2.2rem 1fr auto;align-items:center;gap:.8rem 1.5rem;padding:.9rem 0;border-bottom:1px solid rgba(74,143,212,.08)}
-.client-row-icon{font-size:1.2rem}
-.client-row-body{display:flex;flex-direction:column;gap:.15rem}
-.client-row-title{font-size:.92rem;font-weight:500;color:var(--white)}
-.client-row-pain{font-size:.78rem;color:var(--text-muted)}
-.client-row-win{font-size:.72rem;color:var(--gold);letter-spacing:.04em;white-space:nowrap;text-align:right}
-</style>
-
-<section class="clients" id="clients">
-  <p class="section-label">Who I Work With</p>
-  <h2 class="section-title">The businesses<br>that benefit <em>most</em></h2>
-  <div class="clients-compact">
-    <div class="client-row">
-      <span class="client-row-icon">⭐</span>
-      <div class="client-row-body">
-        <span class="client-row-title">Small Businesses &amp; Startups</span>
-        <span class="client-row-pain">Doing everything manually and running out of hours. I build the systems that replace the extra hire.</span>
-      </div>
-      <span class="client-row-win">10+ hrs/week saved</span>
-    </div>
-    <div class="client-row">
-      <span class="client-row-icon">🛒</span>
-      <div class="client-row-body">
-        <span class="client-row-title">E-commerce Brands</span>
-        <span class="client-row-pain">Drowning in support tickets with no SLA visibility. I automate the entire pipeline — classify, route, respond.</span>
-      </div>
-      <span class="client-row-win">Response &lt;60s</span>
-    </div>
-    <div class="client-row">
-      <span class="client-row-icon">🏢</span>
-      <div class="client-row-body">
-        <span class="client-row-title">Real Estate Agencies</span>
-        <span class="client-row-pain">Losing deals to slow follow-up. I score every lead HOT/WARM/COLD and trigger the right action in under 30s.</span>
-      </div>
-      <span class="client-row-win">0 leads lost to delay</span>
     </div>
   </div>
 </section>
@@ -300,14 +252,16 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
 
 <style>
 .uc-table{margin-top:2.5rem;display:flex;flex-direction:column;border-top:1px solid rgba(74,143,212,.12)}
-.uc-row{display:grid;grid-template-columns:2rem 1fr auto;align-items:center;gap:1rem 1.8rem;padding:.95rem 0;border-bottom:1px solid rgba(74,143,212,.08);transition:background .2s}
+.uc-row{display:grid;grid-template-columns:2rem 1fr auto auto;align-items:center;gap:1rem 1.8rem;padding:.95rem 0;border-bottom:1px solid rgba(74,143,212,.08);transition:background .2s}
 .uc-row:hover{background:rgba(26,58,110,.18)}
 .uc-row:hover .uc-title{color:var(--gold-light)}
+.uc-row:hover .uc-cta{opacity:1}
 .uc-icon{font-size:1.15rem;line-height:1}
 .uc-main{display:flex;flex-direction:column;gap:.18rem}
 .uc-title{font-size:.92rem;font-weight:500;color:var(--white);transition:color .25s;line-height:1.3}
 .uc-benefit{font-size:.78rem;color:var(--text-muted);line-height:1.4}
 .uc-stack{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);white-space:nowrap;text-align:right}
+.uc-cta{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-light);text-decoration:none;white-space:nowrap;opacity:0;transition:opacity .2s;border-bottom:1px solid rgba(228,201,122,.35);padding-bottom:.1rem}
 </style>
 
 <section class="services" id="usecases">
@@ -315,12 +269,12 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
   <h2 class="section-title">What I can <em>do for you</em></h2>
   <p style="color:var(--text-muted);font-size:.85rem;margin-top:.5rem">Real automation scenarios — ready to deploy for your business</p>
   <div class="uc-table">
-    <div class="uc-row"><span class="uc-icon">🛒</span><div class="uc-main"><span class="uc-title">Shopify → Sheets: zero manual logging, every order synced live</span><span class="uc-benefit">Your store runs. Your data updates. You do nothing.</span></div><span class="uc-stack">Shopify · Zapier · Sheets</span></div>
-    <div class="uc-row"><span class="uc-icon">💬</span><div class="uc-main"><span class="uc-title">WhatsApp auto-reply bot — answers leads in &lt;60s, 24/7</span><span class="uc-benefit">No staff. No delays. Every lead gets an instant response.</span></div><span class="uc-stack">WhatsApp API · Zapier · Gemini AI</span></div>
-    <div class="uc-row"><span class="uc-icon">🏠</span><div class="uc-main"><span class="uc-title">Real estate leads scored HOT / WARM / COLD — followed up instantly</span><span class="uc-benefit">Stop losing deals to slow follow-up. Every inquiry handled in seconds.</span></div><span class="uc-stack">Typeform · Zapier · HubSpot</span></div>
-    <div class="uc-row"><span class="uc-icon">📅</span><div class="uc-main"><span class="uc-title">Clinic bookings: patients self-schedule, confirm &amp; get reminders</span><span class="uc-benefit">Zero phone calls. Zero no-shows. Full calendar, zero effort.</span></div><span class="uc-stack">Calendly · Zapier · Gmail</span></div>
-    <div class="uc-row"><span class="uc-icon">📦</span><div class="uc-main"><span class="uc-title">E-commerce support on autopilot — AI routes every ticket instantly</span><span class="uc-benefit">6 intent categories. Automatic routing. Response time under 60s.</span></div><span class="uc-stack">Gmail · ChatGPT · Zapier</span></div>
-    <div class="uc-row"><span class="uc-icon">📊</span><div class="uc-main"><span class="uc-title">Daily briefing delivered to your inbox — key metrics, zero digging</span><span class="uc-benefit">Wake up knowing exactly where your business stands.</span></div><span class="uc-stack">Sheets · Apps Script · Gmail</span></div>
+    <div class="uc-row"><span class="uc-icon">🛒</span><div class="uc-main"><span class="uc-title">Shopify → Sheets: zero manual logging, every order synced live</span><span class="uc-benefit">Your store runs. Your data updates. You do nothing.</span></div><span class="uc-stack">Shopify · Zapier · Sheets</span><a href="#contact" class="uc-cta">Let's build this →</a></div>
+    <div class="uc-row"><span class="uc-icon">💬</span><div class="uc-main"><span class="uc-title">WhatsApp auto-reply bot — answers leads in &lt;60s, 24/7</span><span class="uc-benefit">No staff. No delays. Every lead gets an instant response.</span></div><span class="uc-stack">WhatsApp API · Zapier · Gemini AI</span><a href="#contact" class="uc-cta">Let's build this →</a></div>
+    <div class="uc-row"><span class="uc-icon">🏠</span><div class="uc-main"><span class="uc-title">Real estate leads scored HOT / WARM / COLD — followed up instantly</span><span class="uc-benefit">Stop losing deals to slow follow-up. Every inquiry handled in seconds.</span></div><span class="uc-stack">Typeform · Zapier · HubSpot</span><a href="#contact" class="uc-cta">Let's build this →</a></div>
+    <div class="uc-row"><span class="uc-icon">📅</span><div class="uc-main"><span class="uc-title">Clinic bookings: patients self-schedule, confirm &amp; get reminders</span><span class="uc-benefit">Zero phone calls. Zero no-shows. Full calendar, zero effort.</span></div><span class="uc-stack">Calendly · Zapier · Gmail</span><a href="#contact" class="uc-cta">Let's build this →</a></div>
+    <div class="uc-row"><span class="uc-icon">📦</span><div class="uc-main"><span class="uc-title">E-commerce support on autopilot — AI routes every ticket instantly</span><span class="uc-benefit">6 intent categories. Automatic routing. Response time under 60s.</span></div><span class="uc-stack">Gmail · ChatGPT · Zapier</span><a href="#contact" class="uc-cta">Let's build this →</a></div>
+    <div class="uc-row"><span class="uc-icon">📊</span><div class="uc-main"><span class="uc-title">Daily briefing delivered to your inbox — key metrics, zero digging</span><span class="uc-benefit">Wake up knowing exactly where your business stands.</span></div><span class="uc-stack">Sheets · Apps Script · Gmail</span><a href="#contact" class="uc-cta">Let's build this →</a></div>
   </div>
 </section>
 
@@ -363,7 +317,7 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
   <p style="color:var(--text-muted);font-size:.85rem;margin-top:.5rem">Click any project to expand details and view the case study PDF.</p>
 
   <div class="accordion-list">
-    <div class="acc-item open" id="acc1">
+    <div class="acc-item" id="acc1">
       <div class="acc-header" onclick="toggleAcc('acc1')">
         <div class="acc-left"><span class="acc-num">01</span><div class="acc-meta"><span class="acc-tag">Featured · Real Estate · 22-Step Zap</span><span class="acc-title">Texas Real Estate — Lead Scoring &amp; Prioritization</span></div></div>
         <div class="acc-chips"><span class="acc-chip">Google Forms</span><span class="acc-chip">Zapier Paths</span><span class="acc-chip">Notion</span><span class="acc-chip">Gmail</span></div>
@@ -599,7 +553,11 @@ function toggleAcc(id){var item=document.getElementById(id);var isOpen=item.clas
 <footer>
   <div class="footer-logo">Diana Vasquez</div>
   <div class="footer-text">AI Automation Engineer · Google Apps Script · Zapier · Gemini AI</div>
-  <a href="/privacy-policy.html" class="footer-privacy">Privacy Policy</a>
+  <div style="display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap">
+    <a href="mailto:va.dvasquezm@gmail.com" style="font-size:.72rem;color:var(--text-muted);letter-spacing:.08em;text-decoration:none;transition:color .3s" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--text-muted)'">va.dvasquezm@gmail.com</a>
+    <a href="https://github.com/dvasquezautomation" target="_blank" rel="noopener noreferrer" style="font-size:.72rem;color:var(--text-muted);letter-spacing:.08em;text-decoration:none;transition:color .3s" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--text-muted)'">GitHub →</a>
+    <a href="/privacy-policy.html" class="footer-privacy">Privacy Policy</a>
+  </div>
   <div class="footer-text" style="color:rgba(201,168,76,.5)">© 2026</div>
 </footer>
 
