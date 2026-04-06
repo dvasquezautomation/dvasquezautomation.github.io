@@ -178,54 +178,7 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
 .footer-privacy:hover{color:var(--gold-light);border-color:var(--gold-light)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 
-/* ── Mobile nav hamburger ─── */
-#nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:.3rem;color:var(--gold-light);flex-shrink:0}
-#nav-hamburger svg{display:block}
-#nav-close{display:none}
 
-@media(max-width:900px){
-  html{font-size:16px}
-  #sticky-cta-bar{font-size:.68rem;gap:.7rem;padding:.45rem 3vw}
-  #sticky-cta-btn{font-size:.65rem;padding:.3rem .8rem;letter-spacing:.08em}
-  /* Nav */
-  nav{padding:1rem 5vw}
-  .nav-links{
-    display:none;flex-direction:column;gap:0;list-style:none;
-    position:fixed;top:0;right:0;bottom:0;width:75vw;max-width:280px;
-    background:var(--deep-blue);border-left:1px solid rgba(201,168,76,.15);
-    padding:5rem 2rem 2rem;z-index:300;
-    box-shadow:-8px 0 30px rgba(0,0,0,.4);
-    overflow-y:auto;
-  }
-  .nav-links.open{display:flex}
-  .nav-links li{border-bottom:1px solid rgba(74,143,212,.1)}
-  .nav-links a{display:block;padding:.9rem 0;font-size:.82rem;letter-spacing:.12em;color:var(--pale)}
-  .nav-links a:hover{color:var(--gold-light)}
-  /* Lang button inside mobile menu */
-  .nav-links li:last-child{border-bottom:none;padding-top:1rem}
-  /* Close X inside menu */
-  #nav-close{display:flex;position:absolute;top:1.2rem;right:1.2rem;background:none;border:none;cursor:pointer;color:var(--text-muted);padding:.3rem}
-  #nav-close svg{display:block}
-  /* Overlay */
-  #nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:299}
-  #nav-overlay.open{display:block}
-  /* Sections */
-  .hero{grid-template-columns:1fr;padding-top:8rem;padding-bottom:4rem}
-  .hero-text{padding-right:0;order:2}
-  .hero-photo-wrap{order:1;padding-top:2rem}
-  .hero-photo-frame{width:min(280px,60vw)}
-  .hero-photo-badge{left:-1rem}
-  .hero-cta-group{flex-direction:column;align-items:flex-start}
-  .about-grid,.contact-grid{grid-template-columns:1fr;gap:2rem}
-  .about-left{position:static}
-  .clients-grid{grid-template-columns:1fr}
-  .projects-grid{grid-template-columns:1fr}
-  .project-card.featured{grid-column:1;grid-template-columns:1fr}
-  .repo-grid{grid-template-columns:1fr}
-  footer{flex-direction:column;gap:1rem;text-align:center}
-  .stats-row{grid-template-columns:1fr 1fr}
-  .form-row{grid-template-columns:1fr}
-}
 </style>
 <!-- Google Ads Conversion Tracking -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18032769454"></script>
@@ -253,16 +206,11 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
 
 <nav>
   <div style="display:flex;align-items:center;gap:.9rem">
-    <img src="headshot-1__2_.jpg" alt="Diana Vasquez" style="width:36px;height:36px;border-radius:50%;object-fit:cover;border:1px solid rgba(201,168,76,.4);flex-shrink:0">
-    <a class="nav-logo" href="#">Diana Vasquez</a>
+<a class="nav-logo" href="#">Diana Vasquez</a>
   </div>
-  <button id="nav-hamburger" onclick="openNav()" aria-label="Open menu">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-  </button>
+
   <ul class="nav-links" id="nav-links">
-    <button id="nav-close" onclick="closeNav()" aria-label="Close menu">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-    </button>
+
     <li><a href="#about" id="nav-about" onclick="closeNav()">About</a></li>
     <li><a href="#clients" id="nav-clients" onclick="closeNav()">Who I Work With</a></li>
     <li><a href="#services" id="nav-services" onclick="closeNav()">Services</a></li>
@@ -271,21 +219,10 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
     <li><a href="#tools" id="nav-tools" onclick="closeNav()">Toolstack</a></li>
     <li><a href="#contact" id="nav-contact" onclick="closeNav()">Contact</a></li>
   </ul>
-  <div id="nav-overlay" onclick="closeNav()"></div>
+
 </nav>
 
-<script>
-function openNav(){
-  document.getElementById('nav-links').classList.add('open');
-  document.getElementById('nav-overlay').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closeNav(){
-  document.getElementById('nav-links').classList.remove('open');
-  document.getElementById('nav-overlay').classList.remove('open');
-  document.body.style.overflow='';
-}
-</script>
+
 
 <section class="hero">
   <div class="hero-grid-line"></div>
@@ -343,7 +280,6 @@ function closeNav(){
 .client-row-title{font-size:.92rem;font-weight:500;color:var(--white)}
 .client-row-pain{font-size:.78rem;color:var(--text-muted)}
 .client-row-win{font-size:.72rem;color:var(--gold);letter-spacing:.04em;white-space:nowrap;text-align:right}
-@media(max-width:700px){.client-row{grid-template-columns:1.8rem 1fr}.client-row-win{display:none}}
 </style>
 
 <section class="clients" id="clients">
@@ -399,7 +335,6 @@ function closeNav(){
 .uc-title{font-size:.92rem;font-weight:500;color:var(--white);transition:color .25s;line-height:1.3}
 .uc-benefit{font-size:.78rem;color:var(--text-muted);line-height:1.4}
 .uc-stack{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);white-space:nowrap;text-align:right}
-@media(max-width:700px){.uc-row{grid-template-columns:1.6rem 1fr}.uc-stack{display:none}}
 </style>
 
 <section class="services" id="usecases">
@@ -508,13 +443,6 @@ function closeNav(){
 .repo-desc strong{color:var(--gold-light)}
 .repo-link{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-light);text-decoration:none;border-bottom:1px solid rgba(201,168,76,.35);display:inline-flex;width:max-content;padding-bottom:.1rem}
 .repo-link:hover{border-color:var(--gold-light)}
-
-@media(max-width:900px){
-  .acc-inner{grid-template-columns:1fr;padding-left:2rem}
-  .acc-flow{min-width:unset}
-  .acc-chips{display:none}
-  .repo-grid{grid-template-columns:1fr}
-}
 </style>
 
 <section class="projects" id="projects">
@@ -712,7 +640,7 @@ function toggleAcc(id) {
         <h2 class="section-title"><span id="contact-title1">Let's map out</span><br><span id="contact-title2">your</span> <em id="contact-title-em">workflow</em></h2>
         <p class="contact-sub" id="contact-sub">Tell me about your business and the tasks you want to automate. I'll review your message and get back to you within 24 hours.</p>
         <div class="contact-channels">
-          <div class="contact-channel">✦ &nbsp;<span><a href="mailto:va.dvasquezm@gmail.com" style="color:var(--gold-light);text-decoration:none;">va.dvasquezm@gmail.com</a></span></div>
+          <div class="contact-channel">✦ &nbsp;<span><a href="/cdn-cgi/l/email-protection#dbadbaf5bfadbaa8aaaebea1b69bbcb6bab2b7f5b8b4b6" style="color:var(--gold-light);text-decoration:none;"><span class="__cf_email__" data-cfemail="4432256a203225373531213e29042329252d286a272b29">[email&#160;protected]</span></a></span></div>
           <div class="contact-channel">✦ &nbsp;<span>WhatsApp +57 305 432 9733</span></div>
         </div>
       </div>
@@ -768,7 +696,7 @@ function toggleAcc(id) {
   <div class="footer-text" style="color:rgba(201,168,76,.5)">© 2026</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 function adjustNavOffset() {
   var bar = document.getElementById("sticky-cta-bar");
   var nav = document.querySelector("nav");
@@ -792,9 +720,3 @@ window.addEventListener("DOMContentLoaded", function() {
         document.getElementById("formSuccess").classList.add("visible");
         if(typeof gtag !== 'undefined') {
           gtag('event', 'conversion', {'send_to': 'AW-18032769454/nL4uCJHXo44cEK7z2JZD'});
-        }
-        btn.textContent = lang === 'es' ? "Enviado ✓" : "Sent ✓";
-        setTimeout(function() {
-          document.getElementById("formSuccess").classList.remove("visible");
-          btn.textContent = t[lang].formBtn;
-          btn.d
