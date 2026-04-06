@@ -466,30 +466,7 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
       <tspan class="lang-es" style="display:none;">Los datos se envían a tus destinos (bases de datos, CRM, etc.)</tspan>
     </text>
   </svg>
-  <script>
-    // Manejar cambios de idioma en el SVG (tspan)
-    document.addEventListener('click', function(e) {
-      if (e.target.id === 'btn-en' || e.target.id === 'btn-es') {
-        var lang = e.target.id === 'btn-es' ? 'es' : 'en';
-        
-        // Cambiar visibilidad de tspan
-        document.querySelectorAll('tspan.lang-en').forEach(function(el) {
-          el.style.display = lang === 'en' ? 'inline' : 'none';
-        });
-        document.querySelectorAll('tspan.lang-es').forEach(function(el) {
-          el.style.display = lang === 'es' ? 'inline' : 'none';
-        });
-        
-        // También cambiar otros elementos con clase lang-en/lang-es
-        document.querySelectorAll('.lang-en').forEach(function(el) {
-          el.style.display = lang === 'en' ? 'inline' : 'none';
-        });
-        document.querySelectorAll('.lang-es').forEach(function(el) {
-          el.style.display = lang === 'es' ? 'inline' : 'none';
-        });
-      }
-    });
-  </script>
+
 </section>
 
 <section class="tools">
@@ -744,6 +721,7 @@ var T = {
     "flow-1":"Formulario enviado → Zap activado al instante","flow-2":"Google Sheets califica el lead",
     "flow-3":"Zapier Paths divide: CALIENTE / TIBIO / FRÍO","flow-4":"Registro en Notion CRM creado automáticamente",
     "flow-5":"Email personalizado enviado por tier","flow-6":"Leads CALIENTES: agente notificado de inmediato",
+    "proj-tag1":"Destacado · Inmobiliaria · 22 pasos en Zap",
     "proj-t1":"Texas Inmobiliaria — Clasificación y Priorización de Leads",
     "proj-d1":"Cada lead entrante es capturado, puntuado, enrutado en tiers CALIENTE / TIBIO / FRÍO, registrado en Notion CRM y contactado con un email personalizado — en menos de 30 segundos.",
     "met-l1":"Tiempo de respuesta al lead","met-l2":"Pasos de Zap automatizados","met-l3":"Pipeline más rápido",
@@ -778,7 +756,7 @@ var T = {
   }
 };
 
-var HTML_IDS = ["title-about","title-clients","title-services","title-usecases","title-tools","title-projects","title-contact","repo-d1","repo-d2","repo-d3"];
+var HTML_IDS = ["title-about","title-clients","title-services","title-usecases","title-tools","title-projects","title-contact","title-automation","repo-d1","repo-d2","repo-d3"];
 
 function setLang(lang) {
   var t = T[lang];
