@@ -203,8 +203,8 @@ footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2
       <li><a href="#contact" id="nav-contact">Contact</a></li>
     </ul>
     <div class="lang-switch">
-      <button class="lang-btn active" id="btn-en">EN</button>
-      <button class="lang-btn" id="btn-es">ES</button>
+      <button type="button" class="lang-btn active" id="btn-en">EN</button>
+      <button type="button" class="lang-btn" id="btn-es">ES</button>
     </div>
   </div>
 </nav>
@@ -825,20 +825,14 @@ window.addEventListener("DOMContentLoaded", function() {
   var btnEs = document.getElementById("btn-es");
   
   if (btnEn) {
-    btnEn.addEventListener("click", function(e) {
-      e.stopPropagation();
-      e.preventDefault();
+    btnEn.addEventListener("click", function() {
       setLang("en");
-      return false;
     });
   }
   
   if (btnEs) {
-    btnEs.addEventListener("click", function(e) {
-      e.stopPropagation();
-      e.preventDefault();
+    btnEs.addEventListener("click", function() {
       setLang("es");
-      return false;
     });
   }
 
