@@ -1,29 +1,580 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diana Vasquez | AI Automation Engineer — Zapier, Google Apps Script & Gemini AI</title>
+<meta name="description" content="Freelance AI Automation Engineer specializing in Zapier, Google Apps Script, and Gemini AI. I build automated CRM pipelines, lead scoring systems, and support automations for small businesses, e-commerce, and real estate. Available worldwide.">
+<meta name="keywords" content="automation engineer, zapier expert, google apps script developer, gemini ai, no-code automation, CRM automation, lead scoring, freelance automation, workflow automation, business automation, AI automation, email automation">
+<meta name="author" content="Diana Vasquez">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://dvasquezautomation.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dvasquezautomation.github.io/">
+<meta property="og:title" content="Diana Vasquez | AI Automation Engineer — Zapier & Google Apps Script">
+<meta property="og:description" content="I build automated systems that eliminate manual work. Specializing in Zapier, Google Apps Script, Gemini AI, and CRM pipelines for small businesses and e-commerce.">
+<meta property="og:image" content="https://dvasquezautomation.github.io/headshot-1__2_.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Diana Vasquez | AI Automation Engineer">
+<meta name="twitter:description" content="Freelance automation engineer. Zapier, Google Apps Script, Gemini AI. CRM pipelines, lead scoring, support automation.">
+<meta name="twitter:image" content="https://dvasquezautomation.github.io/headshot-1__2_.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Diana Vasquez","jobTitle":"AI Automation Engineer","description":"Freelance AI Automation Engineer specializing in Zapier, Google Apps Script, Gemini AI, CRM pipelines, and business process automation.","url":"https://dvasquezautomation.github.io/","image":"https://dvasquezautomation.github.io/headshot-1__2_.jpg","email":"va.dvasquezm@gmail.com","knowsAbout":["Zapier","Google Apps Script","Gemini AI","CRM Automation","Lead Scoring","Business Process Automation","No-code Automation","ChatGPT","Notion","Airtable"]}</script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a1628;--deep-blue:#0d2147;--mid-blue:#1a3a6e;--sky:#4a8fd4;--pale:#c8ddf5;--gold:#c9a84c;--gold-light:#e4c97a;--gold-pale:#f5e8c0;--white:#f8f4ee;--text-muted:#8baed0}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:18px}
+body{background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden}
+#sticky-cta-bar{position:fixed;top:0;left:0;right:0;z-index:200;background:linear-gradient(90deg,#c9a84c,#e4c97a);color:#0a1628;display:flex;align-items:center;justify-content:center;gap:1rem;padding:.5rem 4vw;font-size:.75rem;letter-spacing:.08em;flex-wrap:nowrap}
+#cta-bar-text{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+#sticky-cta-btn{background:#0a1628;color:#e4c97a;padding:.35rem 1.1rem;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;font-weight:500;white-space:nowrap;flex-shrink:0;transition:background .2s}
+#sticky-cta-btn:hover{background:#0d2147}
+nav{position:fixed;top:42px;left:0;right:0;z-index:150;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 5vw;background:linear-gradient(to bottom,rgba(10,22,40,.98) 0%,rgba(10,22,40,0) 100%)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;letter-spacing:.15em;color:var(--gold-light);text-decoration:none}
+.nav-links{display:flex;gap:1.6rem;list-style:none;align-items:center}
+.nav-links a{color:var(--pale);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:color .3s}
+.nav-links a:hover{color:var(--gold-light)}
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0a1628" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <title>Diana Vasquez | AI Automation Engineer — Zapier, Google Apps Script & Gemini AI</title>
-    <meta name="description" content="Freelance AI Automation Engineer specializing in Zapier, Google Apps Script, and Gemini AI. I build automated CRM pipelines, lead scoring systems, and support automations for small businesses, e-commerce, and real estate. Available worldwide.">
-    <meta name="keywords" content="automation engineer, zapier expert, google apps script developer, gemini ai, no-code automation, CRM automation, lead scoring, freelance automation">
-    <meta property="og:title" content="Diana Vasquez | AI Automation Engineer">
-    <meta property="og:description" content="I build automated systems that eliminate manual work. Specializing in Zapier, Google Apps Script, Gemini AI, and CRM pipelines.">
-    <meta property="og:type" content="website">
-  </head>
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;position:relative;overflow:hidden;padding:0 5vw;margin-top:60px}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 70% 50%,rgba(30,77,158,.25) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 20% 20%,rgba(13,33,71,.8) 0%,transparent 60%)}
+.hero-grid-line{position:absolute;top:0;left:50%;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,rgba(201,168,76,.15) 30%,rgba(201,168,76,.15) 70%,transparent)}
+.hero-text{position:relative;z-index:2;padding-right:4rem}
+.hero-eyebrow{font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem;animation:fadeUp .7s ease .3s both}
+.hero-eyebrow::before{content:'';display:block;width:40px;height:1px;background:var(--gold)}
+.hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(3.5rem,6vw,5.5rem);font-weight:300;line-height:1.05;margin-bottom:.5rem;animation:fadeUp .8s ease .5s both}
+.hero-name em{font-style:italic;color:var(--gold-light);display:block}
+.hero-title{font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);margin:1.5rem 0 2rem;animation:fadeUp .7s ease .7s both}
+.hero-tagline{font-size:1.05rem;line-height:1.7;color:var(--pale);max-width:460px;margin-bottom:2.5rem;animation:fadeUp .7s ease .9s both}
+.hero-cta{display:flex;gap:1rem;align-items:center;animation:fadeUp .7s ease 1s both}
+.hero-cta-group{display:flex;gap:1rem;align-items:center;margin-top:1rem;animation:fadeUp .7s ease 1.1s both}
+.hero-cta-group .btn-submit,.hero-cta-group .btn-whatsapp{padding:.85rem 1.5rem;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none}
+.hero-cta-group .btn-submit{display:inline-block}
+.btn-primary{background:var(--gold);color:var(--navy);padding:.85rem 2rem;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;font-weight:500;text-decoration:none;transition:background .3s,transform .2s;display:inline-block}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-1px)}
+.btn-outline{border:1px solid rgba(200,221,245,.3);color:var(--pale);padding:.85rem 2rem;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;transition:border-color .3s,color .3s;display:inline-block}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold-light)}
 
-  <body class="dark">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-    <script
-      defer
-      src="%VITE_ANALYTICS_ENDPOINT%/umami"
-      data-website-id="%VITE_ANALYTICS_WEBSITE_ID%"></script>
-  </body>
+/* HERO PHOTO — KEY FIX */
+.hero-photo-wrap{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;}
+.hero-photo-frame{position:relative;width:100%;max-width:460px;}
+.hero-photo-frame::before{content:'';position:absolute;top:-12px;left:-12px;right:12px;bottom:12px;border:1px solid rgba(201,168,76,.3);z-index:0}
+.hero-photo-frame::after{content:'';position:absolute;bottom:-12px;right:-12px;left:12px;top:12px;border:1px solid rgba(74,143,212,.2);z-index:0}
+.hero-photo-frame img{width:100%;height:auto;min-height:500px;display:block;position:relative;z-index:1;filter:brightness(.92) contrast(1.05);object-fit:cover;object-position:center top;}
+.hero-photo-badge{position:absolute;bottom:2rem;left:-2rem;background:var(--deep-blue);border:1px solid rgba(201,168,76,.3);padding:1rem 1.4rem;z-index:3}
+.hero-photo-badge .num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--gold-light);line-height:1}
+.hero-photo-badge .lbl{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);margin-top:.2rem}
 
-</html>
+section{padding:6rem 5vw}
+.section-label{font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;display:flex;align-items:center;gap:1rem}
+.section-label::after{content:'';flex:1;max-width:60px;height:1px;background:var(--gold)}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;line-height:1.1}
+.section-title em{font-style:italic;color:var(--gold-light)}
+.about{background:linear-gradient(135deg,var(--deep-blue) 0%,var(--navy) 60%);position:relative;overflow:hidden}
+.about::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(30,77,158,.2) 0%,transparent 70%);pointer-events:none}
+.about-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:5rem;align-items:start;position:relative;z-index:1}
+.about-left{position:sticky;top:8rem}
+.about-body{font-size:1rem;line-height:1.85;color:var(--pale)}
+.about-body p{margin-bottom:1.4rem}
+.about-highlight{border-left:2px solid var(--gold);padding-left:1.5rem;margin:2rem 0;font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:300;font-style:italic;color:var(--gold-pale);line-height:1.5}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.stat{border:1px solid rgba(201,168,76,.2);padding:1.2rem;text-align:center;background:rgba(10,22,40,.4)}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:600;color:var(--gold-light)}
+.stat-lbl{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);margin-top:.3rem}
+.clients{background:var(--navy)}
+.services{background:linear-gradient(180deg,var(--navy) 0%,var(--deep-blue) 100%)}
+.services-list{margin-top:3.5rem}
+.service-item{display:grid;grid-template-columns:3rem 1fr;gap:2rem;align-items:start;padding:2rem 0;border-bottom:1px solid rgba(74,143,212,.1);transition:padding-left .3s}
+.service-item:hover{padding-left:.5rem}
+.service-item:first-child{border-top:1px solid rgba(74,143,212,.1)}
+.service-num{font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--gold);font-weight:300;padding-top:.2rem}
+.service-name{font-size:1.05rem;font-weight:500;margin-bottom:.5rem}
+.service-desc{font-size:.88rem;line-height:1.7;color:var(--text-muted)}
+.tools{background:var(--deep-blue)}
+.tools-grid{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:3rem}
+.tool-tag{border:1px solid rgba(74,143,212,.25);padding:.5rem 1.1rem;font-size:.78rem;letter-spacing:.08em;color:var(--pale);transition:border-color .3s,color .3s,background .3s;cursor:default}
+.tool-tag:hover{border-color:var(--gold);color:var(--gold-light);background:rgba(201,168,76,.06)}
+.tool-tag.gold{border-color:rgba(201,168,76,.4);color:var(--gold-light)}
+.projects{background:var(--navy)}
+.repo-link{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-light);text-decoration:none;border-bottom:1px solid rgba(201,168,76,.35);display:inline-flex;width:max-content;padding-bottom:.1rem}
+.repo-link:hover{border-color:var(--gold-light)}
+.contact{background:linear-gradient(135deg,var(--deep-blue) 0%,var(--mid-blue) 100%);position:relative;overflow:hidden}
+.contact::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(201,168,76,.05) 0%,transparent 70%);pointer-events:none}
+.contact-inner{position:relative;z-index:1;max-width:900px;margin:0 auto}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:start;margin-top:3rem}
+.contact-sub{font-size:1rem;color:var(--pale);line-height:1.8;margin-top:1.5rem}
+.contact-channels{margin-top:2.5rem;display:flex;flex-direction:column;gap:1rem}
+.contact-channel{display:flex;align-items:center;gap:.8rem;font-size:.82rem;color:var(--text-muted)}
+.contact-channel span{color:var(--gold-light)}
+.contact-form{display:flex;flex-direction:column;gap:1.2rem}
+.form-group{display:flex;flex-direction:column;gap:.4rem}
+.form-group label{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.form-group input,.form-group select,.form-group textarea{background:rgba(10,22,40,.6);border:1px solid rgba(74,143,212,.2);color:var(--white);padding:.75rem 1rem;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:300;outline:none;transition:border-color .3s;width:100%}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:rgba(201,168,76,.5)}
+.form-group select{appearance:none;cursor:pointer}
+.form-group select option{background:var(--deep-blue)}
+.form-group textarea{resize:vertical;min-height:110px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-submit{display:flex;gap:1rem;align-items:center;margin-top:.5rem;flex-wrap:wrap}
+.btn-submit{background:var(--gold);color:var(--navy);padding:.9rem 2rem;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;font-weight:500;transition:background .3s,transform .2s}
+.btn-submit:hover{background:var(--gold-light);transform:translateY(-1px)}
+.btn-whatsapp{display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(37,211,102,.4);color:#25d366;padding:.9rem 1.5rem;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:background .3s,border-color .3s}
+.btn-whatsapp:hover{background:rgba(37,211,102,.08);border-color:#25d366}
+.form-success{display:none;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.3);padding:1rem 1.5rem;color:var(--gold-light);font-size:.88rem;line-height:1.6}
+.form-success.visible{display:block}
+footer{background:var(--navy);border-top:1px solid rgba(74,143,212,.1);padding:2rem 5vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-family:'Cormorant Garamond',serif;color:var(--gold-light);font-size:1rem;font-weight:300;letter-spacing:.15em}
+.footer-text{font-size:.72rem;color:var(--text-muted);letter-spacing:.08em}
+.footer-privacy{font-size:.72rem;color:var(--text-muted);letter-spacing:.08em;text-decoration:none;border-bottom:1px solid rgba(139,174,208,.3);transition:color .3s,border-color .3s}
+.footer-privacy:hover{color:var(--gold-light);border-color:var(--gold-light)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+</style>
+<!-- Google Ads Conversion Tracking -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18032769454"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-18032769454');</script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G93FS64GV8"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-G93FS64GV8');</script>
+</head>
+<body>
+
+<div id="sticky-cta-bar">
+  <span id="cta-bar-text">⚡ Free automation audit — limited spots available</span>
+  <a href="https://calendly.com/va-dvasquezm/30min" target="_blank" rel="noopener noreferrer" id="sticky-cta-btn">Book Free Audit</a>
+</div>
+
+<nav>
+  <div style="display:flex;align-items:center;gap:.9rem">
+    <a class="nav-logo" href="#">Diana Vasquez</a>
+  </div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-grid-line"></div>
+  <div class="hero-text">
+    <p class="hero-eyebrow">AI Automation Engineer</p>
+    <h1 class="hero-name">Diana<br><em>Vasquez</em></h1>
+    <p class="hero-title">Google Apps Script · Zapier · Gemini AI</p>
+    <p class="hero-tagline">Save 10+ hours a week by eliminating manual tasks — no expensive software, no extra hires. Just systems that work for you, automatically.</p>
+    <div class="hero-cta">
+      <a href="https://calendly.com/va-dvasquezm/30min" target="_blank" rel="noopener noreferrer" class="btn-primary">📅 Book a Free Call</a>
+      <a href="#projects" class="btn-outline">See My Work</a>
+    </div>
+  </div>
+  <div class="hero-photo-wrap">
+    <div class="hero-photo-frame">
+      <img src="headshot-1__2_.jpg" alt="Diana Vasquez — AI Automation Engineer specializing in Zapier and Google Apps Script">
+      <div class="hero-photo-badge">
+        <div class="num">8</div>
+        <div class="lbl">Years Experience</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <p class="section-label">About</p>
+  <h2 class="section-title" style="margin-bottom:3rem">Building systems<br>that work <em>for you</em></h2>
+  <div class="about-grid">
+    <div class="about-left">
+      <div class="stats-row">
+        <div class="stat"><div class="stat-num">&lt;10s</div><div class="stat-lbl">Lead to email</div></div>
+        <div class="stat"><div class="stat-num">0</div><div class="stat-lbl">Manual steps</div></div>
+        <div class="stat"><div class="stat-num">60s</div><div class="stat-lbl">Support response</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="about-body">
+        <p>I'm Diana, an Automation Engineer with 8 years of operational experience in business administration. I design end-to-end workflows using Google Apps Script, Zapier, and AI integrations that handle repetitive tasks automatically — without expensive software or complicated setups.</p>
+        <div class="about-highlight">"Every system I deliver is tested and built to run without your input. I don't hand off a script and disappear — I deliver a complete operational workflow."</div>
+        <p>From AI-powered lead scoring that classifies every inquiry as HOT / WARM / COLD in real time, to support systems that reduce response time from hours to under 60 seconds — I build infrastructure that scales with your business without adding headcount.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.svc-carousel-wrap{position:relative;margin-top:3.5rem;display:flex;align-items:center;gap:1rem}
+.svc-track-outer{overflow:hidden;flex:1}
+.svc-track{display:flex;gap:0;transition:transform .45s cubic-bezier(.4,0,.2,1)}
+.svc-card{border-top:1px solid rgba(74,143,212,.1);border-bottom:1px solid rgba(74,143,212,.1);border-right:1px solid rgba(74,143,212,.06);padding:2rem 2rem 2rem 0;display:flex;flex-direction:column;gap:.8rem;flex:0 0 calc(33.333%);min-width:0;padding-left:2rem;transition:background .2s}
+.svc-card:hover{background:rgba(26,58,110,.12)}
+.svc-card:first-child{border-top:1px solid rgba(74,143,212,.1)}
+.svc-num{font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--gold);font-weight:300}
+.svc-name{font-size:1.05rem;font-weight:500;color:var(--white)}
+.svc-desc{font-size:.88rem;line-height:1.7;color:var(--text-muted)}
+.svc-btn{flex-shrink:0;width:2.4rem;height:2.4rem;border:1px solid rgba(201,168,76,.35);background:rgba(10,22,40,.6);color:var(--gold-light);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s;font-size:1rem}
+.svc-btn:hover{background:rgba(201,168,76,.1);border-color:var(--gold)}
+.svc-btn:disabled{opacity:.25;cursor:default}
+</style>
+
+<section class="services" id="services">
+  <p class="section-label">Services</p>
+  <h2 class="section-title">What I <em>build</em></h2>
+  <div class="svc-carousel-wrap">
+    <button class="svc-btn" id="svc-prev" onclick="svcMove(-1)" disabled>&#8592;</button>
+    <div class="svc-track-outer">
+      <div class="svc-track" id="svc-track">
+        <div class="svc-card"><div class="svc-num">01</div><h3 class="svc-name">Google Apps Script Automations</h3><p class="svc-desc">Custom triggers, API integrations, and multi-step workflows that go beyond what Zapier can handle.</p></div>
+        <div class="svc-card"><div class="svc-num">02</div><h3 class="svc-name">AI-Powered Lead Scoring</h3><p class="svc-desc">Every inquiry automatically classified as HOT / WARM / COLD using Gemini AI, with action recommendations generated instantly.</p></div>
+        <div class="svc-card"><div class="svc-num">03</div><h3 class="svc-name">CRM Pipelines</h3><p class="svc-desc">Form submission → AI analysis → Drive folder → personalized email → dashboard update. Fully automated, zero manual intervention.</p></div>
+        <div class="svc-card"><div class="svc-num">04</div><h3 class="svc-name">AI-Powered Support Systems</h3><p class="svc-desc">Incoming emails classified by AI, routed to the right response track. Response time reduced from hours to under 60 seconds.</p></div>
+        <div class="svc-card"><div class="svc-num">05</div><h3 class="svc-name">SLA Monitoring &amp; Alerts</h3><p class="svc-desc">Automated alerts when tickets breach deadlines, with zero manual checking. Full visibility with zero overhead.</p></div>
+      </div>
+    </div>
+    <button class="svc-btn" id="svc-next" onclick="svcMove(1)">&#8594;</button>
+  </div>
+</section>
+<script>
+(function(){
+  var svcCurrent=0;
+  var svcTotal=5;
+  var svcVisible=3;
+  var svcMax=svcTotal-svcVisible;
+  function svcMove(dir){
+    svcCurrent=Math.max(0,Math.min(svcCurrent+dir,svcMax));
+    var track=document.getElementById('svc-track');
+    var cardW=track.children[0].offsetWidth;
+    track.style.transform='translateX(-'+(svcCurrent*cardW)+'px)';
+    document.getElementById('svc-prev').disabled=svcCurrent===0;
+    document.getElementById('svc-next').disabled=svcCurrent===svcMax;
+  }
+  window.svcMove=svcMove;
+})();
+</script>
+
+<style>
+.uc-table{margin-top:2.5rem;display:flex;flex-direction:column;border-top:1px solid rgba(74,143,212,.12)}
+.uc-row{display:grid;grid-template-columns:2rem 1fr auto auto;align-items:center;gap:1rem 1.8rem;padding:.95rem 0;border-bottom:1px solid rgba(74,143,212,.08);transition:background .2s}
+.uc-row:hover{background:rgba(26,58,110,.18)}
+.uc-row:hover .uc-title{color:var(--gold-light)}
+.uc-row:hover .uc-cta{opacity:1}
+.uc-icon{font-size:1.15rem;line-height:1}
+.uc-main{display:flex;flex-direction:column;gap:.18rem}
+.uc-title{font-size:.92rem;font-weight:500;color:var(--white);transition:color .25s;line-height:1.3}
+.uc-benefit{font-size:.78rem;color:var(--text-muted);line-height:1.4}
+.uc-stack{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);white-space:nowrap;text-align:right}
+.uc-cta{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-light);text-decoration:none;white-space:nowrap;opacity:0;transition:opacity .2s;border-bottom:1px solid rgba(228,201,122,.35);padding-bottom:.1rem}
+</style>
+
+<section class="services" id="usecases">
+  <p class="section-label">Use Cases</p>
+  <h2 class="section-title">What I can <em>do for you</em></h2>
+  <p style="color:var(--text-muted);font-size:.85rem;margin-top:.5rem">Real automation scenarios — ready to deploy for your business</p>
+  <div class="uc-table">
+    <div class="uc-row"><span class="uc-icon">🛒</span><div class="uc-main"><span class="uc-title">Shopify → Sheets: zero manual logging, every order synced live</span><span class="uc-benefit">Your store runs. Your data updates. You do nothing.</span></div><span class="uc-stack">Shopify · Zapier · Sheets</span><a href="#contact" class="uc-cta">Let's build this →</a></div>
+    <div class="uc-row"><span class="uc-icon">💬</span><div class="uc-main"><span class="uc-title">WhatsApp auto-reply bot — answers leads in &lt;60s, 24/7</span><span class="uc-benefit">No staff. No delays. Every lead gets an instant response.</span></div><span class="uc-stack">WhatsApp API · Zapier · Gemini AI</span><a href="#contact" class="uc-cta">Let's build this →</a></div>
+    <div class="uc-row"><span class="uc-icon">🏠</span><div class="uc-main"><span class="uc-title">Real estate leads scored HOT / WARM / COLD — followed up instantly</span><span class="uc-benefit">Stop losing deals to slow follow-up. Every inquiry handled in seconds.</span></div><span class="uc-stack">Typeform · Zapier · HubSpot</span><a href="#contact" class="uc-cta">Let's build this →</a></div>
+    <div class="uc-row"><span class="uc-icon">📅</span><div class="uc-main"><span class="uc-title">Clinic bookings: patients self-schedule, confirm &amp; get reminders</span><span class="uc-benefit">Zero phone calls. Zero no-shows. Full calendar, zero effort.</span></div><span class="uc-stack">Calendly · Zapier · Gmail</span><a href="#contact" class="uc-cta">Let's build this →</a></div>
+    <div class="uc-row"><span class="uc-icon">📦</span><div class="uc-main"><span class="uc-title">E-commerce support on autopilot — AI routes every ticket instantly</span><span class="uc-benefit">6 intent categories. Automatic routing. Response time under 60s.</span></div><span class="uc-stack">Gmail · ChatGPT · Zapier</span><a href="#contact" class="uc-cta">Let's build this →</a></div>
+    <div class="uc-row"><span class="uc-icon">📊</span><div class="uc-main"><span class="uc-title">Daily briefing delivered to your inbox — key metrics, zero digging</span><span class="uc-benefit">Wake up knowing exactly where your business stands.</span></div><span class="uc-stack">Sheets · Apps Script · Gmail</span><a href="#contact" class="uc-cta">Let's build this →</a></div>
+  </div>
+</section>
+
+<style>
+.accordion-list{display:flex;flex-direction:column;gap:.6rem;margin-top:3.5rem}
+.acc-item{border:1px solid rgba(74,143,212,.15);background:rgba(13,33,71,.45);overflow:hidden;transition:border-color .3s}
+.acc-item.open{border-color:rgba(201,168,76,.3)}
+.acc-header{display:flex;align-items:center;justify-content:space-between;padding:1.4rem 2rem;cursor:pointer;gap:1.5rem;user-select:none}
+.acc-header:hover .acc-title{color:var(--gold-light)}
+.acc-left{display:flex;align-items:center;gap:1.5rem;flex:1;min-width:0}
+.acc-num{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--gold);font-weight:300;flex-shrink:0;width:2rem}
+.acc-meta{display:flex;flex-direction:column;gap:.3rem;min-width:0}
+.acc-tag{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
+.acc-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:300;color:var(--white);transition:color .25s;line-height:1.25}
+.acc-chips{display:flex;flex-wrap:wrap;gap:.35rem;flex-shrink:0}
+.acc-chip{background:rgba(10,22,40,.8);border:1px solid rgba(74,143,212,.2);padding:.15rem .55rem;font-size:.62rem;color:var(--text-muted)}
+.acc-chevron{flex-shrink:0;width:18px;height:18px;color:var(--gold);transition:transform .35s ease}
+.acc-item.open .acc-chevron{transform:rotate(180deg)}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .45s ease}
+.acc-item.open .acc-body{max-height:600px}
+.acc-inner{padding:0 2rem 1.8rem 5.5rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start}
+.acc-desc{font-size:.88rem;line-height:1.75;color:var(--text-muted);margin-bottom:1.2rem}
+.acc-metrics{display:flex;gap:2rem;margin-bottom:1.2rem;flex-wrap:wrap}
+.acc-metric-val{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--gold-light);line-height:1}
+.acc-metric-lbl{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-top:.2rem}
+.acc-flow{display:flex;flex-direction:column;gap:.4rem;min-width:200px}
+.acc-flow-label{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem}
+.acc-flow-step{display:flex;align-items:center;gap:.6rem;font-size:.78rem;color:var(--pale)}
+.acc-flow-step::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0}
+.acc-flow-arrow{font-size:.6rem;color:var(--gold);margin-left:1.1rem}
+.acc-actions{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center;margin-top:.4rem}
+.acc-pdf-btn{display:inline-flex;align-items:center;gap:.4rem;background:transparent;border:1px solid rgba(201,168,76,.4);color:var(--gold-light);padding:.45rem 1rem;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:none;transition:background .2s,border-color .2s}
+.acc-pdf-btn:hover{background:rgba(201,168,76,.08);border-color:var(--gold-light)}
+.acc-pdf-btn svg{width:13px;height:13px}
+</style>
+
+<section class="projects" id="projects">
+  <p class="section-label">Portfolio</p>
+  <h2 class="section-title">Systems I've <em>shipped</em></h2>
+  <p style="color:var(--text-muted);font-size:.85rem;margin-top:.5rem">Click any project to expand details and view the case study PDF.</p>
+
+  <div class="accordion-list">
+    <div class="acc-item" id="acc1">
+      <div class="acc-header" onclick="toggleAcc('acc1')">
+        <div class="acc-left"><span class="acc-num">01</span><div class="acc-meta"><span class="acc-tag">Featured · Real Estate · 22-Step Zap</span><span class="acc-title">Texas Real Estate — Lead Scoring &amp; Prioritization</span></div></div>
+        <div class="acc-chips"><span class="acc-chip">Google Forms</span><span class="acc-chip">Zapier Paths</span><span class="acc-chip">Notion</span><span class="acc-chip">Gmail</span></div>
+        <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="acc-body"><div class="acc-inner">
+        <div>
+          <p class="acc-desc">Every inbound lead is automatically captured, scored, routed into HOT / WARM / COLD tiers, logged in Notion CRM, and contacted with a personalized email — in under 30 seconds, with zero manual work.</p>
+          <div class="acc-metrics">
+            <div><div class="acc-metric-val">&lt;30s</div><div class="acc-metric-lbl">Lead response time</div></div>
+            <div><div class="acc-metric-val">22</div><div class="acc-metric-lbl">Zap steps automated</div></div>
+            <div><div class="acc-metric-val">3×</div><div class="acc-metric-lbl">Faster pipeline setup</div></div>
+          </div>
+          <div class="acc-actions"><a class="acc-pdf-btn" href="https://drive.google.com/file/d/1M4SrDduZWMamxy8Pber_4JTuOgKbDTuX/view" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>View Case Study PDF</a></div>
+        </div>
+        <div class="acc-flow">
+          <p class="acc-flow-label">Lead Scoring Flow</p>
+          <div class="acc-flow-step">Form submitted → Zap triggered instantly</div><div class="acc-flow-arrow">↓</div>
+          <div class="acc-flow-step">Google Sheets lookup scores the lead</div><div class="acc-flow-arrow">↓</div>
+          <div class="acc-flow-step">Zapier Paths: HOT / WARM / COLD</div><div class="acc-flow-arrow">↓</div>
+          <div class="acc-flow-step">Notion CRM record created</div><div class="acc-flow-arrow">↓</div>
+          <div class="acc-flow-step">Personalized email sent per tier</div><div class="acc-flow-arrow">↓</div>
+          <div class="acc-flow-step">HOT leads: agent notified immediately</div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="acc-item" id="acc2">
+      <div class="acc-header" onclick="toggleAcc('acc2')">
+        <div class="acc-left"><span class="acc-num">02</span><div class="acc-meta"><span class="acc-tag">E-commerce · 21-Step Zap · ChatGPT</span><span class="acc-title">Ecommerce AI Support System + SLA Monitor</span></div></div>
+        <div class="acc-chips"><span class="acc-chip">Gmail</span><span class="acc-chip">ChatGPT</span><span class="acc-chip">Zapier Paths</span><span class="acc-chip">Google Sheets</span></div>
+        <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="acc-body"><div class="acc-inner" style="grid-template-columns:1fr"><div>
+        <p class="acc-desc">Two Zaps working as one complete support ecosystem. ChatGPT classifies every email into 6 intent categories, routes it, logs the ticket, and monitors SLA violations — all automatically.</p>
+        <div class="acc-actions"><a class="acc-pdf-btn" href="https://drive.google.com/file/d/1j5zg-JvDaaRuG2bRfiQ2zCcL4iq-jO8s/view" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>View Case Study PDF</a></div>
+      </div></div></div>
+    </div>
+
+    <div class="acc-item" id="acc3">
+      <div class="acc-header" onclick="toggleAcc('acc3')">
+        <div class="acc-left"><span class="acc-num">03</span><div class="acc-meta"><span class="acc-tag">Freelance · 7-Step Zap · Multi-tool</span><span class="acc-title">Freelance Project Intake &amp; Routing Pipeline</span></div></div>
+        <div class="acc-chips"><span class="acc-chip">Airtable</span><span class="acc-chip">Asana</span><span class="acc-chip">Slack</span><span class="acc-chip">Gmail</span></div>
+        <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="acc-body"><div class="acc-inner" style="grid-template-columns:1fr"><div>
+        <p class="acc-desc">Inquiries filtered by project type, logged in Airtable CRM, assigned as Asana tasks, announced in Slack, and confirmed by email — in under 60 seconds.</p>
+        <div class="acc-actions"><a class="acc-pdf-btn" href="https://drive.google.com/file/d/1bbtMbfTXip3T-bMuN2MeTqIi44S_d4jl/view" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>View Case Study PDF</a></div>
+      </div></div></div>
+    </div>
+
+    <div class="acc-item" id="acc4">
+      <div class="acc-header" onclick="toggleAcc('acc4')">
+        <div class="acc-left"><span class="acc-num">04</span><div class="acc-meta"><span class="acc-tag">Aesthetic Clinic · Notion CRM · Zapier Paths</span><span class="acc-title">Client Acquisition &amp; Segmentation — Beauty Clinic</span></div></div>
+        <div class="acc-chips"><span class="acc-chip">Google Forms</span><span class="acc-chip">Google Sheets</span><span class="acc-chip">Notion</span><span class="acc-chip">Zapier Paths</span></div>
+        <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="acc-body"><div class="acc-inner" style="grid-template-columns:1fr"><div>
+        <p class="acc-desc">Automated lead capture and CRM segmentation. Every consultation request is logged in Sheets, stored in Notion CRM, and tagged with a 4-tier service classification — zero manual work.</p>
+        <div class="acc-actions"><a class="acc-pdf-btn" href="https://drive.google.com/file/d/19Om8EypVXByNunfq9NrgWL9hu4bcBMHt/view" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>View Case Study PDF</a></div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <div style="margin-top:2rem;padding:1.4rem 1.8rem;border:1px solid rgba(201,168,76,.15);background:rgba(13,33,71,.4)">
+    <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.6rem 2rem;margin-bottom:.9rem">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:300;color:var(--white);line-height:1.3">Proven Automation Systems That Save Time &amp; Increase Conversions</p>
+      <span style="font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);white-space:nowrap;flex-shrink:0">Google Apps Script · Gemini AI · Zapier</span>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:.6rem 2rem;align-items:center">
+      <a class="repo-link" href="https://github.com/dvasquezautomation/crm-automation-google-apps-script?tab=readme-ov-file#crm-automation-system--google-apps-script--gemini-ai" target="_blank">AI CRM Automation →</a>
+      <a class="repo-link" href="https://github.com/dvasquezautomation/client-intake-pipeline-gemini-ai" target="_blank">Client Intake &amp; Qualification →</a>
+      <a class="repo-link" href="https://github.com/dvasquezautomation/daily-briefing-google-apps-script" target="_blank">Daily Operations Briefing →</a>
+    </div>
+  </div>
+</section>
+
+<script>
+function toggleAcc(id){var item=document.getElementById(id);var isOpen=item.classList.contains('open');document.querySelectorAll('.acc-item').forEach(function(el){el.classList.remove('open');});if(!isOpen)item.classList.add('open');}
+</script>
+
+<!-- ==================== REVIEWS SECTION ==================== -->
+<style>
+.reviews{background:linear-gradient(135deg,var(--deep-blue) 0%,var(--navy) 100%)}
+.reviews-carousel-wrap{position:relative;margin-top:3rem;display:flex;align-items:center;gap:1rem}
+.reviews-track-outer{overflow:hidden;flex:1}
+.reviews-track{display:flex;gap:1.4rem;transition:transform .45s cubic-bezier(.4,0,.2,1)}
+.review-card{border:1px solid rgba(201,168,76,.18);background:rgba(10,22,40,.5);padding:1.8rem;display:flex;flex-direction:column;gap:1rem;transition:border-color .3s;flex:0 0 calc(33.333% - 1rem);min-width:0}
+.review-card:hover{border-color:rgba(201,168,76,.4)}
+.review-stars{color:var(--gold);font-size:1rem;letter-spacing:.1em}
+.review-text{font-size:.88rem;line-height:1.75;color:var(--pale);font-style:italic;flex:1}
+.review-author{display:flex;flex-direction:column;gap:.2rem;border-top:1px solid rgba(74,143,212,.12);padding-top:.9rem}
+.review-name{font-size:.82rem;font-weight:500;color:var(--white)}
+.review-role{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+.carousel-btn{flex-shrink:0;width:2.4rem;height:2.4rem;border:1px solid rgba(201,168,76,.35);background:rgba(10,22,40,.6);color:var(--gold-light);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s;font-size:1rem}
+.carousel-btn:hover{background:rgba(201,168,76,.1);border-color:var(--gold)}
+.carousel-btn:disabled{opacity:.25;cursor:default}
+</style>
+
+<section class="reviews" id="reviews">
+  <p class="section-label">Client Reviews</p>
+  <h2 class="section-title">What clients <em>say</em></h2>
+  <div class="reviews-carousel-wrap">
+    <button class="carousel-btn" id="rev-prev" onclick="revMove(-1)" disabled>&#8592;</button>
+    <div class="reviews-track-outer">
+      <div class="reviews-track" id="rev-track">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Diana built a Zapier pipeline that scores every lead HOT/WARM/COLD, logs it in Notion, and sends a personalized email — all in under 30 seconds. We closed 3 deals the first week just from faster follow-up."</p>
+          <div class="review-author">
+            <span class="review-name">Marcus T.</span>
+            <span class="review-role">Real Estate Broker · Texas</span>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Diana set up ChatGPT to classify every support email into 6 categories and route it with a draft reply already written. Average response time went from 4 hours to 47 seconds."</p>
+          <div class="review-author">
+            <span class="review-name">Priya S.</span>
+            <span class="review-role">E-commerce Owner · Shopify Store</span>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Diana built a Google Apps Script that runs at 7am, pulls our key metrics, formats a briefing with Gemini AI, and sends it to the whole team automatically. That's 12 hours a month back."</p>
+          <div class="review-author">
+            <span class="review-name">Jordan L.</span>
+            <span class="review-role">Founder · SaaS Startup</span>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Diana replaced our paper intake with a Google Form → Zapier flow that logs the patient, tags their service tier, and sends a confirmation email instantly. Front desk now handles 40% more bookings with the same staff."</p>
+          <div class="review-author">
+            <span class="review-name">Camille R.</span>
+            <span class="review-role">Director · Aesthetic Clinic</span>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Diana built a 7-step Zap: Typeform → Airtable → Asana task → Slack alert → confirmation email to the client. The whole thing runs in under a minute and nothing falls through the cracks anymore."</p>
+          <div class="review-author">
+            <span class="review-name">Ben A.</span>
+            <span class="review-role">Operations Lead · Creative Agency</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-btn" id="rev-next" onclick="revMove(1)">&#8594;</button>
+  </div>
+</section>
+<script>
+(function(){
+  var current=0;
+  var total=5;
+  var visible=3;
+  var max=total-visible;
+  function revMove(dir){
+    current=Math.max(0,Math.min(current+dir,max));
+    var track=document.getElementById('rev-track');
+    var cardW=track.children[0].offsetWidth+22;
+    track.style.transform='translateX(-'+(current*cardW)+'px)';
+    document.getElementById('rev-prev').disabled=current===0;
+    document.getElementById('rev-next').disabled=current===max;
+  }
+  window.revMove=revMove;
+})();
+</script>
+<!-- ==================== END REVIEWS ==================== -->
+
+<section class="tools" id="tools">
+  <h2 class="section-title">The technology <em>I use</em></h2>
+  <div class="tools-grid">
+    <span class="tool-tag gold">Google Apps Script</span><span class="tool-tag gold">Gemini AI</span><span class="tool-tag gold">Zapier</span>
+    <span class="tool-tag">UrlFetchApp</span><span class="tool-tag">onFormSubmit triggers</span><span class="tool-tag gold">ChatGPT / OpenAI</span>
+    <span class="tool-tag">Zapier Paths</span><span class="tool-tag">Multi-step Zaps</span><span class="tool-tag">Notion</span>
+    <span class="tool-tag">Google Sheets</span><span class="tool-tag">Google Forms</span><span class="tool-tag">Google Drive</span>
+    <span class="tool-tag gold">Gmail API</span><span class="tool-tag">Google Docs</span><span class="tool-tag">Airtable</span>
+    <span class="tool-tag">Asana</span><span class="tool-tag">Slack</span><span class="tool-tag">Google Calendar API</span>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <p class="section-label">Contact</p>
+    <div class="contact-grid">
+      <div>
+        <h2 class="section-title">Let's map out<br>your <em>workflow</em></h2>
+        <p class="contact-sub">Tell me about your business and the tasks you want to automate. I'll review your message and get back to you within 24 hours.</p>
+        <div class="contact-channels">
+          <div class="contact-channel">✦ &nbsp;<span><a href="/cdn-cgi/l/email-protection#dfa9bef1bba9beacaeaabaa5b29fb8b2beb6b3f1bcb0b2" style="color:var(--gold-light);text-decoration:none;"><span class="__cf_email__" data-cfemail="3c4a5d12584a5d4f4d495946517c5b515d5550125f5351">[email&#160;protected]</span></a></span></div>
+          <div class="contact-channel">✦ &nbsp;<span>WhatsApp +57 305 432 9733</span></div>
+        </div>
+      </div>
+      <div>
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/xkoqavzk" method="POST">
+          <div class="form-row">
+            <div class="form-group"><label>Full Name</label><input type="text" name="name" placeholder="Your name" required></div>
+            <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="your@email.com" required></div>
+          </div>
+          <div class="form-group">
+            <label>Business Type</label>
+            <select name="business" required>
+              <option value="" disabled selected>Select your industry</option>
+              <option>E-commerce</option><option>Real Estate</option><option>Clinic / Healthcare</option>
+              <option>Freelance / Agency</option><option>SaaS / Tech</option>
+              <option>Small Business / Startup</option><option>Other</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Describe Your Project</label><textarea name="project" placeholder="What tasks do you want to automate? What problem are you trying to solve?" required></textarea></div>
+          <div class="form-group">
+            <label>Approximate Budget</label>
+            <select name="budget" required>
+              <option value="" disabled selected>Select a range</option>
+              <option>Under $500</option><option>$500 – $1,000</option><option>$1,000 – $3,000</option>
+              <option>$3,000+</option><option>Let's talk</option>
+            </select>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn-submit" id="btn-submit">Send Message</button>
+            <a href="https://wa.me/573054329733?text=Hi%20Diana!%20I%20visited%20your%20website%20and%20I'd%20like%20to%20talk%20about%20automating%20my%20business." target="_blank" class="btn-whatsapp">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+          </div>
+          <div class="form-success" id="formSuccess">✦ &nbsp; Message sent — I'll get back to you within 24 hours. Thank you!</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Diana Vasquez</div>
+  <div class="footer-text">AI Automation Engineer · Google Apps Script · Zapier · Gemini AI</div>
+  <div style="display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap">
+    <a href="mailto:va.dvasquezm@gmail.com" style="font-size:.72rem;color:var(--text-muted);letter-spacing:.08em;text-decoration:none;transition:color .3s" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--text-muted)'">va.dvasquezm@gmail.com</a>
+    <a href="https://github.com/dvasquezautomation" target="_blank" rel="noopener noreferrer" style="font-size:.72rem;color:var(--text-muted);letter-spacing:.08em;text-decoration:none;transition:color .3s" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--text-muted)'">GitHub →</a>
+    <a href="/privacy-policy.html" class="footer-privacy">Privacy Policy</a>
+  </div>
+  <div class="footer-text" style="color:rgba(201,168,76,.5)">© 2026</div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function adjustNavOffset(){var bar=document.getElementById("sticky-cta-bar");var nav=document.querySelector("nav");if(bar&&nav)nav.style.top=bar.offsetHeight+"px";}
+window.addEventListener("load",adjustNavOffset);
+window.addEventListener("resize",adjustNavOffset);
+window.addEventListener("DOMContentLoaded",function(){
+  document.getElementById("contactForm").addEventListener("submit",function(e){
+    e.preventDefault();
+    var btn=document.getElementById("btn-submit");
+    btn.textContent="Sending...";
+    btn.disabled=true;
+    fetch(this.action,{method:"POST",body:new FormData(this),headers:{"Accept":"application/json"}})
+      .then(function(r){return r.ok?r:Promise.reject();})
+      .then(function(){
+        document.getElementById("contactForm").reset();
+        document.getElementById("formSuccess").classList.add("visible");
+        if(typeof gtag!=='u
+
